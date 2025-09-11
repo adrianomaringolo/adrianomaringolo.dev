@@ -1,17 +1,18 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { useLocale } from "@/hooks/use-locale";
-import Image from "next/image";
-import { Button } from "buildgrid-ui";
+import { useLocale } from '@/hooks/use-locale'
+import { Button } from 'buildgrid-ui'
+import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export function HeroSection() {
-  const { t } = useLocale();
+  const { t } = useLocale()
+  const tHero = (tag: string) => t(`home.hero.${tag}`)
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen flex items-center justify-center pt-32 lg:pt-0 px-6 md:px-4 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -21,15 +22,17 @@ export function HeroSection() {
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              {t("hero.greeting")}{" "}
-              <span className="text-accent">Adriano Maringolo</span>
+              {tHero('greeting')} <span className="text-accent">Adriano Maringolo</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto lg:mx-0 text-pretty">
-              {t("hero.title")} - {t("hero.subtitle")}
+            <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto lg:mx-0 text-pretty">
+              {tHero('title')}
+            </p>
+            <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-3xl mx-auto lg:mx-0 text-pretty">
+              {tHero('subtitle')}
             </p>
             <Link href="/projetos">
               <Button size="lg" className="group">
-                {t("hero.cta")}
+                {tHero('cta')}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
@@ -42,7 +45,7 @@ export function HeroSection() {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              <div className="w-80 h-80 sm:w-96 sm:h-96 relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="w-96 h-96 lg:w-[500px] lg:h-[500px] relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/profile-photo.jpg"
                   alt="Foto profissional"
@@ -59,5 +62,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

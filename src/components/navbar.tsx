@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { LanguageToggle } from "@/components/language-toggle";
-import { useLocale } from "@/hooks/use-locale";
-import { Button } from "buildgrid-ui";
+import { LanguageToggle } from '@/components/language-toggle'
+import { ThemeToggle } from '@/components/theme-toggle'
+import { useLocale } from '@/hooks/use-locale'
+import { Button } from 'buildgrid-ui'
+import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const { t } = useLocale();
+  const [isOpen, setIsOpen] = useState(false)
+  const { t } = useLocale()
 
   const navItems = [
-    { href: "/", label: t("nav.home") },
-    { href: "/sobre", label: t("nav.about") },
-    { href: "/projetos", label: t("nav.projects") },
-    { href: "/blog", label: t("nav.blog") },
-    { href: "/contato", label: t("nav.contact") },
-  ];
+    { href: '/', label: t('nav.home') },
+    { href: '/about', label: t('nav.about') },
+    { href: '/projects', label: t('nav.projects') },
+    { href: '/blog', label: t('nav.blog') },
+    { href: '/contact', label: t('nav.contact') },
+  ]
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
@@ -41,7 +41,7 @@ export function Navbar() {
             ))}
             <div className="flex items-center space-x-2 ml-4">
               <ThemeToggle />
-              {/* <LanguageToggle /> */}
+              <LanguageToggle />
             </div>
           </div>
 
@@ -49,11 +49,7 @@ export function Navbar() {
           <div className="md:hidden flex items-center space-x-2">
             <ThemeToggle />
             {/* <LanguageToggle /> */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsOpen(!isOpen)}
-            >
+            <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
           </div>
@@ -78,5 +74,5 @@ export function Navbar() {
         )}
       </div>
     </nav>
-  );
+  )
 }

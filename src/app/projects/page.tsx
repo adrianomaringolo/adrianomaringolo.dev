@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/navbar";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import {
   Button,
@@ -12,7 +12,10 @@ import {
   CardHeader,
   CardTitle,
   Badge,
+  buttonVariants,
+  cn,
 } from "buildgrid-ui";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 
 export default function ProjetosPage() {
   const [filter, setFilter] = useState("todos");
@@ -171,26 +174,31 @@ export default function ProjetosPage() {
                       </div>
 
                       <div className="flex gap-2 pt-2">
-                        <Button size="sm" asChild>
-                          <a
-                            href={project.demoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <ExternalLink className="h-4 w-4 mr-1" />
-                            Demo
-                          </a>
-                        </Button>
-                        <Button size="sm" variant="outline" asChild>
-                          <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Github className="h-4 w-4 mr-1" />
-                            Código
-                          </a>
-                        </Button>
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={cn(
+                            buttonVariants({ size: "sm" }),
+                            "w-full"
+                          )}
+                        >
+                          <ExternalLink className="h-4 w-4 mr-1" />
+                          Demo
+                        </a>
+
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={cn(
+                            buttonVariants({ size: "sm" }),
+                            "w-full"
+                          )}
+                        >
+                          <SiGithub className="h-4 w-4 mr-1" />
+                          Código
+                        </a>
                       </div>
                     </CardContent>
                   </Card>

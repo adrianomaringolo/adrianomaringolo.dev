@@ -1,52 +1,62 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from '@/components/navbar'
+import { useLocale } from '@/hooks/use-locale'
 import {
-  Code,
-  Palette,
-  Zap,
-  Users,
-  Smartphone,
-  Globe,
-  Database,
-  GitBranch,
-} from "lucide-react";
-import Image from "next/image";
-import { Card, CardContent } from "buildgrid-ui";
+  SiFigma,
+  SiFirebase,
+  SiGithub,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+} from '@icons-pack/react-simple-icons'
+import { Card, CardContent } from 'buildgrid-ui'
+import { motion } from 'framer-motion'
+import { Cloud, Smartphone, Users, Zap } from 'lucide-react'
+import Image from 'next/image'
 
 export default function SobrePage() {
+  const { t } = useLocale()
+  const tAbout = (tag: string) => t(`about.${tag}`)
+
   const technologies = [
-    { name: "React", icon: Code },
-    { name: "Next.js", icon: Globe },
-    { name: "TailwindCSS", icon: Palette },
-    { name: "TypeScript", icon: Code },
-    { name: "Node.js", icon: Database },
-    { name: "Git", icon: GitBranch },
-    { name: "Figma", icon: Palette },
-    { name: "Vercel", icon: Zap },
-  ];
+    { name: 'React', icon: SiReact },
+    { name: 'Next.js', icon: SiNextdotjs },
+    { name: 'TailwindCSS', icon: SiTailwindcss },
+    { name: 'TypeScript', icon: SiTypescript },
+    { name: 'Node.js', icon: SiNodedotjs },
+    { name: 'Github', icon: SiGithub },
+    { name: 'Figma', icon: SiFigma },
+    { name: 'Vercel', icon: SiVercel },
+    { name: 'Supabase', icon: SiSupabase },
+    { name: 'Firebase', icon: SiFirebase },
+    { name: 'AWS', icon: Cloud },
+  ]
 
   const workPrinciples = [
     {
-      title: "Responsividade",
+      title: 'Responsividade',
       description:
-        "Todos os projetos são desenvolvidos com mobile-first, garantindo perfeita adaptação em qualquer dispositivo.",
+        'Todos os projetos são desenvolvidos com mobile-first, garantindo perfeita adaptação em qualquer dispositivo.',
       icon: Smartphone,
     },
     {
-      title: "Experiência do Usuário",
+      title: 'Experiência do Usuário',
       description:
-        "Foco na usabilidade e acessibilidade, criando interfaces intuitivas e agradáveis de usar.",
+        'Foco na usabilidade e acessibilidade, criando interfaces intuitivas e agradáveis de usar.',
       icon: Users,
     },
     {
-      title: "Performance",
+      title: 'Performance',
       description:
-        "Otimização constante para garantir carregamento rápido e experiência fluida.",
+        'Otimização constante para garantir carregamento rápido e experiência fluida.',
       icon: Zap,
     },
-  ];
+  ]
 
   return (
     <main>
@@ -59,7 +69,7 @@ export default function SobrePage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-balance">
-              Sobre Mim
+              {tAbout('title')}
             </h1>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
@@ -70,7 +80,7 @@ export default function SobrePage() {
                 className="flex justify-center lg:justify-start"
               >
                 <div className="relative">
-                  <div className="w-64 h-64 sm:w-80 sm:h-80 relative rounded-2xl overflow-hidden shadow-xl">
+                  <div className="w-80 h-80 lg:w-96 lg:h-96 relative rounded-2xl overflow-hidden shadow-xl">
                     <Image
                       src="/images/profile-photo.jpg"
                       alt="Foto profissional"
@@ -87,20 +97,10 @@ export default function SobrePage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <h2 className="text-2xl font-semibold mb-6">
-                  Olá! Eu sou desenvolvedor web
-                </h2>
+                <h2 className="text-2xl font-semibold mb-6">{tAbout('header')}</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p className="text-pretty">
-                    Apaixonado por criar experiências digitais únicas e
-                    funcionais. Com mais de 3 anos de experiência, transformo
-                    ideias em realidade através de código limpo e design
-                    intuitivo.
-                  </p>
-                  <p className="text-pretty">
-                    Especializado em React, Next.js e tecnologias modernas,
-                    sempre buscando entregar soluções que fazem a diferença na
-                    vida das pessoas e no sucesso dos negócios.
+                  <p className="text-pretty whitespace-pre-line">
+                    {tAbout('description')}
                   </p>
                 </div>
               </motion.div>
@@ -108,29 +108,9 @@ export default function SobrePage() {
 
             <Card className="mb-16">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-semibold mb-6">
-                  Minha Trajetória
-                </h2>
+                <h2 className="text-2xl font-semibold mb-6">{tAbout('historyTitle')}</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p className="text-pretty">
-                    Iniciei minha jornada no desenvolvimento web há mais de 3
-                    anos, movido pela paixão de criar soluções digitais que
-                    fazem a diferença na vida das pessoas. Comecei estudando
-                    HTML, CSS e JavaScript, e rapidamente me apaixonei pelo
-                    ecossistema React.
-                  </p>
-                  <p className="text-pretty">
-                    Ao longo dos anos, especializei-me em tecnologias modernas
-                    como Next.js, TailwindCSS e TypeScript, sempre buscando as
-                    melhores práticas de desenvolvimento e mantendo-me
-                    atualizado com as tendências do mercado.
-                  </p>
-                  <p className="text-pretty">
-                    Hoje, trabalho como desenvolvedor freelancer, ajudando
-                    empresas e empreendedores a materializarem suas ideias em
-                    produtos digitais de alta qualidade, sempre priorizando a
-                    experiência do usuário e a performance.
-                  </p>
+                  <p className="text-pretty whitespace-pre-line">{tAbout('history')}</p>
                 </div>
               </CardContent>
             </Card>
@@ -142,9 +122,7 @@ export default function SobrePage() {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Tecnologias
-              </h2>
+              <h2 className="text-3xl font-bold text-center mb-12">Tecnologias</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {technologies.map((tech, index) => (
                   <motion.div
@@ -173,9 +151,7 @@ export default function SobrePage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Como Trabalho
-              </h2>
+              <h2 className="text-3xl font-bold text-center mb-12">Como Trabalho</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {workPrinciples.map((principle, index) => (
                   <motion.div
@@ -190,9 +166,7 @@ export default function SobrePage() {
                         <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                           <principle.icon className="h-6 w-6 text-accent" />
                         </div>
-                        <h3 className="text-xl font-semibold mb-3">
-                          {principle.title}
-                        </h3>
+                        <h3 className="text-xl font-semibold mb-3">{principle.title}</h3>
                         <p className="text-muted-foreground text-pretty">
                           {principle.description}
                         </p>
@@ -206,5 +180,5 @@ export default function SobrePage() {
         </div>
       </div>
     </main>
-  );
+  )
 }

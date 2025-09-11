@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Hi, I am",
+      "title": "Full Stack Developer",
+      "subtitle": "Full stack developer specialized in React, Next.js and TailwindCSS",
+      "cta": "View Projects"
+    },
+    "about": {
+      "title": "About Me",
+      "description": "I turn ideas into digital experiences. \nWith 15+ years of experience, I build modern websites and web apps that combine design, performance, and usability to create real impact."
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "header": "Hello! I am a software developer",
+    "description": "I am a software developer with over 15 years of experience in creating digital solutions. My specialty is transforming ideas into modern websites and functional web apps, always focusing on design, performance, and user experience.\n\nThroughout my career, I have participated in projects for different sectors, from institutional websites to complex platforms for large companies. This diversity has given me a comprehensive view of how to unite technology and design to deliver impactful results.\n\nToday, my goal is to help people and businesses stand out in the digital environment by creating personalized solutions that combine aesthetics, usability, and cutting-edge technology."
+  
+  },
+  "services": {
+    "title": "Services",
+    "web": "Web Development",
+    "mobile": "Mobile Apps",
+    "ui": "UI/UX Design"
+  },
+  "projects": {
+    "title": "Projects",
+    "all": "All",
+    "web": "Web",
+    "mobile": "Mobile",
+    "design": "Design"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Read more",
+    "backToBlog": "Back to Blog"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's work together",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "pages": {
+    "aboutDescription": "Learn more about my journey, skills and experience in web development.",
+    "projectsDescription": "Explore my latest projects and the technologies I use.",
+    "contactDescription": "Get in touch with me to discuss your next project."
+  }
+}

@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Lato } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
@@ -8,11 +8,10 @@ import { LocaleProvider } from "@/hooks/use-locale";
 import { ThemeProvider } from "@/hooks/use-theme";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const lato = Lato({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`font-sans ${dmSans.variable} ${GeistMono.variable}`}>
+      <body className={`font-sans ${lato.className} `}>
         <ThemeProvider>
           <LocaleProvider>
             <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
