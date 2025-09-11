@@ -5,6 +5,7 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { useLocale } from '@/hooks/use-locale'
 import { Button } from 'buildgrid-ui'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -24,8 +25,17 @@ export function Navbar() {
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="font-bold text-xl text-foreground">
-            Portfolio
+          <Link
+            href="/"
+            className="font-bold text-xl text-foreground dark:brightness-200"
+          >
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={32}
+              height={32}
+              className="inline-block"
+            />
           </Link>
 
           {/* Desktop Navigation */}

@@ -20,10 +20,23 @@
   },
   "about": {
     "title": "Sobre Mim",
-    "header": "Olá! Eu sou um desenvolvedor de software",
-    "description": "Sou desenvolvedor de software com mais de 15 anos de experiência em criação de soluções digitais. Minha especialidade é transformar ideias em websites modernos e web apps funcionais, sempre com foco em design, performance e experiência do usuário.\n\nAo longo da minha trajetória, participei de projetos para diferentes setores, desde sites institucionais até plataformas complexas para grandes empresas. Essa diversidade me deu uma visão abrangente de como unir tecnologia e design para entregar resultados de impacto.\n\nHoje, meu objetivo é ajudar pessoas e negócios a se destacarem no ambiente digital, criando soluções personalizadas que combinam estética, usabilidade e tecnologia de ponta.",
+    "header": "Olá! Eu sou um desenvolvedor de software com mais de 15 anos de experiência",
+    "description": "... em criação de soluções digitais. Minha especialidade é transformar ideias em websites modernos e web apps funcionais, sempre com foco em design, performance e experiência do usuário.\n\nAo longo da minha trajetória, participei de projetos para diferentes setores, desde sites institucionais até plataformas complexas para grandes empresas. Essa diversidade me deu uma visão abrangente de como unir tecnologia e design para entregar resultados de impacto.\n\nHoje, meu objetivo é ajudar pessoas e negócios a se destacarem no ambiente digital, criando soluções personalizadas que combinam estética, usabilidade e tecnologia de ponta.",
     "historyTitle": "Minha Trajetória",
-    "history": "Minha carreira no desenvolvimento de software começou em 2009, quando mergulhei no universo .NET e dei meus primeiros passos criando sistemas corporativos. Desde então, venho expandindo minha atuação para diferentes tecnologias e contextos, sempre guiado pela vontade de aprender e compartilhar conhecimento.\n\nTive a oportunidade de trabalhar em empresas de tecnologia e consultorias de renome, como Venturus, Dextra, Avenue Code e atualmente Codurance, colaborando em projetos nacionais e internacionais. Passei por diferentes papéis — de desenvolvedor a tech lead — e liderei iniciativas que envolveram desde a modernização de sistemas legados até a construção de aplicações web escaláveis do zero.\n\nAlém da prática em projetos, também atuei como instrutor e mentor, ministrando treinamentos internos e externos em tecnologias como Angular, React e Node.js. Essa vivência consolidou não apenas minha bagagem técnica, mas também minha paixão por ajudar outras pessoas a crescerem na área.\n\nHoje, como Senior Frontend Engineer, sigo unindo experiência, inovação e boas práticas para transformar ideias em produtos digitais de impacto, com foco em performance, usabilidade e design."
+    "history": "Minha carreira no desenvolvimento de software começou em 2009, quando mergulhei no universo .NET e dei meus primeiros passos criando sistemas corporativos. Desde então, venho expandindo minha atuação para diferentes tecnologias e contextos, sempre guiado pela vontade de aprender e compartilhar conhecimento.\n\nTive a oportunidade de trabalhar em empresas de tecnologia e consultorias de renome, como Venturus, Dextra, Avenue Code e atualmente Codurance, colaborando em projetos nacionais e internacionais. Passei por diferentes papéis — de desenvolvedor a tech lead — e liderei iniciativas que envolveram desde a modernização de sistemas legados até a construção de aplicações web escaláveis do zero.\n\nAlém da prática em projetos, também atuei como instrutor e mentor, ministrando treinamentos internos e externos em tecnologias como Angular, React e Node.js. Essa vivência consolidou não apenas minha bagagem técnica, mas também minha paixão por ajudar outras pessoas a crescerem na área.\n\nHoje, como Senior Frontend Engineer, sigo unindo experiência, inovação e boas práticas para transformar ideias em produtos digitais de impacto, com foco em performance, usabilidade e design.",
+    "techs": "Tecnologias e Ferramentas",
+    "techsDescription": "Aqui estão algumas das principais tecnologias e ferramentas que utilizo no meu trabalho:",
+    "techsMore": "e muitas outras...",
+    "howIWork": "Como Eu Trabalho",
+    "howIWorkDescription": "Meu processo de trabalho é baseado em princípios que garantem a entrega de soluções de alta qualidade, alinhadas às necessidades dos clientes e focadas na melhor experiência para o usuário final.",
+    "principles": {
+      "responsiveness": "Responsividade",
+      "responsivenessDescription": "Todos os projetos são desenvolvidos com mobile-first, garantindo perfeita adaptação em qualquer dispositivo.",
+      "performance": "Performance",
+      "performanceDescription": "Código otimizado e boas práticas para garantir carregamento rápido e fluidez na navegação.",
+      "userExperience": "Experiência do Usuário",
+      "userExperienceDescription": "Foco na usabilidade e acessibilidade para criar interfaces intuitivas e agradáveis."
+    }
   },
   "services": {
     "title": "Serviços",
@@ -36,19 +49,26 @@
     "all": "Todos",
     "web": "Web",
     "mobile": "Mobile",
-    "design": "Design"
+    "design": "Design",
+    "underConstruction": "Coletando projetos...",
+    "underConstructionDescription": "Em breve você vai poder navegar pelos meus principais projetos e conhecer melhor o meu trabalho!"
   },
   "blog": {
     "title": "Blog",
     "readMore": "Ler mais",
-    "backToBlog": "Voltar ao Blog"
+    "backToBlog": "Voltar ao Blog",
+    "underConstruction": "Coletando ideias...",
+    "underConstructionDescription": "Em breve vou começar a compartilhar meu conhecimento por aqui! Me contate se tiver alguma sugestão 😉"
   },
   "contact": {
     "title": "Contato",
-    "subtitle": "Vamos trabalhar juntos",
+    "subtitle": "Tem um projeto em mente? Vamos conversar e transformar sua ideia em realidade!",
+    "connect": "Vamos nos conectar",
+    "sendMessage": "Enviar Mensagem",
     "name": "Nome",
     "email": "Email",
     "message": "Mensagem",
+    "messagePlaceholder": "Conte-me sobre seu projeto...",
     "send": "Enviar"
   },
   "footer": {
@@ -58,5 +78,16 @@
     "aboutDescription": "Conheça mais sobre minha trajetória, habilidades e experiência no desenvolvimento web.",
     "projectsDescription": "Explore meus projetos mais recentes e as tecnologias que utilizo.",
     "contactDescription": "Entre em contato comigo para discutir seu próximo projeto."
+  },
+  "underConstruction": {
+    "title": "Em Construção",
+    "subtitle": "Estou preparando algo especial!",
+    "description": "Esta seção está sendo criada com muito carinho. Volte em breve para conferir as novidades.",
+    "backHome": "Voltar ao Início",
+    "comingSoon": "Em Breve",
+    "design": "Design",
+    "development": "Desenvolvimento",
+    "test": "Teste",
+    "deploy": "Deploy"
   }
 }

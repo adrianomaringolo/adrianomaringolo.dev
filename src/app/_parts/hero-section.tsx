@@ -22,7 +22,7 @@ export function HeroSection() {
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              {tHero('greeting')} <span className="text-accent">Adriano Maringolo</span>
+              {tHero('greeting')} <span className="text-primary">Adriano Maringolo</span>
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto lg:mx-0 text-pretty">
               {tHero('title')}
@@ -30,7 +30,7 @@ export function HeroSection() {
             <p className="text-lg sm:text-xl text-gray-400 mb-8 max-w-3xl mx-auto lg:mx-0 text-pretty">
               {tHero('subtitle')}
             </p>
-            <Link href="/projetos">
+            <Link href="/projects">
               <Button size="lg" className="group">
                 {tHero('cta')}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

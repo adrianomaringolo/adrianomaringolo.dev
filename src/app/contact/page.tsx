@@ -1,11 +1,9 @@
-"use client";
+'use client'
 
-import type React from "react";
+import type React from 'react'
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Navbar } from "@/components/navbar";
-import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { useLocale } from '@/hooks/use-locale'
+import { SiGithub } from '@icons-pack/react-simple-icons'
 import {
   Button,
   Card,
@@ -15,56 +13,59 @@ import {
   Input,
   Label,
   Textarea,
-} from "buildgrid-ui";
+} from 'buildgrid-ui'
+import { motion } from 'framer-motion'
+import { Linkedin, Mail, Send } from 'lucide-react'
+import { useState } from 'react'
 
 export default function ContatoPage() {
+  const { t } = useLocale()
+  const tContact = (tag: string) => t(`contact.${tag}`)
+
   const [formData, setFormData] = useState({
-    nome: "",
-    email: "",
-    mensagem: "",
-  });
+    nome: '',
+    email: '',
+    mensagem: '',
+  })
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     // Aqui você implementaria o envio do formulário
-    console.log("Formulário enviado:", formData);
-    alert("Mensagem enviada com sucesso!");
-    setFormData({ nome: "", email: "", mensagem: "" });
-  };
+    console.log('Formulário enviado:', formData)
+    alert('Mensagem enviada com sucesso!')
+    setFormData({ nome: '', email: '', mensagem: '' })
+  }
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const contacts = [
     {
       icon: Mail,
-      label: "E-mail",
-      value: "adrianomaringolo@gmail.com",
-      href: "mailto:adrianomaringolo@gmail.com",
+      label: 'E-mail',
+      value: 'adrianomaringolo@gmail.com',
+      href: 'mailto:adrianomaringolo@gmail.com',
     },
     {
       icon: Linkedin,
-      label: "LinkedIn",
-      value: "/in/adrianomaringolo",
-      href: "https://linkedin.com/in/adrianomaringolo",
+      label: 'LinkedIn',
+      value: '/in/adrianomaringolo',
+      href: 'https://linkedin.com/in/adrianomaringolo',
     },
     {
-      icon: Github,
-      label: "GitHub",
-      value: "/adrianomaringolo",
-      href: "https://github.com/adrianomaringolo",
+      icon: SiGithub,
+      label: 'GitHub',
+      value: '/adrianomaringolo',
+      href: 'https://github.com/adrianomaringolo',
     },
-  ];
+  ]
 
   return (
-    <main>
-      <Navbar />
+    <section>
       <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -73,11 +74,10 @@ export default function ContatoPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 text-balance">
-              Entre em Contato
+              {tContact('title')}
             </h1>
             <p className="text-xl text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-pretty">
-              Tem um projeto em mente? Vamos conversar e transformar sua ideia
-              em realidade!
+              {tContact('subtitle')}
             </p>
 
             <div className="grid lg:grid-cols-2 gap-12">
@@ -87,9 +87,7 @@ export default function ContatoPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h2 className="text-2xl font-semibold mb-6">
-                  Vamos nos conectar
-                </h2>
+                <h2 className="text-2xl font-semibold mb-6">{tContact('connect')}</h2>
                 <div className="space-y-4">
                   {contacts.map((contact, index) => (
                     <motion.a
@@ -107,9 +105,7 @@ export default function ContatoPage() {
                       </div>
                       <div>
                         <p className="font-medium">{contact.label}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {contact.value}
-                        </p>
+                        <p className="text-sm text-muted-foreground">{contact.value}</p>
                       </div>
                     </motion.a>
                   ))}
@@ -124,12 +120,12 @@ export default function ContatoPage() {
               >
                 <Card>
                   <CardHeader>
-                    <CardTitle>Envie uma mensagem</CardTitle>
+                    <CardTitle>{tContact('sendMessage')}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
-                        <Label htmlFor="nome">Nome</Label>
+                        <Label htmlFor="nome">{tContact('name')}</Label>
                         <Input
                           id="nome"
                           name="nome"
@@ -142,7 +138,7 @@ export default function ContatoPage() {
                       </div>
 
                       <div>
-                        <Label htmlFor="email">E-mail</Label>
+                        <Label htmlFor="email">{tContact('email')}</Label>
                         <Input
                           id="email"
                           name="email"
@@ -155,7 +151,7 @@ export default function ContatoPage() {
                       </div>
 
                       <div>
-                        <Label htmlFor="mensagem">Mensagem</Label>
+                        <Label htmlFor="mensagem">{tContact('message')}</Label>
                         <Textarea
                           id="mensagem"
                           name="mensagem"
@@ -164,13 +160,13 @@ export default function ContatoPage() {
                           required
                           rows={5}
                           className="mt-1"
-                          placeholder="Conte-me sobre seu projeto..."
+                          placeholder={tContact('messagePlaceholder')}
                         />
                       </div>
 
                       <Button type="submit" className="w-full">
                         <Send className="h-4 w-4 mr-2" />
-                        Enviar Mensagem
+                        {tContact('send')}
                       </Button>
                     </form>
                   </CardContent>
@@ -180,6 +176,6 @@ export default function ContatoPage() {
           </motion.div>
         </div>
       </div>
-    </main>
-  );
+    </section>
+  )
 }

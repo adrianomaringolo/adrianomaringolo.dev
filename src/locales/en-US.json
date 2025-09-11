@@ -20,9 +20,23 @@
   },
   "about": {
     "title": "About Me",
-    "header": "Hello! I am a software developer",
-    "description": "I am a software developer with over 15 years of experience in creating digital solutions. My specialty is transforming ideas into modern websites and functional web apps, always focusing on design, performance, and user experience.\n\nThroughout my career, I have participated in projects for different sectors, from institutional websites to complex platforms for large companies. This diversity has given me a comprehensive view of how to unite technology and design to deliver impactful results.\n\nToday, my goal is to help people and businesses stand out in the digital environment by creating personalized solutions that combine aesthetics, usability, and cutting-edge technology."
-  
+    "header": "Hello! I am a software developer with over 15 years of experience",
+    "description": "... in creating digital solutions. My specialty is transforming ideas into modern websites and functional web apps, always focusing on design, performance, and user experience.\n\nThroughout my career, I have participated in projects for different sectors, from institutional websites to complex platforms for large companies. This diversity has given me a comprehensive view of how to unite technology and design to deliver impactful results.\n\nToday, my goal is to help people and businesses stand out in the digital environment by creating personalized solutions that combine aesthetics, usability, and cutting-edge technology.",
+    "historyTitle": "My Journey",
+    "history": "My career in software development began in 2009 when I immersed myself in the .NET universe and took my first steps in creating corporate systems. Since then, I have expanded my work to different technologies and contexts, always guided by the desire to learn and share knowledge.\n\nI have had the opportunity to work at renowned technology companies and consultancies, such as Venturus, Dextra, Avenue Code, and currently Codurance, collaborating on national and international projects. I have held different roles — from developer to tech lead — and have led initiatives that involved everything from modernizing legacy systems to building scalable web applications from scratch.\n\nIn addition to hands-on project experience, I have also worked as an instructor and mentor, providing internal and external training in technologies such as Angular, React, and Node.js. This experience has solidified not only my technical background but also my passion for helping others grow in the field.\n\nToday, as a Senior Frontend Engineer, I continue to combine experience, innovation, and best practices to transform ideas into impactful digital products, focusing on performance, usability, and design.",
+    "techs": "Technologies and Tools",
+    "techsDescription": "Here are some of the main technologies and tools I use in my work:",
+    "techsMore": "and many others...",
+    "howIWork": "How I Work",
+    "howIWorkDescription": "My work process is based on principles that ensure the delivery of high-quality solutions, aligned with client needs and focused on the best experience for the end user.",
+    "principles": {
+      "responsiveness": "Responsiveness",
+      "responsivenessDescription": "All projects are developed with a mobile-first approach, ensuring perfect adaptation on any device.",
+      "performance": "Performance",
+      "performanceDescription": "Optimized code and best practices to ensure fast loading and smooth navigation.",
+      "userExperience": "User Experience",
+      "userExperienceDescription": "Focus on usability and accessibility to create intuitive and enjoyable interfaces."
+    }
   },
   "services": {
     "title": "Services",
@@ -35,19 +49,26 @@
     "all": "All",
     "web": "Web",
     "mobile": "Mobile",
-    "design": "Design"
+    "design": "Design",
+    "underConstruction": "Colecting projects...",
+    "underConstructionDescription": "Soon you will be able to navigate through my main projects and learn more about my work!"
   },
   "blog": {
     "title": "Blog",
     "readMore": "Read more",
-    "backToBlog": "Back to Blog"
+    "backToBlog": "Back to Blog",
+    "underConstruction": "Colecting ideas...",
+    "underConstructionDescription": "Soon I will start sharing some of my knowledge here! Let me know if you have any suggestions 😉"
   },
   "contact": {
     "title": "Contact",
     "subtitle": "Let's work together",
+    "connect": "Let's connect",
+    "sendMessage": "Send message",
     "name": "Name",
     "email": "Email",
     "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
     "send": "Send"
   },
   "footer": {
@@ -57,5 +78,16 @@
     "aboutDescription": "Learn more about my journey, skills and experience in web development.",
     "projectsDescription": "Explore my latest projects and the technologies I use.",
     "contactDescription": "Get in touch with me to discuss your next project."
+  },
+  "underConstruction": {
+    "title": "Under Construction",
+    "subtitle": "I am preparing something special!",
+    "description": "This area is being crafted with care! Come back soon to see it!",
+    "backHome": "Back to Home",
+    "comingSoon": "Coming Soon",
+    "design": "Design",
+    "development": "Development",
+    "test": "Test",
+    "deploy": "Deploy"
   }
 }
