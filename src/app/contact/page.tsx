@@ -13,6 +13,8 @@ import {
   Input,
   Label,
   Textarea,
+  toast,
+  Toaster,
 } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
 import { Linkedin, Mail, Send } from 'lucide-react'
@@ -22,17 +24,39 @@ export default function ContatoPage() {
   const { t } = useLocale()
   const tContact = (tag: string) => t(`contact.${tag}`)
 
+  const [loading, setLoading] = useState(false)
+
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
     mensagem: '',
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Aqui você implementaria o envio do formulário
-    console.log('Formulário enviado:', formData)
-    alert('Mensagem enviada com sucesso!')
+    setLoading(true)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+      if (result.status === 'success') {
+        toast.success(
+          'Mensagem enviada com sucesso! Muito obrigado, em breve eu te responderei 😉',
+        )
+        setFormData({ nome: '', email: '', mensagem: '' })
+      } else {
+        toast.error('Desculpe, houve um erro ao enviar cadastro.')
+      }
+    } catch {
+      toast.error('Desculpe, houve um erro ao enviar cadastro.')
+    } finally {
+      setLoading(false)
+    }
+
     setFormData({ nome: '', email: '', mensagem: '' })
   }
 
@@ -68,6 +92,7 @@ export default function ContatoPage() {
     <section>
       <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
+          <Toaster expand />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -164,7 +189,7 @@ export default function ContatoPage() {
                         />
                       </div>
 
-                      <Button type="submit" className="w-full">
+                      <Button type="submit" className="w-full" isLoading={loading}>
                         <Send className="h-4 w-4 mr-2" />
                         {tContact('send')}
                       </Button>
