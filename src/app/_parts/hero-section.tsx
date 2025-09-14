@@ -1,5 +1,6 @@
 'use client'
 
+import { AuroraBackground } from '@/components/ui/aurora-background'
 import { useLocale } from '@/hooks/use-locale'
 import { Button } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
@@ -12,7 +13,7 @@ export function HeroSection() {
   const tHero = (tag: string) => t(`home.hero.${tag}`)
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-32 lg:pt-0 px-6 md:px-4 lg:px-8">
+    <AuroraBackground className="min-h-screen flex items-center justify-center pt-32 lg:pt-0 px-6 md:px-4 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -61,6 +62,6 @@ export function HeroSection() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </AuroraBackground>
   )
 }
