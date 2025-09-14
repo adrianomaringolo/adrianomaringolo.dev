@@ -50,14 +50,14 @@
     "web": "Web",
     "mobile": "Mobile",
     "design": "Design",
-    "underConstruction": "Colecting projects...",
+    "underConstruction": "Collecting projects...",
     "underConstructionDescription": "Soon you will be able to navigate through my main projects and learn more about my work!"
   },
   "blog": {
     "title": "Blog",
     "readMore": "Read more",
     "backToBlog": "Back to Blog",
-    "underConstruction": "Colecting ideas...",
+    "underConstruction": "Collecting ideas...",
     "underConstructionDescription": "Soon I will start sharing some of my knowledge here! Let me know if you have any suggestions 😉"
   },
   "contact": {
