@@ -14,7 +14,7 @@ export function HeroSection() {
 
   return (
     <AuroraBackground className="min-h-screen flex items-center justify-center pt-32 lg:pt-0 px-6 md:px-4 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto absolute z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
