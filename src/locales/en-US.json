@@ -89,5 +89,25 @@
     "development": "Development",
     "test": "Test",
     "deploy": "Deploy"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Try again",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "share": "Share",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "welcome": "Welcome, {{name}}!",
+    "itemCount": {
+      "singular": "{{count}} item",
+      "plural": "{{count}} items"
+    },
+    "timeAgo": "{{time}} ago"
   }
 }

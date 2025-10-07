@@ -1,54 +1,81 @@
 'use client'
 
-import { defaultLocale, translations, type Locale } from '@/lib/i18n'
+import { createTranslator, defaultLocale, type Locale } from '@/lib/i18n'
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 
 interface LocaleContextType {
   locale: Locale
-  setLocale: (locale: Locale) => void
   t: (key: string) => string
+  setLocale: (locale: Locale) => void
+  isLoading: boolean
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(defaultLocale)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Check localStorage first, then system preference
-    const savedLocale = localStorage.getItem('locale') as Locale
-    if (savedLocale && (savedLocale === 'pt-BR' || savedLocale === 'en-US')) {
-      setLocaleState(savedLocale)
-    } else {
-      // Detect system language
-      const systemLang = navigator.language
-      if (systemLang.startsWith('pt')) {
-        setLocaleState('pt-BR')
-      } else {
-        setLocaleState('en-US')
+    // Prevent hydration mismatch by only running on client
+    const initializeLocale = () => {
+      try {
+        // Check localStorage first
+        const savedLocale = localStorage.getItem('preferred-locale') as Locale
+        if (savedLocale && (savedLocale === 'pt-BR' || savedLocale === 'en-US')) {
+          setLocaleState(savedLocale)
+        } else {
+          // Detect system language
+          const systemLang = navigator.language
+          const detectedLocale = systemLang.startsWith('pt') ? 'pt-BR' : 'en-US'
+          setLocaleState(detectedLocale)
+          localStorage.setItem('preferred-locale', detectedLocale)
+        }
+      } catch (error) {
+        console.warn('Failed to initialize locale:', error)
+        setLocaleState(defaultLocale)
+      } finally {
+        setIsLoading(false)
       }
     }
+
+    initializeLocale()
   }, [])
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale)
-    localStorage.setItem('locale', newLocale)
-  }
-
-  const t = (key: string): string => {
-    const keys = key.split('.')
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let value: any = translations[locale]
-
-    for (const k of keys) {
-      value = value?.[k]
+    
+    try {
+      localStorage.setItem('preferred-locale', newLocale)
+      // Update document language
+      document.documentElement.lang = newLocale
+      
+      // Announce change to screen readers
+      const announcement = newLocale === 'pt-BR' 
+        ? 'Idioma alterado para Português' 
+        : 'Language changed to English'
+      
+      // Create temporary announcement element
+      const announcer = document.createElement('div')
+      announcer.setAttribute('aria-live', 'polite')
+      announcer.setAttribute('aria-atomic', 'true')
+      announcer.className = 'sr-only'
+      announcer.textContent = announcement
+      document.body.appendChild(announcer)
+      
+      // Remove after announcement
+      setTimeout(() => {
+        document.body.removeChild(announcer)
+      }, 1000)
+    } catch (error) {
+      console.warn('Failed to save locale preference:', error)
     }
-
-    return value || key
   }
+
+  const { t } = createTranslator(locale)
 
   return (
-    <LocaleContext.Provider value={{ locale, setLocale, t }}>
+    <LocaleContext.Provider value={{ locale, setLocale, t, isLoading }}>
       {children}
     </LocaleContext.Provider>
   )

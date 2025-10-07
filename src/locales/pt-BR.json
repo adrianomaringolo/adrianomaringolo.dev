@@ -89,5 +89,25 @@
     "development": "Desenvolvimento",
     "test": "Teste",
     "deploy": "Deploy"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "retry": "Tentar novamente",
+    "close": "Fechar",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "view": "Visualizar",
+    "share": "Compartilhar",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "welcome": "Bem-vindo, {{name}}!",
+    "itemCount": {
+      "singular": "{{count}} item",
+      "plural": "{{count}} itens"
+    },
+    "timeAgo": "há {{time}}"
   }
 }
