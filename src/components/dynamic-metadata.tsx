@@ -15,30 +15,30 @@ export function DynamicMetadata() {
     // Get page-specific translations
     const getPageTitle = () => {
       if (pathname === '/') {
-        return locale === 'pt-BR' 
+        return locale === 'pt-BR'
           ? 'Adriano Maringolo - Desenvolvedor Web'
           : 'Adriano Maringolo - Web Developer'
       }
-      
+
       if (pathname === '/about') {
         return locale === 'pt-BR'
           ? 'Sobre Mim | Adriano Maringolo'
           : 'About Me | Adriano Maringolo'
       }
-      
+
       if (pathname === '/projects') {
         return locale === 'pt-BR'
           ? 'Projetos | Adriano Maringolo'
           : 'Projects | Adriano Maringolo'
       }
-      
+
       if (pathname === '/contact') {
         return locale === 'pt-BR'
           ? 'Contato | Adriano Maringolo'
           : 'Contact | Adriano Maringolo'
       }
-      
-      return locale === 'pt-BR' 
+
+      return locale === 'pt-BR'
         ? 'Adriano Maringolo - Desenvolvedor Web'
         : 'Adriano Maringolo - Web Developer'
     }
@@ -49,19 +49,19 @@ export function DynamicMetadata() {
           ? 'Conheça mais sobre minha trajetória, habilidades e experiência no desenvolvimento web.'
           : 'Learn more about my journey, skills and experience in web development.'
       }
-      
+
       if (pathname === '/projects') {
         return locale === 'pt-BR'
           ? 'Explore meus projetos mais recentes e as tecnologias que utilizo.'
           : 'Explore my latest projects and the technologies I use.'
       }
-      
+
       if (pathname === '/contact') {
         return locale === 'pt-BR'
           ? 'Entre em contato comigo para discutir seu próximo projeto.'
           : 'Get in touch with me to discuss your next project.'
       }
-      
+
       return locale === 'pt-BR'
         ? 'Desenvolvedor web especializado na criação de sites e aplicações de alta performance com React, Next.js e TailwindCSS.'
         : 'Web developer specialized in creating high-performance websites and applications with React, Next.js and TailwindCSS.'
@@ -115,9 +115,10 @@ export function DynamicMetadata() {
     // Update keywords based on locale
     const keywords = document.querySelector('meta[name="keywords"]')
     if (keywords) {
-      const keywordContent = locale === 'pt-BR'
-        ? 'Adriano Maringolo, desenvolvedor web, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, desenvolvimento de sites, aplicações web'
-        : 'Adriano Maringolo, web developer, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, website development, web applications'
+      const keywordContent =
+        locale === 'pt-BR'
+          ? 'Adriano Maringolo, desenvolvedor web, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, desenvolvimento de sites, aplicações web'
+          : 'Adriano Maringolo, web developer, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, website development, web applications'
       keywords.setAttribute('content', keywordContent)
     }
   }, [locale, pathname, isLoading, t])

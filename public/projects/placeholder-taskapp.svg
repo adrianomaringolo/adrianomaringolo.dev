@@ -1,0 +1,12 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f8fafc"/>
+  <rect x="50" y="50" width="200" height="500" rx="8" fill="#e2e8f0"/>
+  <rect x="270" y="50" width="480" height="80" rx="8" fill="#cbd5e1"/>
+  <rect x="270" y="150" width="480" height="120" rx="8" fill="#f1f5f9"/>
+  <rect x="270" y="290" width="480" height="120" rx="8" fill="#f1f5f9"/>
+  <rect x="270" y="430" width="480" height="120" rx="8" fill="#f1f5f9"/>
+  <circle cx="150" cy="100" r="20" fill="#10b981"/>
+  <circle cx="150" cy="150" r="20" fill="#f59e0b"/>
+  <circle cx="150" cy="200" r="20" fill="#ef4444"/>
+  <text x="400" y="300" fill="#64748b" font-family="system-ui" font-size="24" font-weight="600">Task Management</text>
+</svg>

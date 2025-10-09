@@ -1,22 +1,22 @@
-"use client";
+'use client'
 
-import { Languages } from "lucide-react";
-import { useLocale } from "@/hooks/use-locale";
-import { localeMetadata, locales, type Locale } from "@/lib/i18n";
+import { useLocale } from '@/hooks/use-locale'
+import { localeMetadata, locales, type Locale } from '@/lib/i18n'
 import {
   Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "buildgrid-ui";
+} from 'buildgrid-ui'
+import { Languages } from 'lucide-react'
 
 export function LanguageToggle() {
-  const { locale, setLocale, t, isLoading } = useLocale();
+  const { locale, setLocale, t, isLoading } = useLocale()
 
   const handleLocaleChange = (newLocale: Locale) => {
-    setLocale(newLocale);
-  };
+    setLocale(newLocale)
+  }
 
   if (isLoading) {
     return (
@@ -24,38 +24,38 @@ export function LanguageToggle() {
         <Languages className="h-4 w-4 animate-pulse" />
         <span className="ml-2 text-sm">...</span>
       </Button>
-    );
+    )
   }
 
-  const currentLocaleData = localeMetadata[locale];
-  const ariaLabel = locale === 'pt-BR' ? 'Alterar idioma' : 'Change language';
+  const currentLocaleData = localeMetadata[locale]
+  const ariaLabel = locale === 'pt-BR' ? 'Alterar idioma' : 'Change language'
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="ghost" 
-          size="sm" 
+        <Button
+          variant="ghost"
+          size="sm"
           aria-label={ariaLabel}
           className="transition-all duration-200 hover:scale-105"
         >
           <Languages className="h-4 w-4" />
           <span className="ml-2 text-sm font-medium">
-            {currentLocaleData.flag} {locale === "pt-BR" ? "PT" : "EN"}
+            {currentLocaleData.flag} {locale === 'pt-BR' ? 'PT' : 'EN'}
           </span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[180px]">
         {locales.map((loc) => {
-          const localeData = localeMetadata[loc];
-          const isActive = locale === loc;
-          
+          const localeData = localeMetadata[loc]
+          const isActive = locale === loc
+
           return (
-            <DropdownMenuItem 
+            <DropdownMenuItem
               key={loc}
               onClick={() => handleLocaleChange(loc)}
               className={`cursor-pointer transition-colors ${
-                isActive ? "bg-accent text-accent-foreground" : ""
+                isActive ? 'bg-accent text-accent-foreground' : ''
               }`}
               disabled={isActive}
             >
@@ -69,9 +69,9 @@ export function LanguageToggle() {
                 )}
               </span>
             </DropdownMenuItem>
-          );
+          )
         })}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }

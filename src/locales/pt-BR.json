@@ -51,7 +51,32 @@
     "mobile": "Mobile",
     "design": "Design",
     "underConstruction": "Coletando projetos...",
-    "underConstructionDescription": "Em breve você vai poder navegar pelos meus principais projetos e conhecer melhor o meu trabalho!"
+    "underConstructionDescription": "Em breve você vai poder navegar pelos meus principais projetos e conhecer melhor o meu trabalho!",
+    "featured": "Projetos em Destaque",
+    "viewDetails": "Ver Detalhes",
+    "viewDemo": "Ver Demo",
+    "viewCode": "Ver Código",
+    "backToProjects": "Voltar aos Projetos",
+    "projectStory": "A História do Projeto",
+    "challenge": "O Desafio",
+    "solution": "A Solução",
+    "process": "O Processo",
+    "results": "Os Resultados",
+    "screenshots": "Capturas de Tela",
+    "resultsAchieved": "Resultados Alcançados",
+    "clientTestimonial": "Depoimento do Cliente",
+    "technologiesUsed": "Tecnologias Utilizadas",
+    "tags": "Tags",
+    "likeWhatYouSee": "Gostou do que viu?",
+    "letsWorkTogether": "Vamos conversar sobre como posso ajudar no seu próximo projeto.",
+    "getInTouch": "Entre em Contato",
+    "viewMoreProjects": "Ver Mais Projetos",
+    "client": "Cliente",
+    "status": {
+      "completed": "Concluído",
+      "inProgress": "Em Andamento",
+      "concept": "Conceito"
+    }
   },
   "blog": {
     "title": "Blog",

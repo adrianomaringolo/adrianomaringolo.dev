@@ -51,7 +51,32 @@
     "mobile": "Mobile",
     "design": "Design",
     "underConstruction": "Collecting projects...",
-    "underConstructionDescription": "Soon you will be able to navigate through my main projects and learn more about my work!"
+    "underConstructionDescription": "Soon you will be able to navigate through my main projects and learn more about my work!",
+    "featured": "Featured Projects",
+    "viewDetails": "View Details",
+    "viewDemo": "View Demo",
+    "viewCode": "View Code",
+    "backToProjects": "Back to Projects",
+    "projectStory": "Project Story",
+    "challenge": "The Challenge",
+    "solution": "The Solution",
+    "process": "The Process",
+    "results": "The Results",
+    "screenshots": "Screenshots",
+    "resultsAchieved": "Results Achieved",
+    "clientTestimonial": "Client Testimonial",
+    "technologiesUsed": "Technologies Used",
+    "tags": "Tags",
+    "likeWhatYouSee": "Like what you see?",
+    "letsWorkTogether": "Let's talk about how I can help with your next project.",
+    "getInTouch": "Get in Touch",
+    "viewMoreProjects": "View More Projects",
+    "client": "Client",
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "concept": "Concept"
+    }
   },
   "blog": {
     "title": "Blog",

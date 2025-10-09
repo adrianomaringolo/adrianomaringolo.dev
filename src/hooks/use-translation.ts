@@ -10,14 +10,14 @@ export function useTranslation() {
   // Enhanced translation function with interpolation
   const t = (key: string, values?: InterpolationValues): string => {
     let translation = baseT(key)
-    
+
     if (values && typeof translation === 'string') {
       Object.entries(values).forEach(([placeholder, value]) => {
         const regex = new RegExp(`{{\\s*${placeholder}\\s*}}`, 'g')
         translation = translation.replace(regex, String(value))
       })
     }
-    
+
     return translation
   }
 
@@ -28,7 +28,12 @@ export function useTranslation() {
   }
 
   // Conditional translation (returns different keys based on condition)
-  const tc = (condition: boolean, trueKey: string, falseKey: string, values?: InterpolationValues): string => {
+  const tc = (
+    condition: boolean,
+    trueKey: string,
+    falseKey: string,
+    values?: InterpolationValues,
+  ): string => {
     return t(condition ? trueKey : falseKey, values)
   }
 

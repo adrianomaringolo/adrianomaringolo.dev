@@ -4,7 +4,8 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Adriano Maringolo - Desenvolvedor Web',
     short_name: 'Adriano Maringolo',
-    description: 'Portfolio de Adriano Maringolo, desenvolvedor web especializado em React e Next.js',
+    description:
+      'Portfolio de Adriano Maringolo, desenvolvedor web especializado em React e Next.js',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

@@ -1,31 +1,31 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import { Globe, Smartphone } from "lucide-react";
-import { useLocale } from "@/hooks/use-locale";
-import { Card, CardContent, CardHeader, CardTitle } from "buildgrid-ui";
+import { useLocale } from '@/hooks/use-locale'
+import { Card, CardContent, CardHeader, CardTitle } from 'buildgrid-ui'
+import { motion } from 'framer-motion'
+import { Globe, Smartphone } from 'lucide-react'
 
 export function ServicesSection() {
-  const { t, locale } = useLocale();
+  const { t, locale } = useLocale()
 
   const services = [
     {
       icon: Globe,
-      title: locale === "pt-BR" ? "Criação de Websites" : "Website Development",
+      title: locale === 'pt-BR' ? 'Criação de Websites' : 'Website Development',
       description:
-        locale === "pt-BR"
-          ? "Desenvolvimento de sites institucionais, landing pages e portfólios com design responsivo e otimização para SEO."
-          : "Development of institutional websites, landing pages and portfolios with responsive design and SEO optimization.",
+        locale === 'pt-BR'
+          ? 'Desenvolvimento de sites institucionais, landing pages e portfólios com design responsivo e otimização para SEO.'
+          : 'Development of institutional websites, landing pages and portfolios with responsive design and SEO optimization.',
     },
     {
       icon: Smartphone,
-      title: locale === "pt-BR" ? "Criação de Web Apps" : "Web App Development",
+      title: locale === 'pt-BR' ? 'Criação de Web Apps' : 'Web App Development',
       description:
-        locale === "pt-BR"
-          ? "Desenvolvimento de aplicações web complexas com React, Next.js e integração com APIs e bancos de dados."
-          : "Development of complex web applications with React, Next.js and integration with APIs and databases.",
+        locale === 'pt-BR'
+          ? 'Desenvolvimento de aplicações web complexas com React, Next.js e integração com APIs e bancos de dados.'
+          : 'Development of complex web applications with React, Next.js and integration with APIs and databases.',
     },
-  ];
+  ]
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -37,7 +37,7 @@ export function ServicesSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-balance">
-            {t("services.title")}
+            {t('services.title')}
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
@@ -67,5 +67,5 @@ export function ServicesSection() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

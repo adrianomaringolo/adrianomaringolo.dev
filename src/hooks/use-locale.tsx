@@ -44,17 +44,18 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale)
-    
+
     try {
       localStorage.setItem('preferred-locale', newLocale)
       // Update document language
       document.documentElement.lang = newLocale
-      
+
       // Announce change to screen readers
-      const announcement = newLocale === 'pt-BR' 
-        ? 'Idioma alterado para Português' 
-        : 'Language changed to English'
-      
+      const announcement =
+        newLocale === 'pt-BR'
+          ? 'Idioma alterado para Português'
+          : 'Language changed to English'
+
       // Create temporary announcement element
       const announcer = document.createElement('div')
       announcer.setAttribute('aria-live', 'polite')
@@ -62,7 +63,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       announcer.className = 'sr-only'
       announcer.textContent = announcement
       document.body.appendChild(announcer)
-      
+
       // Remove after announcement
       setTimeout(() => {
         document.body.removeChild(announcer)

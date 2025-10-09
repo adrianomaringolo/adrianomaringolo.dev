@@ -1,7 +1,11 @@
 import type { Locale } from './i18n'
 
 // Date formatting utilities
-export function formatDate(date: Date, locale: Locale, options?: Intl.DateTimeFormatOptions): string {
+export function formatDate(
+  date: Date,
+  locale: Locale,
+  options?: Intl.DateTimeFormatOptions,
+): string {
   const defaultOptions: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
@@ -15,7 +19,7 @@ export function formatRelativeTime(date: Date, locale: Locale): string {
   const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' })
   const now = new Date()
   const diffInSeconds = Math.floor((date.getTime() - now.getTime()) / 1000)
-  
+
   const intervals = [
     { label: 'year', seconds: 31536000 },
     { label: 'month', seconds: 2592000 },
@@ -35,7 +39,11 @@ export function formatRelativeTime(date: Date, locale: Locale): string {
 }
 
 // Number formatting utilities
-export function formatNumber(number: number, locale: Locale, options?: Intl.NumberFormatOptions): string {
+export function formatNumber(
+  number: number,
+  locale: Locale,
+  options?: Intl.NumberFormatOptions,
+): string {
   return new Intl.NumberFormat(locale, options).format(number)
 }
 
@@ -57,15 +65,13 @@ export function formatPercentage(value: number, locale: Locale): string {
 // Utility hook for formatters
 export function useFormatters(locale: Locale) {
   return {
-    formatDate: (date: Date, options?: Intl.DateTimeFormatOptions) => 
+    formatDate: (date: Date, options?: Intl.DateTimeFormatOptions) =>
       formatDate(date, locale, options),
-    formatRelativeTime: (date: Date) => 
-      formatRelativeTime(date, locale),
-    formatNumber: (number: number, options?: Intl.NumberFormatOptions) => 
+    formatRelativeTime: (date: Date) => formatRelativeTime(date, locale),
+    formatNumber: (number: number, options?: Intl.NumberFormatOptions) =>
       formatNumber(number, locale, options),
-    formatCurrency: (amount: number, currency?: string) => 
+    formatCurrency: (amount: number, currency?: string) =>
       formatCurrency(amount, locale, currency),
-    formatPercentage: (value: number) => 
-      formatPercentage(value, locale),
+    formatPercentage: (value: number) => formatPercentage(value, locale),
   }
 }

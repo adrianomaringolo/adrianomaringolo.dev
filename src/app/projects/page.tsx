@@ -1,8 +1,10 @@
 'use client'
 
-import { UnderConstructionPage } from '@/components/under-construction-page'
-import { useLocale } from '@/hooks/use-locale'
-import { SiGithub } from '@icons-pack/react-simple-icons'
+import { ProjectImage } from '@/components/project-image'
+import { RealProjectBadge } from '@/components/real-project-badge'
+import { projects } from '@/data/projects'
+import { useTranslation } from '@/hooks/use-translation'
+import type { Project } from '@/types/project'
 import {
   Badge,
   Button,
@@ -11,208 +13,238 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  cn,
 } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
-import { ExternalLink } from 'lucide-react'
-import Image from 'next/image'
+import { Calendar, ExternalLink, Github, Star } from 'lucide-react'
+import Link from 'next/link'
 import { useState } from 'react'
 
-export default function ProjetosPage() {
-  const { t } = useLocale()
-  const tProjects = (tag: string) => t(`projects.${tag}`)
-
-  const [filter, setFilter] = useState('todos')
-
-  const underMaintenance = true
-
-  if (underMaintenance) {
-    return (
-      <section>
-        <UnderConstructionPage
-          title={tProjects('title')}
-          underConstruction={tProjects('underConstruction')}
-          description={tProjects('underConstructionDescription')}
-          icon="📓"
-        />
-      </section>
-    )
-  }
-
-  const projects = [
-    {
-      id: 1,
-      title: 'E-commerce Moderno',
-      description:
-        'Plataforma completa de e-commerce com carrinho, pagamentos e painel administrativo.',
-      image: '/modern-ecommerce-website.png',
-      technologies: ['Next.js', 'TailwindCSS', 'Stripe', 'Prisma'],
-      category: 'webapp',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      id: 2,
-      title: 'Landing Page SaaS',
-      description:
-        'Landing page responsiva para startup de tecnologia com animações suaves.',
-      image: '/saas-landing-page.png',
-      technologies: ['React', 'TailwindCSS', 'Framer Motion'],
-      category: 'website',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      id: 3,
-      title: 'Dashboard Analytics',
-      description:
-        'Dashboard interativo para visualização de dados com gráficos e métricas.',
-      image: '/analytics-dashboard.png',
-      technologies: ['Next.js', 'Chart.js', 'TypeScript'],
-      category: 'webapp',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      id: 4,
-      title: 'Portfólio Criativo',
-      description: 'Site portfólio para designer com galeria interativa e animações.',
-      image: '/creative-portfolio-website.png',
-      technologies: ['React', 'GSAP', 'TailwindCSS'],
-      category: 'website',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      id: 5,
-      title: 'App de Tarefas',
-      description: 'Aplicativo web para gerenciamento de tarefas com drag & drop.',
-      image: '/task-management-app.png',
-      technologies: ['Next.js', 'Zustand', 'DnD Kit'],
-      category: 'webapp',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      id: 6,
-      title: 'Site Institucional',
-      description: 'Website corporativo responsivo com CMS integrado.',
-      image: '/corporate-website-design.png',
-      technologies: ['Next.js', 'Sanity', 'TailwindCSS'],
-      category: 'website',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
-  ]
+export default function ProjectsPage() {
+  const { t, locale } = useTranslation()
+  const [filter, setFilter] = useState<'all' | Project['category']>('all')
 
   const filteredProjects =
-    filter === 'todos'
+    filter === 'all'
       ? projects
       : projects.filter((project) => project.category === filter)
 
   const filters = [
-    { key: 'todos', label: 'Todos' },
-    { key: 'website', label: 'Websites' },
-    { key: 'webapp', label: 'Web Apps' },
+    { key: 'all' as const, label: t('projects.all') },
+    { key: 'web' as const, label: t('projects.web') },
+    { key: 'mobile' as const, label: t('projects.mobile') },
+    { key: 'fullstack' as const, label: 'Full Stack' },
+    { key: 'design' as const, label: t('projects.design') },
   ]
 
+  const getCategoryColor = (category: Project['category']) => {
+    const colors = {
+      web: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+      mobile: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+      fullstack: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
+      design: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200',
+    }
+    return colors[category]
+  }
+
+  const getStatusColor = (status: Project['status']) => {
+    const colors = {
+      completed: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+      'in-progress':
+        'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
+      concept: 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200',
+    }
+    return colors[status]
+  }
+
+  const getStatusLabel = (status: Project['status']) => {
+    const labels = {
+      completed: locale === 'pt-BR' ? 'Concluído' : 'Completed',
+      'in-progress': locale === 'pt-BR' ? 'Em Andamento' : 'In Progress',
+      concept: locale === 'pt-BR' ? 'Conceito' : 'Concept',
+    }
+    return labels[status]
+  }
+
   return (
-    <section>
-      <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 text-balance">
-              Meus Projetos
+    <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-balance">
+              {t('projects.title')}
             </h1>
-            <p className="text-xl text-muted-foreground text-center mb-12 max-w-3xl mx-auto text-pretty">
-              Confira alguns dos projetos que desenvolvi, desde websites institucionais
-              até aplicações web complexas.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+              {locale === 'pt-BR'
+                ? 'Explore uma seleção dos meus projetos mais recentes, desde aplicações web complexas até sistemas de design completos.'
+                : 'Explore a selection of my most recent projects, from complex web applications to complete design systems.'}
             </p>
+          </div>
 
-            {/* Filtros */}
-            <div className="flex justify-center mb-12">
-              <div className="flex gap-2 p-1 bg-muted rounded-lg">
-                {filters.map((filterOption) => (
-                  <Button
-                    key={filterOption.key}
-                    variant={filter === filterOption.key ? 'default' : 'ghost'}
-                    size="sm"
-                    onClick={() => setFilter(filterOption.key)}
-                    className="rounded-md"
-                  >
-                    {filterOption.label}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            {/* Grid de Projetos */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+          {/* Filters */}
+          <div className="flex justify-center mb-12">
+            <div className="flex flex-wrap gap-2 p-1 bg-muted rounded-lg">
+              {filters.map((filterOption) => (
+                <Button
+                  key={filterOption.key}
+                  variant={filter === filterOption.key ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setFilter(filterOption.key)}
+                  className="rounded-md"
                 >
-                  <Card className="h-full hover:shadow-lg transition-shadow group">
-                    <div className="relative overflow-hidden rounded-t-lg">
-                      <Image
-                        src={project.image || '/placeholder.svg'}
-                        alt={project.title}
-                        width={400}
-                        height={300}
-                        className="w-full h-48 object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-muted-foreground text-pretty">
-                        {project.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-
-                      <div className="flex gap-2 pt-2">
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={cn(buttonVariants({ size: 'sm' }), 'w-full')}
-                        >
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          Demo
-                        </a>
-
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={cn(buttonVariants({ size: 'sm' }), 'w-full')}
-                        >
-                          <SiGithub className="h-4 w-4 mr-1" />
-                          Código
-                        </a>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                  {filterOption.label}
+                </Button>
               ))}
             </div>
-          </motion.div>
-        </div>
+          </div>
+
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                  {/* Project Image */}
+                  <div className="relative overflow-hidden">
+                    <ProjectImage
+                      src={project.thumbnail}
+                      alt={project.title[locale]}
+                      width={400}
+                      height={240}
+                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+
+                    {/* Status and Featured Badges */}
+                    <div className="absolute top-3 left-3 flex flex-col gap-2">
+                      <div className="flex gap-2">
+                        <Badge className={getStatusColor(project.status)}>
+                          {getStatusLabel(project.status)}
+                        </Badge>
+                        {project.featured && (
+                          <Badge className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                            <Star className="w-3 h-3 mr-1" />
+                            {locale === 'pt-BR' ? 'Destaque' : 'Featured'}
+                          </Badge>
+                        )}
+                      </div>
+                      {project.slug === 'asm-marketing-digital' && (
+                        <RealProjectBadge locale={locale} />
+                      )}
+                    </div>
+
+                    {/* Category Badge */}
+                    <div className="absolute top-3 right-3">
+                      <Badge className={getCategoryColor(project.category)}>
+                        {project.category}
+                      </Badge>
+                    </div>
+                  </div>
+
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-xl line-clamp-2">
+                      {project.title[locale]}
+                    </CardTitle>
+
+                    {/* Date */}
+                    <div className="flex items-center text-sm text-muted-foreground">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {new Date(project.startDate).toLocaleDateString(locale)}
+                      {project.endDate && (
+                        <span>
+                          {' '}
+                          - {new Date(project.endDate).toLocaleDateString(locale)}
+                        </span>
+                      )}
+                    </div>
+                  </CardHeader>
+
+                  <CardContent className="space-y-4">
+                    {/* Description */}
+                    <p className="text-muted-foreground text-sm line-clamp-3">
+                      {project.shortDescription[locale]}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-1">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <Badge key={tech} variant="outline" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <Badge variant="outline" className="text-xs">
+                          +{project.technologies.length - 4}
+                        </Badge>
+                      )}
+                    </div>
+
+                    {/* Client Info */}
+                    {project.client && (
+                      <div className="text-xs text-muted-foreground">
+                        {locale === 'pt-BR' ? 'Cliente: ' : 'Client: '}
+                        <span className="font-medium">{project.client.name}</span>
+                      </div>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2 pt-2">
+                      <Link href={`/projects/${project.slug}`} className="flex-1">
+                        <Button size="sm" className="w-full">
+                          {locale === 'pt-BR' ? 'Ver Detalhes' : 'View Details'}
+                        </Button>
+                      </Link>
+
+                      <div className="flex gap-1">
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ver demo"
+                            className={buttonVariants({ variant: 'outline', size: 'sm' })}
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        )}
+
+                        {project.githubUrl && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ver código"
+                            className={buttonVariants({ variant: 'outline', size: 'sm' })}
+                          >
+                            <Github className="w-4 h-4" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Empty State */}
+          {filteredProjects.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-muted-foreground text-lg">
+                {locale === 'pt-BR'
+                  ? 'Nenhum projeto encontrado nesta categoria.'
+                  : 'No projects found in this category.'}
+              </p>
+            </div>
+          )}
+        </motion.div>
       </div>
     </section>
   )

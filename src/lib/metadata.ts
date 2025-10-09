@@ -16,17 +16,25 @@ export function generatePageMetadata({
 }: GenerateMetadataProps): Metadata {
   const t = getTranslations(locale)
   const localeInfo = localeMetadata[locale]
-  
+
   const baseUrl = 'https://adrianomaringolo.dev'
-  const pageTitle = title || (page === 'home' ? 'Adriano Maringolo - Desenvolvedor Web' : `${t.nav[page as keyof typeof t.nav]} | Adriano Maringolo`)
-  const pageDescription = description || t.pages[`${page}Description` as keyof typeof t.pages] || t.home.hero.subtitle
+  const pageTitle =
+    title ||
+    (page === 'home'
+      ? 'Adriano Maringolo - Desenvolvedor Web'
+      : `${t.nav[page as keyof typeof t.nav]} | Adriano Maringolo`)
+  const pageDescription =
+    description ||
+    t.pages[`${page}Description` as keyof typeof t.pages] ||
+    t.home.hero.subtitle
 
   return {
     title: pageTitle,
     description: pageDescription,
-    keywords: locale === 'pt-BR' 
-      ? 'Adriano Maringolo, desenvolvedor web, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, desenvolvimento de sites, aplicações web'
-      : 'Adriano Maringolo, web developer, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, website development, web applications',
+    keywords:
+      locale === 'pt-BR'
+        ? 'Adriano Maringolo, desenvolvedor web, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, desenvolvimento de sites, aplicações web'
+        : 'Adriano Maringolo, web developer, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, website development, web applications',
     authors: [{ name: 'Adriano Maringolo', url: baseUrl }],
     creator: 'Adriano Maringolo',
     publisher: 'Adriano Maringolo',
@@ -75,7 +83,7 @@ export function generatePageMetadata({
 
 export function generateAlternateLinks(currentPath: string) {
   const baseUrl = 'https://adrianomaringolo.dev'
-  
+
   return {
     'pt-BR': `${baseUrl}${currentPath}`,
     'en-US': `${baseUrl}${currentPath}`, // Same URL for both languages
