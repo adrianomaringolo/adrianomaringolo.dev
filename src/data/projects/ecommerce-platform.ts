@@ -19,7 +19,7 @@ export const ecommercePlatform: Project = {
     'en-US':
       'Development of a complete e-commerce platform from scratch, including product catalog, shopping cart, payment system, admin dashboard and order management system.',
   },
-  category: 'fullstack',
+  category: 'webapp',
   tags: {
     'pt-BR': [
       'E-commerce',

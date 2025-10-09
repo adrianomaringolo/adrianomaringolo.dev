@@ -7,7 +7,7 @@ import { MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 
 export function CTASection() {
-  const { locale } = useLocale()
+  const { t } = useLocale()
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
@@ -19,17 +19,15 @@ export function CTASection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance">
-            {locale === 'pt-BR' ? 'Tem uma ideia em mente?' : 'Have an idea in mind?'}
+            {t('cta.title')}
           </h2>
           <p className="text-xl text-muted-foreground mb-8 text-pretty">
-            {locale === 'pt-BR'
-              ? 'Vamos conversar e transformar sua visão em realidade digital!'
-              : "Let's talk and turn your vision into digital reality!"}
+            {t('cta.description')}
           </p>
           <Link href="/contact">
             <Button size="lg" className="group">
               <MessageCircle className="mr-2 h-4 w-4" />
-              {locale === 'pt-BR' ? 'Entre em Contato' : 'Get in Touch'}
+              {t('cta.button')}
             </Button>
           </Link>
         </motion.div>

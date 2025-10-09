@@ -6,24 +6,18 @@ import { motion } from 'framer-motion'
 import { Globe, Smartphone } from 'lucide-react'
 
 export function ServicesSection() {
-  const { t, locale } = useLocale()
+  const { t } = useLocale()
 
   const services = [
     {
       icon: Globe,
-      title: locale === 'pt-BR' ? 'Criação de Websites' : 'Website Development',
-      description:
-        locale === 'pt-BR'
-          ? 'Desenvolvimento de sites institucionais, landing pages e portfólios com design responsivo e otimização para SEO.'
-          : 'Development of institutional websites, landing pages and portfolios with responsive design and SEO optimization.',
+      title: t('services.websiteTitle'),
+      description: t('services.websiteDescription'),
     },
     {
       icon: Smartphone,
-      title: locale === 'pt-BR' ? 'Criação de Web Apps' : 'Web App Development',
-      description:
-        locale === 'pt-BR'
-          ? 'Desenvolvimento de aplicações web complexas com React, Next.js e integração com APIs e bancos de dados.'
-          : 'Development of complex web applications with React, Next.js and integration with APIs and databases.',
+      title: t('services.webAppTitle'),
+      description: t('services.webAppDescription'),
     },
   ]
 

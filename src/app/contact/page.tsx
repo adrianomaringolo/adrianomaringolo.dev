@@ -44,15 +44,13 @@ export default function ContatoPage() {
 
       const result = await response.json()
       if (result.status === 'success') {
-        toast.success(
-          'Mensagem enviada com sucesso! Muito obrigado, em breve eu te responderei 😉',
-        )
+        toast.success(tContact('successMessage'))
         setFormData({ nome: '', email: '', mensagem: '' })
       } else {
-        toast.error('Desculpe, houve um erro ao enviar cadastro.')
+        toast.error(tContact('errorMessage'))
       }
     } catch {
-      toast.error('Desculpe, houve um erro ao enviar cadastro.')
+      toast.error(tContact('errorMessage'))
     } finally {
       setLoading(false)
     }

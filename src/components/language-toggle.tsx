@@ -28,7 +28,7 @@ export function LanguageToggle() {
   }
 
   const currentLocaleData = localeMetadata[locale]
-  const ariaLabel = locale === 'pt-BR' ? 'Alterar idioma' : 'Change language'
+  const ariaLabel = t('common.changeLanguage')
 
   return (
     <DropdownMenu>
@@ -63,9 +63,7 @@ export function LanguageToggle() {
                 <span className="text-base">{localeData.flag}</span>
                 <span className="font-medium">{localeData.name}</span>
                 {isActive && (
-                  <span className="ml-auto text-xs opacity-70">
-                    {locale === 'pt-BR' ? '✓ Ativo' : '✓ Active'}
-                  </span>
+                  <span className="ml-auto text-xs opacity-70">{t('common.active')}</span>
                 )}
               </span>
             </DropdownMenuItem>

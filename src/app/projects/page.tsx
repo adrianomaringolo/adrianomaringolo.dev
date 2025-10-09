@@ -1,7 +1,7 @@
 'use client'
 
 import { ProjectImage } from '@/components/project-image'
-import { RealProjectBadge } from '@/components/real-project-badge'
+
 import { projects } from '@/data/projects'
 import { useTranslation } from '@/hooks/use-translation'
 import type { Project } from '@/types/project'
@@ -31,17 +31,15 @@ export default function ProjectsPage() {
   const filters = [
     { key: 'all' as const, label: t('projects.all') },
     { key: 'web' as const, label: t('projects.web') },
-    { key: 'mobile' as const, label: t('projects.mobile') },
-    { key: 'fullstack' as const, label: 'Full Stack' },
-    { key: 'design' as const, label: t('projects.design') },
+    { key: 'webapp' as const, label: t('projects.webapp') },
+    { key: 'library' as const, label: t('projects.library') },
   ]
 
   const getCategoryColor = (category: Project['category']) => {
     const colors = {
       web: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-      mobile: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-      fullstack: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
-      design: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200',
+      webapp: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
+      library: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
     }
     return colors[category]
   }
@@ -58,9 +56,9 @@ export default function ProjectsPage() {
 
   const getStatusLabel = (status: Project['status']) => {
     const labels = {
-      completed: locale === 'pt-BR' ? 'Concluído' : 'Completed',
-      'in-progress': locale === 'pt-BR' ? 'Em Andamento' : 'In Progress',
-      concept: locale === 'pt-BR' ? 'Conceito' : 'Concept',
+      completed: t('projects.status.completed'),
+      'in-progress': t('projects.status.inProgress'),
+      concept: t('projects.status.concept'),
     }
     return labels[status]
   }
@@ -79,9 +77,7 @@ export default function ProjectsPage() {
               {t('projects.title')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              {locale === 'pt-BR'
-                ? 'Explore uma seleção dos meus projetos mais recentes, desde aplicações web complexas até sistemas de design completos.'
-                : 'Explore a selection of my most recent projects, from complex web applications to complete design systems.'}
+              {t('projects.projectsDescription')}
             </p>
           </div>
 
@@ -131,13 +127,10 @@ export default function ProjectsPage() {
                         {project.featured && (
                           <Badge className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
                             <Star className="w-3 h-3 mr-1" />
-                            {locale === 'pt-BR' ? 'Destaque' : 'Featured'}
+                            {t('projects.featuredBadge')}
                           </Badge>
                         )}
                       </div>
-                      {project.slug === 'asm-marketing-digital' && (
-                        <RealProjectBadge locale={locale} />
-                      )}
                     </div>
 
                     {/* Category Badge */}
@@ -189,7 +182,7 @@ export default function ProjectsPage() {
                     {/* Client Info */}
                     {project.client && (
                       <div className="text-xs text-muted-foreground">
-                        {locale === 'pt-BR' ? 'Cliente: ' : 'Client: '}
+                        {t('projects.client')}:{' '}
                         <span className="font-medium">{project.client.name}</span>
                       </div>
                     )}
@@ -198,7 +191,7 @@ export default function ProjectsPage() {
                     <div className="flex gap-2 pt-2">
                       <Link href={`/projects/${project.slug}`} className="flex-1">
                         <Button size="sm" className="w-full">
-                          {locale === 'pt-BR' ? 'Ver Detalhes' : 'View Details'}
+                          {t('projects.viewDetails')}
                         </Button>
                       </Link>
 
@@ -238,9 +231,7 @@ export default function ProjectsPage() {
           {filteredProjects.length === 0 && (
             <div className="text-center py-16">
               <p className="text-muted-foreground text-lg">
-                {locale === 'pt-BR'
-                  ? 'Nenhum projeto encontrado nesta categoria.'
-                  : 'No projects found in this category.'}
+                {t('projects.noProjectsFound')}
               </p>
             </div>
           )}

@@ -1,3 +1,4 @@
+import { useTranslation } from '@/hooks/use-translation'
 import { cn } from '@/lib/utils'
 
 interface LoadingSpinnerProps {
@@ -6,6 +7,8 @@ interface LoadingSpinnerProps {
 }
 
 export function LoadingSpinner({ size = 'md', className }: LoadingSpinnerProps) {
+  const { t } = useTranslation()
+
   const sizeClasses = {
     sm: 'w-4 h-4',
     md: 'w-8 h-8',
@@ -20,9 +23,9 @@ export function LoadingSpinner({ size = 'md', className }: LoadingSpinnerProps) 
         className,
       )}
       role="status"
-      aria-label="Carregando..."
+      aria-label={t('common.loading')}
     >
-      <span className="sr-only">Carregando...</span>
+      <span className="sr-only">{t('common.loading')}</span>
     </div>
   )
 }

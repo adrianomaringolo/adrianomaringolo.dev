@@ -19,7 +19,7 @@ export const taskManagementApp: Project = {
     'en-US':
       'Responsive web app for team project and task management, with real-time collaboration features, notifications and productivity reports.',
   },
-  category: 'web',
+  category: 'webapp',
   tags: {
     'pt-BR': [
       'Produtividade',

@@ -26,7 +26,7 @@ import { notFound } from 'next/navigation'
 type ProjectDetailPageProps = PageProps<{ slug: string }>
 
 export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
-  const { locale } = useTranslation()
+  const { t, locale } = useTranslation()
   const { slug } = useParams(params)
   const project = getProjectBySlug(slug)
 
@@ -37,9 +37,8 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   const getCategoryColor = (category: string) => {
     const colors = {
       web: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-      mobile: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-      fullstack: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
-      design: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200',
+      webapp: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
+      library: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
     }
     return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800'
   }
@@ -51,7 +50,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
         <Link href="/projects">
           <Button variant="ghost" size="sm" className="mb-6">
             <ArrowLeft className="w-4 h-4" />
-            {locale === 'pt-BR' ? 'Voltar aos Projetos' : 'Back to Projects'}
+            {t('projects.backToProjects')}
           </Button>
         </Link>
       </div>
@@ -72,7 +71,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               {project.featured && (
                 <Badge className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
                   <Star className="w-3 h-3 mr-1" />
-                  {locale === 'pt-BR' ? 'Destaque' : 'Featured'}
+                  {t('projects.featuredBadge')}
                 </Badge>
               )}
             </div>
@@ -99,7 +98,9 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               {project.client && (
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4" />
-                  <span>{project.client.name}</span>
+                  <span>
+                    {t('projects.client')}: {project.client.name}
+                  </span>
                 </div>
               )}
             </div>
@@ -114,7 +115,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                   className={buttonVariants()}
                 >
                   <ExternalLink className="w-4 h-4" />
-                  {locale === 'pt-BR' ? 'Ver Demo' : 'View Demo'}
+                  {t('projects.viewDemo')}
                 </a>
               )}
 
@@ -126,7 +127,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                   className={buttonVariants({ variant: 'outline' })}
                 >
                   <SiGithub className="w-4 h-4" />
-                  {locale === 'pt-BR' ? 'Ver Código' : 'View Code'}
+                  {t('projects.viewCode')}
                 </a>
               )}
             </div>
@@ -161,7 +162,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold text-center mb-12">
-                {locale === 'pt-BR' ? 'A História do Projeto' : 'Project Story'}
+                {t('projects.projectStory')}
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8">
@@ -171,9 +172,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                     <div className="p-2 bg-red-100 dark:bg-red-900 rounded-lg">
                       <Target className="w-5 h-5 text-red-600 dark:text-red-400" />
                     </div>
-                    <h3 className="text-xl font-semibold">
-                      {locale === 'pt-BR' ? 'O Desafio' : 'The Challenge'}
-                    </h3>
+                    <h3 className="text-xl font-semibold">{t('projects.challenge')}</h3>
                   </div>
                   <p className="text-muted-foreground">{project.story.problem[locale]}</p>
                 </Card>
@@ -184,9 +183,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                     <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
                       <Zap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <h3 className="text-xl font-semibold">
-                      {locale === 'pt-BR' ? 'A Solução' : 'The Solution'}
-                    </h3>
+                    <h3 className="text-xl font-semibold">{t('projects.solution')}</h3>
                   </div>
                   <p className="text-muted-foreground">
                     {project.story.solution[locale]}
@@ -199,9 +196,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                     <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
                       <Users className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <h3 className="text-xl font-semibold">
-                      {locale === 'pt-BR' ? 'O Processo' : 'The Process'}
-                    </h3>
+                    <h3 className="text-xl font-semibold">{t('projects.process')}</h3>
                   </div>
                   <p className="text-muted-foreground">{project.story.process[locale]}</p>
                 </Card>
@@ -212,9 +207,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                     <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg">
                       <TrendingUp className="w-5 h-5 text-green-600 dark:text-green-400" />
                     </div>
-                    <h3 className="text-xl font-semibold">
-                      {locale === 'pt-BR' ? 'Os Resultados' : 'The Results'}
-                    </h3>
+                    <h3 className="text-xl font-semibold">{t('projects.results')}</h3>
                   </div>
                   <p className="text-muted-foreground">{project.story.results[locale]}</p>
                 </Card>
@@ -236,7 +229,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                 viewport={{ once: true }}
               >
                 <h2 className="text-3xl font-bold text-center mb-12">
-                  {locale === 'pt-BR' ? 'Capturas de Tela' : 'Screenshots'}
+                  {t('projects.screenshots')}
                 </h2>
 
                 <ProjectGallery screenshots={project.screenshots} locale={locale} />
@@ -258,7 +251,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                 viewport={{ once: true }}
               >
                 <h2 className="text-3xl font-bold text-center mb-12">
-                  {locale === 'pt-BR' ? 'Resultados Alcançados' : 'Results Achieved'}
+                  {t('projects.resultsAchieved')}
                 </h2>
 
                 <ProjectMetricsComponent metrics={project.metrics} locale={locale} />
@@ -280,7 +273,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                 viewport={{ once: true }}
               >
                 <h2 className="text-3xl font-bold text-center mb-12">
-                  {locale === 'pt-BR' ? 'Depoimento do Cliente' : 'Client Testimonial'}
+                  {t('projects.clientTestimonial')}
                 </h2>
 
                 <Card className="p-8 relative">
@@ -345,7 +338,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold text-center mb-12">
-                {locale === 'pt-BR' ? 'Tecnologias Utilizadas' : 'Technologies Used'}
+                {t('projects.technologiesUsed')}
               </h2>
 
               <div className="flex flex-wrap justify-center gap-3">
@@ -359,7 +352,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               {project.tags[locale].length > 0 && (
                 <div className="mt-8">
                   <h3 className="text-lg font-semibold text-center mb-4">
-                    {locale === 'pt-BR' ? 'Tags' : 'Tags'}
+                    {t('projects.tags')}
                   </h3>
                   <div className="flex flex-wrap justify-center gap-2">
                     {project.tags[locale].map((tag) => (
@@ -385,24 +378,20 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-6">
-                {locale === 'pt-BR' ? 'Gostou do que viu?' : 'Like what you see?'}
-              </h2>
+              <h2 className="text-3xl font-bold mb-6">{t('projects.likeWhatYouSee')}</h2>
               <p className="text-muted-foreground mb-8">
-                {locale === 'pt-BR'
-                  ? 'Vamos conversar sobre como posso ajudar no seu próximo projeto.'
-                  : "Let's talk about how I can help with your next project."}
+                {t('projects.letsWorkTogether')}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link href="/contact" className={buttonVariants({ size: 'lg' })}>
-                  {locale === 'pt-BR' ? 'Entre em Contato' : 'Get in Touch'}
+                  {t('projects.getInTouch')}
                 </Link>
 
                 <Link
                   href="/projects"
                   className={buttonVariants({ variant: 'outline', size: 'lg' })}
                 >
-                  {locale === 'pt-BR' ? 'Ver Mais Projetos' : 'View More Projects'}
+                  {t('projects.viewMoreProjects')}
                 </Link>
               </div>
             </motion.div>

@@ -18,7 +18,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export function FeaturedProjects() {
-  const { locale } = useTranslation()
+  const { t, locale } = useTranslation()
   const featuredProjects = getFeaturedProjects().slice(0, 3) // Mostrar apenas 3 projetos
 
   if (featuredProjects.length === 0) {
@@ -37,12 +37,10 @@ export function FeaturedProjects() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              {locale === 'pt-BR' ? 'Projetos em Destaque' : 'Featured Projects'}
+              {t('projects.featured')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              {locale === 'pt-BR'
-                ? 'Alguns dos meus trabalhos mais recentes e impactantes'
-                : 'Some of my most recent and impactful work'}
+              {t('projects.featuredDescription')}
             </p>
           </motion.div>
 
@@ -73,7 +71,7 @@ export function FeaturedProjects() {
                         {project.category}
                       </Badge>
                       <Badge className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-xs">
-                        {locale === 'pt-BR' ? 'Destaque' : 'Featured'}
+                        {t('projects.featuredBadge')}
                       </Badge>
                     </div>
                     <CardTitle className="text-lg line-clamp-2">
@@ -102,7 +100,7 @@ export function FeaturedProjects() {
                     <div className="flex gap-2 pt-2">
                       <Link href={`/projects/${project.slug}`} className="flex-1">
                         <Button size="sm" className="w-full">
-                          {locale === 'pt-BR' ? 'Ver Detalhes' : 'View Details'}
+                          {t('projects.viewDetails')}
                         </Button>
                       </Link>
 
@@ -147,7 +145,7 @@ export function FeaturedProjects() {
           >
             <Button size="lg">
               <Link href="/projects">
-                {locale === 'pt-BR' ? 'Ver Todos os Projetos' : 'View All Projects'}
+                {t('projects.viewAllProjects')}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>

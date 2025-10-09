@@ -19,7 +19,7 @@ export const designSystem: Project = {
     'en-US':
       'Development of a complete design system for a technology company, including component library, design tokens, interactive documentation and development tools.',
   },
-  category: 'design',
+  category: 'library',
   tags: {
     'pt-BR': [
       'Design System',

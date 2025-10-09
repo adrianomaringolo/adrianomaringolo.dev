@@ -15,56 +15,38 @@ export function DynamicMetadata() {
     // Get page-specific translations
     const getPageTitle = () => {
       if (pathname === '/') {
-        return locale === 'pt-BR'
-          ? 'Adriano Maringolo - Desenvolvedor Web'
-          : 'Adriano Maringolo - Web Developer'
+        return t('pages.homeTitle')
       }
 
       if (pathname === '/about') {
-        return locale === 'pt-BR'
-          ? 'Sobre Mim | Adriano Maringolo'
-          : 'About Me | Adriano Maringolo'
+        return t('pages.aboutTitle')
       }
 
       if (pathname === '/projects') {
-        return locale === 'pt-BR'
-          ? 'Projetos | Adriano Maringolo'
-          : 'Projects | Adriano Maringolo'
+        return t('pages.projectsTitle')
       }
 
       if (pathname === '/contact') {
-        return locale === 'pt-BR'
-          ? 'Contato | Adriano Maringolo'
-          : 'Contact | Adriano Maringolo'
+        return t('pages.contactTitle')
       }
 
-      return locale === 'pt-BR'
-        ? 'Adriano Maringolo - Desenvolvedor Web'
-        : 'Adriano Maringolo - Web Developer'
+      return t('pages.homeTitle')
     }
 
     const getPageDescription = () => {
       if (pathname === '/about') {
-        return locale === 'pt-BR'
-          ? 'Conheça mais sobre minha trajetória, habilidades e experiência no desenvolvimento web.'
-          : 'Learn more about my journey, skills and experience in web development.'
+        return t('pages.aboutDescription')
       }
 
       if (pathname === '/projects') {
-        return locale === 'pt-BR'
-          ? 'Explore meus projetos mais recentes e as tecnologias que utilizo.'
-          : 'Explore my latest projects and the technologies I use.'
+        return t('pages.projectsDescription')
       }
 
       if (pathname === '/contact') {
-        return locale === 'pt-BR'
-          ? 'Entre em contato comigo para discutir seu próximo projeto.'
-          : 'Get in touch with me to discuss your next project.'
+        return t('pages.contactDescription')
       }
 
-      return locale === 'pt-BR'
-        ? 'Desenvolvedor web especializado na criação de sites e aplicações de alta performance com React, Next.js e TailwindCSS.'
-        : 'Web developer specialized in creating high-performance websites and applications with React, Next.js and TailwindCSS.'
+      return t('pages.defaultDescription')
     }
 
     const title = getPageTitle()
@@ -115,11 +97,7 @@ export function DynamicMetadata() {
     // Update keywords based on locale
     const keywords = document.querySelector('meta[name="keywords"]')
     if (keywords) {
-      const keywordContent =
-        locale === 'pt-BR'
-          ? 'Adriano Maringolo, desenvolvedor web, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, desenvolvimento de sites, aplicações web'
-          : 'Adriano Maringolo, web developer, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, website development, web applications'
-      keywords.setAttribute('content', keywordContent)
+      keywords.setAttribute('content', t('pages.keywords'))
     }
   }, [locale, pathname, isLoading, t])
 

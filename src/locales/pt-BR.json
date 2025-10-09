@@ -42,18 +42,28 @@
     "title": "Serviços",
     "web": "Desenvolvimento Web",
     "mobile": "Apps Mobile",
-    "ui": "UI/UX Design"
+    "ui": "UI/UX Design",
+    "websiteTitle": "Criação de Websites",
+    "websiteDescription": "Desenvolvimento de sites institucionais, landing pages e portfólios com design responsivo e otimização para SEO.",
+    "webAppTitle": "Criação de Web Apps",
+    "webAppDescription": "Desenvolvimento de aplicações web complexas com React, Next.js e integração com APIs e bancos de dados."
   },
   "projects": {
     "title": "Projetos",
     "all": "Todos",
     "web": "Web",
-    "mobile": "Mobile",
-    "design": "Design",
+    "webapp": "Web App",
+    "library": "Bibliotecas",
     "underConstruction": "Coletando projetos...",
     "underConstructionDescription": "Em breve você vai poder navegar pelos meus principais projetos e conhecer melhor o meu trabalho!",
     "featured": "Projetos em Destaque",
+    "featuredBadge": "Destaque",
+    "featuredDescription": "Alguns dos meus trabalhos mais recentes e impactantes",
+    "viewAllProjects": "Ver Todos os Projetos",
     "viewDetails": "Ver Detalhes",
+    "projectsDescription": "Explore uma seleção dos meus projetos mais recentes, desde aplicações web complexas até sistemas de design completos.",
+    "noProjectsFound": "Nenhum projeto encontrado nesta categoria.",
+
     "viewDemo": "Ver Demo",
     "viewCode": "Ver Código",
     "backToProjects": "Voltar aos Projetos",
@@ -76,6 +86,18 @@
       "completed": "Concluído",
       "inProgress": "Em Andamento",
       "concept": "Conceito"
+    },
+    "notFound": {
+      "title": "Projeto Não Encontrado",
+      "description": "O projeto que você está procurando não existe ou foi removido.",
+      "whatYouCanDo": "O que você pode fazer:",
+      "checkUrl": "• Verificar se o URL está correto",
+      "browseProjects": "• Navegar pelos projetos disponíveis",
+      "contactError": "• Entrar em contato se você acredita que isso é um erro",
+      "backToProjects": "Ver Todos os Projetos",
+      "backToHome": "Voltar ao Início",
+      "didntFind": "Não encontrou o que procurava?",
+      "getInTouch": "Entre em contato comigo"
     }
   },
   "blog": {
@@ -94,7 +116,9 @@
     "email": "Email",
     "message": "Mensagem",
     "messagePlaceholder": "Conte-me sobre seu projeto...",
-    "send": "Enviar"
+    "send": "Enviar",
+    "successMessage": "Mensagem enviada com sucesso! Muito obrigado, em breve eu te responderei 😉",
+    "errorMessage": "Desculpe, houve um erro ao enviar cadastro."
   },
   "footer": {
     "rights": "Todos os direitos reservados"
@@ -102,7 +126,13 @@
   "pages": {
     "aboutDescription": "Conheça mais sobre minha trajetória, habilidades e experiência no desenvolvimento web.",
     "projectsDescription": "Explore meus projetos mais recentes e as tecnologias que utilizo.",
-    "contactDescription": "Entre em contato comigo para discutir seu próximo projeto."
+    "contactDescription": "Entre em contato comigo para discutir seu próximo projeto.",
+    "homeTitle": "Adriano Maringolo - Desenvolvedor Web",
+    "aboutTitle": "Sobre Mim | Adriano Maringolo",
+    "projectsTitle": "Projetos | Adriano Maringolo",
+    "contactTitle": "Contato | Adriano Maringolo",
+    "defaultDescription": "Desenvolvedor web especializado na criação de sites e aplicações de alta performance com React, Next.js e TailwindCSS.",
+    "keywords": "Adriano Maringolo, desenvolvedor web, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, desenvolvimento de sites, aplicações web"
   },
   "underConstruction": {
     "title": "Em Construção",
@@ -133,6 +163,13 @@
       "singular": "{{count}} item",
       "plural": "{{count}} itens"
     },
-    "timeAgo": "há {{time}}"
+    "timeAgo": "há {{time}}",
+    "changeLanguage": "Alterar idioma",
+    "active": "✓ Ativo"
+  },
+  "cta": {
+    "title": "Tem uma ideia em mente?",
+    "description": "Vamos conversar e transformar sua visão em realidade digital!",
+    "button": "Entre em Contato"
   }
 }
