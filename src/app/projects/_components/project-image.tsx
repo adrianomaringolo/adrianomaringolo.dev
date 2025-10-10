@@ -1,6 +1,6 @@
 'use client'
 
-import { OptimizedImage } from './optimized-image'
+import { OptimizedImage } from '@/components/optimized-image'
 
 interface ProjectImageProps {
   src: string

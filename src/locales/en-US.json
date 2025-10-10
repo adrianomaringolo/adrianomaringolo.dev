@@ -76,6 +76,8 @@
     "resultsAchieved": "Results Achieved",
     "clientTestimonial": "Client Testimonial",
     "technologiesUsed": "Technologies Used",
+    "nextSteps": "Next Steps",
+    "features": "Key Features",
     "tags": "Tags",
     "likeWhatYouSee": "Like what you see?",
     "letsWorkTogether": "Let's talk about how I can help with your next project.",
@@ -165,7 +167,8 @@
     },
     "timeAgo": "{{time}} ago",
     "changeLanguage": "Change language",
-    "active": "✓ Active"
+    "active": "✓ Active",
+    "ongoing": "ongoing"
   },
   "cta": {
     "title": "Have an idea in mind?",

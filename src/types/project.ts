@@ -80,7 +80,7 @@ export interface Project {
   liveUrl?: string
   githubUrl?: string
   figmaUrl?: string
-  status: 'completed' | 'in-progress' | 'concept'
+  status?: 'completed' | 'in-progress' | 'concept'
   featured: boolean
   startDate: string
   endDate?: string
@@ -110,4 +110,19 @@ export interface Project {
       'en-US': string
     }
   }
+  nextSteps?: {
+    'pt-BR': string[]
+    'en-US': string[]
+  }
+  features?: {
+    title: {
+      'pt-BR': string
+      'en-US': string
+    }
+    description: {
+      'pt-BR': string
+      'en-US': string
+    }
+    icon?: string
+  }[]
 }

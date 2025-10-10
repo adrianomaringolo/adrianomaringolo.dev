@@ -183,4 +183,58 @@ export const asmMarketingDigital: Project = {
         "The result was a modern, optimized and strategic website that presents ASM's services with clarity and clean design, reinforces Anelita's personal branding with an engaging \"About me\" section, includes forms integrated with Google Forms for lead capture, and contains integrated links to Instagram and free e-books to strengthen digital presence. The new website elevated the brand's professional perception, consolidating ASM as a solid and accessible marketing consultancy.",
     },
   },
+  features: [
+    {
+      title: {
+        'pt-BR': 'Design Responsivo',
+        'en-US': 'Responsive Design',
+      },
+      description: {
+        'pt-BR':
+          'Layout adaptável que funciona perfeitamente em todos os dispositivos, garantindo uma experiência consistente.',
+        'en-US':
+          'Adaptive layout that works perfectly on all devices, ensuring a consistent experience.',
+      },
+      icon: '📱',
+    },
+    {
+      title: {
+        'pt-BR': 'SEO Otimizado',
+        'en-US': 'SEO Optimized',
+      },
+      description: {
+        'pt-BR':
+          'Estrutura otimizada para mecanismos de busca com meta tags, schema markup e performance de carregamento.',
+        'en-US':
+          'Structure optimized for search engines with meta tags, schema markup and loading performance.',
+      },
+      icon: '🔍',
+    },
+    {
+      title: {
+        'pt-BR': 'Captação de Leads',
+        'en-US': 'Lead Generation',
+      },
+      description: {
+        'pt-BR':
+          'Formulários estratégicos integrados ao Google Forms para conversão eficiente de visitantes em leads.',
+        'en-US':
+          'Strategic forms integrated with Google Forms for efficient conversion of visitors into leads.',
+      },
+      icon: '🎯',
+    },
+    {
+      title: {
+        'pt-BR': 'Branding Pessoal',
+        'en-US': 'Personal Branding',
+      },
+      description: {
+        'pt-BR':
+          'Seção dedicada ao storytelling pessoal da fundadora, reforçando autoridade e conexão emocional.',
+        'en-US':
+          "Section dedicated to the founder's personal storytelling, reinforcing authority and emotional connection.",
+      },
+      icon: '👤',
+    },
+  ],
 }

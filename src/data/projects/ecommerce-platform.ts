@@ -167,4 +167,58 @@ export const ecommercePlatform: Project = {
         'The new platform resulted in 45% increase in conversion, 60% performance improvement and 90% user satisfaction.',
     },
   },
+  features: [
+    {
+      title: {
+        'pt-BR': 'Catálogo Avançado',
+        'en-US': 'Advanced Catalog',
+      },
+      description: {
+        'pt-BR':
+          'Sistema de produtos com categorias, filtros, busca avançada e gestão de estoque em tempo real.',
+        'en-US':
+          'Product system with categories, filters, advanced search and real-time inventory management.',
+      },
+      icon: '🛒',
+    },
+    {
+      title: {
+        'pt-BR': 'Pagamentos Seguros',
+        'en-US': 'Secure Payments',
+      },
+      description: {
+        'pt-BR':
+          'Integração completa com Stripe para processamento seguro de pagamentos com cartão e PIX.',
+        'en-US':
+          'Complete Stripe integration for secure payment processing with cards and PIX.',
+      },
+      icon: '💳',
+    },
+    {
+      title: {
+        'pt-BR': 'Dashboard Administrativo',
+        'en-US': 'Admin Dashboard',
+      },
+      description: {
+        'pt-BR':
+          'Painel completo para gestão de produtos, pedidos, clientes e relatórios de vendas.',
+        'en-US':
+          'Complete panel for managing products, orders, customers and sales reports.',
+      },
+      icon: '📊',
+    },
+    {
+      title: {
+        'pt-BR': 'Performance Otimizada',
+        'en-US': 'Optimized Performance',
+      },
+      description: {
+        'pt-BR':
+          'Carregamento rápido com lazy loading, cache inteligente e otimização de imagens.',
+        'en-US':
+          'Fast loading with lazy loading, intelligent cache and image optimization.',
+      },
+      icon: '⚡',
+    },
+  ],
 }
