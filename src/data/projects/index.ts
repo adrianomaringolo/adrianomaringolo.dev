@@ -26,10 +26,4 @@ export function getProjectsByCategory(category: Project['category']): Project[] 
 }
 
 // Export individual projects
-export {
-  asmMarketingDigital,
-  designSystem,
-  ecommercePlatform,
-  gotaDeCura,
-  taskManagementApp,
-}
+export { asmMarketingDigital, designSystem }

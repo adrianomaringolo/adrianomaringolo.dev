@@ -1,5 +1,6 @@
 'use client'
 
+import { ParticleField } from '@/components/ui/particle-fields'
 import { projects } from '@/data/projects'
 import { useTranslation } from '@/hooks/use-translation'
 import type { Project } from '@/types/project'
@@ -26,6 +27,11 @@ export default function ProjectsPage() {
 
   return (
     <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <ParticleField
+        particleCount={200}
+        colors={['#0891b2', '#1c398e', '#c3923e']}
+        opacity={0.7}
+      />
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
