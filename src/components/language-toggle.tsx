@@ -62,9 +62,6 @@ export function LanguageToggle() {
               <span className="flex items-center gap-2">
                 <span className="text-base">{localeData.flag}</span>
                 <span className="font-medium">{localeData.name}</span>
-                {isActive && (
-                  <span className="ml-auto text-xs opacity-70">{t('common.active')}</span>
-                )}
               </span>
             </DropdownMenuItem>
           )

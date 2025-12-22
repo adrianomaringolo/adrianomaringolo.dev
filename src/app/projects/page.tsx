@@ -27,11 +27,6 @@ export default function ProjectsPage() {
 
   return (
     <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-      <ParticleField
-        particleCount={200}
-        colors={['#0891b2', '#1c398e', '#c3923e']}
-        opacity={0.7}
-      />
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -82,6 +77,12 @@ export default function ProjectsPage() {
           )}
         </motion.div>
       </div>
+
+      <ParticleField
+        particleCount={200}
+        colors={['#0891b2', '#1c398e', '#c3923e']}
+        opacity={0.7}
+      />
     </section>
   )
 }

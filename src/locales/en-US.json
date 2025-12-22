@@ -11,11 +11,25 @@
       "greeting": "Hi, I am",
       "title": "Full Stack Developer",
       "subtitle": "Full stack developer specialized in React, Next.js and TailwindCSS",
-      "cta": "View Projects"
+      "cta": "View Projects",
+      "contact": "Get in Touch",
+      "scrollToExplore": "Scroll to explore",
+      "stats": {
+        "experience": "Years of Experience",
+        "projects": "Projects Delivered",
+        "satisfaction": "Satisfaction"
+      }
     },
     "about": {
       "title": "About Me",
-      "description": "I turn ideas into digital experiences. \nWith 15+ years of experience, I build modern websites and web apps that combine design, performance, and usability to create real impact."
+      "badge": "Full Stack Developer",
+      "description": "I turn ideas into digital experiences. With 15+ years of experience, I build modern websites and web apps that combine design, performance, and usability to create real impact.",
+      "cta": "Learn More",
+      "stats": {
+        "projects": "Projects",
+        "experience": "Years",
+        "satisfaction": "Satisfaction"
+      }
     }
   },
   "about": {
@@ -39,14 +53,22 @@
     }
   },
   "services": {
-    "title": "Services",
+    "title": "What I Do",
+    "badge": "Services",
+    "subtitle": "Complete solutions to turn your ideas into digital reality",
     "web": "Web Development",
     "mobile": "Mobile Apps",
     "ui": "UI/UX Design",
     "websiteTitle": "Website Development",
     "websiteDescription": "Development of institutional websites, landing pages and portfolios with responsive design and SEO optimization.",
     "webAppTitle": "Web App Development",
-    "webAppDescription": "Development of complex web applications with React, Next.js and integration with APIs and databases."
+    "webAppDescription": "Development of complex web applications with React, Next.js and integration with APIs and databases.",
+    "frontendTitle": "Frontend Development",
+    "frontendDescription": "Modern and responsive interfaces with best development practices and user experience.",
+    "backendTitle": "Backend Development",
+    "backendDescription": "Robust APIs, service integration and scalable architecture for high-performance applications.",
+    "technologies": "Technologies I Use",
+    "cta": "Let's Talk"
   },
   "projects": {
     "title": "Projects",
@@ -84,6 +106,20 @@
     "getInTouch": "Get in Touch",
     "viewMoreProjects": "View More Projects",
     "client": "Client",
+    "technicalChallenges": "Technical Challenges",
+    "skillsAcquired": "Skills Acquired",
+    "clientTestimonials": "User Testimonials",
+    "expandSection": "Click to expand",
+    "itemCount": {
+      "singular": "{{count}} item",
+      "plural": "{{count}} items"
+    },
+    "carousel": {
+      "previousImage": "Previous image",
+      "nextImage": "Next image",
+      "imageCounter": "Image {{current}} of {{total}}",
+      "thumbnail": "Thumbnail {{index}}"
+    },
     "status": {
       "completed": "Completed",
       "inProgress": "In Progress",
@@ -171,8 +207,16 @@
     "ongoing": "ongoing"
   },
   "cta": {
+    "badge": "Let's Work Together",
     "title": "Have an idea in mind?",
-    "description": "Let's talk and turn your vision into digital reality!",
-    "button": "Get in Touch"
+    "description": "Let's talk and turn your vision into digital reality! I'm here to help you create solutions that make a difference.",
+    "button": "Get in Touch",
+    "secondaryButton": "View Projects",
+    "note": "Response guaranteed within 24 hours",
+    "benefits": {
+      "quality": "Quality guaranteed",
+      "delivery": "On-time delivery",
+      "support": "Continuous support"
+    }
   }
 }

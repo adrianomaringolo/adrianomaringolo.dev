@@ -92,6 +92,7 @@ export interface Project {
   challenges: ProjectChallenge[]
   metrics?: ProjectMetrics[]
   testimonial?: ProjectTestimonial
+  testimonials?: ProjectTestimonial[]
   story: {
     problem: {
       'pt-BR': string
@@ -125,4 +126,12 @@ export interface Project {
     }
     icon?: string
   }[]
+  technicalChallenges?: {
+    'pt-BR': string[]
+    'en-US': string[]
+  }
+  skillsAcquired?: {
+    'pt-BR': string[]
+    'en-US': string[]
+  }
 }

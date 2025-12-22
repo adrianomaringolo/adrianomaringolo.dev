@@ -11,11 +11,25 @@
       "greeting": "Olá, eu sou",
       "title": "Criador de experiências digitais",
       "subtitle": "Desenvolvedor Full Stack especializado em React, Next.js e TailwindCSS",
-      "cta": "Ver Projetos"
+      "cta": "Ver Projetos",
+      "contact": "Entre em Contato",
+      "scrollToExplore": "Scroll para explorar",
+      "stats": {
+        "experience": "Anos de Experiência",
+        "projects": "Projetos Entregues",
+        "satisfaction": "Satisfação"
+      }
     },
     "about": {
       "title": "Sobre Mim",
-      "description": "Transformo ideias em experiências digitais. \nSou desenvolvedor com 15+ anos de experiência criando websites e web apps modernos, combinando design, performance e usabilidade para gerar impacto real."
+      "badge": "Desenvolvedor Full Stack",
+      "description": "Transformo ideias em experiências digitais. Sou desenvolvedor com 15+ anos de experiência criando websites e web apps modernos, combinando design, performance e usabilidade para gerar impacto real.",
+      "cta": "Saiba Mais",
+      "stats": {
+        "projects": "Projetos",
+        "experience": "Anos",
+        "satisfaction": "Satisfação"
+      }
     }
   },
   "about": {
@@ -39,14 +53,22 @@
     }
   },
   "services": {
-    "title": "Serviços",
+    "title": "O Que Eu Faço",
+    "badge": "Serviços",
+    "subtitle": "Soluções completas para transformar suas ideias em realidade digital",
     "web": "Desenvolvimento Web",
     "mobile": "Apps Mobile",
     "ui": "UI/UX Design",
     "websiteTitle": "Criação de Websites",
     "websiteDescription": "Desenvolvimento de sites institucionais, landing pages e portfólios com design responsivo e otimização para SEO.",
     "webAppTitle": "Criação de Web Apps",
-    "webAppDescription": "Desenvolvimento de aplicações web complexas com React, Next.js e integração com APIs e bancos de dados."
+    "webAppDescription": "Desenvolvimento de aplicações web complexas com React, Next.js e integração com APIs e bancos de dados.",
+    "frontendTitle": "Desenvolvimento Frontend",
+    "frontendDescription": "Interfaces modernas e responsivas com as melhores práticas de desenvolvimento e experiência do usuário.",
+    "backendTitle": "Desenvolvimento Backend",
+    "backendDescription": "APIs robustas, integração de serviços e arquitetura escalável para aplicações de alta performance.",
+    "technologies": "Tecnologias que Utilizo",
+    "cta": "Vamos Conversar"
   },
   "projects": {
     "title": "Projetos",
@@ -84,6 +106,20 @@
     "getInTouch": "Entre em Contato",
     "viewMoreProjects": "Ver Mais Projetos",
     "client": "Cliente",
+    "technicalChallenges": "Desafios Técnicos",
+    "skillsAcquired": "Habilidades Adquiridas",
+    "clientTestimonials": "Depoimentos dos Usuários",
+    "expandSection": "Clique para expandir",
+    "itemCount": {
+      "singular": "{{count}} item",
+      "plural": "{{count}} itens"
+    },
+    "carousel": {
+      "previousImage": "Imagem anterior",
+      "nextImage": "Próxima imagem",
+      "imageCounter": "Imagem {{current}} de {{total}}",
+      "thumbnail": "Miniatura {{index}}"
+    },
     "status": {
       "completed": "Concluído",
       "inProgress": "Em Andamento",
@@ -171,8 +207,16 @@
     "ongoing": "em andamento"
   },
   "cta": {
+    "badge": "Vamos Trabalhar Juntos",
     "title": "Tem uma ideia em mente?",
-    "description": "Vamos conversar e transformar sua visão em realidade digital!",
-    "button": "Entre em Contato"
+    "description": "Vamos conversar e transformar sua visão em realidade digital! Estou aqui para ajudar você a criar soluções que fazem a diferença.",
+    "button": "Entre em Contato",
+    "secondaryButton": "Ver Projetos",
+    "note": "Resposta garantida em até 24 horas",
+    "benefits": {
+      "quality": "Qualidade garantida",
+      "delivery": "Entrega no prazo",
+      "support": "Suporte contínuo"
+    }
   }
 }

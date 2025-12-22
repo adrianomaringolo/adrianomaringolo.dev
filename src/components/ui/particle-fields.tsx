@@ -124,7 +124,7 @@ export function ParticleField({
   return (
     <canvas
       ref={canvasRef}
-      className={cn('absolute inset-0 pointer-events-none z-5', className)}
+      className={cn('absolute inset-0 pointer-events-none -z-10', className)}
       style={{ opacity }}
     />
   )

@@ -44,7 +44,7 @@ export function ProjectGallery({ screenshots, locale }: ProjectGalleryProps) {
   return (
     <>
       {/* Gallery Grid */}
-      <div className="grid gap-8">
+      <div className="grid sm:grid-cols-2 gap-8">
         {screenshots.map((screenshot, index) => (
           <motion.div
             key={screenshot.id}
@@ -55,7 +55,7 @@ export function ProjectGallery({ screenshots, locale }: ProjectGalleryProps) {
             className="space-y-4"
           >
             <div
-              className="relative rounded-xl overflow-hidden shadow-lg cursor-pointer group"
+              className="relative rounded-xl overflow-hidden shadow-lg cursor-pointer group "
               onClick={() => openLightbox(index)}
             >
               <Image
