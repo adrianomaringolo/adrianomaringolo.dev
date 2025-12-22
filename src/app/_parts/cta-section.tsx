@@ -110,7 +110,19 @@ export function CTASection() {
                       whileHover={{ x: '100%' }}
                       transition={{ duration: 0.6 }}
                     />
-                    <MessageCircle className="mr-2 h-5 w-5 relative z-10" />
+                    <motion.div
+                      className="mr-2 relative z-10"
+                      whileHover={{
+                        y: [0, -2, 0],
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        ease: 'easeInOut',
+                      }}
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                    </motion.div>
                     <span className="relative z-10">{t('cta.button')}</span>
                     <ArrowRight className="ml-2 h-4 w-4 relative z-10 transition-transform group-hover:translate-x-1" />
                   </Button>

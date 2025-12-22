@@ -57,26 +57,25 @@ export const portalDaMorada: Project = {
     'n8n',
     'Google Apps Script',
   ],
-  thumbnail: '/projects/placeholder-portal.svg',
+  thumbnail: '/projects/portal-da-morada/portal-login.png',
   images: [
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&crop=center',
-    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&crop=center',
+    '/projects/portal-da-morada/portal-acessos.png',
+    '/projects/portal-da-morada/portal-membros.png',
   ],
   liveUrl: 'https://portal.morada.org.br/',
   screenshots: [
     {
       id: '1',
-      url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&crop=center',
+      url: '/projects/portal-da-morada/portal-dashboard.png',
       alt: 'Dashboard principal',
       caption: {
-        'pt-BR':
-          'Dashboard com visão geral de todos os módulos e métricas da organização',
-        'en-US': 'Dashboard with overview of all modules and organization metrics',
+        'pt-BR': 'Dashboard com visão geral das informações principais para o membro',
+        'en-US': 'Dashboard with overview of main information for the member',
       },
     },
     {
       id: '2',
-      url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&crop=center',
+      url: '/projects/portal-da-morada/portal-membros.png',
       alt: 'Gestão de membros',
       caption: {
         'pt-BR': 'Sistema completo de gestão de membros com histórico e permissões',
@@ -85,7 +84,7 @@ export const portalDaMorada: Project = {
     },
     {
       id: '3',
-      url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop&crop=center',
+      url: '/projects/portal-da-morada/portal-pendencias.png',
       alt: 'Módulo financeiro',
       caption: {
         'pt-BR': 'Dashboard financeiro com relatórios, pendências e análises',
@@ -94,13 +93,72 @@ export const portalDaMorada: Project = {
     },
     {
       id: '4',
-      url: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&h=800&fit=crop&crop=center',
+      url: '/projects/portal-da-morada/portal-comandas.png',
       alt: 'Sistema de eventos',
       caption: {
         'pt-BR':
           'Gestão de eventos com QR Code, scanner integrado e acompanhamento em tempo real',
         'en-US':
           'Event management with QR Code, integrated scanner and real-time tracking',
+      },
+    },
+    {
+      id: '5',
+      url: '/projects/portal-da-morada/portal-comunicados.png',
+      alt: 'Comunicados',
+      caption: {
+        'pt-BR': 'Acompanhamento de comunicados e notificações para membros',
+        'en-US': 'Tracking of communications and notifications for members',
+      },
+    },
+    {
+      id: '7',
+      url: '/projects/portal-da-morada/portal-biblioteca.png',
+      alt: 'Biblioteca',
+      caption: {
+        'pt-BR':
+          'Listagem de livros da biblioteca com pesquisa e filtros, criação de coleções e pedidos de empréstimo',
+        'en-US':
+          'Library book listing with search and filters, collection creation and loan requests',
+      },
+    },
+    {
+      id: '8',
+      url: '/projects/portal-da-morada/portal-acessos.png',
+      alt: 'Acessos',
+      caption: {
+        'pt-BR': 'Gestão de acessos com histórico, relatórios e gráficos',
+        'en-US': 'Access management with history, reports and charts',
+      },
+    },
+    {
+      id: '9',
+      url: '/projects/portal-da-morada/portal-atividades.png',
+      alt: 'Calendário de atividades',
+      caption: {
+        'pt-BR':
+          'Gerenciamento e visualização do calendário de atividades da organização',
+        'en-US': "Management and visualization of the organization's activity calendar",
+      },
+    },
+    {
+      id: '10',
+      url: '/projects/portal-da-morada/portal-escalas.jpeg',
+      alt: 'Escalas de atividades',
+      caption: {
+        'pt-BR': 'Criação e gerenciamento de escalas para atividades dos membros',
+        'en-US': 'Creation and management of schedules for member activities',
+      },
+    },
+    {
+      id: '11',
+      url: '/projects/portal-da-morada/portal-conteudos.jpeg',
+      alt: 'Área de conteúdos',
+      caption: {
+        'pt-BR':
+          'Áreas de conteúdos para compartilhamento de informações, vídeos, pdf, entre outros',
+        'en-US':
+          'Content areas for sharing information, videos, PDFs, and other materials',
       },
     },
   ],

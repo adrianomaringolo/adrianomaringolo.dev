@@ -1,18 +1,14 @@
 import type { Project } from '@/types/project'
 import { asmMarketingDigital } from './asm-marketing-digital'
-import { designSystem } from './design-system'
-import { ecommercePlatform } from './ecommerce-platform'
+import { buildgridUI } from './buildgrid-ui'
 import { gotaDeCura } from './gota-de-cura'
 import { portalDaMorada } from './portal-da-morada'
-import { taskManagementApp } from './task-management-app'
 
 export const projects: Project[] = [
   asmMarketingDigital,
+  buildgridUI,
   gotaDeCura,
   portalDaMorada,
-  ecommercePlatform,
-  taskManagementApp,
-  designSystem,
 ]
 
 export function getProjectBySlug(slug: string): Project | undefined {
@@ -28,11 +24,4 @@ export function getProjectsByCategory(category: Project['category']): Project[] 
 }
 
 // Export individual projects
-export {
-  asmMarketingDigital,
-  designSystem,
-  ecommercePlatform,
-  gotaDeCura,
-  portalDaMorada,
-  taskManagementApp,
-}
+export { asmMarketingDigital, buildgridUI, gotaDeCura, portalDaMorada }

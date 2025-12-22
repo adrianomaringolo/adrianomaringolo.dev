@@ -15,18 +15,27 @@ import Link from 'next/link'
 export function AboutSection() {
   const { t } = useLocale()
 
+  // Calcula anos de experiência (2009 até agora)
+  const yearsOfExperience = new Date().getFullYear() - 2009
+
   const skills = [
-    { icon: Code2, label: 'Frontend Development', color: 'bg-blue-500' },
-    { icon: Rocket, label: 'Performance Optimization', color: 'bg-green-500' },
-    { icon: Lightbulb, label: 'Creative Solutions', color: 'bg-yellow-500' },
-    { icon: Coffee, label: 'Problem Solving', color: 'bg-purple-500' },
+    { icon: Code2, label: t('home.about.skills.frontend'), color: 'bg-blue-500' },
+    { icon: Rocket, label: t('home.about.skills.performance'), color: 'bg-green-500' },
+    { icon: Lightbulb, label: t('home.about.skills.creative'), color: 'bg-yellow-500' },
+    { icon: Coffee, label: t('home.about.skills.problem'), color: 'bg-purple-500' },
   ]
 
   const stats = [
     { number: 50, suffix: '+', label: t('home.about.stats.projects') },
-    { number: 15, suffix: '+', label: t('home.about.stats.experience') },
+    { number: yearsOfExperience, suffix: '+', label: t('home.about.stats.experience') },
     { number: 100, suffix: '%', label: t('home.about.stats.satisfaction') },
   ]
+
+  // Interpolação manual para a descrição
+  const description = t('home.about.description').replace(
+    '{{years}}',
+    yearsOfExperience.toString(),
+  )
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -85,7 +94,7 @@ export function AboutSection() {
           <RevealAnimation direction="left" delay={0.4}>
             <div className="space-y-6">
               <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
-                {t('home.about.description')}
+                {description}
               </p>
 
               <div className="grid grid-cols-2 gap-4">
@@ -142,7 +151,8 @@ export function AboutSection() {
                       <AnimatedCounter
                         value={stat.number}
                         suffix={stat.suffix}
-                        duration={2 + index * 0.5}
+                        duration={2.5}
+                        delay={index * 0.3}
                       />
                     </div>
                     <div className="text-sm text-muted-foreground font-medium">

@@ -81,7 +81,7 @@ export const asmMarketingDigital: Project = {
   liveUrl: 'https://asmmktdigital.com.br',
   githubUrl: 'https://github.com/adrianomaringolo/asm-website',
   status: 'completed',
-  featured: true,
+  featured: false,
   startDate: '2025-04-09',
   endDate: '2025-05-15',
   client: {

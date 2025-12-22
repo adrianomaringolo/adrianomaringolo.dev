@@ -2,6 +2,7 @@
 
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { DownloadCVButton } from '@/components/ui/download-cv-button'
 import { useLocale } from '@/hooks/use-locale'
 import { useScrollDirection } from '@/hooks/use-scroll-direction'
 import { Button } from 'buildgrid-ui'
@@ -92,6 +93,7 @@ export function Navbar() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 }}
             >
+              <DownloadCVButton variant="outline" size="sm" />
               <ThemeToggle />
               <LanguageToggle />
             </motion.div>
@@ -161,8 +163,11 @@ export function Navbar() {
                 delay: isOpen ? navItems.length * 0.1 : 0,
                 duration: 0.2,
               }}
-              className="px-3 py-2"
+              className="px-3 py-2 space-y-3"
             >
+              <div className="flex justify-center">
+                <DownloadCVButton size="sm" />
+              </div>
               <LanguageToggle />
             </motion.div>
           </div>

@@ -23,8 +23,14 @@
     "about": {
       "title": "Sobre Mim",
       "badge": "Desenvolvedor Full Stack",
-      "description": "Transformo ideias em experiências digitais. Sou desenvolvedor com 15+ anos de experiência criando websites e web apps modernos, combinando design, performance e usabilidade para gerar impacto real.",
+      "description": "Transformo ideias em experiências digitais. Sou desenvolvedor com {{years}}+ anos de experiência criando websites e web apps modernos, combinando design, performance e usabilidade para gerar impacto real.",
       "cta": "Saiba Mais",
+      "skills": {
+        "frontend": "Desenvolvimento Frontend",
+        "performance": "Otimização de Performance",
+        "creative": "Soluções Criativas",
+        "problem": "Resolução de Problemas"
+      },
       "stats": {
         "projects": "Projetos",
         "experience": "Anos",
@@ -34,7 +40,8 @@
   },
   "about": {
     "title": "Sobre Mim",
-    "header": "Olá! Eu sou um desenvolvedor de software com mais de 15 anos de experiência",
+    "badge": "Conheça Minha História",
+    "header": "Olá! Eu sou um desenvolvedor de software com mais de {{years}} anos de experiência",
     "description": "... em criação de soluções digitais. Minha especialidade é transformar ideias em websites modernos e web apps funcionais, sempre com foco em design, performance e experiência do usuário.\n\nAo longo da minha trajetória, participei de projetos para diferentes setores, desde sites institucionais até plataformas complexas para grandes empresas. Essa diversidade me deu uma visão abrangente de como unir tecnologia e design para entregar resultados de impacto.\n\nHoje, meu objetivo é ajudar pessoas e negócios a se destacarem no ambiente digital, criando soluções personalizadas que combinam estética, usabilidade e tecnologia de ponta.",
     "historyTitle": "Minha Trajetória",
     "history": "Minha carreira no desenvolvimento de software começou em 2009, quando mergulhei no universo .NET e dei meus primeiros passos criando sistemas corporativos. Desde então, venho expandindo minha atuação para diferentes tecnologias e contextos, sempre guiado pela vontade de aprender e compartilhar conhecimento.\n\nTive a oportunidade de trabalhar em empresas de tecnologia e consultorias de renome, como Venturus, Dextra, Avenue Code e atualmente Codurance, colaborando em projetos nacionais e internacionais. Passei por diferentes papéis — de desenvolvedor a tech lead — e liderei iniciativas que envolveram desde a modernização de sistemas legados até a construção de aplicações web escaláveis do zero.\n\nAlém da prática em projetos, também atuei como instrutor e mentor, ministrando treinamentos internos e externos em tecnologias como Angular, React e Node.js. Essa vivência consolidou não apenas minha bagagem técnica, mas também minha paixão por ajudar outras pessoas a crescerem na área.\n\nHoje, como Senior Frontend Engineer, sigo unindo experiência, inovação e boas práticas para transformar ideias em produtos digitais de impacto, com foco em performance, usabilidade e design.",
@@ -49,8 +56,31 @@
       "performance": "Performance",
       "performanceDescription": "Código otimizado e boas práticas para garantir carregamento rápido e fluidez na navegação.",
       "userExperience": "Experiência do Usuário",
-      "userExperienceDescription": "Foco na usabilidade e acessibilidade para criar interfaces intuitivas e agradáveis."
-    }
+      "userExperienceDescription": "Foco na usabilidade e acessibilidade para criar interfaces intuitivas e agradáveis.",
+      "costReduction": "Redução de Custos",
+      "costReductionDescription": "Soluções eficientes que otimizam recursos e reduzem custos operacionais sem comprometer a qualidade.",
+      "communication": "Comunicação Constante",
+      "communicationDescription": "Mantenho comunicação transparente e regular com o cliente durante todo o processo de desenvolvimento.",
+      "feedback": "Feedback Contínuo",
+      "feedbackDescription": "Processo iterativo com coleta constante de feedback para garantir que o resultado atenda às expectativas.",
+      "maintenance": "Manutenção e Suporte",
+      "maintenanceDescription": "Suporte contínuo e manutenção proativa para garantir que sua solução permaneça sempre atualizada e funcionando perfeitamente.",
+      "continuousLearning": "Aprendizado Contínuo",
+      "continuousLearningDescription": "Sempre buscando novas ferramentas e tecnologias para entregar os melhores resultados e soluções mais inovadoras."
+    },
+    "stats": {
+      "projects": "Projetos Entregues",
+      "experience": "Anos de Experiência",
+      "satisfaction": "Satisfação do Cliente",
+      "technologies": "Tecnologias Dominadas"
+    },
+    "typewriter": {
+      "developer": "Desenvolvedor Full Stack",
+      "creator": "Criador de Experiências",
+      "solver": "Solucionador de Problemas",
+      "enthusiast": "Entusiasta de Tecnologia"
+    },
+    "cta": "Vamos conversar"
   },
   "services": {
     "title": "O Que Eu Faço",
@@ -204,7 +234,8 @@
     "timeAgo": "há {{time}}",
     "changeLanguage": "Alterar idioma",
     "active": "✓ Ativo",
-    "ongoing": "em andamento"
+    "ongoing": "em andamento",
+    "downloadCV": "Currículo"
   },
   "cta": {
     "badge": "Vamos Trabalhar Juntos",

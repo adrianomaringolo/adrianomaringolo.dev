@@ -7,16 +7,16 @@ import { ThemeProvider } from '@/hooks/use-theme'
 import { generatePageMetadata } from '@/lib/metadata'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Lato } from 'next/font/google'
+import { Red_Hat_Display } from 'next/font/google'
 import Image from 'next/image'
 import type React from 'react'
 import { Suspense } from 'react'
 import './globals.css'
 
-const lato = Lato({
+const redHatDisplay = Red_Hat_Display({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '700', '900'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   preload: true,
   fallback: ['system-ui', 'arial'],
 })
@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`font-sans ${lato.className}`}>
+      <body className={`font-sans ${redHatDisplay.className}`}>
         <ThemeProvider>
           <LocaleProvider>
             <DynamicMetadata />

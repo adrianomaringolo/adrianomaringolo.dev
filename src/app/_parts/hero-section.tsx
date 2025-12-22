@@ -8,7 +8,7 @@ import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { useLocale } from '@/hooks/use-locale'
 import { Button } from 'buildgrid-ui'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Code, Sparkles } from 'lucide-react'
+import { ArrowRight, Code, Hand, MessageCircle, Sparkles } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
@@ -17,6 +17,9 @@ export function HeroSection() {
   const { t, locale } = useLocale()
   const tHero = (tag: string) => t(`home.hero.${tag}`)
   const ref = useRef<HTMLDivElement>(null)
+
+  // Calcula anos de experiência (2009 até agora)
+  const yearsOfExperience = new Date().getFullYear() - 2009
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -69,7 +72,7 @@ export function HeroSection() {
                 transition={{ delay: 0.3 }}
                 className="flex items-center justify-center lg:justify-start gap-2 text-lg text-muted-foreground"
               >
-                <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+                <Hand className="w-5 h-5 text-primary animate-pulse" />
                 <span>{tHero('greeting')}</span>
               </motion.div>
 
@@ -124,7 +127,19 @@ export function HeroSection() {
                     <Button variant="outline" size="lg" className="group">
                       <span className="flex items-center">
                         {tHero('contact')}
-                        <Sparkles className="ml-2 h-4 w-4 group-hover:animate-spin" />
+                        <motion.div
+                          whileHover={{
+                            scale: [1, 1.2, 1],
+                            rotate: [0, -10, 10, 0],
+                          }}
+                          transition={{
+                            duration: 0.6,
+                            ease: 'easeInOut',
+                          }}
+                          className="ml-2"
+                        >
+                          <MessageCircle className="h-4 w-4" />
+                        </motion.div>
                       </span>
                     </Button>
                   </MagneticButton>
@@ -139,7 +154,9 @@ export function HeroSection() {
                 transition={{ delay: 1.2 }}
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">15+</div>
+                  <div className="text-2xl font-bold text-primary">
+                    {yearsOfExperience}+
+                  </div>
                   <div>{tHero('stats.experience')}</div>
                 </div>
                 <div className="text-center">

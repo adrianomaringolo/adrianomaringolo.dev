@@ -1,0 +1,6 @@
+export { AboutContent } from './about-content'
+export { AboutHero } from './about-hero'
+export { AboutHistory } from './about-history'
+export { AboutPrinciples } from './about-principles'
+export { AboutStats } from './about-stats'
+export { AboutTechnologies } from './about-technologies'
