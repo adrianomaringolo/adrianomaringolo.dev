@@ -162,7 +162,7 @@ export const portalDaMorada: Project = {
       },
     },
   ],
-  status: 'in-progress',
+  status: 'continous-improvement',
   featured: true,
   startDate: '2021-09-01',
   client: {

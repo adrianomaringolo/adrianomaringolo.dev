@@ -105,6 +105,7 @@ export const gotaDeCura: Project = {
   ],
   liveUrl: 'https://gotadecura.com.br',
   featured: true,
+  status: 'continous-improvement',
   startDate: '2021-08-01',
   client: {
     name: 'Gota de Cura',

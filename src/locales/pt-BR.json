@@ -153,7 +153,8 @@
     "status": {
       "completed": "Concluído",
       "inProgress": "Em Andamento",
-      "concept": "Conceito"
+      "concept": "Conceito",
+      "continousImprovement": "Melhoria Contínua"
     },
     "notFound": {
       "title": "Projeto Não Encontrado",

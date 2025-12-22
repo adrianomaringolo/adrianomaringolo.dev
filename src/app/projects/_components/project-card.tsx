@@ -39,6 +39,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       'in-progress':
         'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
       concept: 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200',
+      'continous-improvement':
+        'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
     } as const
     return colors[status] || 'bg-gray-100 text-gray-800'
   }
@@ -48,6 +50,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       completed: t('projects.status.completed'),
       'in-progress': t('projects.status.inProgress'),
       concept: t('projects.status.concept'),
+      'continous-improvement': t('projects.status.continousImprovement'),
     } as const
     return labels[status] || status
   }
