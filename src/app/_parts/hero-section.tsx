@@ -78,12 +78,12 @@ export function HeroSection() {
 
               {/* Name with special styling */}
               <motion.h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-x">
+                <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-900 bg-clip-text text-transparent animate-text font-black">
                   Adriano Maringolo
                 </span>
               </motion.h1>

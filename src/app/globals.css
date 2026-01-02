@@ -333,3 +333,65 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(8, 145, 178, 0.8);
 }
+
+/* Simple animated text for hero name */
+@keyframes color-cycle {
+  0% {
+    color: hsl(var(--primary));
+  }
+  25% {
+    color: hsl(var(--accent));
+  }
+  50% {
+    color: #3b82f6;
+  }
+  75% {
+    color: #8b5cf6;
+  }
+  100% {
+    color: hsl(var(--primary));
+  }
+}
+
+.animate-gradient-text {
+  color: hsl(var(--primary));
+  animation: color-cycle 4s ease-in-out infinite;
+  font-weight: bold;
+}
+
+.animate-color-text {
+  animation: color-cycle 4s ease-in-out infinite;
+  font-weight: bold;
+}
+/* Gradient background animation */
+@keyframes gradient-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-bg {
+  animation: gradient-bg 6s ease-in-out infinite;
+}
+/* Animated gradient text following dev.to article */
+@keyframes text {
+  0%,
+  100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-text {
+  animation: text 5s ease infinite;
+}
