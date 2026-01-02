@@ -29,7 +29,7 @@ import {
 } from '@icons-pack/react-simple-icons'
 import { Card, CardContent } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
-import { Bot, Cloud, Zap } from 'lucide-react'
+import { Bot, Cloud, Move, Zap } from 'lucide-react'
 
 export function AboutTechnologies() {
   const { t } = useLocale()
@@ -70,6 +70,7 @@ export function AboutTechnologies() {
     { name: 'OpenAI', icon: SiOpenai, color: 'text-gray-900 dark:text-white' },
     { name: 'Kiro AI', icon: Bot, color: 'text-purple-500' },
     { name: 'Sass', icon: SiSass, color: 'text-pink-500' },
+    { name: 'Motion', icon: Move, color: 'text-pink-500' },
   ]
 
   return (
