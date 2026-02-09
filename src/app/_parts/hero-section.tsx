@@ -6,6 +6,7 @@ import { MagneticButton } from '@/components/ui/magnetic-button'
 import { TiltCard } from '@/components/ui/tilt-card'
 import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { useLocale } from '@/hooks/use-locale'
+import { useTheme } from '@/hooks/use-theme'
 import { Button } from 'buildgrid-ui'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Code, Hand, MessageCircle, Sparkles } from 'lucide-react'
@@ -15,6 +16,7 @@ import { useRef } from 'react'
 
 export function HeroSection() {
   const { t, locale } = useLocale()
+  const { resolvedTheme } = useTheme()
   const tHero = (tag: string) => t(`home.hero.${tag}`)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -83,13 +85,13 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-900 bg-clip-text text-transparent animate-text font-black">
+                <span className="bg-linear-to-r from-blue-600 via-cyan-500 to-indigo-900 bg-clip-text text-transparent animate-text font-black">
                   Adriano Maringolo
                 </span>
               </motion.h1>
 
               {/* Typewriter Effect */}
-              <div className="text-xl sm:text-2xl text-muted-foreground min-h-[3rem] flex items-center justify-center lg:justify-start">
+              <div className="text-xl sm:text-2xl text-muted-foreground min-h-12 flex items-center justify-center lg:justify-start">
                 <Code className="w-6 h-6 mr-2 text-primary" />
                 <TypewriterEffect words={typewriterWords} className="font-medium" />
               </div>
@@ -182,15 +184,15 @@ export function HeroSection() {
                   {/* Main image container */}
                   <div className="w-80 h-80 lg:w-[450px] lg:h-[450px] relative rounded-2xl overflow-hidden shadow-2xl">
                     <Image
-                      src="/images/profile-photo.jpg"
-                      alt="Adriano Maringolo - Desenvolvedor Full Stack"
+                      src={`/images/about-profile-photo-${resolvedTheme}.jpeg`}
+                      alt="Adriano Maringolo - Full Stack Engineer"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                       priority
                     />
 
                     {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-background/20 via-transparent to-transparent" />
                   </div>
 
                   {/* Floating elements around image */}
