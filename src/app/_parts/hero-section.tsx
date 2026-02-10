@@ -6,6 +6,7 @@ import { MagneticButton } from '@/components/ui/magnetic-button'
 import { TiltCard } from '@/components/ui/tilt-card'
 import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { useLocale } from '@/hooks/use-locale'
+import { useShouldReduceAnimations } from '@/hooks/use-reduced-motion'
 import { useTheme } from '@/hooks/use-theme'
 import { Button } from 'buildgrid-ui'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -17,6 +18,7 @@ import { useRef } from 'react'
 export function HeroSection() {
   const { t, locale } = useLocale()
   const { resolvedTheme } = useTheme()
+  const shouldReduceAnimations = useShouldReduceAnimations()
   const tHero = (tag: string) => t(`home.hero.${tag}`)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -28,8 +30,16 @@ export function HeroSection() {
     offset: ['start start', 'end start'],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ['0%', shouldReduceAnimations ? '0%' : '50%'],
+  )
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [1, shouldReduceAnimations ? 1 : 0],
+  )
 
   const typewriterWords =
     locale === 'pt-BR'
@@ -48,11 +58,12 @@ export function HeroSection() {
 
   return (
     <div ref={ref} className="relative min-h-screen overflow-hidden">
-      {/* Dynamic Background */}
-      <GradientMesh />
+      {/* Dynamic Background - Desabilitado no mobile */}
+      {!shouldReduceAnimations && <GradientMesh />}
 
-      {/* Floating Code Elements */}
-      <FloatingCode count={40} />
+      {/* Floating Code Elements - Reduzido no mobile */}
+      {!shouldReduceAnimations && <FloatingCode count={40} />}
+      {shouldReduceAnimations && <FloatingCode count={8} />}
 
       <motion.div
         className="relative z-10 min-h-screen flex items-center justify-center pt-32 lg:pt-0 px-6 md:px-4 lg:px-8"
@@ -179,92 +190,114 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex justify-center lg:justify-end"
             >
-              <TiltCard className="relative">
-                <div className="relative group">
-                  {/* Main image container */}
-                  <div className="w-80 h-80 lg:w-[450px] lg:h-[450px] relative rounded-2xl overflow-hidden shadow-2xl">
-                    <Image
-                      src={`/images/about-profile-photo-${resolvedTheme}.jpeg`}
-                      alt="Adriano Maringolo - Full Stack Engineer"
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      priority
-                    />
+              {shouldReduceAnimations ? (
+                <div className="relative">
+                  <div className="relative group">
+                    {/* Main image container */}
+                    <div className="w-80 h-80 lg:w-[450px] lg:h-[450px] relative rounded-2xl overflow-hidden shadow-2xl">
+                      <Image
+                        src={`/images/about-profile-photo-${resolvedTheme}.jpeg`}
+                        alt="Adriano Maringolo - Full Stack Engineer"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        priority
+                      />
 
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-linear-to-t from-background/20 via-transparent to-transparent" />
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-linear-to-t from-background/20 via-transparent to-transparent" />
+                    </div>
                   </div>
-
-                  {/* Floating elements around image */}
-                  <motion.div
-                    className="absolute -top-6 -right-6 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-primary/30"
-                    animate={{
-                      y: [0, -10, 0],
-                      rotate: [0, 180, 360],
-                    }}
-                    transition={{
-                      duration: 6,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    }}
-                  >
-                    <Code className="w-6 h-6 text-primary" />
-                  </motion.div>
-
-                  <motion.div
-                    className="absolute -bottom-6 -left-6 w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-accent/30"
-                    animate={{
-                      y: [0, 10, 0],
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    }}
-                  >
-                    <Sparkles className="w-8 h-8 text-accent" />
-                  </motion.div>
-
-                  {/* Decorative rings */}
-                  <div className="absolute -inset-4 rounded-2xl border border-primary/20 animate-pulse" />
-                  <div className="absolute -inset-8 rounded-2xl border border-accent/10" />
                 </div>
-              </TiltCard>
+              ) : (
+                <TiltCard className="relative">
+                  <div className="relative group">
+                    {/* Main image container */}
+                    <div className="w-80 h-80 lg:w-[450px] lg:h-[450px] relative rounded-2xl overflow-hidden shadow-2xl">
+                      <Image
+                        src={`/images/about-profile-photo-${resolvedTheme}.jpeg`}
+                        alt="Adriano Maringolo - Full Stack Engineer"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        priority
+                      />
+
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-linear-to-t from-background/20 via-transparent to-transparent" />
+                    </div>
+
+                    {/* Floating elements around image */}
+                    <motion.div
+                      className="absolute -top-6 -right-6 w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-primary/30"
+                      animate={{
+                        y: [0, -10, 0],
+                        rotate: [0, 180, 360],
+                      }}
+                      transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                    >
+                      <Code className="w-6 h-6 text-primary" />
+                    </motion.div>
+
+                    <motion.div
+                      className="absolute -bottom-6 -left-6 w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-accent/30"
+                      animate={{
+                        y: [0, 10, 0],
+                        x: [0, 5, 0],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                    >
+                      <Sparkles className="w-8 h-8 text-accent" />
+                    </motion.div>
+
+                    {/* Decorative rings */}
+                    <div className="absolute -inset-4 rounded-2xl border border-primary/20 animate-pulse" />
+                    <div className="absolute -inset-8 rounded-2xl border border-accent/10" />
+                  </div>
+                </TiltCard>
+              )}
             </motion.div>
           </div>
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground"
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-sm">{tHero('scrollToExplore')}</span>
-          <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
-            <motion.div
-              className="w-1 h-3 bg-primary rounded-full mt-2"
-              animate={{
-                y: [0, 12, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            />
+      {/* Scroll indicator - Desabilitado no mobile */}
+      {!shouldReduceAnimations && (
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground"
+          animate={{
+            y: [0, 10, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-sm">{tHero('scrollToExplore')}</span>
+            <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
+              <motion.div
+                className="w-1 h-3 bg-primary rounded-full mt-2"
+                animate={{
+                  y: [0, 12, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
     </div>
   )
 }

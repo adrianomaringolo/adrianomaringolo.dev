@@ -5,6 +5,7 @@ import { MagneticButton } from '@/components/ui/magnetic-button'
 import { RevealAnimation } from '@/components/ui/reveal-animation'
 import { WaveBackground } from '@/components/ui/wave-background'
 import { useLocale } from '@/hooks/use-locale'
+import { useShouldReduceAnimations } from '@/hooks/use-reduced-motion'
 import { Badge, Button } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
 import { ArrowRight, Calendar, Coffee, MessageCircle, Sparkles, Star } from 'lucide-react'
@@ -12,6 +13,7 @@ import Link from 'next/link'
 
 export function CTASection() {
   const { t } = useLocale()
+  const shouldReduceAnimations = useShouldReduceAnimations()
 
   const benefits = [
     { icon: Star, text: t('cta.benefits.quality') },
@@ -21,33 +23,35 @@ export function CTASection() {
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <GradientMesh />
-      <WaveBackground />
+      {!shouldReduceAnimations && <GradientMesh />}
+      {!shouldReduceAnimations && <WaveBackground />}
 
-      {/* Animated particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [-20, -100, -20],
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              delay: i * 0.5,
-              ease: 'easeInOut',
-            }}
-          />
-        ))}
-      </div>
+      {/* Animated particles - Desabilitado no mobile */}
+      {!shouldReduceAnimations && (
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [-20, -100, -20],
+                opacity: [0, 1, 0],
+                scale: [0, 1, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                delay: i * 0.5,
+                ease: 'easeInOut',
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <RevealAnimation direction="up" delay={0.2}>

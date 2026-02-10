@@ -5,6 +5,7 @@ import { MagneticButton } from '@/components/ui/magnetic-button'
 import { RevealAnimation } from '@/components/ui/reveal-animation'
 import { TiltCard } from '@/components/ui/tilt-card'
 import { useLocale } from '@/hooks/use-locale'
+import { useShouldReduceAnimations } from '@/hooks/use-reduced-motion'
 import { Badge, Button, Card, CardContent, CardHeader, CardTitle } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
 import { ArrowRight, Code2, Database, Globe, Smartphone, Zap } from 'lucide-react'
@@ -12,6 +13,7 @@ import Link from 'next/link'
 
 export function ServicesSection() {
   const { t } = useLocale()
+  const shouldReduceAnimations = useShouldReduceAnimations()
 
   const services = [
     {
@@ -66,34 +68,36 @@ export function ServicesSection() {
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
-      <AnimatedBackground />
-      {/* Animated background */}
-      <div className="absolute inset-0 opacity-5">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-primary to-accent rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-accent to-primary rounded-full blur-3xl"
-          animate={{
-            scale: [1.3, 1, 1.3],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      </div>
+      {!shouldReduceAnimations && <AnimatedBackground />}
+      {/* Animated background - Desabilitado no mobile */}
+      {!shouldReduceAnimations && (
+        <div className="absolute inset-0 opacity-5">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-primary to-accent rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-accent to-primary rounded-full blur-3xl"
+            animate={{
+              scale: [1.3, 1, 1.3],
+              rotate: [360, 180, 0],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+        </div>
+      )}
 
       <div className="max-w-6xl mx-auto relative z-10">
         <RevealAnimation direction="up" delay={0.2}>
@@ -113,53 +117,60 @@ export function ServicesSection() {
         </RevealAnimation>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
-          {services.map((service, index) => (
-            <RevealAnimation key={service.title} direction="up" delay={0.4 + index * 0.1}>
-              <TiltCard className="h-full">
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Card className="h-full border-0 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-all duration-300 group overflow-hidden">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                    />
+          {services.map((service, index) => {
+            const CardWrapper = shouldReduceAnimations ? 'div' : TiltCard
+            return (
+              <RevealAnimation
+                key={service.title}
+                direction="up"
+                delay={0.4 + index * 0.1}
+              >
+                <CardWrapper className="h-full" {...(!shouldReduceAnimations && {})}>
+                  <motion.div
+                    whileHover={shouldReduceAnimations ? {} : { y: -5 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <Card className="h-full border-0 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-all duration-300 group overflow-hidden">
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                      />
 
-                    <CardHeader className="relative">
-                      <motion.div
-                        className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <service.icon className={`h-8 w-8 ${service.iconColor}`} />
-                      </motion.div>
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {service.title}
-                      </CardTitle>
-                    </CardHeader>
+                      <CardHeader className="relative">
+                        <motion.div
+                          className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                          whileHover={shouldReduceAnimations ? {} : { rotate: 360 }}
+                          transition={{ duration: 0.6 }}
+                        >
+                          <service.icon className={`h-8 w-8 ${service.iconColor}`} />
+                        </motion.div>
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                          {service.title}
+                        </CardTitle>
+                      </CardHeader>
 
-                    <CardContent className="space-y-4">
-                      <p className="text-muted-foreground text-pretty leading-relaxed">
-                        {service.description}
-                      </p>
+                      <CardContent className="space-y-4">
+                        <p className="text-muted-foreground text-pretty leading-relaxed">
+                          {service.description}
+                        </p>
 
-                      <div className="flex flex-wrap gap-2">
-                        {service.features.map((feature) => (
-                          <Badge
-                            key={feature}
-                            variant="outline"
-                            className="text-xs bg-background/50"
-                          >
-                            {feature}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </TiltCard>
-            </RevealAnimation>
-          ))}
+                        <div className="flex flex-wrap gap-2">
+                          {service.features.map((feature) => (
+                            <Badge
+                              key={feature}
+                              variant="outline"
+                              className="text-xs bg-background/50"
+                            >
+                              {feature}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </CardWrapper>
+              </RevealAnimation>
+            )
+          })}
         </div>
 
         {/* Technologies Section */}

@@ -4,6 +4,7 @@ import { MagneticButton } from '@/components/ui/magnetic-button'
 import { RevealAnimation } from '@/components/ui/reveal-animation'
 import { ScrollParallax } from '@/components/ui/scroll-parallax'
 import { getFeaturedProjects } from '@/data/projects'
+import { useShouldReduceAnimations } from '@/hooks/use-reduced-motion'
 import { useTranslation } from '@/hooks/use-translation'
 import { Badge, Button } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
@@ -13,6 +14,7 @@ import Link from 'next/link'
 
 export function FeaturedProjects() {
   const { t, locale } = useTranslation()
+  const shouldReduceAnimations = useShouldReduceAnimations()
   const featuredProjects = getFeaturedProjects().slice(0, 3) // Mostrar apenas 3 projetos
 
   if (featuredProjects.length === 0) {
@@ -21,10 +23,12 @@ export function FeaturedProjects() {
 
   return (
     <section className="py-20 bg-muted/30 relative overflow-hidden">
-      <ScrollParallax offset={30} className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl" />
-      </ScrollParallax>
+      {!shouldReduceAnimations && (
+        <ScrollParallax offset={30} className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl" />
+        </ScrollParallax>
+      )}
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">

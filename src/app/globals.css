@@ -138,6 +138,47 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Performance optimizations for mobile */
+  @media (max-width: 768px) {
+    * {
+      /* Reduce GPU usage on mobile */
+      will-change: auto !important;
+    }
+
+    /* Disable expensive animations on mobile */
+    .animate-pulse,
+    .animate-bounce,
+    .animate-spin {
+      animation: none !important;
+    }
+
+    /* Simplify backdrop blur on mobile */
+    .backdrop-blur-sm,
+    .backdrop-blur-md,
+    .backdrop-blur-lg {
+      backdrop-filter: none !important;
+      background-color: rgba(var(--card), 0.95) !important;
+    }
+
+    /* Reduce shadow complexity on mobile */
+    .shadow-2xl,
+    .shadow-xl {
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+    }
+  }
+
+  /* Optimize for devices with reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 /* Added custom animations for under construction page */

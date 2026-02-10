@@ -7,6 +7,7 @@ import { MagneticButton } from '@/components/ui/magnetic-button'
 import { RevealAnimation } from '@/components/ui/reveal-animation'
 import { TiltCard } from '@/components/ui/tilt-card'
 import { useLocale } from '@/hooks/use-locale'
+import { useShouldReduceAnimations } from '@/hooks/use-reduced-motion'
 import { Badge, Button } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
 import { ArrowRight, Code2, Coffee, Lightbulb, Rocket } from 'lucide-react'
@@ -14,6 +15,7 @@ import Link from 'next/link'
 
 export function AboutSection() {
   const { t } = useLocale()
+  const shouldReduceAnimations = useShouldReduceAnimations()
 
   // Calcula anos de experiência (2009 até agora)
   const yearsOfExperience = new Date().getFullYear() - 2009
@@ -39,37 +41,39 @@ export function AboutSection() {
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <GradientMesh />
-      <FloatingCode />
+      {!shouldReduceAnimations && <GradientMesh />}
+      {!shouldReduceAnimations && <FloatingCode />}
 
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 bg-accent rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.6, 0.3, 0.6],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 2,
-          }}
-        />
-      </div>
+      {/* Animated background elements - Desabilitado no mobile */}
+      {!shouldReduceAnimations && (
+        <div className="absolute inset-0 opacity-10">
+          <motion.div
+            className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-10 w-40 h-40 bg-accent rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.6, 0.3, 0.6],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 2,
+            }}
+          />
+        </div>
+      )}
 
       <div className="max-w-6xl mx-auto relative z-10">
         <RevealAnimation direction="up" delay={0.2}>
@@ -138,29 +142,32 @@ export function AboutSection() {
 
           <RevealAnimation direction="right" delay={0.6}>
             <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat, index) => (
-                <TiltCard key={stat.label}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-center p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300"
-                  >
-                    <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">
-                      <AnimatedCounter
-                        value={stat.number}
-                        suffix={stat.suffix}
-                        duration={2.5}
-                        delay={index * 0.3}
-                      />
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                </TiltCard>
-              ))}
+              {stats.map((stat, index) => {
+                const StatWrapper = shouldReduceAnimations ? 'div' : TiltCard
+                return (
+                  <StatWrapper key={stat.label} {...(!shouldReduceAnimations && {})}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="text-center p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300"
+                    >
+                      <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">
+                        <AnimatedCounter
+                          value={stat.number}
+                          suffix={stat.suffix}
+                          duration={2.5}
+                          delay={index * 0.3}
+                        />
+                      </div>
+                      <div className="text-sm text-muted-foreground font-medium">
+                        {stat.label}
+                      </div>
+                    </motion.div>
+                  </StatWrapper>
+                )
+              })}
             </div>
           </RevealAnimation>
         </div>
