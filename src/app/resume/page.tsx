@@ -34,11 +34,13 @@ export default function ResumePage() {
 
       {/* PDF viewer — desktop */}
       <div className="hidden md:flex flex-1 overflow-hidden">
-        <iframe
-          src={`${CV_PATH}#toolbar=0&view=FitH`}
-          title="Adriano Maringolo — Resume"
-          className="w-full h-full border-0"
-        />
+        <object
+          data={CV_PATH}
+          type="application/pdf"
+          className="w-full h-full"
+        >
+          <p />
+        </object>
       </div>
 
       {/* Mobile fallback */}
