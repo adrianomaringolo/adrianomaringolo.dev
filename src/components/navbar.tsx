@@ -5,7 +5,7 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { useLocale } from '@/hooks/use-locale'
 import { useScrollDirection } from '@/hooks/use-scroll-direction'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { FileText, Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -80,13 +80,17 @@ export function Navbar() {
 
           {/* Desktop utility controls */}
           <div className="hidden md:flex items-center gap-1">
-            <a
-              href="/documents/CV_Adriano_Maringolo_Senior_Software_Engineer.pdf"
-              download
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 px-2 mr-1"
+            <Link
+              href="/resume"
+              className={`inline-flex items-center gap-1.5 text-sm transition-colors duration-200 px-2 mr-1 ${
+                isActive('/resume')
+                  ? 'text-foreground font-medium'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
             >
-              {t('common.downloadCV')}
-            </a>
+              <FileText className="w-3.5 h-3.5" />
+              {t('common.viewResume')}
+            </Link>
             <ThemeToggle />
             <LanguageToggle />
           </div>
@@ -164,14 +168,14 @@ export function Navbar() {
                 })}
               </ul>
               <div className="flex items-center justify-between pt-4 mt-2 border-t border-border/30">
-                <a
-                  href="/documents/CV_Adriano_Maringolo_Senior_Software_Engineer.pdf"
-                  download
+                <Link
+                  href="/resume"
                   onClick={() => setIsOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
-                  {t('common.downloadCV')}
-                </a>
+                  <FileText className="w-3.5 h-3.5" />
+                  {t('common.viewResume')}
+                </Link>
                 <LanguageToggle />
               </div>
             </nav>

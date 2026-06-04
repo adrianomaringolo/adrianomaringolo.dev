@@ -256,7 +256,12 @@
     "changeLanguage": "Change language",
     "active": "✓ Active",
     "ongoing": "ongoing",
-    "downloadCV": "Resume"
+    "downloadCV": "Download resume",
+    "viewResume": "Resume"
+  },
+  "resume": {
+    "mobileMessage": "PDF viewing is not supported on this device.",
+    "openPdf": "Open resume"
   },
   "cta": {
     "badge": "Let's Work Together",

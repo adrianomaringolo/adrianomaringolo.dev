@@ -8,9 +8,17 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
-function LineReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function LineReveal({
+  children,
+  delay = 0,
+  descender = false,
+}: {
+  children: React.ReactNode
+  delay?: number
+  descender?: boolean
+}) {
   return (
-    <div className="overflow-hidden">
+    <div className={`overflow-hidden ${descender ? 'pb-[0.25em]' : ''}`}>
       <motion.div
         initial={{ y: '105%' }}
         animate={{ y: '0%' }}
@@ -202,7 +210,7 @@ export function HeroSection() {
             </LineReveal>
 
             {/* Maringolo — outline only, blob on hover */}
-            <LineReveal delay={0.22}>
+            <LineReveal delay={0.22} descender>
               <OutlinedBlobName>Maringolo</OutlinedBlobName>
             </LineReveal>
           </h1>

@@ -256,7 +256,12 @@
     "changeLanguage": "Alterar idioma",
     "active": "✓ Ativo",
     "ongoing": "em andamento",
-    "downloadCV": "Currículo"
+    "downloadCV": "Baixar currículo",
+    "viewResume": "Currículo"
+  },
+  "resume": {
+    "mobileMessage": "Visualização de PDF não suportada neste dispositivo.",
+    "openPdf": "Abrir currículo"
   },
   "cta": {
     "badge": "Vamos Trabalhar Juntos",
