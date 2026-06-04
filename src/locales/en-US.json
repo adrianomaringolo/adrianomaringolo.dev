@@ -40,11 +40,51 @@
         "satisfaction": "Satisfaction"
       }
     },
+    "servicePicker": {
+      "eyebrow": "Have a project in mind?",
+      "headline": "What do you want to build?",
+      "subline": "Pick what best describes your need — I'll tell you how I can help.",
+      "explore": "Learn more",
+      "includes": "What's included",
+      "website": {
+        "label": "Website",
+        "tagline": "Professional digital presence",
+        "description": "Institutional sites, portfolios, landing pages, and blogs with a focus on modern design, performance, and SEO. Perfect for establishing credibility in the digital world.",
+        "point1": "Custom, fully responsive design",
+        "point2": "SEO and performance optimization",
+        "point3": "CMS or content platform integration",
+        "point4": "Deployment, domain, and hosting setup",
+        "cta": "Talk about my website"
+      },
+      "webapp": {
+        "label": "Web App",
+        "tagline": "Complete digital product",
+        "description": "Platforms, dashboards, SaaS tools, and systems with complex business logic. From UI to back-end, I deliver robust, scalable solutions.",
+        "point1": "Scalable and testable frontend architecture",
+        "point2": "API, database, and external service integration",
+        "point3": "Auth, permissions, and data flows",
+        "point4": "Automated tests, CI/CD, and continuous delivery",
+        "cta": "Talk about my app"
+      },
+      "consulting": {
+        "label": "Consulting",
+        "tagline": "Strategic technical support",
+        "description": "Code review, architecture definition, team mentoring, and technical support for product decisions. Ideal for teams looking to improve quality and delivery speed.",
+        "point1": "Code and project architecture review",
+        "point2": "Stack definition, patterns, and best practices",
+        "point3": "Individual or team mentoring",
+        "point4": "Performance, quality, and tech debt diagnosis",
+        "cta": "Talk about consulting"
+      }
+    },
     "disciplines": {
       "title": "What I focus on",
       "frontend": "Frontend Engineering",
+      "frontendDesc": "Fast, accessible interfaces with great UX using React, Next.js, and modern tooling.",
       "fullstack": "Full-Stack Development",
-      "architecture": "Web Architecture & Performance"
+      "fullstackDesc": "From UI to API to database — end-to-end solutions that are cohesive and maintainable.",
+      "architecture": "Web Architecture & Performance",
+      "architectureDesc": "Technical decisions that scale: project structure, performance optimization, and sustainable best practices."
     }
   },
   "about": {

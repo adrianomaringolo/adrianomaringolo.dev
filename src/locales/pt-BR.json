@@ -40,11 +40,51 @@
         "satisfaction": "Satisfação"
       }
     },
+    "servicePicker": {
+      "eyebrow": "Tem um projeto em mente?",
+      "headline": "O que você quer construir?",
+      "subline": "Escolha o que melhor descreve o seu projeto — te conto como posso ajudar.",
+      "explore": "Saiba mais",
+      "includes": "O que está incluído",
+      "website": {
+        "label": "Site",
+        "tagline": "Presença digital profissional",
+        "description": "Criação de sites institucionais, portfólios, landing pages e blogs com foco em design moderno, desempenho e SEO. Ideal para quem quer se apresentar com credibilidade no mundo digital.",
+        "point1": "Design personalizado e totalmente responsivo",
+        "point2": "Otimização de SEO e desempenho",
+        "point3": "Integração com CMS ou plataformas de conteúdo",
+        "point4": "Publicação, domínio e hospedagem configurados",
+        "cta": "Quero falar sobre meu site"
+      },
+      "webapp": {
+        "label": "Aplicativo Web",
+        "tagline": "Produto digital completo",
+        "description": "Desenvolvimento de plataformas, dashboards, ferramentas SaaS e sistemas com regras de negócio complexas. Da interface ao back-end, entrego soluções robustas e escaláveis.",
+        "point1": "Arquitetura frontend escalável e testável",
+        "point2": "Integração com APIs, banco de dados e serviços externos",
+        "point3": "Autenticação, permissões e fluxos de dados",
+        "point4": "Testes automatizados, CI/CD e entrega contínua",
+        "cta": "Quero falar sobre meu app"
+      },
+      "consulting": {
+        "label": "Consultoria",
+        "tagline": "Suporte técnico estratégico",
+        "description": "Revisão de código, definição de arquitetura, mentoria de equipes e suporte técnico para decisões de produto. Ideal para times que querem melhorar a qualidade e a velocidade de entrega.",
+        "point1": "Revisão de código e arquitetura do projeto",
+        "point2": "Definição de stack, padrões e boas práticas",
+        "point3": "Mentoria individual ou de equipe",
+        "point4": "Diagnóstico de desempenho, qualidade e dívida técnica",
+        "cta": "Quero falar sobre consultoria"
+      }
+    },
     "disciplines": {
       "title": "O que eu faço",
       "frontend": "Engenharia Frontend",
+      "frontendDesc": "Interfaces rápidas, acessíveis e com ótima experiência de uso, com React, Next.js e tecnologias modernas.",
       "fullstack": "Desenvolvimento Full-Stack",
-      "architecture": "Arquitetura Web & Performance"
+      "fullstackDesc": "Da camada de apresentação à API e ao banco de dados, entrego soluções completas e bem integradas.",
+      "architecture": "Arquitetura Web & Performance",
+      "architectureDesc": "Decisões técnicas que escalam: estrutura de projeto, otimização de desempenho e boas práticas sustentáveis."
     }
   },
   "about": {

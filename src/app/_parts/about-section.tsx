@@ -73,10 +73,17 @@ export function AboutSection() {
                 <li key={key}>
                   <Link
                     href="/about"
-                    className="group flex items-center justify-between py-4 text-base font-medium text-foreground hover:text-primary transition-colors"
+                    className="group flex items-center justify-between py-4 gap-4 hover:text-primary transition-colors"
                   >
-                    {t(`home.disciplines.${key}`)}
-                    <ArrowRight className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <div className="space-y-0.5">
+                      <p className="text-base font-medium text-foreground group-hover:text-primary transition-colors">
+                        {t(`home.disciplines.${key}`)}
+                      </p>
+                      <p className="text-sm text-muted-foreground/60 leading-snug">
+                        {t(`home.disciplines.${key}Desc`)}
+                      </p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 shrink-0 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </Link>
                 </li>
               ))}

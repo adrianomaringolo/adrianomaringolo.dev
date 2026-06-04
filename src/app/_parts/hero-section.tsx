@@ -4,7 +4,8 @@ import { useLocale } from '@/hooks/use-locale'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef } from 'react'
+import { FilledBlobName, OutlinedBlobName } from './hero-blobs'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -30,141 +31,6 @@ function LineReveal({
   )
 }
 
-function drawBlob(
-  ctx: CanvasRenderingContext2D,
-  cx: number,
-  cy: number,
-  radius: number,
-  t: number,
-) {
-  const n = 8
-  const pts: [number, number][] = []
-  for (let i = 0; i < n; i++) {
-    const a = (i / n) * Math.PI * 2
-    const wobble = Math.sin(t * 1.4 + i * 2.3) * Math.cos(t * 0.9 + i * 1.6)
-    const r = radius * (1 + 0.38 * wobble)
-    pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r])
-  }
-  ctx.beginPath()
-  ctx.moveTo(pts[0][0], pts[0][1])
-  for (let i = 0; i < n; i++) {
-    const p0 = pts[(i - 1 + n) % n]
-    const p1 = pts[i]
-    const p2 = pts[(i + 1) % n]
-    const p3 = pts[(i + 2) % n]
-    ctx.bezierCurveTo(
-      p1[0] + (p2[0] - p0[0]) / 6,
-      p1[1] + (p2[1] - p0[1]) / 6,
-      p2[0] - (p3[0] - p1[0]) / 6,
-      p2[1] - (p3[1] - p1[1]) / 6,
-      p2[0],
-      p2[1],
-    )
-  }
-  ctx.closePath()
-}
-
-function OutlinedBlobName({ children }: { children: string }) {
-  const outerRef = useRef<HTMLSpanElement>(null)
-  const textRef = useRef<HTMLSpanElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const rafRef = useRef<number>(0)
-  const t0Ref = useRef<number | null>(null)
-  const mouseRef = useRef({ x: 0, y: 0 })
-  const activeRef = useRef(false)
-  const [active, setActive] = useState(false)
-
-  const drawFrame = useCallback(() => {
-    const canvas = canvasRef.current
-    const textSpan = textRef.current
-    const outer = outerRef.current
-    if (!canvas || !textSpan || !outer) return
-
-    if (t0Ref.current === null) t0Ref.current = performance.now()
-    const t = (performance.now() - t0Ref.current) / 1000
-
-    const dpr = window.devicePixelRatio || 1
-    const W = canvas.offsetWidth
-    const H = canvas.offsetHeight
-    if (!W || !H) return
-
-    if (canvas.width !== Math.round(W * dpr)) {
-      canvas.width = Math.round(W * dpr)
-      canvas.height = Math.round(H * dpr)
-    }
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    ctx.save()
-    ctx.scale(dpr, dpr)
-    ctx.clearRect(0, 0, W, H)
-
-    const cs = getComputedStyle(textSpan)
-    const fsPx = parseFloat(cs.fontSize)
-    const primary = getComputedStyle(outer).getPropertyValue('--primary').trim() || '#0891b2'
-    const { x, y } = mouseRef.current
-
-    // 1. Draw solid morphing blob
-    ctx.fillStyle = primary
-    drawBlob(ctx, x, y, fsPx * 0.5, t)
-    ctx.fill()
-
-    // 2. Mask: keep only pixels where the text glyphs are
-    ctx.globalCompositeOperation = 'destination-in'
-    ctx.font = `${cs.fontWeight} ${fsPx}px ${cs.fontFamily}`
-    if ('letterSpacing' in ctx) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ;(ctx as any).letterSpacing = `${(-0.04 * fsPx).toFixed(1)}px`
-    }
-    const { actualBoundingBoxAscent: asc } = ctx.measureText(children)
-    ctx.fillStyle = '#000'
-    ctx.fillText(children, 0, asc)
-
-    ctx.restore()
-
-    if (activeRef.current) {
-      rafRef.current = requestAnimationFrame(drawFrame)
-    }
-  }, [children])
-
-  useEffect(() => {
-    activeRef.current = active
-    if (active) {
-      rafRef.current = requestAnimationFrame(drawFrame)
-    } else {
-      cancelAnimationFrame(rafRef.current)
-    }
-    return () => cancelAnimationFrame(rafRef.current)
-  }, [active, drawFrame])
-
-  return (
-    <span
-      ref={outerRef}
-      className="relative inline-block cursor-default"
-      onMouseMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect()
-        mouseRef.current = { x: e.clientX - r.left, y: e.clientY - r.top }
-      }}
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
-    >
-      <span
-        ref={textRef}
-        style={{ WebkitTextStroke: '2px var(--foreground)', color: 'transparent' }}
-      >
-        {children}
-      </span>
-      <canvas
-        ref={canvasRef}
-        aria-hidden
-        className="absolute inset-0 pointer-events-none w-full h-full"
-        style={{ opacity: active ? 1 : 0, transition: 'opacity 0.3s ease' }}
-      />
-    </span>
-  )
-}
-
 function DrawLine({ delay = 0 }: { delay?: number }) {
   return (
     <motion.div
@@ -177,24 +43,55 @@ function DrawLine({ delay = 0 }: { delay?: number }) {
 }
 
 export function HeroSection() {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
   const years = new Date().getFullYear() - 2009
+  const glowRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    if (!glowRef.current) return
+    const rect = e.currentTarget.getBoundingClientRect()
+    glowRef.current.style.transform = `translate(calc(${e.clientX - rect.left}px - 50%), calc(${e.clientY - rect.top}px - 50%))`
+  }, [])
+
+  const yearsUnit = locale === 'pt-BR' ? 'anos' : 'yrs'
+  const statusText = locale === 'pt-BR' ? 'disponível' : 'available'
 
   return (
     <section
       className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 overflow-hidden"
       style={{ minHeight: 'calc(100svh - 64px)' }}
+      onMouseMove={handleMouseMove}
     >
-      {/* Ambient glow — barely visible, bottom-left origin */}
+      {/* Cursor-following ambient glow */}
       <div
+        ref={glowRef}
         aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-32 w-[700px] h-[500px] rounded-full"
+        className="pointer-events-none absolute top-0 left-0 w-175 h-150 rounded-full"
         style={{
           background: 'radial-gradient(ellipse at center, oklch(0.65 0.13 200) 0%, transparent 70%)',
-          opacity: 0.07,
+          opacity: 0.06,
           filter: 'blur(80px)',
+          willChange: 'transform',
+          transform: 'translate(-20%, 60%)',
+          transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       />
+
+      {/* Editorial metadata — desktop only, right edge */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
+        aria-hidden
+        className="hidden lg:block absolute right-6 xl:right-12 top-1/2 -translate-y-1/2 z-10"
+      >
+        <p
+          className="text-[10px] tracking-[0.22em] font-mono text-muted-foreground/25 uppercase select-none"
+          style={{ writingMode: 'vertical-rl' }}
+        >
+          {years}+ {yearsUnit}&nbsp;&nbsp;·&nbsp;&nbsp;São Paulo&nbsp;&nbsp;·&nbsp;&nbsp;{statusText}
+        </p>
+      </motion.div>
 
       <div className="max-w-6xl mx-auto w-full py-16 lg:py-0 space-y-10 relative z-10">
 
@@ -204,19 +101,17 @@ export function HeroSection() {
             className="font-black leading-[0.88] tracking-[-0.04em]"
             style={{ fontSize: 'clamp(4.5rem, 15vw, 11rem)' }}
           >
-            {/* Adriano — filled */}
             <LineReveal delay={0.1}>
-              <span className="text-foreground">Adriano</span>
+              <FilledBlobName>Adriano</FilledBlobName>
             </LineReveal>
 
-            {/* Maringolo — outline only, blob on hover */}
             <LineReveal delay={0.22} descender>
               <OutlinedBlobName>Maringolo</OutlinedBlobName>
             </LineReveal>
           </h1>
         </div>
 
-        {/* Label framed by two cyan lines */}
+        {/* Label framed by two primary lines */}
         <div className="space-y-4 max-w-3xl">
           <DrawLine delay={0.45} />
           <motion.p
