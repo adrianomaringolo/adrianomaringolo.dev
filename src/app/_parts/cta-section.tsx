@@ -1,168 +1,43 @@
 'use client'
 
-import { GradientMesh } from '@/components/ui/gradient-mesh'
-import { MagneticButton } from '@/components/ui/magnetic-button'
-import { RevealAnimation } from '@/components/ui/reveal-animation'
-import { WaveBackground } from '@/components/ui/wave-background'
 import { useLocale } from '@/hooks/use-locale'
-import { useShouldReduceAnimations } from '@/hooks/use-reduced-motion'
-import { Badge, Button } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
-import { ArrowRight, Calendar, Coffee, MessageCircle, Sparkles, Star } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export function CTASection() {
   const { t } = useLocale()
-  const shouldReduceAnimations = useShouldReduceAnimations()
-
-  const benefits = [
-    { icon: Star, text: t('cta.benefits.quality') },
-    { icon: Calendar, text: t('cta.benefits.delivery') },
-    { icon: Coffee, text: t('cta.benefits.support') },
-  ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {!shouldReduceAnimations && <GradientMesh />}
-      {!shouldReduceAnimations && <WaveBackground />}
-
-      {/* Animated particles - Desabilitado no mobile */}
-      {!shouldReduceAnimations && (
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-primary/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [-20, -100, -20],
-                opacity: [0, 1, 0],
-                scale: [0, 1, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                delay: i * 0.5,
-                ease: 'easeInOut',
-              }}
-            />
-          ))}
+    <section className="py-28 px-6 md:px-12 lg:px-20 border-t border-border/40">
+      <motion.div
+        initial={{ opacity: 1, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease }}
+        viewport={{ once: true, amount: 0 }}
+        className="max-w-2xl mx-auto text-center space-y-6"
+      >
+        <h2
+          className="font-bold tracking-tight text-foreground text-wrap-balance"
+          style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)' }}
+        >
+          {t('cta.title')}
+        </h2>
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          {t('cta.description')}
+        </p>
+        <div className="pt-2">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-opacity"
+          >
+            {t('cta.button')}
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
-      )}
-
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <RevealAnimation direction="up" delay={0.2}>
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 px-4 py-2">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {t('cta.badge')}
-            </Badge>
-          </motion.div>
-        </RevealAnimation>
-
-        <RevealAnimation direction="up" delay={0.4}>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              {t('cta.title')}
-            </span>
-          </h2>
-        </RevealAnimation>
-
-        <RevealAnimation direction="up" delay={0.6}>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty max-w-2xl mx-auto leading-relaxed">
-            {t('cta.description')}
-          </p>
-        </RevealAnimation>
-
-        <RevealAnimation direction="up" delay={0.8}>
-          <div className="flex flex-wrap justify-center gap-6 mb-10">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.text}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-center gap-2 text-sm text-muted-foreground"
-              >
-                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                  <benefit.icon className="w-4 h-4 text-primary" />
-                </div>
-                {benefit.text}
-              </motion.div>
-            ))}
-          </div>
-        </RevealAnimation>
-
-        <RevealAnimation direction="up" delay={1.2}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/contact">
-              <MagneticButton>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="group relative overflow-hidden">
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '100%' }}
-                      transition={{ duration: 0.6 }}
-                    />
-                    <motion.div
-                      className="mr-2 relative z-10"
-                      whileHover={{
-                        y: [0, -2, 0],
-                        scale: [1, 1.1, 1],
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        ease: 'easeInOut',
-                      }}
-                    >
-                      <MessageCircle className="h-5 w-5" />
-                    </motion.div>
-                    <span className="relative z-10">{t('cta.button')}</span>
-                    <ArrowRight className="ml-2 h-4 w-4 relative z-10 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </motion.div>
-              </MagneticButton>
-            </Link>
-
-            <Link href="/projects">
-              <MagneticButton>
-                <Button variant="outline" size="lg" className="group">
-                  {t('cta.secondaryButton')}
-                  <motion.div
-                    className="ml-2"
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.div>
-                </Button>
-              </MagneticButton>
-            </Link>
-          </div>
-        </RevealAnimation>
-
-        <RevealAnimation direction="up" delay={1.4}>
-          <motion.p
-            className="text-sm text-muted-foreground mt-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.6 }}
-            viewport={{ once: true }}
-          >
-            {t('cta.note')}
-          </motion.p>
-        </RevealAnimation>
-      </div>
+      </motion.div>
     </section>
   )
 }

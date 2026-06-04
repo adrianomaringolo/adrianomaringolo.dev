@@ -1,175 +1,87 @@
 'use client'
 
-import { AnimatedCounter } from '@/components/ui/animated-counter'
-import { FloatingCode } from '@/components/ui/floating-code'
-import { GradientMesh } from '@/components/ui/gradient-mesh'
-import { MagneticButton } from '@/components/ui/magnetic-button'
-import { RevealAnimation } from '@/components/ui/reveal-animation'
-import { TiltCard } from '@/components/ui/tilt-card'
 import { useLocale } from '@/hooks/use-locale'
-import { useShouldReduceAnimations } from '@/hooks/use-reduced-motion'
-import { Badge, Button } from 'buildgrid-ui'
+import { useTheme } from '@/hooks/use-theme'
 import { motion } from 'framer-motion'
-import { ArrowRight, Code2, Coffee, Lightbulb, Rocket } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
+
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
+const disciplineKeys = ['frontend', 'fullstack', 'architecture'] as const
 
 export function AboutSection() {
   const { t } = useLocale()
-  const shouldReduceAnimations = useShouldReduceAnimations()
+  const { resolvedTheme } = useTheme()
+  const years = new Date().getFullYear() - 2009
 
-  // Calcula anos de experiência (2009 até agora)
-  const yearsOfExperience = new Date().getFullYear() - 2009
-
-  const skills = [
-    { icon: Code2, label: t('home.about.skills.frontend'), color: 'bg-blue-500' },
-    { icon: Rocket, label: t('home.about.skills.performance'), color: 'bg-green-500' },
-    { icon: Lightbulb, label: t('home.about.skills.creative'), color: 'bg-yellow-500' },
-    { icon: Coffee, label: t('home.about.skills.problem'), color: 'bg-purple-500' },
-  ]
-
-  const stats = [
-    { number: 50, suffix: '+', label: t('home.about.stats.projects') },
-    { number: yearsOfExperience, suffix: '+', label: t('home.about.stats.experience') },
-    { number: 100, suffix: '%', label: t('home.about.stats.satisfaction') },
-  ]
-
-  // Interpolação manual para a descrição
-  const description = t('home.about.description').replace(
-    '{{years}}',
-    yearsOfExperience.toString(),
-  )
+  const intro = t('home.about.intro').replace('{{years}}', years.toString())
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {!shouldReduceAnimations && <GradientMesh />}
-      {!shouldReduceAnimations && <FloatingCode />}
+    <section className="py-24 px-6 md:px-12 lg:px-20 border-t border-border/40">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-20 items-start">
 
-      {/* Animated background elements - Desabilitado no mobile */}
-      {!shouldReduceAnimations && (
-        <div className="absolute inset-0 opacity-10">
-          <motion.div
-            className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+        {/* Photo */}
+        <motion.div
+          initial={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0 }}
+          className="relative overflow-hidden rounded-xl w-full aspect-[3/4] lg:sticky lg:top-28"
+        >
+          <Image
+            src={`/images/about-profile-photo-${resolvedTheme}.jpeg`}
+            alt="Adriano Maringolo"
+            fill
+            sizes="(max-width: 1024px) 100vw, 280px"
+            className="object-cover"
           />
-          <motion.div
-            className="absolute bottom-20 right-10 w-40 h-40 bg-accent rounded-full blur-3xl"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.6, 0.3, 0.6],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 2,
-            }}
-          />
-        </div>
-      )}
+        </motion.div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <RevealAnimation direction="up" delay={0.2}>
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+        {/* Bio + disciplines */}
+        <div className="space-y-10">
+          <motion.div
+            initial={{ opacity: 1, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease }}
+            viewport={{ once: true, amount: 0 }}
+            className="space-y-5"
+          >
+            <p className="text-xl leading-relaxed text-foreground">
+              {intro}
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-all hover:gap-3"
             >
-              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-                {t('home.about.badge')}
-              </Badge>
-            </motion.div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {t('home.about.title')}
-            </h2>
-          </div>
-        </RevealAnimation>
+              {t('home.about.cta')}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <RevealAnimation direction="left" delay={0.4}>
-            <div className="space-y-6">
-              <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
-                {description}
-              </p>
-
-              <div className="grid grid-cols-2 gap-4">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-center gap-3 p-3 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-colors"
+          <motion.div
+            initial={{ opacity: 1, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease }}
+            viewport={{ once: true, amount: 0 }}
+          >
+            <p className="text-sm text-muted-foreground/60 mb-4">
+              {t('home.disciplines.title')}
+            </p>
+            <ul className="divide-y divide-border/40">
+              {disciplineKeys.map((key) => (
+                <li key={key}>
+                  <Link
+                    href="/about"
+                    className="group flex items-center justify-between py-4 text-base font-medium text-foreground hover:text-primary transition-colors"
                   >
-                    <div
-                      className={`w-8 h-8 ${skill.color} rounded-lg flex items-center justify-center`}
-                    >
-                      <skill.icon className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-sm font-medium">{skill.label}</span>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="pt-4">
-                <Link href="/about">
-                  <MagneticButton>
-                    <Button size="lg" className="group">
-                      {t('home.about.cta')}
-                      <motion.div
-                        className="ml-2"
-                        animate={{ x: [0, 4, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        <ArrowRight className="w-4 h-4" />
-                      </motion.div>
-                    </Button>
-                  </MagneticButton>
-                </Link>
-              </div>
-            </div>
-          </RevealAnimation>
-
-          <RevealAnimation direction="right" delay={0.6}>
-            <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat, index) => {
-                const StatWrapper = shouldReduceAnimations ? 'div' : TiltCard
-                return (
-                  <StatWrapper key={stat.label} {...(!shouldReduceAnimations && {})}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="text-center p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300"
-                    >
-                      <div className="text-2xl lg:text-3xl font-bold text-primary mb-2">
-                        <AnimatedCounter
-                          value={stat.number}
-                          suffix={stat.suffix}
-                          duration={2.5}
-                          delay={index * 0.3}
-                        />
-                      </div>
-                      <div className="text-sm text-muted-foreground font-medium">
-                        {stat.label}
-                      </div>
-                    </motion.div>
-                  </StatWrapper>
-                )
-              })}
-            </div>
-          </RevealAnimation>
+                    {t(`home.disciplines.${key}`)}
+                    <ArrowRight className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </div>
     </section>

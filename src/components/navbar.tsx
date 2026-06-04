@@ -2,20 +2,20 @@
 
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { DownloadCVButton } from '@/components/ui/download-cv-button'
 import { useLocale } from '@/hooks/use-locale'
 import { useScrollDirection } from '@/hooks/use-scroll-direction'
-import { Button } from 'buildgrid-ui'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const { t } = useLocale()
   const { scrollDirection, isAtTop } = useScrollDirection()
+  const pathname = usePathname()
 
   const navItems = [
     { href: '/', label: t('nav.home') },
@@ -25,154 +25,159 @@ export function Navbar() {
     { href: '/contact', label: t('nav.contact') },
   ]
 
-  // Determine if navbar should be visible
   const isVisible = isAtTop || scrollDirection === 'up' || isOpen
 
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href)
+
   return (
-    <motion.nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isAtTop
-          ? 'bg-background/80 backdrop-blur-md border-b border-border/50'
-          : 'bg-background/95 backdrop-blur-lg border-b border-border shadow-lg'
+    <motion.header
+      className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
+        !isAtTop ? 'bg-background border-b border-border/40' : ''
       }`}
-      initial={{ y: 0 }}
-      animate={{
-        y: isVisible ? 0 : -100,
-        opacity: isVisible ? 1 : 0,
-      }}
-      transition={{
-        duration: 0.3,
-        ease: 'easeInOut',
-      }}
+      animate={{ y: isVisible ? 0 : -64, opacity: isVisible ? 1 : 0 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+
+          {/* Logo */}
           <Link
             href="/"
-            className="font-bold text-xl text-foreground dark:brightness-200 relative z-10"
+            aria-label="Home"
+            className="opacity-70 hover:opacity-100 transition-opacity duration-200"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center"
-            >
-              <Image
-                src="/logo.png"
-                alt="Logo"
-                width={32}
-                height={32}
-                className="inline-block"
-              />
-            </motion.div>
+            <Image
+              src="/logo.png"
+              alt="Adriano Maringolo"
+              width={28}
+              height={28}
+            />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+            {navItems.map((item) => {
+              const active = isActive(item.href)
+              return (
                 <Link
+                  key={item.href}
                   href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors relative group"
+                  className={`relative text-sm pb-1 transition-colors duration-200 ${
+                    active
+                      ? 'text-foreground font-medium'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
                 >
                   {item.label}
-                  <motion.div
-                    className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"
-                    whileHover={{ width: '100%' }}
-                  />
+                  {active && (
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-primary" />
+                  )}
                 </Link>
-              </motion.div>
-            ))}
-            <motion.div
-              className="flex items-center space-x-2 ml-4"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
+              )
+            })}
+          </nav>
+
+          {/* Desktop utility controls */}
+          <div className="hidden md:flex items-center gap-1">
+            <a
+              href="/documents/CV_Adriano_Maringolo_Senior_Software_Engineer.pdf"
+              download
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 px-2 mr-1"
             >
-              <DownloadCVButton variant="outline" size="sm" />
-              <ThemeToggle />
-              <LanguageToggle />
-            </motion.div>
+              {t('common.downloadCV')}
+            </a>
+            <ThemeToggle />
+            <LanguageToggle />
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
+          {/* Mobile controls */}
+          <div className="md:hidden flex items-center gap-1">
             <ThemeToggle />
-            <motion.div whileTap={{ scale: 0.95 }}>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsOpen(!isOpen)}
-                className="relative z-10"
-              >
-                <motion.div
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isOpen ? <X size={20} /> : <Menu size={20} />}
-                </motion.div>
-              </Button>
-            </motion.div>
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {isOpen ? (
+                  <motion.span
+                    key="close"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className="block"
+                  >
+                    <X size={18} />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="open"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className="block"
+                  >
+                    <Menu size={18} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: isOpen ? 'auto' : 0,
-            opacity: isOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="md:hidden overflow-hidden"
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-lg border-t border-border/50">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{
-                  opacity: isOpen ? 1 : 0,
-                  x: isOpen ? 0 : -20,
-                }}
-                transition={{
-                  delay: isOpen ? index * 0.1 : 0,
-                  duration: 0.2,
-                }}
-              >
-                <Link
-                  href={item.href}
-                  className="block px-3 py-2 text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </motion.div>
-            ))}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{
-                opacity: isOpen ? 1 : 0,
-                x: isOpen ? 0 : -20,
-              }}
-              transition={{
-                delay: isOpen ? navItems.length * 0.1 : 0,
-                duration: 0.2,
-              }}
-              className="px-3 py-2 space-y-3"
-            >
-              <div className="flex justify-center">
-                <DownloadCVButton size="sm" />
-              </div>
-              <LanguageToggle />
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
-    </motion.nav>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden overflow-hidden bg-background border-t border-border/40"
+          >
+            <nav className="px-6 py-4" aria-label="Mobile navigation">
+              <ul className="divide-y divide-border/30">
+                {navItems.map((item) => {
+                  const active = isActive(item.href)
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center justify-between py-4 text-sm transition-colors duration-200 ${
+                          active
+                            ? 'text-foreground font-medium'
+                            : 'text-muted-foreground'
+                        }`}
+                      >
+                        {item.label}
+                        {active && <span className="h-px w-5 bg-primary" />}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+              <div className="flex items-center justify-between pt-4 mt-2 border-t border-border/30">
+                <a
+                  href="/documents/CV_Adriano_Maringolo_Senior_Software_Engineer.pdf"
+                  download
+                  onClick={() => setIsOpen(false)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  {t('common.downloadCV')}
+                </a>
+                <LanguageToggle />
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   )
 }

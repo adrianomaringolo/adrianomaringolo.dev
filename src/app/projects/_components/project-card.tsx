@@ -11,8 +11,9 @@ import {
   CardHeader,
   CardTitle,
 } from 'buildgrid-ui'
+import { SiGithub } from '@icons-pack/react-simple-icons'
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Star } from 'lucide-react'
+import { ExternalLink, Star } from 'lucide-react'
 import Link from 'next/link'
 import { ProjectImage } from './project-image'
 
@@ -154,7 +155,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                   aria-label="Ver código"
                   className={buttonVariants({ variant: 'outline', size: 'sm' })}
                 >
-                  <Github className="w-4 h-4" />
+                  <SiGithub className="w-4 h-4" />
                 </a>
               )}
             </div>

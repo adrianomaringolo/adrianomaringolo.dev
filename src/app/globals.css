@@ -4,19 +4,18 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match the design brief for under construction page */
   --background: #ffffff;
-  --foreground: #4b5563;
-  --card: #f9fafb;
-  --card-foreground: #4b5563;
+  --foreground: #0f172a;
+  --card: #f8fafc;
+  --card-foreground: #0f172a;
   --popover: #ffffff;
-  --popover-foreground: #4b5563;
+  --popover-foreground: #0f172a;
   --primary: #0891b2;
   --primary-foreground: #ffffff;
   --secondary: #6366f1;
   --secondary-foreground: #ffffff;
-  --muted: #f9fafb;
-  --muted-foreground: #4b5563;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
   --accent: #6366f1;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
@@ -30,8 +29,8 @@
   --chart-4: #dc2626;
   --chart-5: #fbbf24;
   --radius: 0.5rem;
-  --sidebar: #f9fafb;
-  --sidebar-foreground: #4b5563;
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #0f172a;
   --sidebar-primary: #0891b2;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #6366f1;
@@ -41,24 +40,24 @@
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f1f5f9;
-  --card: #1e293b;
-  --card-foreground: #f1f5f9;
-  --popover: #1e293b;
-  --popover-foreground: #f1f5f9;
-  --primary: #0891b2;
-  --primary-foreground: #ffffff;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #111113;
+  --card-foreground: #fafafa;
+  --popover: #111113;
+  --popover-foreground: #fafafa;
+  --primary: #06b6d4;
+  --primary-foreground: #09090b;
   --secondary: #6366f1;
   --secondary-foreground: #ffffff;
-  --muted: #334155;
-  --muted-foreground: #94a3b8;
+  --muted: #1c1c1e;
+  --muted-foreground: #a1a1aa;
   --accent: #6366f1;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #334155;
-  --input: #334155;
+  --border: #27272a;
+  --input: #1c1c1e;
   --ring: rgba(99, 102, 241, 0.3);
   --chart-1: #6366f1;
   --chart-2: #94a3b8;
@@ -75,10 +74,9 @@
   --sidebar-ring: rgba(99, 102, 241, 0.3);
 }
 
-/* Updated font configuration for DM Sans */
 @theme inline {
-  --font-sans: 'DM Sans', var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -137,6 +135,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 
   /* Performance optimizations for mobile */

@@ -17,7 +17,6 @@ import {
   SiN8n,
   SiNextdotjs,
   SiNodedotjs,
-  SiOpenai,
   SiPostgresql,
   SiReact,
   SiSass,
@@ -29,7 +28,7 @@ import {
 } from '@icons-pack/react-simple-icons'
 import { Card, CardContent } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
-import { Bot, Cloud, Move, Zap } from 'lucide-react'
+import { Bot, Cloud, Move, Sparkles, Zap } from 'lucide-react'
 
 export function AboutTechnologies() {
   const { t } = useLocale()
@@ -67,7 +66,7 @@ export function AboutTechnologies() {
       icon: SiGithubcopilot,
       color: 'text-gray-900 dark:text-white',
     },
-    { name: 'OpenAI', icon: SiOpenai, color: 'text-gray-900 dark:text-white' },
+    { name: 'OpenAI', icon: Sparkles, color: 'text-gray-900 dark:text-white' },
     { name: 'Kiro AI', icon: Bot, color: 'text-purple-500' },
     { name: 'Sass', icon: SiSass, color: 'text-pink-500' },
     { name: 'Motion', icon: Move, color: 'text-pink-500' },

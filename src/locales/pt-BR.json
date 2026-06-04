@@ -10,10 +10,12 @@
     "hero": {
       "greeting": "Olá, eu sou",
       "title": "Criador de experiências digitais",
-      "subtitle": "Desenvolvedor Full Stack especializado em React, Next.js e TailwindCSS",
-      "cta": "Ver Projetos",
-      "contact": "Entre em Contato",
+      "subtitle": "Engenheiro full-stack. {{years}} anos construindo produtos web que as pessoas escolhem.",
+      "label": "Engenheiro full-stack · {{years}} anos",
+      "cta": "Ver meu trabalho",
+      "contact": "Entrar em contato",
       "scrollToExplore": "Scroll para explorar",
+      "yearsLabel": "anos de experiência",
       "stats": {
         "experience": "Anos de Experiência",
         "projects": "Projetos Entregues",
@@ -23,8 +25,9 @@
     "about": {
       "title": "Sobre Mim",
       "badge": "Desenvolvedor Full Stack",
+      "intro": "Transformo ideias em experiências digitais. Sou desenvolvedor com muitos anos de experiência criando websites e web apps modernos, combinando design, performance e usabilidade para gerar impacto real.",
       "description": "Transformo ideias em experiências digitais. Sou desenvolvedor com {{years}}+ anos de experiência criando websites e web apps modernos, combinando design, performance e usabilidade para gerar impacto real.",
-      "cta": "Saiba Mais",
+      "cta": "Mais sobre mim",
       "skills": {
         "frontend": "Desenvolvimento Frontend",
         "performance": "Otimização de Performance",
@@ -36,6 +39,12 @@
         "experience": "Anos",
         "satisfaction": "Satisfação"
       }
+    },
+    "disciplines": {
+      "title": "O que eu faço",
+      "frontend": "Engenharia Frontend",
+      "fullstack": "Desenvolvimento Full-Stack",
+      "architecture": "Arquitetura Web & Performance"
     }
   },
   "about": {
@@ -171,8 +180,19 @@
   },
   "blog": {
     "title": "Blog",
+    "subtitle": "Compartilhando conhecimento e experiências sobre desenvolvimento web",
     "readMore": "Ler mais",
     "backToBlog": "Voltar ao Blog",
+    "readingTime": "min de leitura",
+    "publishedAt": "Publicado em",
+    "author": "Por",
+    "tags": "Tags",
+    "relatedPosts": "Posts Relacionados",
+    "noRelatedPosts": "Nenhum post relacionado encontrado",
+    "featuredPosts": "Posts em Destaque",
+    "allPosts": "Todos os Posts",
+    "searchPlaceholder": "Buscar posts...",
+    "noResults": "Nenhum post encontrado",
     "underConstruction": "Coletando ideias...",
     "underConstructionDescription": "Em breve vou começar a compartilhar meu conhecimento por aqui! Me contate se tiver alguma sugestão 😉"
   },
@@ -240,9 +260,9 @@
   },
   "cta": {
     "badge": "Vamos Trabalhar Juntos",
-    "title": "Tem uma ideia em mente?",
-    "description": "Vamos conversar e transformar sua visão em realidade digital! Estou aqui para ajudar você a criar soluções que fazem a diferença.",
-    "button": "Entre em Contato",
+    "title": "Pronto para construir algo?",
+    "description": "Me conte sobre o seu projeto. Respondo em até 24 horas.",
+    "button": "Iniciar conversa",
     "secondaryButton": "Ver Projetos",
     "note": "Resposta garantida em até 24 horas",
     "benefits": {

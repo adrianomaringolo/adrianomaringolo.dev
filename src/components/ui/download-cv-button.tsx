@@ -17,6 +17,7 @@ export function DownloadCVButton({
   size = 'default',
   className = '',
 }: DownloadCVButtonProps) {
+  const buttonSize = size === 'default' ? 'md' : size
   const { t } = useLocale()
   const ref = useRef<HTMLButtonElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -49,7 +50,7 @@ export function DownloadCVButton({
       <Button
         ref={ref}
         variant={variant}
-        size={size}
+        size={buttonSize}
         onClick={handleDownload}
         className={`group relative overflow-hidden ${className}`}
       >

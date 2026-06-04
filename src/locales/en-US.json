@@ -10,10 +10,12 @@
     "hero": {
       "greeting": "Hi, I am",
       "title": "Full Stack Developer",
-      "subtitle": "Full stack developer specialized in React, Next.js and TailwindCSS",
-      "cta": "View Projects",
-      "contact": "Get in Touch",
+      "subtitle": "Full-stack engineer. {{years}} years building web products people choose.",
+      "label": "Full-stack engineer · {{years}} years",
+      "cta": "See my work",
+      "contact": "Get in touch",
       "scrollToExplore": "Scroll to explore",
+      "yearsLabel": "years of experience",
       "stats": {
         "experience": "Years of Experience",
         "projects": "Projects Delivered",
@@ -23,8 +25,9 @@
     "about": {
       "title": "About Me",
       "badge": "Full Stack Developer",
+      "intro": "I turn ideas into digital experiences. With several years of experience, I build modern websites and web apps that combine design, performance, and usability to create real impact.",
       "description": "I turn ideas into digital experiences. With {{years}}+ years of experience, I build modern websites and web apps that combine design, performance, and usability to create real impact.",
-      "cta": "Learn More",
+      "cta": "More about me",
       "skills": {
         "frontend": "Frontend Development",
         "performance": "Performance Optimization",
@@ -36,6 +39,12 @@
         "experience": "Years",
         "satisfaction": "Satisfaction"
       }
+    },
+    "disciplines": {
+      "title": "What I focus on",
+      "frontend": "Frontend Engineering",
+      "fullstack": "Full-Stack Development",
+      "architecture": "Web Architecture & Performance"
     }
   },
   "about": {
@@ -171,8 +180,19 @@
   },
   "blog": {
     "title": "Blog",
+    "subtitle": "Sharing knowledge and experiences about web development",
     "readMore": "Read more",
     "backToBlog": "Back to Blog",
+    "readingTime": "min read",
+    "publishedAt": "Published on",
+    "author": "By",
+    "tags": "Tags",
+    "relatedPosts": "Related Posts",
+    "noRelatedPosts": "No related posts found",
+    "featuredPosts": "Featured Posts",
+    "allPosts": "All Posts",
+    "searchPlaceholder": "Search posts...",
+    "noResults": "No posts found",
     "underConstruction": "Collecting ideas...",
     "underConstructionDescription": "Soon I will start sharing some of my knowledge here! Let me know if you have any suggestions 😉"
   },
@@ -240,9 +260,9 @@
   },
   "cta": {
     "badge": "Let's Work Together",
-    "title": "Have an idea in mind?",
-    "description": "Let's talk and turn your vision into digital reality! I'm here to help you create solutions that make a difference.",
-    "button": "Get in Touch",
+    "title": "Ready to build something?",
+    "description": "Tell me about your project. I'll get back to you within 24 hours.",
+    "button": "Start a conversation",
     "secondaryButton": "View Projects",
     "note": "Response guaranteed within 24 hours",
     "benefits": {

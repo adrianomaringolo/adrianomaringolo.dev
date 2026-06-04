@@ -6,6 +6,20 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
 
+  // Disable React profiling in development to avoid performance measurement errors
+  reactStrictMode: true,
+
+  // Webpack configuration
+  webpack: (config, { dev }) => {
+    if (dev) {
+      // Disable performance hints in development
+      config.performance = {
+        hints: false,
+      }
+    }
+    return config
+  },
+
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],

@@ -1,10 +1,13 @@
+import { getBlogPosts } from '@/data/blog'
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://adrianomaringolo.dev'
   const pages = ['', '/about', '/projects', '/blog', '/contact']
+  const blogPosts = getBlogPosts()
 
-  return pages.map((page) => {
+  // Static pages
+  const staticPages = pages.map((page) => {
     const priority =
       page === ''
         ? 1
@@ -31,4 +34,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     }
   })
+
+  // Blog posts
+  const blogPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: post.featured ? 0.8 : 0.6,
+    alternates: {
+      languages: {
+        'pt-BR': `${baseUrl}/blog/${post.slug}`,
+        'en-US': `${baseUrl}/blog/${post.slug}`,
+      },
+    },
+  }))
+
+  return [...staticPages, ...blogPages]
 }

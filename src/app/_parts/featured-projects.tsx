@@ -1,186 +1,138 @@
 'use client'
 
-import { MagneticButton } from '@/components/ui/magnetic-button'
-import { RevealAnimation } from '@/components/ui/reveal-animation'
-import { ScrollParallax } from '@/components/ui/scroll-parallax'
 import { getFeaturedProjects } from '@/data/projects'
-import { useShouldReduceAnimations } from '@/hooks/use-reduced-motion'
-import { useTranslation } from '@/hooks/use-translation'
-import { Badge, Button } from 'buildgrid-ui'
-import { motion } from 'framer-motion'
+import { useLocale } from '@/hooks/use-locale'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
+
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export function FeaturedProjects() {
-  const { t, locale } = useTranslation()
-  const shouldReduceAnimations = useShouldReduceAnimations()
-  const featuredProjects = getFeaturedProjects().slice(0, 3) // Mostrar apenas 3 projetos
+  const { t, locale } = useLocale()
+  const featuredProjects = getFeaturedProjects().slice(0, 3)
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
 
-  if (featuredProjects.length === 0) {
-    return null
-  }
+  if (featuredProjects.length === 0) return null
+
+  const hoveredProject = featuredProjects.find((p) => p.id === hoveredId)
 
   return (
-    <section className="py-20 bg-muted/30 relative overflow-hidden">
-      {!shouldReduceAnimations && (
-        <ScrollParallax offset={30} className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl" />
-        </ScrollParallax>
-      )}
+    <section className="py-24 px-6 md:px-12 lg:px-20 border-t border-border/40">
+      <div className="max-w-6xl mx-auto">
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+        <motion.p
+          initial={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0 }}
+          className="text-sm text-muted-foreground/60 mb-10"
+        >
+          {t('projects.featured')}
+        </motion.p>
+
+        {/* Project list */}
+        <ul className="divide-y divide-border/40">
+          {featuredProjects.map((project, index) => (
+            <motion.li
+              key={project.id}
+              initial={{ opacity: 1, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease }}
+              viewport={{ once: true, amount: 0 }}
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              className="group"
+            >
+              <Link href={`/projects/${project.slug}`}>
+                <div className="grid grid-cols-[32px_1fr] lg:grid-cols-[48px_1fr_200px_32px] gap-4 lg:gap-8 py-8 lg:py-10 items-start rounded-lg -mx-4 px-4 transition-colors hover:bg-muted/40">
+
+                  {/* Index */}
+                  <span className="text-sm text-muted-foreground/30 font-mono pt-0.5 tabular-nums">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  {/* Title + description + tech */}
+                  <div className="space-y-2 min-w-0">
+                    <h3 className="text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
+                      {project.title[locale]}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                      {project.shortDescription[locale]}
+                    </p>
+                    <p className="text-xs text-muted-foreground/50">
+                      {project.technologies.slice(0, 4).join(' · ')}
+                      {project.technologies.length > 4 && (
+                        <span> · +{project.technologies.length - 4}</span>
+                      )}
+                    </p>
+                  </div>
+
+                  {/* Thumbnail — desktop only, fades in on hover */}
+                  <div className="hidden lg:block h-28 relative rounded-lg overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Image
+                      src={project.thumbnail}
+                      alt={project.title[locale]}
+                      fill
+                      className="object-cover"
+                      sizes="200px"
+                    />
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="hidden lg:flex items-center justify-end pt-1">
+                    {project.liveUrl ? (
+                      <ExternalLink className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                    ) : (
+                      <ArrowRight className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    )}
+                  </div>
+                </div>
+              </Link>
+            </motion.li>
+          ))}
+        </ul>
+
+        {/* Floating preview for large screens (shows hovered project thumbnail near list) */}
+        <AnimatePresence>
+          {hoveredProject && (
+            <motion.div
+              key={hoveredProject.id}
+              initial={{ opacity: 0, scale: 0.95, y: 8 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 8 }}
+              transition={{ duration: 0.2 }}
+              className="hidden xl:block fixed right-12 top-1/2 -translate-y-1/2 z-20 pointer-events-none w-72 h-48 rounded-xl overflow-hidden shadow-2xl border border-border/40"
+            >
+              <Image
+                src={hoveredProject.thumbnail}
+                alt={hoveredProject.title[locale]}
+                fill
+                className="object-cover"
+                sizes="288px"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* View all link */}
+        <motion.div
+          initial={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true, amount: 0 }}
+          className="mt-12"
+        >
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {t('projects.featured')}
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              {t('projects.featuredDescription')}
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 mb-12">
-            {featuredProjects.map((project, index) => (
-              <RevealAnimation key={project.id} direction="up" delay={index * 0.1}>
-                <motion.div
-                  className="group relative"
-                  whileHover={{ y: -8 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                >
-                  {/* Category Badge - Moves to top external area on hover */}
-                  <div className="absolute -top-8 left-4 z-20 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                    <Badge className="bg-primary/90 text-primary-foreground border-0 backdrop-blur-sm shadow-lg">
-                      {project.category}
-                    </Badge>
-                  </div>
-
-                  {/* Card Container */}
-                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border border-border/50 hover:border-primary/30 transition-all duration-500">
-                    {/* Image with Overlay */}
-                    <div className="relative h-64 overflow-hidden">
-                      <Image
-                        src={project.thumbnail}
-                        alt={project.title[locale]}
-                        width={400}
-                        height={256}
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                      />
-
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
-
-                      {/* External Link Icon */}
-                      {project.liveUrl && (
-                        <motion.div
-                          className="absolute top-4 right-4 opacity-0 group-hover:opacity-100"
-                          initial={{ scale: 0, rotate: -180 }}
-                          whileHover={{ scale: 1, rotate: 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                          >
-                            <ExternalLink className="w-4 h-4 text-white" />
-                          </a>
-                        </motion.div>
-                      )}
-
-                      {/* Title Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <motion.h3
-                          className="text-white font-bold text-xl mb-2 line-clamp-2 drop-shadow-lg"
-                          style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}
-                          initial={{ y: 20, opacity: 0 }}
-                          whileInView={{ y: 0, opacity: 1 }}
-                          transition={{ delay: 0.2 + index * 0.1 }}
-                        >
-                          {project.title[locale]}
-                        </motion.h3>
-                      </div>
-                    </div>
-
-                    {/* Hover Action */}
-                    <motion.div
-                      className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                      initial={{ scale: 0.8 }}
-                      whileHover={{ scale: 1 }}
-                    >
-                      <Link href={`/projects/${project.slug}`}>
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Button
-                            className="bg-white/90 text-primary hover:bg-white shadow-lg backdrop-blur-sm"
-                            size="sm"
-                          >
-                            {t('projects.viewDetails')}
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </Button>
-                        </motion.div>
-                      </Link>
-                    </motion.div>
-
-                    {/* Decorative Elements */}
-                    <div className="absolute -top-2 -right-2 w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute -bottom-2 -left-2 w-16 h-16 bg-gradient-to-tr from-accent/20 to-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
-                  </div>
-
-                  {/* Tech Stack Pills - Move to bottom external area on hover */}
-                  <div className="absolute -bottom-8 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
-                    <div className="flex gap-2 flex-wrap justify-center">
-                      {project.technologies.slice(0, 2).map((tech, techIndex) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 text-xs bg-card/90 backdrop-blur-sm rounded-full text-foreground shadow-lg border border-border/50 transform scale-95 group-hover:scale-100 transition-transform duration-200"
-                          style={{ transitionDelay: `${techIndex * 50}ms` }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 2 && (
-                        <span className="px-3 py-1 text-xs bg-accent/90 backdrop-blur-sm rounded-full text-accent-foreground shadow-lg transform scale-95 group-hover:scale-100 transition-transform duration-200 delay-100">
-                          +{project.technologies.length - 2}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Floating Shadow */}
-                  <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 -z-10 scale-95" />
-                </motion.div>
-              </RevealAnimation>
-            ))}
-          </div>
-
-          <RevealAnimation direction="up" delay={0.3} className="text-center">
-            <Link href="/projects">
-              <MagneticButton>
-                <Button size="lg" className="group relative overflow-hidden">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.6 }}
-                  />
-                  <span className="relative z-10">{t('projects.viewAllProjects')}</span>
-                  <ArrowRight className="w-4 h-4 ml-2 relative z-10 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </MagneticButton>
-            </Link>
-          </RevealAnimation>
-        </div>
+            {t('projects.viewAllProjects')}
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

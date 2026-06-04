@@ -6,20 +6,13 @@ import { LocaleProvider } from '@/hooks/use-locale'
 import { ThemeProvider } from '@/hooks/use-theme'
 import { generatePageMetadata } from '@/lib/metadata'
 import { Analytics } from '@vercel/analytics/next'
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
-import { Red_Hat_Display } from 'next/font/google'
 import Image from 'next/image'
 import type React from 'react'
 import { Suspense } from 'react'
 import './globals.css'
-
-const redHatDisplay = Red_Hat_Display({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
-  preload: true,
-  fallback: ['system-ui', 'arial'],
-})
 
 export const metadata: Metadata = generatePageMetadata({
   locale: 'pt-BR',
@@ -32,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`font-sans ${redHatDisplay.className}`}>
+    <html lang="pt-BR" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`font-sans ${GeistSans.className}`}>
         <ThemeProvider>
           <LocaleProvider>
             <DynamicMetadata />
