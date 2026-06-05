@@ -1,18 +1,11 @@
 'use client'
 
-import {
-  AboutContent,
-  AboutHero,
-  AboutHistory,
-  AboutPrinciples,
-  AboutTechnologies,
-} from './_components'
+import { AboutHero, AboutHistory, AboutPrinciples, AboutTechnologies } from './_components'
 
 export default function SobrePage() {
   return (
-    <div className="relative overflow-hidden">
+    <div>
       <AboutHero />
-      <AboutContent />
       <AboutHistory />
       <AboutTechnologies />
       <AboutPrinciples />

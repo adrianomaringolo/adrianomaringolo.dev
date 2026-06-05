@@ -1,35 +1,42 @@
 'use client'
 
-import { RevealAnimation } from '@/components/ui/reveal-animation'
 import { useLocale } from '@/hooks/use-locale'
-import { Card, CardContent } from 'buildgrid-ui'
-import { Lightbulb } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export function AboutHistory() {
   const { t } = useLocale()
 
-  const tAbout = (tag: string) => t(`about.${tag}`)
+  const paragraphs = t('about.history').split('\n\n').filter(Boolean)
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-24 px-6 md:px-12 lg:px-20 border-t border-border/40">
       <div className="max-w-6xl mx-auto">
-        <RevealAnimation direction="up" delay={0.6}>
-          <Card className="pt-0 mb-20 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-border/50">
-            <CardContent className="p-8 md:p-12">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center">
-                  <Lightbulb className="w-6 h-6 text-primary" />
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  {tAbout('historyTitle')}
-                </h2>
-              </div>
-              <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
-                <p className="text-pretty whitespace-pre-line">{tAbout('history')}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </RevealAnimation>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0 }}
+          className="text-xs tracking-[0.2em] text-primary uppercase font-mono mb-14"
+        >
+          {t('about.historyTitle')}
+        </motion.p>
+
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-20">
+          {paragraphs.map((paragraph, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: i * 0.08, ease }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="text-base leading-relaxed text-foreground/75"
+            >
+              {paragraph}
+            </motion.p>
+          ))}
+        </div>
       </div>
     </section>
   )

@@ -47,16 +47,28 @@ export function AboutSection() {
             viewport={{ once: true, amount: 0 }}
             className="space-y-5"
           >
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+              <span className="text-xs text-muted-foreground/50">{t('home.about.availability')}</span>
+            </div>
+
             <p className="text-xl leading-relaxed text-foreground">
               {intro}
             </p>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-all hover:gap-3"
-            >
-              {t('home.about.cta')}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+
+            <div className="space-y-3">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-all hover:gap-3"
+              >
+                {t('home.about.cta')}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <p className="text-xs text-muted-foreground/35 leading-relaxed">
+                {t('home.about.workedWith')}&nbsp;
+                Venturus · Dextra · Avenue Code · Codurance
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
@@ -65,7 +77,7 @@ export function AboutSection() {
             transition={{ duration: 0.6, delay: 0.1, ease }}
             viewport={{ once: true, amount: 0 }}
           >
-            <p className="text-sm text-muted-foreground/60 mb-4">
+            <p className="text-xs tracking-[0.2em] text-primary uppercase font-mono mb-4">
               {t('home.disciplines.title')}
             </p>
             <ul className="divide-y divide-border/40">

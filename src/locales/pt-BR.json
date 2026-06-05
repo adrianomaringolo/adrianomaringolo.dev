@@ -28,6 +28,8 @@
       "intro": "Transformo ideias em experiências digitais. Sou desenvolvedor com muitos anos de experiência criando websites e web apps modernos, combinando design, performance e usabilidade para gerar impacto real.",
       "description": "Transformo ideias em experiências digitais. Sou desenvolvedor com {{years}}+ anos de experiência criando websites e web apps modernos, combinando design, performance e usabilidade para gerar impacto real.",
       "cta": "Mais sobre mim",
+      "availability": "Disponível para novos projetos",
+      "workedWith": "Passei por",
       "skills": {
         "frontend": "Desenvolvimento Frontend",
         "performance": "Otimização de Performance",
@@ -39,6 +41,14 @@
         "experience": "Anos",
         "satisfaction": "Satisfação"
       }
+    },
+    "testimonials": {
+      "title": "O que dizem"
+    },
+    "blog": {
+      "title": "Escrito recentemente",
+      "readTime": "min de leitura",
+      "seeAll": "Ver todos os posts"
     },
     "servicePicker": {
       "eyebrow": "Tem um projeto em mente?",

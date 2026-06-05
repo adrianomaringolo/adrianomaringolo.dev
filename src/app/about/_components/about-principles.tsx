@@ -1,124 +1,76 @@
 'use client'
 
-import { RevealAnimation } from '@/components/ui/reveal-animation'
-import { TiltCard } from '@/components/ui/tilt-card'
 import { useLocale } from '@/hooks/use-locale'
-import { Card, CardContent } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
 import {
   BookOpen,
-  DollarSign,
   MessageCircle,
   RefreshCw,
   Settings,
   Smartphone,
+  TrendingDown,
   Users,
   Zap,
 } from 'lucide-react'
 
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
+const principles = [
+  { key: 'responsiveness',     Icon: Smartphone     },
+  { key: 'userExperience',     Icon: Users          },
+  { key: 'performance',        Icon: Zap            },
+  { key: 'communication',      Icon: MessageCircle  },
+  { key: 'feedback',           Icon: RefreshCw      },
+  { key: 'maintenance',        Icon: Settings       },
+  { key: 'continuousLearning', Icon: BookOpen       },
+  { key: 'costReduction',      Icon: TrendingDown   },
+] as const
+
 export function AboutPrinciples() {
   const { t } = useLocale()
 
-  const tAbout = (tag: string) => t(`about.${tag}`)
-
-  const workPrinciples = [
-    {
-      title: tAbout('principles.responsiveness'),
-      description: tAbout('principles.responsivenessDescription'),
-      icon: Smartphone,
-      color: 'bg-blue-500/10 text-blue-500',
-    },
-    {
-      title: tAbout('principles.userExperience'),
-      description: tAbout('principles.userExperienceDescription'),
-      icon: Users,
-      color: 'bg-purple-500/10 text-purple-500',
-    },
-    {
-      title: tAbout('principles.performance'),
-      description: tAbout('principles.performanceDescription'),
-      icon: Zap,
-      color: 'bg-yellow-500/10 text-yellow-500',
-    },
-    {
-      title: tAbout('principles.costReduction'),
-      description: tAbout('principles.costReductionDescription'),
-      icon: DollarSign,
-      color: 'bg-green-500/10 text-green-500',
-    },
-    {
-      title: tAbout('principles.communication'),
-      description: tAbout('principles.communicationDescription'),
-      icon: MessageCircle,
-      color: 'bg-indigo-500/10 text-indigo-500',
-    },
-    {
-      title: tAbout('principles.feedback'),
-      description: tAbout('principles.feedbackDescription'),
-      icon: RefreshCw,
-      color: 'bg-orange-500/10 text-orange-500',
-    },
-    {
-      title: tAbout('principles.maintenance'),
-      description: tAbout('principles.maintenanceDescription'),
-      icon: Settings,
-      color: 'bg-gray-500/10 text-gray-500',
-    },
-    {
-      title: tAbout('principles.continuousLearning'),
-      description: tAbout('principles.continuousLearningDescription'),
-      icon: BookOpen,
-      color: 'bg-teal-500/10 text-teal-500',
-    },
-  ]
-
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-24 px-6 md:px-12 lg:px-20 border-t border-border/40">
       <div className="max-w-6xl mx-auto">
-        <RevealAnimation direction="up" delay={1.0}>
-          <div>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {tAbout('howIWork')}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {tAbout('howIWorkDescription')}
-              </p>
-            </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0 }}
+          className="text-xs tracking-[0.2em] text-primary uppercase font-mono mb-14"
+        >
+          {t('about.howIWork')}
+        </motion.p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {workPrinciples.map((principle, index) => (
-                <motion.div
-                  key={principle.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                  className="h-80"
-                >
-                  <TiltCard className="h-full">
-                    <Card className="h-full text-center backdrop-blur-xl border-border/50 hover:border-primary/30 transition-all duration-300 bg-transparent">
-                      <CardContent className="p-6 flex flex-col justify-between h-full">
-                        <div className="flex flex-col items-center">
-                          <div
-                            className={`w-12 h-12 ${principle.color} rounded-xl flex items-center justify-center mb-4`}
-                          >
-                            <principle.icon className="h-6 w-6" />
-                          </div>
-                          <h3 className="text-lg font-bold mb-3">{principle.title}</h3>
-                        </div>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {principle.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </TiltCard>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </RevealAnimation>
+        <ul className="divide-y divide-border/40 border-y border-border/40">
+          {principles.map(({ key, Icon }, i) => (
+            <motion.li
+              key={key}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease }}
+              viewport={{ once: true, amount: 0.1 }}
+              className="grid grid-cols-[32px_1fr] md:grid-cols-[48px_220px_1fr] gap-4 md:gap-8 py-7 items-start"
+            >
+              <span className="text-xs font-mono text-muted-foreground/25 pt-1 tabular-nums">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+
+              <div className="flex items-start gap-3">
+                <div className="w-7 h-7 rounded-md border border-border/50 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon className="w-3.5 h-3.5 text-primary/70" />
+                </div>
+                <p className="text-base font-semibold text-foreground leading-snug pt-0.5">
+                  {t(`about.principles.${key}`)}
+                </p>
+              </div>
+
+              <p className="text-sm text-muted-foreground/60 leading-relaxed col-start-2 md:col-start-3">
+                {t(`about.principles.${key}Description`)}
+              </p>
+            </motion.li>
+          ))}
+        </ul>
       </div>
     </section>
   )

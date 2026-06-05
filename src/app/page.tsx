@@ -3,6 +3,7 @@ import { CTASection } from '@/app/_parts/cta-section'
 import { FeaturedProjects } from '@/app/_parts/featured-projects'
 import { HeroSection } from '@/app/_parts/hero-section'
 import { ServicePickerSection } from '@/app/_parts/service-picker-section'
+import { TestimonialsSection } from '@/app/_parts/testimonials-section'
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <ServicePickerSection />
+      <TestimonialsSection />
       <FeaturedProjects />
       <CTASection />
     </>

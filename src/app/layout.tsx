@@ -8,6 +8,13 @@ import { generatePageMetadata } from '@/lib/metadata'
 import { Analytics } from '@vercel/analytics/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
+import { Manrope } from 'next/font/google'
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
+  display: 'swap',
+})
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import type React from 'react'
@@ -25,8 +32,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className={`font-sans ${GeistSans.className}`}>
+    <html lang="pt-BR" suppressHydrationWarning className={`${manrope.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`font-sans ${manrope.className}`}>
         <ThemeProvider>
           <LocaleProvider>
             <DynamicMetadata />

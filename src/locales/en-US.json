@@ -28,6 +28,8 @@
       "intro": "I turn ideas into digital experiences. With several years of experience, I build modern websites and web apps that combine design, performance, and usability to create real impact.",
       "description": "I turn ideas into digital experiences. With {{years}}+ years of experience, I build modern websites and web apps that combine design, performance, and usability to create real impact.",
       "cta": "More about me",
+      "availability": "Available for new projects",
+      "workedWith": "I've worked at",
       "skills": {
         "frontend": "Frontend Development",
         "performance": "Performance Optimization",
@@ -39,6 +41,14 @@
         "experience": "Years",
         "satisfaction": "Satisfaction"
       }
+    },
+    "testimonials": {
+      "title": "What they say"
+    },
+    "blog": {
+      "title": "Recently written",
+      "readTime": "min read",
+      "seeAll": "See all posts"
     },
     "servicePicker": {
       "eyebrow": "Have a project in mind?",

@@ -28,7 +28,7 @@ export function FeaturedProjects() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, amount: 0 }}
-          className="text-sm text-muted-foreground/60 mb-10"
+          className="text-xs tracking-[0.2em] text-primary uppercase font-mono mb-10"
         >
           {t('projects.featured')}
         </motion.p>

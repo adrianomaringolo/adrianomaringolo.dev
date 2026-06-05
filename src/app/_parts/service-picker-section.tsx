@@ -44,7 +44,7 @@ export function ServicePickerSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="mb-14"
         >
-          <p className="text-xs tracking-[0.2em] text-primary uppercase mb-4">
+          <p className="text-xs tracking-[0.2em] text-primary uppercase font-mono mb-4">
             {t('home.servicePicker.eyebrow')}
           </p>
           <h2

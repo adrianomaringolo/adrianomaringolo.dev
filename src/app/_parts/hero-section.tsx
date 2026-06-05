@@ -98,7 +98,7 @@ export function HeroSection() {
         {/* Name — typographic statement */}
         <div>
           <h1
-            className="font-black leading-[0.88] tracking-[-0.04em]"
+            className="font-black leading-[0.88] tracking-[-0.04em] [font-family:var(--font-geist-sans)]"
             style={{ fontSize: 'clamp(4.5rem, 15vw, 11rem)' }}
           >
             <LineReveal delay={0.1}>
