@@ -1,3 +1,4 @@
+export { AboutCareer } from './about-career'
 export { AboutHero } from './about-hero'
 export { AboutHistory } from './about-history'
 export { AboutPrinciples } from './about-principles'

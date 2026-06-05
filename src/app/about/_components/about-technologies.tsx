@@ -20,7 +20,7 @@ const categories = [
   },
   {
     label: 'IA & Automação',
-    items: ['OpenAI', 'GitHub Copilot', 'n8n', 'Cursor AI', 'Kiro AI'],
+    items: ['Claude Code', 'OpenAI', 'GitHub Copilot', 'n8n', 'Cursor AI', 'Kiro AI'],
   },
 ]
 

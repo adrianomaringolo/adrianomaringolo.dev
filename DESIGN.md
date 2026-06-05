@@ -60,22 +60,28 @@ Defined in `src/app/globals.css` via CSS custom properties.
 
 ## Typography
 
-**Fonts:** Geist Sans (`--font-sans`) + Geist Mono (`--font-mono`)
+**Fonts:**
+- `--font-sans` → **Manrope** (body, UI, all sections) — loaded via `next/font/google`
+- `--font-geist-sans` → **Geist Sans** (hero display heading only) — applied with `[font-family:var(--font-geist-sans)]`
+- `--font-mono` → **Geist Mono** (section labels, indices, monospace elements)
+
+The two-font split is intentional: Manrope brings warmth to body text; Geist anchors the hero name with a colder, more technical precision. Don't swap them or apply Geist elsewhere.
 
 | Role | Class / style | Notes |
 |---|---|---|
-| Display heading | `font-black leading-[0.88] tracking-[-0.04em]`, `clamp(4.5rem, 15vw, 11rem)` | Hero only. Tight leading, negative tracking. |
-| Section heading | `text-3xl lg:text-4xl font-bold tracking-tight` | |
-| Body | `text-base leading-relaxed` | Default prose |
+| Display heading | `font-black leading-[0.88] tracking-[-0.04em] [font-family:var(--font-geist-sans)]`, `clamp(4.5rem, 15vw, 11rem)` | Hero name only. Geist Sans, not Manrope. |
+| Page heading | `font-bold tracking-tight [font-family:var(--font-geist-sans)]`, `clamp(1.6rem, 3.5vw, 2.75rem)` | About hero, large section headings. |
+| Body | `text-base leading-relaxed` | Default prose. Manrope via `font-sans`. |
 | Secondary / label | `text-sm text-muted-foreground` | Descriptions, captions |
 | Caption / meta | `text-xs text-muted-foreground/50` | Dates, tech tags |
-| Monospace label | `text-xs tracking-[0.2em] uppercase text-primary font-mono` | Used in hero label, section markers |
-| Item index | `text-sm font-mono text-muted-foreground/30 tabular-nums` | `01`, `02`, `03` list numbering |
+| Monospace label | `text-xs tracking-[0.2em] uppercase text-primary font-mono` | Section eyebrows — every section, consistent. |
+| Item index | `text-xs font-mono text-muted-foreground/25 tabular-nums` | `01`, `02`, `03` list numbering |
 
 **Rules:**
 - Headings use `tracking-tight` or tighter — never default letter-spacing on large type.
 - Uppercase labels always pair with wide tracking (`tracking-[0.2em]`) and small size.
 - Mono font is for labels and indices, not for decorative code snippets.
+- `[font-family:var(--font-geist-sans)]` is an escape hatch for display headings only — don't use it elsewhere.
 
 ---
 
@@ -88,13 +94,24 @@ Defined in `src/app/globals.css` via CSS custom properties.
 
 ### Page structure (home)
 ```
-Hero          — full viewport height, name as typographic statement
-About         — two-column: bio left, disciplines right
-Featured      — editorial numbered list (01/02/03), thumbnail on hover
-CTA           — two lines of copy + contact link
+Hero            — full viewport height, name as typographic statement
+About           — two-column: photo + bio + disciplines list with descriptions
+ServicePicker   — 3 interactive rows (site / app / consulting) → side panel
+Testimonials    — 2-column blockquote grid
+FeaturedProjects — editorial numbered list, thumbnail on hover
+CTA             — two-column: contact copy + recent blog posts
 ```
 
-No more than 4 sections on any single page. Every added section must earn its place.
+### Page structure (/about)
+```
+Hero      — two-column: photo sticky + heading + availability + CTA
+History   — narrative paragraphs in 2-col grid
+Career    — vertical timeline with connecting line and dots
+Tech      — categorized text list (Frontend / Back-end / Ferramentas / IA)
+Principles — numbered editorial list with icons
+```
+
+Every section must earn its place. Prefer expanding an existing section over adding a new one.
 
 ---
 
@@ -114,7 +131,35 @@ No more than 4 sections on any single page. Every added section must earn its pl
 - Secondary action: `text-sm font-medium text-muted-foreground hover:text-foreground`
 - External: `ExternalLink` icon instead of arrow
 - Icon micro-interaction: `group-hover:translate-x-1 transition-transform`
-- No filled buttons on editorial pages — text links only unless it's a form submit or download.
+- Filled button (`bg-primary text-primary-foreground px-5 py-2.5 rounded-md hover:opacity-90`): acceptable at page-level hero CTAs and the closing CTA section. Not on mid-page interactive elements.
+
+### Availability indicator
+```tsx
+<div className="flex items-center gap-2">
+  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+  <span className="text-xs text-muted-foreground/50">{t('home.about.availability')}</span>
+</div>
+```
+Used in homepage About and /about hero. One instance per page max.
+
+### Side panel (service picker)
+Slide-in from right using `AnimatePresence` + `motion.aside`. Always paired with a backdrop blur overlay that closes the panel on click. Lock `document.body` scroll while open. Max width `max-w-[440px]`. Structure: header (icon + title + close) → scrollable body → sticky footer CTA.
+
+### Vertical timeline (career)
+```
+grid grid-cols-[28px_1fr] gap-5
+```
+Left column: dot + connecting line segment (`w-px bg-border/35`, `scaleY: 0→1` on enter). Current entry: pulsing emerald dot (`animate-ping`). Past entries: hollow circle (`border-2 border-border/60`). Right column: period (mono) → company (semibold) → role (primary/60) → location (muted/30) → description.
+
+### Discipline / service list row
+```
+group flex items-center justify-between py-4 gap-4
+  └── div.space-y-0.5
+        ├── p  title  (font-medium, group-hover:text-primary)
+        └── p  description  (text-sm text-muted-foreground/60)
+  └── ArrowRight (muted, group-hover:text-primary, group-hover:translate-x-1)
+```
+Used in About disciplines and ServicePicker rows. Divider: `divide-y divide-border/40`.
 
 ### Section labels
 ```tsx
@@ -177,7 +222,8 @@ Opacity must not exceed `0.10`. Never animate the glow position.
 - `aria-hidden` on all decorative elements (glows, dividers, icons duplicated by label).
 - Skip-to-content link in layout (`sr-only focus:not-sr-only`).
 - `prefers-reduced-motion` respected globally.
-- Bilingual (pt-BR / en-US) via i18n — all copy goes through `t()`, no hardcoded strings in components.
+- Bilingual (pt-BR / en-US) via i18n — UI copy goes through `t()`, no hardcoded strings in components.
+- **Exception:** structured content with multiple fields per entry (career history, testimonials) lives in TypeScript data files under `src/data/` with explicit `Record<string, string>` locale maps. Use `entry.field[locale] ?? entry.field['pt-BR']` as the fallback pattern. Only use data files when the content has structure beyond a simple string — if it's a label or sentence, it belongs in the JSON.
 
 ---
 
