@@ -101,15 +101,14 @@ export function ProjectScreenshots({ screenshots, locale }: ProjectScreenshotsPr
               >
                 <button
                   onClick={() => openLightbox(i + 1)}
-                  className="group relative w-full overflow-hidden rounded-xl ring-1 ring-border/20 block"
+                  className="group relative w-full overflow-hidden rounded-xl ring-1 ring-border/30 bg-muted/20 block h-64"
                   aria-label={shot.alt}
                 >
                   <Image
                     src={shot.url}
                     alt={shot.alt}
-                    width={800}
-                    height={500}
-                    className="w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    fill
+                    className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02] p-2"
                   />
                 </button>
                 {shot.caption[locale] && (
