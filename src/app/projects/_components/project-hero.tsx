@@ -1,12 +1,14 @@
 'use client'
 
-import { useTranslation } from '@/hooks/use-translation'
+import { useLocale } from '@/hooks/use-locale'
 import type { Project } from '@/types/project'
 import { SiGithub } from '@icons-pack/react-simple-icons'
-import { Badge, Button, buttonVariants } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, ExternalLink, Star, Users } from 'lucide-react'
+import { ArrowLeft, ExternalLink } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
+
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 interface ProjectHeroProps {
   project: Project
@@ -14,112 +16,92 @@ interface ProjectHeroProps {
 }
 
 export function ProjectHero({ project, locale }: ProjectHeroProps) {
-  const { t } = useTranslation()
-
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      web: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-      webapp: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
-      library: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-    }
-    return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800'
-  }
+  const { t } = useLocale()
 
   return (
     <>
-      {/* Back Button */}
-      <div className="container mx-auto px-4 py-6 text-center">
-        <Link href="/projects">
-          <Button variant="ghost" size="sm" className="mb-6">
+      {/* Top nav */}
+      <nav className="px-6 md:px-12 lg:px-20 py-7">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
             <ArrowLeft className="w-4 h-4" />
             {t('projects.backToProjects')}
-          </Button>
-        </Link>
-      </div>
+          </Link>
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 pb-16">
-        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-6">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Live
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                GitHub
+                <SiGithub className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero image — full bleed, always visible */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ height: 'clamp(340px, 58vh, 700px)' }}
+      >
+        <Image
+          src={project.thumbnail}
+          alt={project.title[locale]}
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+
+        {/*
+          Dark scrim — guarantees white text contrast over any image regardless of theme.
+          Heavier at the bottom (text zone), dissolves toward top so the image reads.
+        */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.50) 20%, rgba(0,0,0,0.12) 48%, transparent 68%)' }}
+        />
+
+        {/* Project identity — always visible, motion only for entrance polish */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 lg:px-20 pb-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.6, delay: 0.2, ease }}
           >
-            {/* Badges */}
-            <div className="flex justify-center gap-2 mb-4">
-              <Badge className={getCategoryColor(project.category)}>
-                {project.category}
-              </Badge>
-              {project.featured && (
-                <Badge className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-                  <Star className="w-3 h-3 mr-1" />
-                  {t('projects.featuredBadge')}
-                </Badge>
-              )}
-            </div>
-
-            {/* Title */}
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-balance">
+            <p className="text-sm tracking-[0.18em] text-white uppercase font-mono mb-3">
+              {project.category}
+              {project.client && ` · ${project.client.name}`}
+            </p>
+            <h1
+              className="font-bold tracking-tight text-white text-balance [font-family:var(--font-geist-sans)]"
+              style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.75rem)' }}
+            >
               {project.title[locale]}
             </h1>
-
-            {/* Description */}
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              {project.fullDescription[locale]}
-            </p>
-
-            {/* Project Meta */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground mb-8">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>
-                  {new Date(project.startDate).toLocaleDateString(locale)}
-                  {project.endDate
-                    ? ` - ${new Date(project.endDate).toLocaleDateString(locale)}`
-                    : ` - ${t('common.ongoing')}`}
-                </span>
-              </div>
-
-              {project.client && (
-                <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4" />
-                  <span>
-                    {t('projects.client')}: {project.client.name}
-                  </span>
-                </div>
-              )}
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap justify-center gap-4">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={buttonVariants()}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  {t('projects.viewDemo')}
-                </a>
-              )}
-
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={buttonVariants({ variant: 'outline' })}
-                >
-                  <SiGithub className="w-4 h-4" />
-                  {t('projects.viewCode')}
-                </a>
-              )}
-            </div>
           </motion.div>
         </div>
-      </section>
+      </div>
     </>
   )
 }

@@ -142,6 +142,7 @@ export const buildgridUI: Project = {
     },
   ],
   status: 'continous-improvement',
+  myRole: 'founder',
   featured: true,
   startDate: '2024-08-01',
   client: {

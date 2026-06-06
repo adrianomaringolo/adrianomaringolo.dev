@@ -175,7 +175,6 @@
     "viewDetails": "Ver Detalhes",
     "projectsDescription": "Explore uma seleção dos meus projetos mais recentes, desde aplicações web complexas até sistemas de design completos.",
     "noProjectsFound": "Nenhum projeto encontrado nesta categoria.",
-
     "viewDemo": "Ver Demo",
     "viewCode": "Ver Código",
     "backToProjects": "Voltar aos Projetos",
@@ -196,6 +195,13 @@
     "getInTouch": "Entre em Contato",
     "viewMoreProjects": "Ver Mais Projetos",
     "client": "Cliente",
+    "myRole": "Meu papel",
+    "roles": {
+      "founder": "Fundador",
+      "freelancer": "Freelancer",
+      "employee": "Funcionário",
+      "contributor": "Colaborador"
+    },
     "technicalChallenges": "Desafios Técnicos",
     "skillsAcquired": "Habilidades Adquiridas",
     "clientTestimonials": "Depoimentos dos Usuários",
@@ -227,7 +233,8 @@
       "backToHome": "Voltar ao Início",
       "didntFind": "Não encontrou o que procurava?",
       "getInTouch": "Entre em contato comigo"
-    }
+    },
+    "pageHeading": "Trabalho selecionado"
   },
   "blog": {
     "title": "Blog",

@@ -81,6 +81,7 @@ export interface Project {
   githubUrl?: string
   figmaUrl?: string
   status?: 'completed' | 'in-progress' | 'continous-improvement' | 'concept'
+  myRole?: 'founder' | 'freelancer' | 'employee' | 'contributor'
   featured: boolean
   startDate: string
   endDate?: string

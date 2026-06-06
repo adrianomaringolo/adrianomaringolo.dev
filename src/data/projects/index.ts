@@ -3,12 +3,14 @@ import { asmMarketingDigital } from './asm-marketing-digital'
 import { buildgridUI } from './buildgrid-ui'
 import { gotaDeCura } from './gota-de-cura'
 import { portalDaMorada } from './portal-da-morada'
+import { symproLanding } from './sympro-landing'
 
 export const projects: Project[] = [
   asmMarketingDigital,
   buildgridUI,
   gotaDeCura,
   portalDaMorada,
+  symproLanding,
 ]
 
 export function getProjectBySlug(slug: string): Project | undefined {
@@ -24,4 +26,4 @@ export function getProjectsByCategory(category: Project['category']): Project[] 
 }
 
 // Export individual projects
-export { asmMarketingDigital, buildgridUI, gotaDeCura, portalDaMorada }
+export { asmMarketingDigital, buildgridUI, gotaDeCura, portalDaMorada, symproLanding }
