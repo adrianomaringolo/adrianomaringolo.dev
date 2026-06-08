@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
+  --background: #f5f7fa;
   --foreground: #0f172a;
   --card: #f8fafc;
   --card-foreground: #0f172a;
@@ -15,7 +15,7 @@
   --secondary: #6366f1;
   --secondary-foreground: #ffffff;
   --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted-foreground: #4b5563;
   --accent: #6366f1;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;

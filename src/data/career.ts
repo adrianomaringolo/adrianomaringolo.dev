@@ -1,6 +1,6 @@
 export interface CareerEntry {
   id: string
-  company: string
+  company: Record<string, string>
   location: Record<string, string>
   role: Record<string, string>
   startYear: number
@@ -11,7 +11,7 @@ export interface CareerEntry {
 export const career: CareerEntry[] = [
   {
     id: 'codurance',
-    company: 'Codurance',
+    company: { 'pt-BR': 'Codurance', 'en-US': 'Codurance' },
     location: {
       'pt-BR': 'Lisboa, Portugal · Remoto',
       'en-US': 'Lisbon, Portugal · Remote',
@@ -29,7 +29,7 @@ export const career: CareerEntry[] = [
   },
   {
     id: 'avenue-code',
-    company: 'Avenue Code',
+    company: { 'pt-BR': 'Avenue Code', 'en-US': 'Avenue Code' },
     location: {
       'pt-BR': 'Brasil / EUA · Remoto',
       'en-US': 'Brazil / USA · Remote',
@@ -47,7 +47,7 @@ export const career: CareerEntry[] = [
   },
   {
     id: 'independent',
-    company: 'Consultor Independente',
+    company: { 'pt-BR': 'Consultor Independente', 'en-US': 'Independent Consultant' },
     location: {
       'pt-BR': 'Remoto',
       'en-US': 'Remote',
@@ -65,7 +65,7 @@ export const career: CareerEntry[] = [
   },
   {
     id: 'dextra',
-    company: 'Dextra (adquirida pela CI&T)',
+    company: { 'pt-BR': 'Dextra (adquirida pela CI&T)', 'en-US': 'Dextra (acquired by CI&T)' },
     location: {
       'pt-BR': 'Campinas, Brasil',
       'en-US': 'Campinas, Brazil',
@@ -83,7 +83,7 @@ export const career: CareerEntry[] = [
   },
   {
     id: 'venturus',
-    company: 'Venturus',
+    company: { 'pt-BR': 'Venturus', 'en-US': 'Venturus' },
     location: {
       'pt-BR': 'Campinas, Brasil',
       'en-US': 'Campinas, Brazil',
@@ -101,7 +101,7 @@ export const career: CareerEntry[] = [
   },
   {
     id: 'sedna',
-    company: 'Sedna Software',
+    company: { 'pt-BR': 'Sedna Software', 'en-US': 'Sedna Software' },
     location: {
       'pt-BR': 'Brasil',
       'en-US': 'Brazil',

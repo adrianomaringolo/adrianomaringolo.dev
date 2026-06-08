@@ -1,16 +1,20 @@
 'use client'
 
-import { getAllPosts } from '@/lib/blog-posts'
 import { useLocale } from '@/hooks/use-locale'
+import type { BlogPostMetadata } from '@/types/blog'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
-export function CTASection() {
+interface CTASectionProps {
+  posts?: BlogPostMetadata[]
+}
+
+export function CTASection({ posts = [] }: CTASectionProps) {
   const { t, locale } = useLocale()
-  const recentPosts = getAllPosts(locale).slice(0, 3)
+  const recentPosts = posts.slice(0, 3)
 
   return (
     <section className="py-28 px-6 md:px-12 lg:px-20 border-t border-border/40">
@@ -62,10 +66,10 @@ export function CTASection() {
                   >
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-1">
-                        {post.title}
+                        {post.title[locale] ?? post.title['pt-BR']}
                       </p>
                       <p className="text-xs text-muted-foreground/40 mt-0.5">
-                        {post.readTime} {t('home.blog.readTime')}
+                        {post.readingTime} {t('home.blog.readTime')}
                       </p>
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 shrink-0 text-muted-foreground/25 group-hover:text-primary group-hover:translate-x-1 transition-all" />

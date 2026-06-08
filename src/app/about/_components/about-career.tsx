@@ -72,7 +72,7 @@ export function AboutCareer() {
 
                   <div className="space-y-0.5 mb-3">
                     <h3 className="text-base font-semibold text-foreground leading-snug">
-                      {entry.company}
+                      {entry.company[locale] ?? entry.company['pt-BR']}
                     </h3>
                     <p className="text-sm text-primary/60 font-medium">
                       {entry.role[locale] ?? entry.role['pt-BR']}
