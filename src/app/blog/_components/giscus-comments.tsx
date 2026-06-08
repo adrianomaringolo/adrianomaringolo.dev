@@ -17,7 +17,7 @@ export function GiscusComments() {
       reactionsEnabled="1"
       emitMetadata="0"
       inputPosition="bottom"
-      theme={`${typeof window !== 'undefined' ? window.location.origin : 'https://adrianomaringolo.dev'}/giscus/${resolvedTheme === 'dark' ? 'dark' : 'light'}.css`}
+      theme={resolvedTheme === 'dark' ? 'dark_dimmed' : 'light'}
       lang="en"
       loading="lazy"
     />

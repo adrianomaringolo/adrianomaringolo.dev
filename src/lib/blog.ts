@@ -23,7 +23,7 @@ function readMdxFile(slug: string, locale: Locale): { data: Record<string, unkno
 function getSlugs(): string[] {
   if (!fs.existsSync(CONTENT_DIR)) return []
   return fs.readdirSync(CONTENT_DIR).filter((entry) => {
-    return fs.statSync(path.join(CONTENT_DIR, entry)).isDirectory()
+    return !entry.startsWith('_') && fs.statSync(path.join(CONTENT_DIR, entry)).isDirectory()
   })
 }
 

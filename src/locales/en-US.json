@@ -349,10 +349,10 @@
   "cta": {
     "badge": "Let's Work Together",
     "title": "Ready to build something?",
-    "description": "Tell me about your project. I'll get back to you within 24 hours.",
+    "description": "Tell me about your project. I'll get back to you within 48 hours.",
     "button": "Start a conversation",
     "secondaryButton": "View Projects",
-    "note": "Response guaranteed within 24 hours",
+    "note": "Response guaranteed within 48 hours",
     "benefits": {
       "quality": "Quality guaranteed",
       "delivery": "On-time delivery",

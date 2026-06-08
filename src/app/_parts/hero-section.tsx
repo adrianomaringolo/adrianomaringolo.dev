@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useCallback, useRef } from 'react'
 import { FilledBlobName, OutlinedBlobName } from './hero-blobs'
+import { NeuralNetworkCanvas } from './neural-network-canvas'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -62,6 +63,9 @@ export function HeroSection() {
       style={{ minHeight: 'calc(100svh - 64px)' }}
       onMouseMove={handleMouseMove}
     >
+      {/* Neural network ambient field — desktop only, fades in after text reveals */}
+      <NeuralNetworkCanvas />
+
       {/* Cursor-following ambient glow */}
       <div
         ref={glowRef}
