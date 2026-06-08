@@ -66,7 +66,7 @@ export function AboutCareer() {
 
                 {/* Content */}
                 <div className={`pb-10${isLast ? ' pb-0' : ''}`}>
-                  <p className="text-[10px] font-mono text-muted-foreground/35 tracking-wide mb-2">
+                  <p className="text-[10px] font-mono text-muted-foreground/35 tracking-wide mt-6 mb-2">
                     {period}
                   </p>
 
