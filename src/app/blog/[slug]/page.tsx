@@ -1,4 +1,4 @@
-import { getBlogPost, getBlogPosts, getRelatedPosts } from '@/data/blog'
+import { getBlogPost, getBlogPosts, getRelatedPosts } from '@/lib/blog'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { BlogPostClient } from './blog-post-client'
@@ -11,10 +11,7 @@ interface BlogPostProps {
 
 export async function generateStaticParams() {
   const posts = getBlogPosts()
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
@@ -41,14 +38,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
       authors: [post.author],
       tags: post.tags,
       images: post.image
-        ? [
-            {
-              url: post.image,
-              width: 1200,
-              height: 630,
-              alt: post.title['pt-BR'],
-            },
-          ]
+        ? [{ url: post.image, width: 1200, height: 630, alt: post.title['pt-BR'] }]
         : undefined,
     },
     twitter: {
@@ -69,15 +59,9 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
 
 export default async function BlogPost({ params }: BlogPostProps) {
   const { slug } = await params
-  console.log('Blog post slug:', slug)
-
   const post = getBlogPost(slug)
-  console.log('Found post:', post ? 'Yes' : 'No')
 
-  if (!post) {
-    console.log('Post not found, calling notFound()')
-    notFound()
-  }
+  if (!post) notFound()
 
   const relatedPosts = getRelatedPosts(post.slug, post.tags)
 

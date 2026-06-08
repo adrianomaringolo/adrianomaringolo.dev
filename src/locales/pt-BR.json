@@ -11,7 +11,7 @@
       "greeting": "Olá, eu sou",
       "title": "Criador de experiências digitais",
       "subtitle": "Engenheiro full-stack. {{years}} anos construindo produtos web que as pessoas escolhem.",
-      "label": "Engenheiro full-stack · {{years}} anos",
+      "label": "Engenheiro full-stack · {{years}} anos de experiência",
       "cta": "Ver meu trabalho",
       "contact": "Entrar em contato",
       "scrollToExplore": "Scroll para explorar",
@@ -244,7 +244,21 @@
     "readingTime": "min de leitura",
     "publishedAt": "Publicado em",
     "author": "Por",
-    "tags": "Tags",
+    "tags": {
+      "carreira": "carreira",
+      "portfolio": "portfólio",
+      "desenvolvimento": "desenvolvimento",
+      "dicas": "dicas",
+      "nextjs": "nextjs",
+      "javascript": "javascript",
+      "web": "web",
+      "react": "react",
+      "performance": "performance",
+      "ai": "ia",
+      "produtividade": "produtividade",
+      "ferramentas": "ferramentas"
+    },
+    "comments": "Comentários",
     "relatedPosts": "Posts Relacionados",
     "noRelatedPosts": "Nenhum post relacionado encontrado",
     "featuredPosts": "Posts em Destaque",
@@ -255,17 +269,19 @@
     "underConstructionDescription": "Em breve vou começar a compartilhar meu conhecimento por aqui! Me contate se tiver alguma sugestão 😉"
   },
   "contact": {
-    "title": "Contato",
-    "subtitle": "Tem um projeto em mente? Vamos conversar e transformar sua ideia em realidade!",
-    "connect": "Vamos nos conectar",
+    "eyebrow": "Tem um projeto em mente?",
+    "title": "Vamos conversar",
+    "subtitle": "Conta seu projeto — respondo em até 48h.",
+    "projectType": "Qual é o seu projeto?",
+    "connect": "Onde me encontrar",
     "sendMessage": "Enviar Mensagem",
     "name": "Nome",
     "email": "Email",
     "message": "Mensagem",
-    "messagePlaceholder": "Conte-me sobre seu projeto...",
-    "send": "Enviar",
-    "successMessage": "Mensagem enviada com sucesso! Muito obrigado, em breve eu te responderei 😉",
-    "errorMessage": "Desculpe, houve um erro ao enviar cadastro."
+    "messagePlaceholder": "Conta um pouco mais sobre o que você quer construir...",
+    "send": "Enviar mensagem",
+    "successMessage": "Mensagem enviada com sucesso! Muito obrigado, em breve eu te responderei.",
+    "errorMessage": "Desculpe, houve um erro ao enviar. Tente novamente ou me contate diretamente."
   },
   "footer": {
     "rights": "Todos os direitos reservados"

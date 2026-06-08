@@ -1,0 +1,86 @@
+/*
+ * Custom Giscus theme — light
+ * Mapped from the site's design tokens
+ */
+
+:root {
+  /* Canvas */
+  --color-canvas-default:        #ffffff;
+  --color-canvas-overlay:        #ffffff;
+  --color-canvas-inset:          #f8fafc;
+  --color-canvas-subtle:         #f1f5f9;
+
+  /* Foreground */
+  --color-fg-default:            #0f172a;
+  --color-fg-muted:              #64748b;
+  --color-fg-subtle:             #94a3b8;
+  --color-fg-on-emphasis:        #ffffff;
+
+  /* Border */
+  --color-border-default:        #e5e7eb;
+  --color-border-muted:          #f1f5f9;
+  --color-border-subtle:         rgba(15, 23, 42, 0.06);
+
+  /* Accent (primary — cyan) */
+  --color-accent-fg:             #0891b2;
+  --color-accent-emphasis:       #0891b2;
+  --color-accent-muted:          rgba(8, 145, 178, 0.1);
+  --color-accent-subtle:         rgba(8, 145, 178, 0.06);
+
+  /* Neutral */
+  --color-neutral-emphasis-plus: #0f172a;
+  --color-neutral-emphasis:      #475569;
+  --color-neutral-muted:         rgba(100, 116, 139, 0.15);
+  --color-neutral-subtle:        rgba(100, 116, 139, 0.08);
+
+  /* Inputs */
+  --color-input-bg:              #f9fafb;
+  --color-input-disabled-bg:     #f1f5f9;
+  --color-input-contrast-bg:     #ffffff;
+
+  /* Buttons — default */
+  --color-btn-text:              #0f172a;
+  --color-btn-bg:                #ffffff;
+  --color-btn-border:            rgba(15, 23, 42, 0.15);
+  --color-btn-shadow:            0 1px 0 rgba(15, 23, 42, 0.04);
+  --color-btn-hover-bg:          #f1f5f9;
+  --color-btn-hover-border:      rgba(15, 23, 42, 0.2);
+  --color-btn-active-bg:         #e2e8f0;
+
+  /* Buttons — primary */
+  --color-btn-primary-text:      #ffffff;
+  --color-btn-primary-bg:        #0891b2;
+  --color-btn-primary-border:    rgba(8, 145, 178, 0.8);
+  --color-btn-primary-hover-bg:  #0e7490;
+  --color-btn-primary-hover-border: rgba(8, 145, 178, 0.9);
+  --color-btn-primary-selected-bg: #0e7490;
+  --color-btn-primary-disabled-text: rgba(255,255,255,0.6);
+  --color-btn-primary-disabled-bg: rgba(8,145,178,0.5);
+  --color-btn-primary-disabled-border: transparent;
+  --color-btn-primary-focus-border: rgba(8, 145, 178, 0.8);
+  --color-btn-primary-shadow:    0 1px 0 rgba(8, 145, 178, 0.1);
+  --color-btn-primary-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  /* Social reactions */
+  --color-social-reaction-bg-hover:     rgba(8, 145, 178, 0.08);
+  --color-social-reaction-bg-reacted-hover: rgba(8, 145, 178, 0.12);
+
+  /* Scrollbar */
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* Match the site's mono font in code blocks */
+code, pre {
+  font-family: 'Geist Mono', ui-monospace, 'Cascadia Code', monospace;
+  font-size: 0.85em;
+}
+
+/* Softer textarea */
+textarea.form-control {
+  border-radius: 0.5rem;
+}
+
+/* Remove default GitHub-ish header chrome */
+.gsc-header {
+  padding-top: 0;
+}

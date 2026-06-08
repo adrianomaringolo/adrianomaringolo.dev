@@ -11,7 +11,7 @@
       "greeting": "Hi, I am",
       "title": "Full Stack Developer",
       "subtitle": "Full-stack engineer. {{years}} years building web products people choose.",
-      "label": "Full-stack engineer · {{years}} years",
+      "label": "Full-stack engineer · {{years}} years of experience",
       "cta": "See my work",
       "contact": "Get in touch",
       "scrollToExplore": "Scroll to explore",
@@ -245,6 +245,21 @@
     "publishedAt": "Published on",
     "author": "By",
     "tags": "Tags",
+    "tags": {
+      "carreira": "career",
+      "portfolio": "portfolio",
+      "desenvolvimento": "development",
+      "dicas": "tips",
+      "nextjs": "nextjs",
+      "javascript": "javascript",
+      "web": "web",
+      "react": "react",
+      "performance": "performance",
+      "ai": "ai",
+      "produtividade": "productivity",
+      "ferramentas": "tools"
+    },
+    "comments": "Comments",
     "relatedPosts": "Related Posts",
     "noRelatedPosts": "No related posts found",
     "featuredPosts": "Featured Posts",
@@ -255,17 +270,19 @@
     "underConstructionDescription": "Soon I will start sharing some of my knowledge here! Let me know if you have any suggestions 😉"
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Let's work together",
-    "connect": "Let's connect",
+    "eyebrow": "Have a project in mind?",
+    "title": "Let's talk",
+    "subtitle": "Tell me what you want to build — I reply within 48h.",
+    "projectType": "What's your project?",
+    "connect": "Where to find me",
     "sendMessage": "Send message",
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "messagePlaceholder": "Tell me about your project...",
-    "send": "Send",
-    "successMessage": "Message sent successfully! Thank you very much, I'll get back to you soon 😉",
-    "errorMessage": "Sorry, there was an error sending the form."
+    "messagePlaceholder": "Tell me a bit more about what you want to build...",
+    "send": "Send message",
+    "successMessage": "Message sent! Thank you, I'll get back to you soon.",
+    "errorMessage": "Sorry, something went wrong. Try again or reach out directly."
   },
   "footer": {
     "rights": "All rights reserved"

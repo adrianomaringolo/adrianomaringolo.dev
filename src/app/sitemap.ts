@@ -1,4 +1,4 @@
-import { getBlogPosts } from '@/data/blog'
+import { getBlogPosts } from '@/lib/blog'
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
