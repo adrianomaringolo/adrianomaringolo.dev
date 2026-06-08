@@ -1,0 +1,160 @@
+{
+  "colleagues": [
+    {
+      "id": "vinicius-moreira",
+      "name": "Vinicius Moreira",
+      "role": {
+        "pt-BR": "Tech Lead",
+        "en-US": "Tech Lead"
+      },
+      "company": "",
+      "linkedIn": "https://www.linkedin.com/in/viniciusmoreira",
+      "quote": {
+        "pt-BR": "Tive a oportunidade de trabalhar com o Adriano no mesmo projeto, e ele demonstrou consistentemente um alto nível de expertise técnica em desenvolvimento de software, tanto no frontend quanto no backend. Ele está sempre comprometido em entregar resultados de alta qualidade, garantindo implementações sólidas por meio de testes e análises cuidadosas. Adriano também é um excelente jogador de equipe. Ele apoia ativamente seus colegas, frequentemente traz sugestões valiosas e está sempre disposto a compartilhar seu conhecimento com o time.",
+        "en-US": "I had the opportunity to work with Adriano on the same project, and he consistently demonstrated a high level of technical expertise in software development, both on the frontend and backend. He is always committed to delivering high-quality results, ensuring solid implementations through testing and thoughtful analysis. Adriano is also an excellent team player. He actively supports his colleagues, frequently brings valuable suggestions, and is always willing to share his knowledge with the team."
+      }
+    },
+    {
+      "id": "saulo-veiga",
+      "name": "Saulo Veiga",
+      "role": {
+        "pt-BR": "Engenheiro de Software Senior",
+        "en-US": "Senior Software Engineer"
+      },
+      "company": "",
+      "linkedIn": "https://www.linkedin.com/in/sauloveiga",
+      "quote": {
+        "pt-BR": "Tive o privilégio de colaborar com Adriano em múltiplos projetos, onde ele demonstrou consistentemente grande profissionalismo e disposição para ajudar os outros. Adriano é paciente e atencioso. Ele tem um alto nível de conhecimento e experiência, e está sempre pronto para compartilhar o que sabe, contribuindo não apenas com soluções, mas também apoiando os membros da equipe.",
+        "en-US": "I had the privilege of collaborating with Adriano on multiple projects, where he consistently demonstrated great professionalism and willingness to assist others. Adriano is patient and attentive. He has a high level of knowledge and experience, and he is always ready to share what he knows, contributing not only with solutions but also by supporting team members."
+      }
+    },
+    {
+      "id": "denise-abbade",
+      "name": "Denise Abbade",
+      "role": {
+        "pt-BR": "Gerente de Dados & Ágil",
+        "en-US": "Data & Agile Manager"
+      },
+      "company": "",
+      "linkedIn": "https://www.linkedin.com/in/deniseabbade",
+      "quote": {
+        "pt-BR": "O Adriano é um desenvolvedor diferenciado, além de saber programar de forma excelente, ele tem bastante preocupação com a entrega: faz o acompanhamento do prazo com o time, busca aprimorar a qualidade e sabe avaliar muito bem impactos e riscos. Ele circula entre os desenvolvedores quase como um mentor e consegue motivar a todos! Sempre será um diferencial no time que estiver.",
+        "en-US": "Adriano is a standout developer; beyond programming excellently, he is very concerned with delivery: he monitors deadlines with the team, seeks to improve quality, and knows how to assess impacts and risks very well. He circulates among developers almost like a mentor and manages to motivate everyone! He will always be a key differentiator in whatever team he is part of."
+      }
+    }
+  ],
+  "clients": [
+    {
+      "id": "danielli-olegario",
+      "name": "Danielli Olegário",
+      "role": {
+        "pt-BR": "Especialista em Empregabilidade & Carreira",
+        "en-US": "Employability & Career Specialist"
+      },
+      "company": "",
+      "linkedIn": "https://www.linkedin.com/in/danielliolegario",
+      "quote": {
+        "pt-BR": "O Adriano é um grande profissional que me deu treinamento voltado para quem está começando na área de Desenvolvimento. Eu saí extremamente satisfeita com o curso. Sua dedicação, paciência e conhecimento fizeram toda a diferença. Ele mostrou ser não só um ótimo profissional, mas também um ser humano que possui uma preocupação genuína com o nosso aprendizado e desenvolvimento.",
+        "en-US": "Adriano is a great professional who gave me training focused on those starting out in Development. I was extremely satisfied with the course. His dedication, patience, and knowledge made all the difference. He proved to be not only an excellent professional but also a human being with a genuine concern for our learning and development."
+      }
+    },
+    {
+      "id": "yane-leitao",
+      "name": "Yane Leitão",
+      "role": {
+        "pt-BR": "Personal Chef Funcional",
+        "en-US": "Functional Personal Chef"
+      },
+      "company": "Yane Leitão Personal Chef",
+      "avatar": "",
+      "quote": {
+        "pt-BR": "O Adriano não começou pelo design — começou entendendo o meu negócio, os meus clientes e o que eu queria comunicar. Cada detalhe do site foi construído com propósito: as cores, os serviços, a anamnese que qualifica meus clientes antes do primeiro contato. Quando vi o resultado, senti que o site representa exatamente quem eu sou. Foi o melhor investimento que fiz pela minha marca.",
+        "en-US": "Adriano didn't start with design — he started by understanding my business, my clients, and what I wanted to communicate. Every detail of the site was built with purpose: the colors, the services, the anamnesis form that qualifies my clients before first contact. When I saw the result, I felt the site represents exactly who I am. It was the best investment I made for my personal brand."
+      }
+    },
+    {
+      "id": "anelita-massucate",
+      "name": "Anelita Scaliza Massucate",
+      "role": {
+        "pt-BR": "Fundadora",
+        "en-US": "Founder"
+      },
+      "company": "ASM Marketing Digital",
+      "avatar": "/projects/asm-marketing/client-thumb.jpg",
+      "quote": {
+        "pt-BR": "Ter o Adriano como parceiro é ter certeza de qualidade e profissionalismo. Ele entrega sites bonitos, funcionais e feitos com muito cuidado, sempre pensando na melhor experiência de quem vai usar. Excelente profissional.",
+        "en-US": "Having Adriano as a partner is ensuring quality and professionalism. He delivers beautiful, functional websites, made with great care, always thinking about the best user experience to be provided. Excellent professional."
+      }
+    },
+    {
+      "id": "luciano-gomes",
+      "name": "Luciano Gomes",
+      "role": {
+        "pt-BR": "Responsável",
+        "en-US": "Owner"
+      },
+      "company": "GoLaser Barão Geraldo",
+      "avatar": "",
+      "quote": {
+        "pt-BR": "O Adriano entendeu desde o início o que a clínica precisava: um site que transmitisse confiança e convertesse visitas em agendamentos. Ele organizou nossos serviços de forma clara, posicionou os CTAs nos lugares certos e ainda integrou o rastreamento com o Google Ads. O resultado superou o que esperávamos.",
+        "en-US": "Adriano understood from the start what the clinic needed: a website that conveyed trust and converted visits into appointments. He organized our services clearly, placed the CTAs in the right spots, and even integrated tracking with Google Ads. The result exceeded what we expected."
+      }
+    },
+    {
+      "id": "marcelo-mattar",
+      "name": "Marcelo Soares Mattar",
+      "role": {
+        "pt-BR": "Aromaterapeuta Responsável",
+        "en-US": "Lead Aromatherapist"
+      },
+      "company": "Gota de Cura",
+      "avatar": "/projects/gota-de-cura/client-thumb.jpg",
+      "quote": {
+        "pt-BR": "O site representa exatamente o que é a Gota de Cura: simplicidade, amor e propósito. Adriano conseguiu traduzir nossa essência e facilitar nossa rotina com o sistema de pedidos. Foi um divisor de águas para o nosso trabalho.",
+        "en-US": "The website represents exactly what Gota de Cura is: simplicity, love and purpose. Adriano managed to translate our essence and facilitate our routine with the order system. It was a game changer for our work."
+      }
+    },
+    {
+      "id": "marcelo-m",
+      "name": "Marcelo M.",
+      "role": {
+        "pt-BR": "Coordenador",
+        "en-US": "Coordinator"
+      },
+      "company": "Morada Espírita Professor Lairi Hans",
+      "avatar": "",
+      "quote": {
+        "pt-BR": "O Portal da Morada transformou completamente a nossa gestão. Antes gastávamos horas conciliando planilhas, confirmando presenças e controlando finanças manualmente. Hoje tudo está centralizado, organizado e acessível em segundos. A plataforma não só trouxe eficiência, mas também transparência e tranquilidade para nossa rotina.",
+        "en-US": "Portal da Morada completely transformed our management. Before, we spent hours reconciling spreadsheets, confirming attendance and controlling finances manually. Today everything is centralized, organized and accessible in seconds. The platform not only brought efficiency, but also transparency and peace of mind to our routine."
+      }
+    },
+    {
+      "id": "kelly-b",
+      "name": "Kelly B.",
+      "role": {
+        "pt-BR": "Membro Ativo",
+        "en-US": "Active Member"
+      },
+      "company": "Morada Espírita Professor Lairi Hans",
+      "avatar": "",
+      "quote": {
+        "pt-BR": "Para nós, membros, o Portal facilitou muito a participação nas atividades. Consigo ver os eventos, convites, me inscrever nas escalas e acompanhar tudo pelo celular. É simples, rápido e funciona muito bem. A sensação é de que estamos todos mais conectados e informados.",
+        "en-US": "For us members, the Portal made participation in activities much easier. I can see events, invitations, sign up for schedules and follow everything on my phone. It's simple, fast and works very well. The feeling is that we are all more connected and informed."
+      }
+    },
+    {
+      "id": "andre-a",
+      "name": "André A.",
+      "role": {
+        "pt-BR": "Membro Participante",
+        "en-US": "Participating Member"
+      },
+      "company": "Morada Espírita Professor Lairi Hans",
+      "avatar": "",
+      "quote": {
+        "pt-BR": "O que eu mais gosto é a organização. Tenho acesso ao meu histórico, aos comunicados, às pendências e às atividades, tudo no mesmo lugar. Antes eu sempre acabava perdendo alguma informação nos grupos, agora o sistema me avisa automaticamente. É prático e dá mais segurança, porque sei que tudo está registrado.",
+        "en-US": "What I like most is the organization. I have access to my history, communications, pending items and activities, all in one place. Before I always ended up losing some information in groups, now the system automatically notifies me. It's practical and gives more security, because I know everything is recorded."
+      }
+    }
+  ]
+}

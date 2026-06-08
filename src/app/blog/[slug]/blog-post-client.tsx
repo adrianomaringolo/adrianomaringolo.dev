@@ -2,6 +2,7 @@
 
 import { BlogCard } from '@/app/blog/_components/blog-card'
 import { GiscusComments } from '@/app/blog/_components/giscus-comments'
+import { ShareModal } from '@/app/blog/_components/share-modal'
 import { useLocale } from '@/hooks/use-locale'
 import type { BlogPost, BlogPostMetadata } from '@/types/blog'
 import { motion } from 'framer-motion'
@@ -80,12 +81,15 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
               </span>
             </div>
 
-            {/* Tags */}
-            {post.tags.length > 0 && (
-              <p className="text-xs text-muted-foreground/50">
-                {post.tags.map((tag) => t(`blog.tags.${tag}`)).join(' · ')}
-              </p>
-            )}
+            {/* Tags + Share */}
+            <div className="flex items-center justify-between gap-4 flex-wrap">
+              {post.tags.length > 0 && (
+                <p className="text-xs text-muted-foreground/50">
+                  {post.tags.map((tag) => t(`blog.tags.${tag}`)).join(' · ')}
+                </p>
+              )}
+              <ShareModal post={post} />
+            </div>
           </motion.div>
         </div>
       </section>

@@ -266,7 +266,15 @@
     "searchPlaceholder": "Buscar posts...",
     "noResults": "Nenhum post encontrado",
     "underConstruction": "Coletando ideias...",
-    "underConstructionDescription": "Em breve vou começar a compartilhar meu conhecimento por aqui! Me contate se tiver alguma sugestão 😉"
+    "underConstructionDescription": "Em breve vou começar a compartilhar meu conhecimento por aqui! Me contate se tiver alguma sugestão 😉",
+    "share": {
+      "trigger": "Compartilhar",
+      "title": "Compartilhar post",
+      "copyLink": "Copiar link",
+      "copied": "Link copiado!",
+      "moreOptions": "Mais opções",
+      "close": "Fechar"
+    }
   },
   "contact": {
     "eyebrow": "Tem um projeto em mente?",

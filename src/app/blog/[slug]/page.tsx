@@ -3,10 +3,15 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { BlogPostClient } from './blog-post-client'
 
+type Locale = 'pt-BR' | 'en-US'
+
 interface BlogPostProps {
-  params: Promise<{
-    slug: string
-  }>
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ lang?: string }>
+}
+
+function resolveLocale(lang: string | undefined): Locale {
+  return lang === 'en-US' ? 'en-US' : 'pt-BR'
 }
 
 export async function generateStaticParams() {
@@ -14,8 +19,10 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }))
 }
 
-export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: BlogPostProps): Promise<Metadata> {
   const { slug } = await params
+  const { lang } = await searchParams
+  const locale = resolveLocale(lang)
   const post = getBlogPost(slug)
 
   if (!post) {
@@ -25,33 +32,36 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
     }
   }
 
+  const title = post.title[locale] ?? post.title['pt-BR']
+  const description = post.excerpt[locale] ?? post.excerpt['pt-BR']
+
   return {
-    title: `${post.title['pt-BR']} | Adriano Maringolo`,
-    description: post.excerpt['pt-BR'],
+    title: `${title} | Adriano Maringolo`,
+    description,
     keywords: post.tags.join(', '),
     authors: [{ name: post.author }],
     openGraph: {
-      title: post.title['pt-BR'],
-      description: post.excerpt['pt-BR'],
+      title,
+      description,
       type: 'article',
       publishedTime: post.publishedAt,
       authors: [post.author],
       tags: post.tags,
       images: post.image
-        ? [{ url: post.image, width: 1200, height: 630, alt: post.title['pt-BR'] }]
+        ? [{ url: post.image, width: 1200, height: 630, alt: title }]
         : undefined,
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title['pt-BR'],
-      description: post.excerpt['pt-BR'],
+      title,
+      description,
       images: post.image ? [post.image] : undefined,
     },
     alternates: {
       canonical: `/blog/${post.slug}`,
       languages: {
         'pt-BR': `/blog/${post.slug}`,
-        'en-US': `/blog/${post.slug}`,
+        'en-US': `/blog/${post.slug}?lang=en-US`,
       },
     },
   }

@@ -3,11 +3,24 @@
 import { testimonials } from '@/data/testimonials'
 import { useLocale } from '@/hooks/use-locale'
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
+const VISIBLE_COUNT = 4
+
+function pickRandom<T>(arr: T[], n: number): T[] {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, n)
+}
+
 export function TestimonialsSection() {
   const { t, locale } = useLocale()
+  const [visible, setVisible] = useState(testimonials.slice(0, VISIBLE_COUNT))
+
+  useEffect(() => {
+    setVisible(pickRandom(testimonials, VISIBLE_COUNT))
+  }, [])
 
   return (
     <section className="py-24 px-6 md:px-12 lg:px-20 border-t border-border/40">
@@ -23,7 +36,7 @@ export function TestimonialsSection() {
         </motion.p>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-          {testimonials.map((item, i) => (
+          {visible.map((item, i) => (
             <motion.blockquote
               key={item.id}
               initial={{ opacity: 0, y: 14 }}
