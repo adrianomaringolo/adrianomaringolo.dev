@@ -65,7 +65,7 @@ export function generatePageMetadata({
       siteName: 'Adriano Maringolo',
       images: [
         {
-          url: `${baseUrl}/og-image-${locale}.png`,
+          url: `${baseUrl}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: pageTitle,
@@ -76,7 +76,7 @@ export function generatePageMetadata({
       card: 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
-      images: [`${baseUrl}/og-image-${locale}.png`],
+      images: [`${baseUrl}/opengraph-image`],
     },
   }
 }
