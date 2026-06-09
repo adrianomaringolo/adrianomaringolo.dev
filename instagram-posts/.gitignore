@@ -1,9 +1,13 @@
 node_modules/
-*.png
 package-lock.json
 
-# arquivos temporários dos exports antigos (substituídos por posts/)
+# outputs gerados (PNGs e captions) — regeneráveis pelo script
+output/
+
+# pastas e arquivos legados (substituídos pela nova estrutura)
 carousel/
+posts/
 /export.mjs
 /export-partial.mjs
 /quem-sou-eu.html
+/quem-sou-eu.png
