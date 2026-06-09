@@ -1,0 +1,9 @@
+node_modules/
+*.png
+package-lock.json
+
+# arquivos temporários dos exports antigos (substituídos por posts/)
+carousel/
+/export.mjs
+/export-partial.mjs
+/quem-sou-eu.html

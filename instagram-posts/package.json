@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "export": "node scripts/export.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "^25.1.0"
+  }
+}

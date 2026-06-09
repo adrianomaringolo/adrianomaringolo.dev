@@ -1,0 +1,15 @@
+{
+  "title": "Quem sou eu",
+  "date": "2026-06-09",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    { "file": "slide-01.html", "title": "Capa", "description": "Foto, nome e título" },
+    { "file": "slide-02.html", "title": "História", "description": "Código como ofício — início em 2009" },
+    { "file": "slide-03.html", "title": "Carreira", "description": "5 empresas com ícones SVG" },
+    { "file": "slide-04.html", "title": "Especialidades", "description": "Frontend, Arquitetura, Mentoria" },
+    { "file": "slide-05.html", "title": "Números + CTA", "description": "Stats + destaque para o site" }
+  ],
+  "caption": "Olá! Sou o Adriano 👋\n\nDesenvolvo experiências digitais há mais de 17 anos.\n\nEspecialista em React, Next.js e TypeScript — construo produtos web com foco em performance, acessibilidade e código limpo.\n\nPassei por empresas como Venturus, Dextra, Avenue Code e hoje atuo como Senior Software Craftsperson na Codurance, em Lisboa.\n\nAqui vou compartilhar conteúdo sobre:\n→ Desenvolvimento frontend moderno\n→ Boas práticas e Clean Code\n→ Carreira em tecnologia\n→ Projetos e bastidores\n\nTudo que aprendo, compartilho. Fica por aqui! 🚀\n\n#desenvolvedor #frontend #react #nextjs #typescript #cleancode #softwareengineering #devbr #programacao #carreira",
+  "hashtags": ["desenvolvedor", "frontend", "react", "nextjs", "typescript", "cleancode", "softwareengineering", "devbr", "programacao", "carreira"]
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    background: #f5f7fa;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 72px 88px 90px;
+  }
+
+  .blob-1 {
+    position: absolute; top: -200px; left: -200px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%);
+  }
+  .blob-2 {
+    position: absolute; bottom: -200px; right: -200px;
+    width: 650px; height: 650px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%);
+  }
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+  }
+  .accent-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, #6366f1, #0891b2);
+  }
+  .accent-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #6366f1, #0891b2);
+  }
+
+  .progress {
+    position: absolute; bottom: 36px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 10px;
+  }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { background: linear-gradient(90deg, #0891b2, #6366f1); width: 48px; }
+
+  .handle {
+    position: absolute; bottom: 36px; right: 72px;
+    font-size: 20px; font-weight: 700; color: #94a3b8;
+  }
+  .handle em { color: #0891b2; font-style: normal; }
+
+  .content {
+    position: relative; z-index: 10;
+    flex: 1; display: flex; flex-direction: column;
+    gap: 20px;
+  }
+
+  .slide-label {
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .label-line {
+    width: 40px; height: 3px;
+    background: linear-gradient(90deg, #6366f1, #0891b2);
+    border-radius: 2px;
+  }
+  .label-text {
+    font-size: 17px; font-weight: 700; color: #6366f1;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .headline {
+    font-size: 70px; font-weight: 900;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #0f172a;
+  }
+  .headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, #6366f1, #0891b2);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .cards {
+    display: flex; flex-direction: column; gap: 14px;
+    flex: 1; justify-content: space-evenly;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 22px 28px;
+    display: flex; align-items: center; gap: 22px;
+    box-shadow: 0 2px 12px rgba(15,23,42,0.05);
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, #0891b2, #6366f1);
+  }
+
+  .card-icon {
+    width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-icon.cyan { background: rgba(8,145,178,0.1); color: #0891b2; }
+  .card-icon.indigo { background: rgba(99,102,241,0.1); color: #6366f1; }
+  .card-icon.green { background: rgba(34,197,94,0.1); color: #16a34a; }
+  .card-icon.orange { background: rgba(249,115,22,0.1); color: #ea580c; }
+  .card-icon.slate { background: rgba(100,116,139,0.1); color: #475569; }
+
+  .card-info { flex: 1; }
+  .card-company {
+    font-size: 27px; font-weight: 800; color: #0f172a;
+    margin-bottom: 3px;
+  }
+  .card-role { font-size: 21px; font-weight: 500; color: #64748b; }
+
+  .card-years {
+    font-size: 19px; font-weight: 700;
+    color: #0891b2;
+    background: rgba(8,145,178,0.08);
+    border: 1px solid rgba(8,145,178,0.2);
+    border-radius: 8px; padding: 5px 12px;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="slide-label">
+      <div class="label-line"></div>
+      <span class="label-text">Onde trabalhei</span>
+    </div>
+
+    <div class="headline">
+      Empresas que<br><em>moldaram</em><br>meu caminho.
+    </div>
+
+    <div class="cards">
+
+      <!-- Codurance: wrench/craft icon -->
+      <div class="card">
+        <div class="card-icon cyan">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div class="card-company">Codurance</div>
+          <div class="card-role">Senior Software Craftsperson · Lisboa</div>
+        </div>
+        <span class="card-years">2025 →</span>
+      </div>
+
+      <!-- Avenue Code: globe icon -->
+      <div class="card">
+        <div class="card-icon indigo">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div class="card-company">Avenue Code</div>
+          <div class="card-role">Senior Frontend Engineer · Brasil / EUA</div>
+        </div>
+        <span class="card-years">2022–25</span>
+      </div>
+
+      <!-- Dextra/CI&T: activity/health icon -->
+      <div class="card">
+        <div class="card-icon green">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div class="card-company">Dextra / CI&amp;T</div>
+          <div class="card-role">Tech Lead &amp; Senior Engineer</div>
+        </div>
+        <span class="card-years">2019–21</span>
+      </div>
+
+      <!-- Venturus: users/people icon -->
+      <div class="card">
+        <div class="card-icon orange">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div class="card-company">Venturus</div>
+          <div class="card-role">Senior Engineer &amp; Instrutor Técnico</div>
+        </div>
+        <span class="card-years">2015–19</span>
+      </div>
+
+      <!-- Sedna: server/database icon -->
+      <div class="card">
+        <div class="card-icon slate">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <div class="card-info">
+          <div class="card-company">Sedna Software</div>
+          <div class="card-role">Software Engineer · Sistemas .NET</div>
+        </div>
+        <span class="card-years">2009–15</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

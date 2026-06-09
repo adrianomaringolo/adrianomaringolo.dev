@@ -1,7 +1,7 @@
 'use client'
 
 import { useLocale } from '@/hooks/use-locale'
-import { SiGithub, SiWhatsapp } from '@icons-pack/react-simple-icons'
+import { SiGithub, SiInstagram, SiWhatsapp } from '@icons-pack/react-simple-icons'
 import { Button, Input, Label, Textarea, toast, Toaster } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
 import {
@@ -104,6 +104,12 @@ function ContactContent() {
       label: 'GitHub',
       value: '/adrianomaringolo',
       href: 'https://github.com/adrianomaringolo',
+    },
+    {
+      icon: SiInstagram,
+      label: 'Instagram',
+      value: '@adrianomaringolo.dev',
+      href: 'https://instagram.com/adrianomaringolo.dev',
     },
   ]
 
