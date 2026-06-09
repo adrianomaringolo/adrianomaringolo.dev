@@ -121,7 +121,7 @@
         "pt-BR": "Coordenador",
         "en-US": "Coordinator"
       },
-      "company": "Morada Espírita Professor Lairi Hans",
+      "company": "Morada Espírita Prof. Lairi Hans",
       "avatar": "",
       "quote": {
         "pt-BR": "O Portal da Morada transformou completamente a nossa gestão. Antes gastávamos horas conciliando planilhas, confirmando presenças e controlando finanças manualmente. Hoje tudo está centralizado, organizado e acessível em segundos. A plataforma não só trouxe eficiência, mas também transparência e tranquilidade para nossa rotina.",
@@ -135,7 +135,7 @@
         "pt-BR": "Membro Ativo",
         "en-US": "Active Member"
       },
-      "company": "Morada Espírita Professor Lairi Hans",
+      "company": "Morada Espírita Prof. Lairi Hans",
       "avatar": "",
       "quote": {
         "pt-BR": "Para nós, membros, o Portal facilitou muito a participação nas atividades. Consigo ver os eventos, convites, me inscrever nas escalas e acompanhar tudo pelo celular. É simples, rápido e funciona muito bem. A sensação é de que estamos todos mais conectados e informados.",
@@ -143,13 +143,13 @@
       }
     },
     {
-      "id": "andre-a",
-      "name": "André A.",
+      "id": "jose-r",
+      "name": "José R.",
       "role": {
         "pt-BR": "Membro Participante",
         "en-US": "Participating Member"
       },
-      "company": "Morada Espírita Professor Lairi Hans",
+      "company": "Morada Espírita Prof. Lairi Hans",
       "avatar": "",
       "quote": {
         "pt-BR": "O que eu mais gosto é a organização. Tenho acesso ao meu histórico, aos comunicados, às pendências e às atividades, tudo no mesmo lugar. Antes eu sempre acabava perdendo alguma informação nos grupos, agora o sistema me avisa automaticamente. É prático e dá mais segurança, porque sei que tudo está registrado.",

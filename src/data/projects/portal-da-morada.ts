@@ -166,7 +166,7 @@ export const portalDaMorada: Project = {
   featured: true,
   startDate: '2021-09-01',
   client: {
-    name: 'Morada Espírita Professor Lairi Hans',
+    name: 'Morada Espírita Prof. Lairi Hans',
     industry: 'Organização Comunitária',
     size: 'small',
   },
@@ -432,7 +432,7 @@ export const portalDaMorada: Project = {
         'pt-BR': 'Coordenador',
         'en-US': 'Coordinator',
       },
-      company: 'Morada Espírita Professor Lairi Hans',
+      company: 'Morada Espírita Prof. Lairi Hans',
       content: {
         'pt-BR':
           'O Portal da Morada transformou completamente a nossa gestão. Antes gastávamos horas conciliando planilhas, confirmando presenças e controlando finanças manualmente. Hoje tudo está centralizado, organizado e acessível em segundos. A plataforma não só trouxe eficiência, mas também transparência e tranquilidade para nossa rotina. É impressionante ver o quanto o sistema evoluiu ao longo dos anos — sempre com melhorias que realmente fazem diferença no nosso dia a dia.',
@@ -447,7 +447,7 @@ export const portalDaMorada: Project = {
         'pt-BR': 'Membro Ativo',
         'en-US': 'Active Member',
       },
-      company: 'Morada Espírita Professor Lairi Hans',
+      company: 'Morada Espírita Prof. Lairi Hans',
       content: {
         'pt-BR':
           'Para nós, membros, o Portal facilitou muito a participação nas atividades. Consigo ver os eventos, convites, me inscrever nas escalas e acompanhar tudo pelo celular. É simples, rápido e funciona muito bem. A sensação é de que estamos todos mais conectados e informados. Ficou muito mais fácil acompanhar o que está acontecendo na comunidade.',
@@ -457,12 +457,12 @@ export const portalDaMorada: Project = {
       rating: 5,
     },
     {
-      author: 'André A.',
+      author: 'José R.',
       role: {
         'pt-BR': 'Membro Participante',
         'en-US': 'Participating Member',
       },
-      company: 'Morada Espírita Professor Lairi Hans',
+      company: 'Morada Espírita Prof. Lairi Hans',
       content: {
         'pt-BR':
           'O que eu mais gosto é a organização. Tenho acesso ao meu histórico, aos comunicados, às pendências e às atividades, tudo no mesmo lugar. Antes eu sempre acabava perdendo alguma informação nos grupos, agora o sistema me avisa automaticamente. É prático e dá mais segurança, porque sei que tudo está registrado. Uso o Portal no dia a dia e realmente faz diferença.',
