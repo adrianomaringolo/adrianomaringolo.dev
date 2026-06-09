@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #09090b; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    background: #09090b;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 80px 80px 100px;
+  }
+
+  /* Large central glow */
+  .glow-center {
+    position: absolute; top: 30%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px; height: 900px; border-radius: 50%;
+    background: radial-gradient(circle,
+      rgba(6,182,212,0.18) 0%,
+      rgba(99,102,241,0.12) 35%,
+      transparent 70%);
+    pointer-events: none;
+  }
+  .glow-bottom {
+    position: absolute; bottom: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+  }
+
+  /* Grid dots */
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1.5px, transparent 1.5px);
+    background-size: 44px 44px;
+  }
+
+  /* Decorative rings */
+  .ring-1 {
+    position: absolute; top: -220px; right: -220px;
+    width: 600px; height: 600px; border-radius: 50%;
+    border: 1px solid rgba(6,182,212,0.1);
+  }
+  .ring-2 {
+    position: absolute; top: -140px; right: -140px;
+    width: 380px; height: 380px; border-radius: 50%;
+    border: 1px solid rgba(99,102,241,0.1);
+  }
+
+  /* Accent lines */
+  .accent-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, #06b6d4, #6366f1, #06b6d4);
+  }
+  .accent-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+  }
+  .accent-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #6366f1, #06b6d4);
+  }
+
+  /* Progress */
+  .progress {
+    position: absolute; bottom: 40px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 10px;
+  }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.1); }
+  .dot.active { background: linear-gradient(90deg, #06b6d4, #6366f1); width: 48px; }
+
+  /* Handle */
+  .handle {
+    position: absolute; bottom: 40px; right: 72px;
+    font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.2);
+  }
+  .handle em { color: #06b6d4; font-style: normal; }
+
+  /* ── Content ── */
+  .content {
+    position: relative; z-index: 10;
+    flex: 1; display: flex; flex-direction: column;
+    gap: 0;
+  }
+
+  /* Top: label + headline + subtitle */
+  .top { display: flex; flex-direction: column; gap: 28px; flex: 1; justify-content: center; }
+
+  .subtitle {
+    font-size: 28px; font-weight: 500; color: #52525b;
+    line-height: 1.5; max-width: 700px;
+  }
+  .subtitle strong { color: #a1a1aa; font-weight: 700; }
+
+  .label {
+    display: inline-flex; align-items: center; gap: 10px; width: fit-content;
+    background: rgba(6,182,212,0.08);
+    border: 1.5px solid rgba(6,182,212,0.2);
+    border-radius: 100px; padding: 10px 22px;
+  }
+  .label-dot { width: 8px; height: 8px; background: #06b6d4; border-radius: 50%; }
+  .label-text { font-size: 15px; font-weight: 700; color: #06b6d4; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .headline {
+    font-size: 90px; font-weight: 900;
+    line-height: 0.92; letter-spacing: -0.03em;
+    color: #fafafa;
+  }
+  .headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, #06b6d4 0%, #818cf8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  /* Content cards — bento grid */
+  .bento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 22px;
+    padding: 32px 28px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  /* full-width card */
+  .card.wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 28px; }
+
+  .card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  }
+  .card.cyan::after  { background: linear-gradient(90deg, #06b6d4, transparent); }
+  .card.indigo::after { background: linear-gradient(90deg, #6366f1, transparent); }
+  .card.purple::after { background: linear-gradient(90deg, #a855f7, transparent); }
+  .card.wide::after  { background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .icon-wrap {
+    width: 58px; height: 58px; border-radius: 16px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-wrap.cyan   { background: rgba(6,182,212,0.15); color: #06b6d4; }
+  .icon-wrap.indigo { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .icon-wrap.purple { background: rgba(168,85,247,0.15); color: #c084fc; }
+  .icon-wrap.white  { background: rgba(255,255,255,0.08); color: #fafafa; }
+
+  .card-title {
+    font-size: 24px; font-weight: 800; color: #fafafa; line-height: 1.2;
+  }
+  .card-desc {
+    font-size: 17px; font-weight: 500; color: #52525b; line-height: 1.4;
+  }
+
+  /* CTA follow row */
+  .follow-row {
+    display: flex; align-items: center;
+    background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(99,102,241,0.12) 100%);
+    border: 1.5px solid rgba(6,182,212,0.25);
+    border-radius: 22px; padding: 28px 36px;
+    gap: 20px;
+  }
+  .follow-text { flex: 1; }
+  .follow-title {
+    font-size: 30px; font-weight: 900; color: #fafafa; margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .follow-handle {
+    font-size: 20px; font-weight: 700;
+    background: linear-gradient(90deg, #06b6d4, #818cf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .follow-btn {
+    display: flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    border-radius: 14px; padding: 16px 24px;
+    color: #ffffff; font-size: 18px; font-weight: 800;
+    white-space: nowrap; flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="glow-center"></div>
+  <div class="glow-bottom"></div>
+  <div class="bg-dots"></div>
+  <div class="ring-1"></div>
+  <div class="ring-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+  <div class="accent-bottom"></div>
+
+  <div class="content">
+
+    <div class="top">
+      <div class="label">
+        <div class="label-dot"></div>
+        <span class="label-text">O que vem por aí</span>
+      </div>
+      <div class="headline">
+        Fica<br>por <em>aqui.</em>
+      </div>
+      <p class="subtitle">
+        Vou compartilhar <strong>projetos reais</strong>, <strong>dicas técnicas</strong> e <strong>conteúdo sobre carreira</strong> — tudo que aprendo no dia a dia.
+      </p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+    <!-- Bento grid -->
+    <div class="bento">
+
+      <!-- Projetos -->
+      <div class="card cyan">
+        <div class="icon-wrap cyan">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-title">Projetos<br>reais</div>
+          <div class="card-desc">Bastidores do que construo</div>
+        </div>
+      </div>
+
+      <!-- Ideias -->
+      <div class="card indigo">
+        <div class="icon-wrap indigo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="2" x2="12" y2="6"/>
+            <line x1="12" y1="18" x2="12" y2="22"/>
+            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+            <line x1="2" y1="12" x2="6" y2="12"/>
+            <line x1="18" y1="12" x2="22" y2="12"/>
+            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-title">Ideias &amp;<br>reflexões</div>
+          <div class="card-desc">O que aprendo no dia a dia</div>
+        </div>
+      </div>
+
+      <!-- Conteúdo técnico — full width -->
+      <div class="card wide purple">
+        <div class="icon-wrap purple">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-title">Conteúdo técnico</div>
+          <div class="card-desc">React, TypeScript, Clean Code, carreira — direto ao ponto</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Follow CTA -->
+    </div><!-- close bento+cta wrapper -->
+    <div class="follow-row">
+      <div class="follow-text">
+        <div class="follow-title">Segue lá</div>
+        <div class="follow-handle">@adrianomaringolo.dev</div>
+      </div>
+      <div class="follow-btn">
+        <!-- Instagram icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Seguir
+      </div>
+    </div>
+
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
