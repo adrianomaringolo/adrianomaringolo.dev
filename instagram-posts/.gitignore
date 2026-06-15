@@ -1,9 +1,6 @@
 node_modules/
 package-lock.json
 
-# outputs gerados (PNGs e captions) — regeneráveis pelo script
-output/
-
 # pastas e arquivos legados (substituídos pela nova estrutura)
 carousel/
 posts/
