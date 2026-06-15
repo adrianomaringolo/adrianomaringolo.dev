@@ -1,0 +1,11 @@
+{
+  "title": "Sênior não é quem nunca erra",
+  "date": "2026-06-15",
+  "type": "single",
+  "format": "1080x1350",
+  "slides": [
+    { "file": "slide-01.html", "title": "Quote", "description": "Frase sobre senioridade e documentação" }
+  ],
+  "caption": "Sênior não é quem nunca erra.\n\nÉ quem erra, entende o porquê, e documenta pra ninguém mais errar.\n\nA senioridade não se mede pela ausência de falhas — se mede pela capacidade de transformar erros em aprendizado coletivo.\n\nO dev que documenta o bug que encontrou está multiplicando o próprio conhecimento.\n\n#carreira #senior #softwareengineering #developerlife #cleancode #devbr #programacao #engenharia #liderancatecnica",
+  "hashtags": ["carreira", "senior", "softwareengineering", "developerlife", "cleancode", "devbr", "programacao", "engenharia", "liderancatecnica"]
+}

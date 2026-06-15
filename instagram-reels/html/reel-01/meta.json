@@ -1,0 +1,52 @@
+{
+  "title": "3 erros comuns ao usar useEffect no React",
+  "date": "2026-06-15",
+  "hook": "useEffect errado = bug garantido. Conhece esses 3 erros?",
+  "scenes": [
+    {
+      "file": "scene-01.html",
+      "title": "Hook — 3 Erros Comuns",
+      "duration": 6,
+      "description": "Logo React girando + titulo de impacto + badges bug/loop/leak"
+    },
+    {
+      "file": "scene-02.html",
+      "title": "Erro 1 — Deps Incompletas",
+      "duration": 8,
+      "description": "Icone warning pulsando + codigo errado vs correto com highlight nas deps"
+    },
+    {
+      "file": "scene-03.html",
+      "title": "Erro 2 — Loop Infinito",
+      "duration": 9,
+      "description": "Icone de loop girando/tremendo + codigo + indicador de re-render infinito"
+    },
+    {
+      "file": "scene-04.html",
+      "title": "Erro 3 — Sem Cleanup",
+      "duration": 13,
+      "description": "Icone drip/leak + comparacao lado a lado errado vs correto com return"
+    },
+    {
+      "file": "scene-05.html",
+      "title": "CTA — 3 Regras",
+      "duration": 12,
+      "description": "3 checkmarks aparecendo em sequencia + sparkles + handle em destaque"
+    }
+  ],
+  "caption": "3 erros que todo dev React já cometeu no useEffect (e como evitar)\n\n1. Deps incompletas no array\n   Esquecer uma variável = dados desatualizados silenciosamente\n\n2. Loop infinito\n   Modificar no effect o que você listou como dep = re-render eterno\n\n3. Sem cleanup\n   Timer sem clearInterval = memory leak em produção\n\nAs 3 regras de ouro:\n- Liste tudo que o effect usa no array de deps\n- Nunca mude dentro do effect o que está no array\n- Sempre retorne a função de cleanup\n\nSalve esse reel antes de usar useEffect de novo. Qual desses você já viu em código de produção? Comente aí.",
+  "hashtags": [
+    "react",
+    "reactjs",
+    "useeffect",
+    "reacthooks",
+    "javascript",
+    "typescript",
+    "frontend",
+    "webdev",
+    "programacao",
+    "desenvolvimentoweb",
+    "devbrasil",
+    "codigolimpo"
+  ]
+}

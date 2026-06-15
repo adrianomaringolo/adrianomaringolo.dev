@@ -92,6 +92,32 @@ O script lê de `html/post-NN/`, escreve PNGs em `output/post-NN/` e gera `outpu
 
 ---
 
+## Legenda (caption)
+
+A legenda é o texto publicado no Instagram junto com o post. Deve:
+
+- **Usar emojis** — enriquecem o engajamento e tornam o texto mais escaneável
+- Começar com um emoji ou frase de impacto que prenda a atenção no feed
+- Usar emojis como marcadores de lista (ex: `→ 🛠️ item`) ou pontuação visual
+- Ter tom conversacional, direto, sem enrolação
+- Terminar com um CTA claro (ex: `👇`, `💬`, `🔔`)
+- Incluir 8–12 hashtags relevantes ao final
+
+Emojis úteis por contexto:
+| Contexto | Emojis sugeridos |
+|---|---|
+| Abertura / saudação | 👋 🙌 |
+| Desenvolvedor / código | 👨‍💻 💻 ⌨️ |
+| Dica técnica | ⚡ 🛠️ 🔧 |
+| Clean Code / qualidade | 🧹 ✅ 🎯 |
+| Carreira / crescimento | 🚀 📈 🏆 |
+| Localização / contexto | 🇵🇹 🌍 |
+| CTA / engajamento | 👇 💬 🔔 ❤️ |
+
+> **Atenção**: emojis são exclusivos da legenda. **Nunca** usar emojis nos arquivos HTML dos slides.
+
+---
+
 ## Identidade visual obrigatória
 
 ### Paleta — light mode (padrão)
@@ -136,7 +162,7 @@ background-size: 40px 40px;
 - Progress dots (carrossel): 28×6px inativos, ativo com gradiente e 48px
 
 ### Ícones
-Usar **apenas SVG inline** estilo Lucide. Nunca usar emojis.
+Usar **apenas SVG inline** estilo Lucide. Nunca usar emojis nos slides HTML.
 
 ---
 
@@ -192,7 +218,8 @@ Consulte `instagram-posts/html/` para ver posts anteriores como referência de l
 
 ## Checklist antes de entregar
 
-- [ ] Sem emojis — apenas ícones SVG inline
+- [ ] Slides HTML sem emojis — apenas ícones SVG inline
+- [ ] Legenda com emojis relevantes e CTA claro
 - [ ] Fontes Manrope carregadas via Google Fonts
 - [ ] Handle `@adrianomaringolo.dev` em todos os slides
 - [ ] Progress dots com slide ativo correto

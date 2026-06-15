@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .bg-photo {
+    position: absolute; inset: 0;
+    background: url('file:///home/adriano/Projects/personal/adrianomaringolo.dev/instagram-posts/html/post-03/bg-cover.jpg') center 15% / cover no-repeat;
+  }
+
+  /* Transition zone — starts at 30% and fades into the panel */
+  .fade {
+    position: absolute; left: 0; right: 0;
+    top: 30%; height: 25%;
+    background: linear-gradient(
+      to bottom,
+      rgba(245,247,250,0)    0%,
+      rgba(245,247,250,0.40) 35%,
+      rgba(245,247,250,0.80) 70%,
+      rgba(245,247,250,0.96) 100%
+    );
+    z-index: 5; pointer-events: none;
+  }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+
+  /* Bottom panel — exactly 50% */
+  .panel {
+    position: relative; z-index: 10;
+    height: 50%;
+    background: rgba(245,247,250,0.96);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    padding: 44px 80px 108px 88px;
+    display: flex; align-items: center;
+    gap: 32px;
+  }
+
+  /* Left column: text content */
+  .panel-left {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  /* Right column: big "5" */
+  .panel-right {
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    width: 260px;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 9px; width: fit-content;
+    background: rgba(8,145,178,0.10); border: 1.5px solid rgba(8,145,178,0.28);
+    border-radius: 100px; padding: 8px 18px;
+  }
+  .badge-dot { width: 7px; height: 7px; background: #0891b2; border-radius: 50%; }
+  .badge-text { font-size: 14px; font-weight: 700; color: #0891b2; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .pre  { font-size: 36px; font-weight: 600; color: #64748b; letter-spacing: -0.01em; }
+  .main { font-size: 80px; font-weight: 900; color: #0f172a; line-height: 1.0; letter-spacing: -0.03em; }
+  .grad {
+    font-size: 64px; font-weight: 900; line-height: 1.05; letter-spacing: -0.02em;
+    background: linear-gradient(90deg, #0891b2 0%, #6366f1 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .swipe { display: flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 700; color: #94a3b8; }
+  .swipe em { color: #0891b2; font-style: normal; }
+
+  .big5 {
+    font-size: 290px; font-weight: 900;
+    line-height: 0.85; letter-spacing: -0.05em;
+    background: linear-gradient(160deg, #0891b2 0%, #6366f1 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .progress {
+    position: absolute; bottom: 44px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 10px; z-index: 30;
+  }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #cbd5e1; }
+  .dot.active { background: linear-gradient(90deg, #0891b2, #6366f1); width: 48px; }
+
+  .handle { position: absolute; bottom: 37px; right: 72px; font-size: 20px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { color: #0891b2; font-style: normal; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-photo"></div>
+  <div class="fade"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="panel">
+    <div class="panel-right">
+      <div class="big5">5</div>
+    </div>
+    <div class="panel-left">
+      <div class="badge"><div class="badge-dot"></div><span class="badge-text">Prestadores de serviço</span></div>
+      <div class="pre">razões para ter um</div>
+      <div class="main">site<br>profissional</div>
+      <div class="grad">e atrair<br>mais clientes.</div>
+      <div class="swipe">deslize para descobrir <em>→</em></div>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

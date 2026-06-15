@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 80px 88px 100px;
+  }
+
+  .bg-photo {
+    position: absolute; inset: 0;
+    background: url('bg.jpg') center center / cover no-repeat;
+  }
+
+  .bg-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(5, 10, 24, 0.82) 0%,
+      rgba(5, 10, 24, 0.75) 50%,
+      rgba(5, 10, 24, 0.88) 100%
+    );
+  }
+
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.03) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+  }
+
+  .accent-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, #06b6d4, #6366f1, #06b6d4);
+  }
+  .accent-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+  }
+
+  .handle {
+    position: absolute; bottom: 42px; right: 72px;
+    font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.45);
+    letter-spacing: 0.01em;
+  }
+  .handle em { color: #06b6d4; font-style: normal; }
+
+  .content {
+    position: relative; z-index: 10;
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center;
+    gap: 56px;
+  }
+
+  .label {
+    display: inline-flex; align-items: center; gap: 10px; width: fit-content;
+    background: rgba(6,182,212,0.12);
+    border: 1.5px solid rgba(6,182,212,0.30);
+    border-radius: 100px; padding: 10px 22px;
+  }
+  .label-dot { width: 8px; height: 8px; background: #06b6d4; border-radius: 50%; }
+  .label-text { font-size: 15px; font-weight: 700; color: #06b6d4; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .quote-icon {
+    color: rgba(6,182,212,0.22);
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-size: 60px; font-weight: 800;
+    color: #f1f5f9;
+    line-height: 1.28;
+    letter-spacing: -0.025em;
+  }
+  .quote-text em {
+    font-style: normal;
+    background: linear-gradient(90deg, #06b6d4 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider {
+    width: 64px; height: 3px;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-photo"></div>
+  <div class="bg-overlay"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+
+    <div class="label">
+      <div class="label-dot"></div>
+      <span class="label-text">Carreira</span>
+    </div>
+
+    <div class="quote-icon">
+      <svg width="72" height="54" viewBox="0 0 72 54" fill="currentColor">
+        <path d="M0 36C0 20 11.25 7.4 28.8 0L34.2 8.1C22.05 12.6 16.65 19.8 15.3 28.8H27v27H0V36zm40.5 0C40.5 20 51.75 7.4 69.3 0l5.4 8.1C62.55 12.6 57.15 19.8 55.8 28.8H67.5v27H40.5V36z"/>
+      </svg>
+    </div>
+
+    <div class="quote-text">
+      Sênior não é quem<br>
+      nunca erra.<br>
+      É quem erra, entende<br>
+      o porquê, e <em>documenta</em><br>
+      pra ninguém mais errar.
+    </div>
+
+    <div class="divider"></div>
+
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

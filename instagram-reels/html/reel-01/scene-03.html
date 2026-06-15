@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #0f172a;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .scene {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 96px;
+  }
+
+  .blob-1 {
+    position: absolute;
+    top: -80px; left: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(239,68,68,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .blob-2 {
+    position: absolute;
+    bottom: 80px; right: -150px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.06) 1.5px, transparent 1.5px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+  .accent-left {
+    position: absolute;
+    left: 0; top: 160px; bottom: 160px;
+    width: 5px;
+    background: linear-gradient(180deg, #ef4444, #6366f1);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .step-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(239,68,68,0.08);
+    border: 1px solid rgba(239,68,68,0.28);
+    border-radius: 100px;
+    padding: 12px 28px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.4s ease both;
+    animation-delay: 0.05s;
+  }
+  .step-badge span {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ef4444;
+  }
+
+  /* Rotating loop icon — shakes when in danger */
+  .loop-icon {
+    animation: loopSpin 1.4s linear infinite, loopShake 0.5s ease-in-out infinite;
+    animation-delay: 0s, 0.8s;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: #f8fafc;
+    margin-bottom: 28px;
+    animation: fadeUp 0.4s ease both;
+    animation-delay: 0.15s;
+  }
+  h2 .danger { color: #ef4444; }
+
+  .description {
+    font-size: 32px;
+    font-weight: 500;
+    color: #94a3b8;
+    line-height: 1.55;
+    margin-bottom: 48px;
+    animation: fadeUp 0.4s ease both;
+    animation-delay: 0.25s;
+  }
+
+  .code-block {
+    width: 100%;
+    background: rgba(239,68,68,0.05);
+    border: 1px solid rgba(239,68,68,0.28);
+    border-radius: 18px;
+    padding: 40px 48px;
+    animation: fadeUp 0.5s ease both;
+    animation-delay: 0.38s;
+  }
+  pre {
+    font-family: 'Manrope', monospace;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.72;
+    color: #f8fafc;
+  }
+  .kw  { color: #6366f1; }
+  .fn  { color: #06b6d4; }
+  .cm  { color: #64748b; font-weight: 500; }
+
+  /* The problematic dependency that mutates itself */
+  .loop-dep {
+    color: #ef4444;
+    position: relative;
+    display: inline-block;
+  }
+  .loop-dep::after {
+    content: '';
+    position: absolute;
+    inset: -4px -8px;
+    background: rgba(239,68,68,0.22);
+    border-radius: 6px;
+    animation: depPulse 1.2s ease-in-out infinite;
+    animation-delay: 0.9s;
+  }
+
+  /* Infinite loop indicator */
+  .loop-indicator {
+    width: 100%;
+    margin-top: 32px;
+    background: rgba(239,68,68,0.07);
+    border: 1px solid rgba(239,68,68,0.22);
+    border-radius: 18px;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    animation: fadeUp 0.5s ease both;
+    animation-delay: 0.52s;
+  }
+  .loop-steps {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 25px;
+    font-weight: 700;
+    color: #ef4444;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+  .loop-step {
+    animation: stepPop 2.4s ease-in-out infinite;
+  }
+  .loop-step:nth-child(1) { animation-delay: 0.0s; }
+  .loop-step:nth-child(3) { animation-delay: 0.6s; }
+  .loop-step:nth-child(5) { animation-delay: 1.2s; }
+  .loop-step:nth-child(7) { animation-delay: 1.8s; }
+  .loop-arrow { color: #64748b; font-size: 24px; }
+
+  /* Label "INFINITO" */
+  .inf-label {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ef4444;
+    background: rgba(239,68,68,0.15);
+    padding: 8px 16px;
+    border-radius: 8px;
+    animation: infBlink 1.2s ease-in-out infinite;
+    animation-delay: 1.0s;
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 64px; right: 72px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #94a3b8;
+    animation: fadeIn 0.5s ease both;
+    animation-delay: 0.7s;
+  }
+  .handle em { font-style: normal; color: #06b6d4; }
+
+  @keyframes loopSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes loopShake {
+    0%, 100% { transform: rotate(0deg)   translateX(0); }
+    25%       { transform: rotate(8deg)   translateX(-4px); }
+    75%       { transform: rotate(-8deg)  translateX(4px); }
+  }
+  @keyframes depPulse {
+    0%, 100% { opacity: 0; }
+    50%       { opacity: 1; }
+  }
+  @keyframes stepPop {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.08); }
+  }
+  @keyframes infBlink {
+    0%, 100% { opacity: 0.7; }
+    50%       { opacity: 1; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+</style>
+</head>
+<body data-duration="9">
+<div class="scene">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+
+  <div class="step-badge">
+    <div class="loop-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"/>
+        <polyline points="1 20 1 14 7 14"/>
+        <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+      </svg>
+    </div>
+    <span>Erro 2 de 3</span>
+  </div>
+
+  <h2><span class="danger">Loop</span><br>infinito</h2>
+  <p class="description">Modificar no effect algo<br>que você listou como dep<br>causa re-render sem fim.</p>
+
+  <div class="code-block">
+    <pre><span class="kw">useEffect</span>(() =&gt; {
+  <span class="cm">// muda data, que é dep!</span>
+  <span class="fn">setData</span>({ ...<span class="loop-dep">data</span>, ok: <span class="kw">true</span> });
+}, [<span class="loop-dep">data</span>]); <span class="cm">// ← re-render eterno</span></pre>
+  </div>
+
+  <div class="loop-indicator">
+    <div class="loop-steps">
+      <span class="loop-step">render</span>
+      <span class="loop-arrow">→</span>
+      <span class="loop-step">effect</span>
+      <span class="loop-arrow">→</span>
+      <span class="loop-step">setData</span>
+      <span class="loop-arrow">→</span>
+      <span class="loop-step">render</span>
+      <span class="loop-arrow">→</span>
+      <span class="loop-step">...</span>
+    </div>
+    <div class="inf-label">infinito</div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
