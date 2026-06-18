@@ -1,0 +1,32 @@
+{
+  "title": "IA para humanos: LLMs, agentes e usos práticos",
+  "date": "2026-06-17",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    { "file": "slide-01.html", "title": "Capa — IA para humanos", "description": "Hook dark: 'IA para humanos.' — conceitos de IA em linguagem acessível" },
+    { "file": "slide-02.html", "title": "Conceito 01 — O que é IA?", "description": "Máquinas que aprendem padrões. Analogia da criança reconhecendo gatos." },
+    { "file": "slide-03.html", "title": "Conceito 02 — O que é um LLM?", "description": "Large Language Model. Expansão da sigla + pills: ChatGPT, Claude, Gemini, Llama" },
+    { "file": "slide-04.html", "title": "Conceito 03 — O que é um Agente?", "description": "Agente age, não só responde. Fluxo: Objetivo → Planejar → Agir → Resultado" },
+    { "file": "slide-05.html", "title": "Conceito 04 — O que é um Prompt?", "description": "A instrução dada à IA. Comparativo ruim vs. bom com exemplos de e-mail" },
+    { "file": "slide-06.html", "title": "Conceito 05 — O que é Token?", "description": "Fragmentos de texto processados. Visualização + 3 implicações práticas" },
+    { "file": "slide-07.html", "title": "Conceito 06 — Alucinação", "description": "Quando a IA inventa com confiança. Card de alerta + lista de áreas de cuidado" },
+    { "file": "slide-08.html", "title": "Na prática — Usos no dia a dia", "description": "Grid 2x4 com 8 usos práticos para qualquer pessoa hoje" },
+    { "file": "slide-09.html", "title": "CTA — Você não precisa programar", "description": "Slide final dark com handle em destaque e CTA para salvar" }
+  ],
+  "caption": "🤖 Ouve falar de IA todo dia mas não sabe direito o que significa?\n\nEsse carrossel é pra você.\n\n---\n\n📖 Conceito 01: O que é Inteligência Artificial?\n\nNão é robô com consciência. É uma máquina que aprende padrões a partir de dados — e usa esses padrões para tomar decisões ou gerar respostas.\n\nComo uma criança que aprende a reconhecer um gato vendo milhares de fotos, sem ninguém explicar o que são orelhas pontudas.\n\n---\n\n🧠 Conceito 02: O que é um LLM?\n\nLLM = Large Language Model. É uma IA treinada em bilhões de textos que consegue ler, entender e gerar linguagem natural.\n\nChatGPT, Claude, Gemini, Llama — todos são LLMs.\n\n---\n\n⚡ Conceito 03: O que é um Agente de IA?\n\nUm agente recebe um objetivo e toma ações para alcançá-lo — pesquisa, decide, executa, corrige. Você só lê o resultado.\n\n---\n\n✏️ Conceito 04: O que é um Prompt?\n\nO prompt é a instrução que você dá à IA. Quanto mais contexto, objetivo e restrições, melhor a resposta.\n\n❌ Ruim: \"Me ajuda com um e-mail.\"\n✅ Bom: \"Escreva um e-mail profissional avisando atraso na entrega. Tom direto, máximo 3 parágrafos.\"\n\n---\n\n🔢 Conceito 05: O que é Token?\n\nTokens são fragmentos de texto que a IA processa. Cada modelo tem um limite por conversa — a \"memória de curto prazo\".\n\nConversa longa → IA pode \"esquecer\" o início. Documento grande → divida em partes.\n\n---\n\n⚠️ Conceito 06: Alucinação\n\nA IA pode gerar informações erradas com total confiança. Não é má intenção — ela prediz palavras prováveis, não \"conhece\" a verdade.\n\nNunca use IA para decisões críticas sem verificar a informação. Medicina, direito, fatos históricos — confirme sempre.\n\n---\n\n✅ O que você pode fazer com IA hoje:\n\n→ Resumir documentos longos\n→ Redigir e-mails profissionais\n→ Planejar viagens com roteiros\n→ Tirar dúvidas de saúde e finanças\n→ Aprender qualquer assunto\n→ Criar planilhas e fórmulas\n→ Traduzir textos\n→ Organizar notas e ideias\n\n---\n\nVocê não precisa programar para usar IA.\n\nPrecisa entender o suficiente para não ser enganado — e aproveitar o suficiente para economizar tempo.\n\n💾 Salve esse carrossel para consultar depois.\n💬 Qual desses conceitos você não conhecia? Conta nos comentários.",
+  "hashtags": [
+    "inteligenciaartificial",
+    "ia",
+    "llm",
+    "chatgpt",
+    "claude",
+    "tecnologia",
+    "devbrasil",
+    "aprendizado",
+    "produtividade",
+    "inovacao",
+    "futuro",
+    "digitalizacao"
+  ]
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    background: #f5f7fa;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 88px 88px 100px;
+  }
+
+  .blob-1 {
+    position: absolute; top: -180px; right: -180px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%);
+  }
+  .blob-2 {
+    position: absolute; bottom: -160px; left: -120px;
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%);
+  }
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+  }
+  .accent-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, #0891b2, #6366f1);
+  }
+  .accent-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .progress {
+    position: absolute; bottom: 44px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 10px;
+  }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { background: linear-gradient(90deg, #0891b2, #6366f1); width: 48px; }
+
+  .handle {
+    position: absolute; bottom: 44px; right: 72px;
+    font-size: 20px; font-weight: 700; color: #94a3b8;
+  }
+  .handle em { color: #0891b2; font-style: normal; }
+
+  .content {
+    position: relative; z-index: 10;
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; gap: 44px;
+  }
+
+  .slide-label {
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .label-line {
+    width: 40px; height: 3px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    border-radius: 2px;
+  }
+  .label-text {
+    font-size: 17px; font-weight: 700; color: #0891b2;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .headline {
+    font-size: 68px; font-weight: 900;
+    line-height: 1.02; letter-spacing: -0.03em;
+    color: #0f172a;
+  }
+  .headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .body-text {
+    font-size: 34px; font-weight: 500;
+    color: #334155; line-height: 1.55;
+  }
+  .body-text strong { color: #0f172a; font-weight: 800; }
+
+  .flow {
+    display: flex; align-items: center; gap: 0;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px 28px;
+    box-shadow: 0 4px 20px rgba(15,23,42,0.06);
+  }
+  .flow-step {
+    flex: 1; text-align: center;
+  }
+  .flow-step-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(8,145,178,0.08);
+    border: 1.5px solid rgba(8,145,178,0.18);
+    display: flex; align-items: center; justify-content: center;
+    color: #0891b2; margin: 0 auto 10px;
+  }
+  .flow-step-label {
+    font-size: 21px; font-weight: 700; color: #0f172a;
+    line-height: 1.2;
+  }
+  .flow-arrow {
+    color: #cbd5e1; margin: 0 4px; flex-shrink: 0;
+  }
+
+  .example-card {
+    background: rgba(8,145,178,0.05);
+    border: 1.5px solid rgba(8,145,178,0.18);
+    border-radius: 16px;
+    padding: 24px 28px;
+    font-size: 28px; font-weight: 600;
+    color: #334155; line-height: 1.5;
+  }
+  .example-card strong { color: #0891b2; font-weight: 800; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="slide-label">
+      <div class="label-line"></div>
+      <span class="label-text">Conceito 03</span>
+    </div>
+
+    <div class="headline"><em>Agente:</em> quando<br>a IA age</div>
+
+    <p class="body-text">
+      Um LLM responde perguntas. Um <strong>agente</strong> recebe um objetivo e toma ações para alcançá-lo — pesquisa, decide, executa, corrige.
+    </p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <div class="flow-step-label">Objetivo</div>
+      </div>
+      <div class="flow-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+        </div>
+        <div class="flow-step-label">Planejar</div>
+      </div>
+      <div class="flow-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </div>
+        <div class="flow-step-label">Agir</div>
+      </div>
+      <div class="flow-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="flow-step-label">Resultado</div>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <strong>Exemplo:</strong> "Pesquise os 3 melhores hotéis em Lisboa para semana que vem e me mande um resumo." — o agente pesquisa, filtra e entrega. Você só lê.
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

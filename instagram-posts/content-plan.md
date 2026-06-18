@@ -13,6 +13,7 @@ Formato: **Post** (imagem/frase) · **Carrossel** (slides educativos) · **Reel*
 | post-01 | Post | Frase — clean code / artesanato | ✅ Publicado |
 | post-02 | Post | Frase — sênior não é quem nunca erra | ✅ Publicado |
 | post-03 | Post | Frase — código que funciona vs. código que comunica | ✅ Publicado |
+| post-04 | Carrossel | IA para humanos: LLMs, agentes e usos práticos | Pronto para revisão |
 | reel-01 | Reel | 3 erros comuns ao usar useEffect no React | ✅ Pronto para publicar |
 
 ---

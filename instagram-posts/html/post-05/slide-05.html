@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 100px;
+  }
+
+  .blob-1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -80px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(8,145,178,0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .blob-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    bottom: -80px;
+    left: -80px;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .accent-left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #0891b2, #6366f1);
+  }
+
+  .accent-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .eyebrow {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 20px;
+  }
+
+  .headline {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    margin-bottom: 48px;
+  }
+
+  .model-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .model-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 28px;
+  }
+
+  .model-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .model-badge.text-gen { background: #f0f9ff; color: #0891b2; }
+  .model-badge.code-gen { background: #f5f3ff; color: #6366f1; }
+  .model-badge.img-gen { background: #f0fdf4; color: #16a34a; }
+  .model-badge.audio-gen { background: #fdf4ff; color: #a21caf; }
+  .model-badge.video-gen { background: #fff7ed; color: #c2410c; }
+
+  .model-info { flex: 1; }
+
+  .model-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+
+  .model-desc {
+    font-size: 19px;
+    font-weight: 500;
+    color: #64748b;
+  }
+
+  .model-type {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: #f1f5f9;
+    color: #64748b;
+  }
+
+  .note {
+    font-size: 22px;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.55;
+    padding: 20px 24px;
+    background: #fff;
+    border-left: 4px solid #0891b2;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 28px;
+    height: 6px;
+    border-radius: 3px;
+    background: #e2e8f0;
+  }
+
+  .dot.active {
+    width: 48px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 48px;
+    right: 72px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.01em;
+  }
+
+  .handle em {
+    font-style: normal;
+    color: #0891b2;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="eyebrow">04 · Modelos que você já conhece</div>
+  <h2 class="headline">Você já<br>usa IA gen.</h2>
+
+  <div class="model-list">
+    <div class="model-row">
+      <div class="model-badge text-gen">C</div>
+      <div class="model-info">
+        <div class="model-name">ChatGPT / Claude / Gemini</div>
+        <div class="model-desc">Geração de texto, respostas, raciocínio</div>
+      </div>
+      <div class="model-type">Texto</div>
+    </div>
+
+    <div class="model-row">
+      <div class="model-badge code-gen">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="model-info">
+        <div class="model-name">GitHub Copilot / Cursor</div>
+        <div class="model-desc">Geração de código diretamente no editor</div>
+      </div>
+      <div class="model-type">Código</div>
+    </div>
+
+    <div class="model-row">
+      <div class="model-badge img-gen">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      </div>
+      <div class="model-info">
+        <div class="model-name">Midjourney / DALL-E / Firefly</div>
+        <div class="model-desc">Imagens e ilustrações a partir de texto</div>
+      </div>
+      <div class="model-type">Imagens</div>
+    </div>
+
+    <div class="model-row">
+      <div class="model-badge audio-gen">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a21caf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </div>
+      <div class="model-info">
+        <div class="model-name">Suno / ElevenLabs</div>
+        <div class="model-desc">Músicas e vozes geradas do zero</div>
+      </div>
+      <div class="model-type">Áudio</div>
+    </div>
+
+    <div class="model-row">
+      <div class="model-badge video-gen">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      </div>
+      <div class="model-info">
+        <div class="model-name">Runway / Sora</div>
+        <div class="model-desc">Vídeos e cenas a partir de texto ou imagem</div>
+      </div>
+      <div class="model-type">Vídeo</div>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

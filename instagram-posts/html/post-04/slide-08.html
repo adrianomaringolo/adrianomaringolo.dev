@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    background: #f5f7fa;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 88px 88px 100px;
+  }
+
+  .blob-1 {
+    position: absolute; top: -160px; right: -160px;
+    width: 580px; height: 580px;
+    background: radial-gradient(circle, rgba(8,145,178,0.09) 0%, transparent 70%);
+  }
+  .blob-2 {
+    position: absolute; bottom: -160px; left: -120px;
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+  }
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+  }
+  .accent-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, #0891b2, #6366f1);
+  }
+  .accent-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .progress {
+    position: absolute; bottom: 44px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 10px;
+  }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { background: linear-gradient(90deg, #0891b2, #6366f1); width: 48px; }
+
+  .handle {
+    position: absolute; bottom: 44px; right: 72px;
+    font-size: 20px; font-weight: 700; color: #94a3b8;
+  }
+  .handle em { color: #0891b2; font-style: normal; }
+
+  .content {
+    position: relative; z-index: 10;
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; gap: 36px;
+  }
+
+  .slide-label {
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .label-line {
+    width: 40px; height: 3px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    border-radius: 2px;
+  }
+  .label-text {
+    font-size: 17px; font-weight: 700; color: #0891b2;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .headline {
+    font-size: 62px; font-weight: 900;
+    line-height: 1.05; letter-spacing: -0.03em;
+    color: #0f172a;
+  }
+  .headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex; align-items: center; gap: 18px;
+    box-shadow: 0 2px 12px rgba(15,23,42,0.04);
+  }
+  .card-icon {
+    width: 46px; height: 46px; flex-shrink: 0;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card-icon.cyan { background: rgba(8,145,178,0.08); border: 1.5px solid rgba(8,145,178,0.18); color: #0891b2; }
+  .card-icon.indigo { background: rgba(99,102,241,0.08); border: 1.5px solid rgba(99,102,241,0.18); color: #6366f1; }
+  .card-text {
+    font-size: 25px; font-weight: 700; color: #0f172a;
+    line-height: 1.25;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="slide-label">
+      <div class="label-line"></div>
+      <span class="label-text">Na prática</span>
+    </div>
+
+    <div class="headline">O que você pode<br>fazer com <em>IA hoje</em></div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon cyan">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <span class="card-text">Resumir documentos longos</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon indigo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <span class="card-text">Redigir e-mails profissionais</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon cyan">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <span class="card-text">Planejar viagens com roteiros</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon indigo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+        </div>
+        <span class="card-text">Tirar dúvidas de saúde e finanças</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon cyan">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+          </svg>
+        </div>
+        <span class="card-text">Aprender qualquer assunto</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon indigo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M3 15h18M9 3v18"/>
+          </svg>
+        </div>
+        <span class="card-text">Criar planilhas e fórmulas</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon cyan">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="1.05" y1="12" x2="7" y2="12"/>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"/>
+          </svg>
+        </div>
+        <span class="card-text">Traduzir e adaptar textos</span>
+      </div>
+
+      <div class="card">
+        <div class="card-icon indigo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </div>
+        <span class="card-text">Organizar notas e ideias</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

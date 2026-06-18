@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    background: #0f172a;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 80px;
+  }
+
+  .blob-1 {
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 65%);
+  }
+  .blob-2 {
+    position: absolute; bottom: -100px; left: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(6,182,212,0.10) 0%, transparent 65%);
+  }
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.055) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+  }
+  .accent-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, #06b6d4, #6366f1);
+  }
+  .accent-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+  }
+
+  .progress {
+    position: absolute; bottom: 44px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 10px;
+  }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.12); }
+  .dot.active { background: linear-gradient(90deg, #06b6d4, #6366f1); width: 48px; }
+
+  .handle-big {
+    font-size: 38px; font-weight: 900;
+    color: #94a3b8; letter-spacing: -0.01em;
+    margin-top: 16px;
+  }
+  .handle-big em { color: #06b6d4; font-style: normal; }
+
+  .content {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 40px;
+    max-width: 860px;
+  }
+
+  .divider {
+    width: 60px; height: 4px;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+    border-radius: 2px;
+  }
+
+  .headline {
+    font-size: 72px; font-weight: 900;
+    letter-spacing: -0.03em; line-height: 1.05;
+    color: #f8fafc;
+  }
+  .headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .body-text {
+    font-size: 34px; font-weight: 500;
+    color: #64748b; line-height: 1.55;
+  }
+  .body-text strong { color: #94a3b8; font-weight: 700; }
+
+  .cta-row {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  }
+  .cta-btn {
+    background: rgba(6,182,212,0.10);
+    border: 1.5px solid rgba(6,182,212,0.25);
+    border-radius: 100px; padding: 16px 36px;
+    font-size: 26px; font-weight: 700; color: #06b6d4;
+    display: flex; align-items: center; gap: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="divider"></div>
+
+    <div class="headline">Você não precisa<br>programar para<br>usar <em>IA.</em></div>
+
+    <p class="body-text">
+      Entenda o suficiente para <strong>não ser enganado</strong> — e aproveite o suficiente para <strong>economizar tempo</strong>.
+    </p>
+
+    <div class="cta-row">
+      <div class="cta-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+        </svg>
+        Salve para consultar depois
+      </div>
+    </div>
+
+    <div class="handle-big"><em>@</em>adrianomaringolo.dev</div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+  </div>
+</div>
+</body>
+</html>

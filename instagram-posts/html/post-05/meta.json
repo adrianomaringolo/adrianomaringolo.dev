@@ -1,0 +1,31 @@
+{
+  "title": "IA Generativa: a IA que \"cria\", não só processa",
+  "date": "2026-06-17",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    { "file": "slide-01.html", "title": "Capa — IA Generativa: a IA que \"cria\", não só processa", "description": "Capa com foto de fundo (mão robótica), degradê harmonioso sobre a imagem, headline universal sem badge de público" },
+    { "file": "slide-02.html", "title": "IA tradicional vs. IA Generativa", "description": "Comparativo: classifica/prevê vs. cria — dois cards lado a lado" },
+    { "file": "slide-03.html", "title": "Como funciona — Aprende padrões, depois improvisa", "description": "Fluxo 3 etapas: treinamento, compressão dos padrões, geração. Analogia do músico de jazz." },
+    { "file": "slide-04.html", "title": "O que ela gera — Muito além de texto", "description": "Grid 2x3 com 6 modalidades: Texto, Código, Imagens, Áudio, Vídeo, 3D/Design" },
+    { "file": "slide-05.html", "title": "Modelos que você já conhece", "description": "Lista de 5 ferramentas reais por categoria: ChatGPT/Claude, Copilot/Cursor, Midjourney, Suno, Runway" },
+    { "file": "slide-06.html", "title": "Para devs — O que mudou no nosso trabalho", "description": "Slide escuro com 4 itens: geração de código, testes, revisão, documentação. Callout sobre julgamento técnico." },
+    { "file": "slide-07.html", "title": "Os limites reais", "description": "4 limitações: alucinação (destaque vermelho), viés, privacidade, autoria. Conclusão sobre responsabilidade." },
+    { "file": "slide-08.html", "title": "CTA — Você já usa. A questão é: usa bem?", "description": "Slide escuro de CTA com handle em destaque, convite para comentar qual ferramenta usa" }
+  ],
+  "caption": "🤖 IA generativa não é só ChatGPT. É uma categoria inteira de tecnologia — e você provavelmente já usa sem perceber.\n\nEsse carrossel explica o que é, como funciona e por que isso muda o trabalho de quem é dev.\n\n---\n\n⚡ IA tradicional vs. IA generativa\n\nA IA tradicional classifica e prevê: spam ou não é spam, produto a recomendar, transação fraudulenta.\n\nA IA generativa cria coisas novas: escreve o e-mail, gera o código, cria a imagem do zero.\n\nDiferença fundamental: uma responde com número ou categoria. A outra responde com conteúdo novo.\n\n---\n\n🎵 Como ela aprende a criar\n\nComo um músico de jazz: estuda milhares de músicas, absorve escalas e harmonias e depois improvisa algo que nunca existiu antes.\n\nO processo: treinamento em bilhões de exemplos, compressão dos padrões e geração a partir do seu prompt.\n\n---\n\n🎨 O que ela consegue gerar\n\n→ Texto (artigos, e-mails, roteiros)\n→ Código (funções, testes, componentes)\n→ Imagens (ilustrações, UI mockups)\n→ Áudio (músicas, vozes sintéticas)\n→ Vídeo (cenas, animações)\n→ 3D e design\n\n---\n\n👨‍💻 Para devs: o que mudou de verdade\n\n✅ Geração de código (Copilot, Cursor, Claude)\n✅ Geração de testes: descreva o comportamento, a IA escreve os casos\n✅ Revisão e refatoração: cole o código, peça análise\n✅ Documentação e PRs: burocracia que virou questão de segundos\n\nA IA generativa não substitui o dev. Ela elimina o trabalho repetitivo e exige mais do seu julgamento técnico.\n\n---\n\n⚠️ Os limites reais\n\n→ Alucinação: gera informações erradas com confiança total\n→ Viés: treinada com dados humanos, absorveu preconceitos\n→ Privacidade: cuidado com dados sensíveis em modelos externos\n→ Autoria: o debate legal sobre quem criou ainda está em aberto\n\nIA generativa é uma ferramenta poderosa, não um oráculo. A responsabilidade final é sempre sua.\n\n---\n\nVocê já usa IA generativa. A questão é se usa com intenção.\n\n💾 Salva esse carrossel para revisar quando precisar.\n💬 Qual ferramenta de IA generativa você mais usa no dia a dia? Conta nos comentários.",
+  "hashtags": [
+    "iagerativa",
+    "inteligenciaartificial",
+    "ia",
+    "machinelearning",
+    "chatgpt",
+    "claude",
+    "devbrasil",
+    "programacao",
+    "desenvolvedor",
+    "tecnologia",
+    "futuro",
+    "github"
+  ]
+}

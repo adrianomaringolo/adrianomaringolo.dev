@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 100px;
+  }
+
+  .blob-1 {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: -120px;
+    right: -120px;
+    background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .blob-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    bottom: -60px;
+    left: -60px;
+    background: radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .accent-left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #0891b2, #6366f1);
+  }
+
+  .accent-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .eyebrow {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 20px;
+  }
+
+  .headline {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    margin-bottom: 48px;
+  }
+
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 48px;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 32px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    margin-bottom: 8px;
+  }
+
+  .flow-step:last-child {
+    border-color: #0891b2;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  }
+
+  .step-num {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    color: #64748b;
+    flex-shrink: 0;
+  }
+
+  .flow-step:last-child .step-num {
+    background: linear-gradient(135deg, #0891b2, #6366f1);
+    color: #fff;
+  }
+
+  .step-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-text {}
+
+  .step-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+
+  .step-desc {
+    font-size: 20px;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.4;
+  }
+
+  .flow-step:last-child .step-title { color: #0c4a6e; }
+  .flow-step:last-child .step-desc { color: #0f172a; }
+
+  .arrow {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 44px;
+    margin: -4px 0 4px;
+  }
+
+  .analogy {
+    font-size: 23px;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.55;
+    padding: 24px 28px;
+    background: #fff;
+    border-left: 4px solid #6366f1;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .analogy strong {
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 28px;
+    height: 6px;
+    border-radius: 3px;
+    background: #e2e8f0;
+  }
+
+  .dot.active {
+    width: 48px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 48px;
+    right: 72px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.01em;
+  }
+
+  .handle em {
+    font-style: normal;
+    color: #0891b2;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="eyebrow">02 · Como funciona</div>
+  <h2 class="headline">Aprende padrões.<br>Depois improvisa.</h2>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <div class="step-title">Treinamento em escala</div>
+        <div class="step-desc">Bilhões de textos, imagens ou sons analisados para aprender padrões profundos</div>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <div class="step-title">Compressão dos padrões</div>
+        <div class="step-desc">O modelo aprende a "essência": estilos, estruturas, relações entre conceitos</div>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <div class="step-title">Geração nova a partir de um prompt</div>
+        <div class="step-desc">Você pede. O modelo usa o que aprendeu para criar algo que nunca existiu antes.</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="analogy">Como um músico de jazz: estuda <strong>milhares de músicas</strong>, absorve escalas e harmonias e depois <strong>improvisa algo novo</strong> que soa coerente.</p>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    background: #f5f7fa;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 88px 88px 100px;
+  }
+
+  .blob-1 {
+    position: absolute; top: -200px; right: -200px;
+    width: 640px; height: 640px;
+    background: radial-gradient(circle, rgba(8,145,178,0.09) 0%, transparent 70%);
+  }
+  .blob-2 {
+    position: absolute; bottom: -180px; left: -100px;
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+  }
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+  }
+  .accent-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+    background: linear-gradient(180deg, #0891b2, #6366f1);
+  }
+  .accent-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .progress {
+    position: absolute; bottom: 44px; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 10px;
+  }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { background: linear-gradient(90deg, #0891b2, #6366f1); width: 48px; }
+
+  .handle {
+    position: absolute; bottom: 44px; right: 72px;
+    font-size: 20px; font-weight: 700; color: #94a3b8;
+  }
+  .handle em { color: #0891b2; font-style: normal; }
+
+  .content {
+    position: relative; z-index: 10;
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; gap: 44px;
+  }
+
+  .slide-label {
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .label-line {
+    width: 40px; height: 3px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    border-radius: 2px;
+  }
+  .label-text {
+    font-size: 17px; font-weight: 700; color: #0891b2;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .headline {
+    font-size: 72px; font-weight: 900;
+    line-height: 1.02; letter-spacing: -0.03em;
+    color: #0f172a;
+  }
+  .headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .body-text {
+    font-size: 34px; font-weight: 500;
+    color: #334155; line-height: 1.55;
+  }
+  .body-text strong { color: #0f172a; font-weight: 800; }
+
+  .compare {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .compare-row {
+    display: flex; align-items: stretch; gap: 16px;
+  }
+  .compare-label {
+    width: 80px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 14px; font-size: 22px; font-weight: 800;
+  }
+  .compare-label.bad {
+    background: rgba(239,68,68,0.08);
+    border: 1.5px solid rgba(239,68,68,0.20);
+    color: #ef4444;
+  }
+  .compare-label.good {
+    background: rgba(34,197,94,0.08);
+    border: 1.5px solid rgba(34,197,94,0.20);
+    color: #16a34a;
+  }
+  .compare-card {
+    flex: 1; background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px; padding: 18px 24px;
+    box-shadow: 0 2px 12px rgba(15,23,42,0.04);
+  }
+  .compare-card.bad { border-color: rgba(239,68,68,0.18); }
+  .compare-card.good { border-color: rgba(34,197,94,0.18); }
+  .compare-card .prompt-text {
+    font-size: 26px; font-weight: 600; color: #334155; line-height: 1.4;
+  }
+  .compare-card .prompt-sub {
+    font-size: 21px; font-weight: 500; color: #94a3b8; margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="slide-label">
+      <div class="label-line"></div>
+      <span class="label-text">Conceito 04</span>
+    </div>
+
+    <div class="headline"><em>Prompt:</em> a arte<br>de perguntar bem</div>
+
+    <p class="body-text">
+      O prompt é a instrução que você dá à IA. A <strong>qualidade da resposta</strong> depende diretamente da qualidade da pergunta.
+    </p>
+
+    <div class="compare">
+      <div class="compare-row">
+        <div class="compare-label bad">✗</div>
+        <div class="compare-card bad">
+          <div class="prompt-text">"Me ajuda com um e-mail."</div>
+          <div class="prompt-sub">Vago — a IA não tem contexto</div>
+        </div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-label good">✓</div>
+        <div class="compare-card good">
+          <div class="prompt-text">"Escreva um e-mail profissional avisando atraso na entrega. Tom direto, máximo 3 parágrafos."</div>
+          <div class="prompt-sub">Contexto + objetivo + restrição = resposta útil</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 100px;
+  }
+
+  .blob-1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -80px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .blob-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    bottom: -80px;
+    left: -80px;
+    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .accent-left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #0891b2, #6366f1);
+  }
+
+  .accent-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .eyebrow {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0891b2;
+    margin-bottom: 20px;
+  }
+
+  .headline {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    margin-bottom: 52px;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .compare-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 36px 32px;
+  }
+
+  .compare-card.highlight {
+    border-color: #0891b2;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  }
+
+  .card-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 16px;
+  }
+
+  .compare-card.highlight .card-label {
+    color: #0891b2;
+  }
+
+  .card-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .compare-card.highlight .card-title {
+    color: #0c4a6e;
+  }
+
+  .card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card-list li {
+    font-size: 20px;
+    font-weight: 500;
+    color: #475569;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .compare-card.highlight .card-list li {
+    color: #0f172a;
+  }
+
+  .li-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .compare-card.highlight .li-dot {
+    background: #0891b2;
+  }
+
+  .note {
+    font-size: 24px;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.55;
+    padding: 24px 28px;
+    background: #fff;
+    border-left: 4px solid #6366f1;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 28px;
+    height: 6px;
+    border-radius: 3px;
+    background: #e2e8f0;
+  }
+
+  .dot.active {
+    width: 48px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 48px;
+    right: 72px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.01em;
+  }
+
+  .handle em {
+    font-style: normal;
+    color: #0891b2;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="eyebrow">01 · O conceito</div>
+  <h2 class="headline">IA tradicional<br>vs. IA Generativa</h2>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="card-label">IA Tradicional</div>
+      <div class="card-title">Classifica e<br>prevê</div>
+      <ul class="card-list">
+        <li><span class="li-dot"></span>Spam ou não é spam?</li>
+        <li><span class="li-dot"></span>Qual produto recomendar?</li>
+        <li><span class="li-dot"></span>A transação é fraude?</li>
+        <li><span class="li-dot"></span>Qual categoria é esse texto?</li>
+      </ul>
+    </div>
+    <div class="compare-card highlight">
+      <div class="card-label">IA Generativa</div>
+      <div class="card-title">Cria coisas<br>novas</div>
+      <ul class="card-list">
+        <li><span class="li-dot"></span>Escreve o e-mail por você</li>
+        <li><span class="li-dot"></span>Gera o código da função</li>
+        <li><span class="li-dot"></span>Cria a imagem do zero</li>
+        <li><span class="li-dot"></span>Compõe a música</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="note">A diferença fundamental: a IA tradicional responde com uma categoria ou número. A IA generativa responde com conteúdo novo.</p>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

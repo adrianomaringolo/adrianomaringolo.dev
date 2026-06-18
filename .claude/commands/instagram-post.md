@@ -216,6 +216,33 @@ Consulte `instagram-posts/html/` para ver posts anteriores como referência de l
 
 ---
 
+## Revisão de textos em português do Brasil
+
+Todo texto escrito nos slides e na legenda deve seguir o português do Brasil correto:
+
+- **Acentuação obrigatória**: não, você, já, é, está, código, função, geração, também, à, às, é, são, têm etc.
+- **Concordância verbal e nominal**: revisar sujeito/verbo e substantivo/adjetivo
+- **Travessão (—): usar com moderação**. Preferir dois-pontos (`:`), vírgula ou nova frase em vez de `—` encadeado. Máximo de 1 travessão por slide.
+- **Ponto final em frases declarativas** dentro de cards e callouts
+- **Sem abreviações desnecessárias** que prejudiquem a leitura
+
+Antes de exportar, revisar cada slide buscando palavras sem acento que precisam de acento. Exemplos comuns a corrigir:
+`nao → não` · `voce → você` · `ja → já` · `e → é` (verbo) · `codigo → código` · `funcao → função` · `geracao → geração` · `nao → não` · `tecnico → técnico` · `magica → mágica`
+
+---
+
+## Slides com tema escuro (dark)
+
+**Atenção importante para Puppeteer:** slides com `background: #0f172a` devem declarar essa cor **no elemento `body`**, não apenas no `.slide`. Caso contrário o screenshot fica em branco.
+
+```css
+/* CORRETO */
+body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+.slide { background: #0f172a; overflow: hidden; ... }
+```
+
+---
+
 ## Checklist antes de entregar
 
 - [ ] Slides HTML sem emojis — apenas ícones SVG inline
@@ -225,6 +252,8 @@ Consulte `instagram-posts/html/` para ver posts anteriores como referência de l
 - [ ] Progress dots com slide ativo correto
 - [ ] Paleta de cores respeitada
 - [ ] `meta.json` com legenda e hashtags completas
+- [ ] **Textos revisados em pt-BR**: acentos, concordância, poucos travessões
+- [ ] **Slides escuros**: `background: #0f172a` declarado no `body`
 - [ ] Export executado: `node instagram-posts/scripts/export.mjs post-NN`
 - [ ] PNGs exibidos para revisão
 - [ ] `output/post-NN/caption.md` gerado e exibido

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 100px;
+  }
+
+  .blob-1 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -80px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(8,145,178,0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .blob-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    bottom: -80px;
+    left: -80px;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .accent-left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #0891b2, #6366f1);
+  }
+
+  .accent-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .eyebrow {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0891b2;
+    margin-bottom: 20px;
+  }
+
+  .headline {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    margin-bottom: 48px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .card-icon.cyan { background: rgba(8,145,178,0.1); }
+  .card-icon.indigo { background: rgba(99,102,241,0.1); }
+  .card-icon.teal { background: rgba(20,184,166,0.1); }
+  .card-icon.violet { background: rgba(139,92,246,0.1); }
+  .card-icon.amber { background: rgba(245,158,11,0.1); }
+  .card-icon.rose { background: rgba(244,63,94,0.1); }
+
+  .card-body {}
+
+  .card-type {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 6px;
+  }
+
+  .card-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+
+  .card-example {
+    font-size: 18px;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.4;
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 28px;
+    height: 6px;
+    border-radius: 3px;
+    background: #e2e8f0;
+  }
+
+  .dot.active {
+    width: 48px;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 48px;
+    right: 72px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.01em;
+  }
+
+  .handle em {
+    font-style: normal;
+    color: #0891b2;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="eyebrow">03 · O que ela gera</div>
+  <h2 class="headline">Muito além<br>de texto.</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon cyan">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Modalidade</div>
+        <div class="card-name">Texto</div>
+        <div class="card-example">Artigos, e-mails, roteiros, respostas</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon indigo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Modalidade</div>
+        <div class="card-name">Código</div>
+        <div class="card-example">Funções, testes, componentes, scripts</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon teal">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Modalidade</div>
+        <div class="card-name">Imagens</div>
+        <div class="card-example">Ilustrações, fotos, logos, UI mockups</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon violet">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Modalidade</div>
+        <div class="card-name">Áudio</div>
+        <div class="card-example">Músicas, vozes, efeitos sonoros</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon amber">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Modalidade</div>
+        <div class="card-name">Vídeo</div>
+        <div class="card-example">Cenas, animações, avatares digitais</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon rose">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-type">Modalidade</div>
+        <div class="card-name">3D / Design</div>
+        <div class="card-example">Modelos 3D, texturas, layouts</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
