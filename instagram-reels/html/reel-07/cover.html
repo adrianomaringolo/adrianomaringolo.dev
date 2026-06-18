@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #0f172a;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .scene {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+  }
+
+  .bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.055) 1.5px, transparent 1.5px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  .blob-top {
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(6,182,212,0.11) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .blob-bot {
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #06b6d4;
+    margin-bottom: 60px;
+  }
+
+  .num-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 64px;
+  }
+
+  .num-pill {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 900;
+  }
+  .num-pill.n1 {
+    background: rgba(249,115,22,0.15);
+    border: 2px solid rgba(249,115,22,0.4);
+    color: #f97316;
+  }
+  .num-pill.n2 {
+    background: rgba(245,158,11,0.15);
+    border: 2px solid rgba(245,158,11,0.4);
+    color: #f59e0b;
+  }
+  .num-pill.n3 {
+    background: rgba(168,85,247,0.15);
+    border: 2px solid rgba(168,85,247,0.4);
+    color: #a855f7;
+  }
+
+  h1 {
+    font-size: 90px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    text-align: center;
+    color: #f8fafc;
+  }
+
+  h1 .accent {
+    color: #ef4444;
+    text-shadow:
+      0 0 40px rgba(239,68,68,0.6),
+      0 0 80px rgba(239,68,68,0.25);
+  }
+
+  .subtitle {
+    margin-top: 44px;
+    font-size: 44px;
+    font-weight: 600;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.35;
+    max-width: 820px;
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 64px;
+    right: 72px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #94a3b8;
+  }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body data-duration="0">
+<div class="scene">
+  <div class="blob-top"></div>
+  <div class="blob-bot"></div>
+  <div class="bg-dots"></div>
+
+  <p class="eyebrow">3 Verdades</p>
+
+  <div class="num-row">
+    <div class="num-pill n1">01</div>
+    <div class="num-pill n2">02</div>
+    <div class="num-pill n3">03</div>
+  </div>
+
+  <h1>O mercado de dev<br>não é o que<br><span class="accent">te venderam.</span></h1>
+
+  <p class="subtitle">que ninguém te conta</p>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

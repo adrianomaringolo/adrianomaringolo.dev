@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #0f172a;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .scene {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 80px;
+  }
+
+  .bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.055) 1.5px, transparent 1.5px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  .blob-1 {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(6,182,212,0.13) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .blob-2 {
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #06b6d4;
+    margin-bottom: 44px;
+    animation: fadeIn 0.35s ease both;
+    animation-delay: 0.0s;
+  }
+
+  .headline {
+    text-align: center;
+    line-height: 1.05;
+  }
+
+  .line-1 {
+    display: block;
+    font-size: 86px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #f8fafc;
+    animation: fadeUp 0.5s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .line-1b {
+    display: block;
+    font-size: 82px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #f8fafc;
+    margin-top: 4px;
+    animation: fadeUp 0.5s ease both;
+    animation-delay: 0.25s;
+  }
+
+  .line-2 {
+    display: block;
+    font-size: 66px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #475569;
+    margin-top: 8px;
+    animation: fadeUp 0.5s ease both;
+    animation-delay: 0.42s;
+  }
+
+  .line-3 {
+    display: block;
+    font-size: 100px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #ef4444;
+    margin-top: 8px;
+    text-shadow:
+      0 0 40px rgba(239,68,68,0.7),
+      0 0 80px rgba(239,68,68,0.3);
+    animation: fadeUp 0.5s ease both, redGlow 2.0s ease-in-out infinite;
+    animation-delay: 0.6s, 1.2s;
+  }
+
+  .sub {
+    margin-top: 44px;
+    font-size: 42px;
+    font-weight: 500;
+    color: #475569;
+    text-align: center;
+    letter-spacing: 0.02em;
+    animation: fadeIn 0.5s ease both;
+    animation-delay: 0.85s;
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 64px;
+    right: 72px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #94a3b8;
+    animation: fadeIn 0.4s ease both;
+    animation-delay: 1.0s;
+  }
+  .handle em { font-style: normal; color: #06b6d4; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(36px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes redGlow {
+    0%, 100% {
+      text-shadow:
+        0 0 40px rgba(239,68,68,0.7),
+        0 0 80px rgba(239,68,68,0.3);
+    }
+    50% {
+      text-shadow:
+        0 0 60px rgba(239,68,68,1.0),
+        0 0 110px rgba(239,68,68,0.55);
+    }
+  }
+</style>
+</head>
+<body data-duration="6">
+<div class="scene">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="bg-dots"></div>
+
+  <p class="eyebrow">3 Verdades</p>
+
+  <div class="headline">
+    <span class="line-1">O mercado de</span>
+    <span class="line-1b">desenvolvimento</span>
+    <span class="line-2">não é tudo o que</span>
+    <span class="line-3">TE VENDERAM.</span>
+  </div>
+
+  <p class="sub">que ninguém te conta</p>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "title": "3 verdades sobre o mercado de dev que ninguém te conta",
+  "date": "2026-06-17",
+  "hook": "Entrar no mercado de dev em 2026 não é o que te venderam.",
+  "scenes": [
+    {
+      "file": "scene-01.html",
+      "title": "Hook — O mercado não é o que te venderam",
+      "duration": 6,
+      "description": "Frase de impacto com 'TE VENDERAM' em vermelho pulsante + eyebrow '3 VERDADES'"
+    },
+    {
+      "file": "scene-02.html",
+      "title": "Verdade 01 — A barra de entrada está subindo",
+      "duration": 10,
+      "description": "Ghost '01' no fundo, ícone trending-up animado, impacto da IA no nível mínimo exigido"
+    },
+    {
+      "file": "scene-03.html",
+      "title": "Verdade 02 — Salário bom, validade curta",
+      "duration": 10,
+      "description": "Ghost '02' no fundo, ícone de relógio, necessidade de atualização constante"
+    },
+    {
+      "file": "scene-04.html",
+      "title": "Verdade 03 — Entrevistas mais difíceis que vestibulares",
+      "duration": 13,
+      "description": "Ghost '03' no fundo, lista animada: testes técnicos, live coding, system design, múltiplas rodadas"
+    },
+    {
+      "file": "scene-05.html",
+      "title": "CTA — Mas vale a pena? Sim.",
+      "duration": 9,
+      "description": "Pergunta retórica + 'ONDE' em cyan + Pesquise/mentor + CTA + contact card + sparkles"
+    }
+  ],
+  "caption": "🚨 Ninguém te conta essas 3 verdades sobre entrar no mercado de dev em 2026.\n\n---\n\n🔴 Verdade 01: A barra de entrada está subindo todo mês\n\nA IA mudou o jogo. O que era diferencial virou obrigação. Git, testes, inglês técnico, noções de cloud — isso era \"plus\". Hoje é o mínimo esperado.\n\nE tem mais: candidatos sênior, desempregados ou querendo mudar de área, estão concorrendo às mesmas vagas júnior que você. A fila ficou muito mais comprida.\n\n---\n\n🟡 Verdade 02: Os salários são bons — mas a validade é curta\n\nSim, dev bem pago existe. Mas a stack que você domina hoje pode ser considerada legado em 2 anos. Não é exagero — aconteceu com jQuery, com REST puro, com algumas ferramentas de infra.\n\nAtualização constante não é diferencial. É o novo requisito mínimo para continuar empregável.\n\n---\n\n🟣 Verdade 03: As entrevistas são mais difíceis que vestibulares\n\nTestes técnicos antes de falar com qualquer pessoa. Live coding com julgamento em tempo real. System design do zero. 3 a 5 rodadas de entrevistas. Semanas de processo. Para uma vaga júnior.\n\nNinguém preparou você para isso na faculdade ou no bootcamp.\n\n---\n\nMas vale a pena entrar nesse mercado? ✅ Sim.\n\nSe você souber onde está entrando, se preparar de verdade e buscar orientação de quem já passou por isso — vale muito.\n\n💾 Salve esse vídeo e mande para alguém que está começando na área.\n\n💬 Deixa nos comentários: qual dessas verdades te pegou mais de surpresa?\n\n-\n\nSou Adriano, dev full-stack há mais de 10 anos. Aqui falo de carreira, código e mercado de trabalho com honestidade — sem romantizar, sem assustar à toa.\n\n📩 Quer orientação ou mentoria? Me chama no direct.",
+  "hashtags": [
+    "mercadodev",
+    "devbrasil",
+    "programacao",
+    "desenvolvedor",
+    "carreiradev",
+    "entrevistadeemprego",
+    "mercadodetrabalho",
+    "desenvolvimentoweb",
+    "juniordev",
+    "tecnologia",
+    "ti",
+    "inteligenciaartificial"
+  ]
+}
