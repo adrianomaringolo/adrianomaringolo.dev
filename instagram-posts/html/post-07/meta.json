@@ -1,0 +1,56 @@
+{
+  "title": "BuildGrid UI — Biblioteca de Componentes React",
+  "date": "2026-06-23",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "BuildGrid UI — capa dark com logo e screenshot da landing page"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Por que usar",
+      "description": "Filosofia do projeto e benefícios principais"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "54 Componentes",
+      "description": "Screenshot da página de componentes na documentação"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "15 Blocks",
+      "description": "Dois screenshots: visão geral dos blocks e Data Table"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Instalação",
+      "description": "Terminal com npm install e exemplo de uso"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Estatísticas",
+      "description": "Em números: 54 componentes, 15 blocks, 19 utilitários, WCAG, MIT"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "Contribuição",
+      "description": "CTA para colaboração com screenshot do CONTRIBUTING.md no GitHub"
+    }
+  ],
+  "caption": "Lancei uma biblioteca de componentes React open source. 🚀\n\nBuildGrid UI — 54 componentes prontos para React 19 com TypeScript.\n\nO que tem dentro:\n\n🧩 54 componentes acessíveis e responsivos\n🧱 15 Blocks pré-montados (Data Table, Wizard, Sidebar...)\n⚡ Tree-shakable — você só importa o que usa\n🔒 TypeScript 100% — type-safe do início ao fim\n♿ WCAG AA — acessibilidade nativa via Radix UI\n🌗 Dark mode incluído\n\nInstale agora:\nnpm install buildgrid-ui\n\nDocumentação em: adrianomaringolo.github.io/buildgrid-ui\n\nÉ open source — contribuições são bem-vindas! 🤝\nAbre uma issue, sugere um componente ou manda um PR.\n\nDeixa uma estrela lá no GitHub? Faz diferença pra projetos open source. 🌟\n\n💬 Qual componente você mais precisaria em um projeto hoje?\n\n#reactjs #typescript #opensource #frontend #componentlibrary #tailwindcss #webdev #devbr #javascript #ui",
+  "hashtags": [
+    "reactjs",
+    "typescript",
+    "opensource",
+    "frontend",
+    "componentlibrary",
+    "tailwindcss",
+    "webdev",
+    "devbr",
+    "javascript",
+    "ui"
+  ]
+}

@@ -68,7 +68,7 @@ for (const slide of toExport) {
   await page.setViewport({ width, height, deviceScaleFactor: 2 });
   await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle0', timeout: 20000 });
   await page.waitForFunction(() => document.fonts.ready);
-  await new Promise(r => setTimeout(r, 800));
+  await new Promise(r => setTimeout(r, 2000));
   await page.screenshot({ path: pngPath, type: 'png', clip: { x: 0, y: 0, width, height } });
   await page.close();
 

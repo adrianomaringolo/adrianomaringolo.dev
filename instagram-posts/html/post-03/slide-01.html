@@ -5,124 +5,180 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { width: 1080px; height: 1350px; overflow: hidden; font-family: 'Manrope', sans-serif; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
 
   .slide {
-    width: 1080px; height: 1350px;
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column;
-    justify-content: flex-end;
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
   }
 
   .bg-photo {
-    position: absolute; inset: 0;
-    background: url('file:///home/adriano/Projects/personal/adrianomaringolo.dev/instagram-posts/html/post-03/bg-cover.jpg') center 15% / cover no-repeat;
+    position: absolute;
+    inset: 0;
+    background: url('bg-cover.jpg') center center / cover no-repeat;
   }
 
-  /* Transition zone — starts at 30% and fades into the panel */
-  .fade {
-    position: absolute; left: 0; right: 0;
-    top: 30%; height: 25%;
+  .gradient-overlay {
+    position: absolute;
+    inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(245,247,250,0)    0%,
-      rgba(245,247,250,0.40) 35%,
-      rgba(245,247,250,0.80) 70%,
-      rgba(245,247,250,0.96) 100%
+      rgba(10, 18, 38, 1.00)  0%,
+      rgba(10, 18, 38, 0.97) 22%,
+      rgba(10, 18, 38, 0.90) 38%,
+      rgba(10, 18, 38, 0.78) 52%,
+      rgba(10, 18, 38, 0.65) 66%,
+      rgba(10, 18, 38, 0.55) 80%,
+      rgba(10, 18, 38, 0.50) 100%
     );
-    z-index: 5; pointer-events: none;
   }
 
-  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
-  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
-
-  /* Bottom panel — exactly 50% */
-  .panel {
-    position: relative; z-index: 10;
-    height: 50%;
-    background: rgba(245,247,250,0.96);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-    padding: 44px 80px 108px 88px;
-    display: flex; align-items: center;
-    gap: 32px;
+  .accent-left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #06b6d4, #6366f1);
+    z-index: 20;
   }
 
-  /* Left column: text content */
-  .panel-left {
-    flex: 1;
-    display: flex; flex-direction: column;
-    justify-content: space-between;
-    min-width: 0;
+  .accent-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+    z-index: 20;
   }
 
-  /* Right column: big "5" */
-  .panel-right {
-    flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    width: 260px;
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 88px 80px 0 88px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
-  .badge {
-    display: inline-flex; align-items: center; gap: 9px; width: fit-content;
-    background: rgba(8,145,178,0.10); border: 1.5px solid rgba(8,145,178,0.28);
-    border-radius: 100px; padding: 8px 18px;
-  }
-  .badge-dot { width: 7px; height: 7px; background: #0891b2; border-radius: 50%; }
-  .badge-text { font-size: 14px; font-weight: 700; color: #0891b2; letter-spacing: 0.1em; text-transform: uppercase; }
-
-  .pre  { font-size: 36px; font-weight: 600; color: #64748b; letter-spacing: -0.01em; }
-  .main { font-size: 80px; font-weight: 900; color: #0f172a; line-height: 1.0; letter-spacing: -0.03em; }
-  .grad {
-    font-size: 64px; font-weight: 900; line-height: 1.05; letter-spacing: -0.02em;
-    background: linear-gradient(90deg, #0891b2 0%, #6366f1 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  .eyebrow {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #475569;
   }
 
-  .swipe { display: flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 700; color: #94a3b8; }
-  .swipe em { color: #0891b2; font-style: normal; }
+  .headline {
+    font-size: 102px;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: #f1f5f9;
+  }
 
-  .big5 {
-    font-size: 290px; font-weight: 900;
-    line-height: 0.85; letter-spacing: -0.05em;
-    background: linear-gradient(160deg, #0891b2 0%, #6366f1 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  .headline-kicker {
+    display: block;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #06b6d4;
+    margin-bottom: 10px;
+  }
+
+  .headline-gradient {
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 39px;
+    font-weight: 500;
+    color: #cbd5e1;
+    line-height: 1.5;
+    max-width: 820px;
+  }
+
+  .arrow {
+    margin-top: 12px;
+    color: #ffffff;
+    opacity: 0.7;
   }
 
   .progress {
-    position: absolute; bottom: 44px; left: 0; right: 0;
-    display: flex; justify-content: center; gap: 10px; z-index: 30;
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 30;
   }
-  .dot { width: 28px; height: 6px; border-radius: 3px; background: #cbd5e1; }
-  .dot.active { background: linear-gradient(90deg, #0891b2, #6366f1); width: 48px; }
 
-  .handle { position: absolute; bottom: 37px; right: 72px; font-size: 20px; font-weight: 700; color: #94a3b8; z-index: 30; }
-  .handle em { color: #0891b2; font-style: normal; }
+  .dot {
+    width: 28px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.18);
+  }
+
+  .dot.active {
+    width: 48px;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 44px;
+    right: 72px;
+    font-size: 27px;
+    font-weight: 700;
+    color: #f1f5f9;
+    z-index: 30;
+  }
+
+  .handle em {
+    font-style: normal;
+    color: #06b6d4;
+  }
 </style>
 </head>
 <body>
 <div class="slide">
   <div class="bg-photo"></div>
-  <div class="fade"></div>
+  <div class="gradient-overlay"></div>
   <div class="accent-left"></div>
   <div class="accent-top"></div>
 
-  <div class="panel">
-    <div class="panel-right">
-      <div class="big5">5</div>
-    </div>
-    <div class="panel-left">
-      <div class="badge"><div class="badge-dot"></div><span class="badge-text">Prestadores de serviço</span></div>
-      <div class="pre">razões para ter um</div>
-      <div class="main">site<br>profissional</div>
-      <div class="grad">e atrair<br>mais clientes.</div>
-      <div class="swipe">deslize para descobrir <em>→</em></div>
+  <div class="content">
+    <div class="eyebrow">Prestadores de Serviço</div>
+
+    <h1 class="headline">
+      <span class="headline-kicker">5 razões para ter um</span>
+      site <span class="headline-gradient">profissional</span>
+    </h1>
+
+    <p class="subtitle">e atrair mais clientes<br>sem depender só de indicação.</p>
+
+    <div class="arrow">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </div>
   </div>
 
   <div class="progress">
-    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
   </div>
+
   <div class="handle"><em>@</em>adrianomaringolo.dev</div>
 </div>
 </body>

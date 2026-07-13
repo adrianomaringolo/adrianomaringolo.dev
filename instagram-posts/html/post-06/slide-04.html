@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1350px; overflow: hidden; background: #eef0f5; font-family: 'Manrope', sans-serif; }
+.slide { width: 1080px; height: 1350px; background: #eef0f5; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+.accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+.header { padding: 52px 72px 16px 80px; flex-shrink: 0; }
+.eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #94a3b8; margin-bottom: 8px; }
+.title { font-size: 52px; font-weight: 900; color: #0f172a; line-height: 1.0; letter-spacing: -0.03em; }
+.title em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.columns { flex: 1; display: flex; gap: 14px; padding: 16px 44px 78px 52px; overflow: hidden; }
+.col { flex: 1; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07), 0 8px 28px rgba(0,0,0,0.11), 0 20px 60px rgba(0,0,0,0.06);
+  background: #fff; display: flex; flex-direction: column; }
+.browser-bar { flex-shrink: 0; height: 36px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0;
+  display: flex; align-items: center; padding: 0 12px; gap: 6px; }
+.bdots { display: flex; gap: 5px; align-items: center; }
+.bd-r { width: 10px; height: 10px; border-radius: 50%; background: #f87171; }
+.bd-y { width: 10px; height: 10px; border-radius: 50%; background: #fbbf24; }
+.bd-g { width: 10px; height: 10px; border-radius: 50%; background: #34d399; }
+.url-bar { margin-left: 10px; flex: 1; max-width: 240px; height: 20px; background: #fff; border: 1px solid #e2e8f0;
+  border-radius: 4px; display: flex; align-items: center; padding: 0 8px;
+  font-size: 10px; font-weight: 600; color: #64748b; font-family: 'Manrope', sans-serif;
+  overflow: hidden; white-space: nowrap; }
+.col-body { flex: 1; overflow: hidden; }
+.col-img { width: 100%; display: block; }
+.progress { position: absolute; bottom: 44px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+.dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+.dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+.handle { position: absolute; bottom: 38px; right: 72px; font-size: 20px; font-weight: 700; color: #94a3b8; z-index: 30; }
+.handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="accent-left"></div><div class="accent-top"></div>
+  <div class="header">
+    <div class="eyebrow">Design responsivo</div>
+    <div class="title">100% <em>Mobile-first</em></div>
+  </div>
+  <div class="columns">
+    <div class="col"><div class="browser-bar">
+      <div class="bdots"><span class="bd-r"></span><span class="bd-y"></span><span class="bd-g"></span></div>
+      <div class="url-bar">golaserbaraogeraldo.com.br</div>
+    </div>
+      <div class="col-body"><img class="col-img" src="file:///home/adriano/Projects/personal/adrianomaringolo.dev/public/projects/golaser-barao-geraldo/golaser-mobile.png" style="margin-top:0px" alt=""></div>
+    </div>
+    <div class="col"><div class="browser-bar">
+      <div class="bdots"><span class="bd-r"></span><span class="bd-y"></span><span class="bd-g"></span></div>
+      <div class="url-bar">golaserbaraogeraldo.com.br</div>
+    </div>
+      <div class="col-body"><img class="col-img" src="file:///home/adriano/Projects/personal/adrianomaringolo.dev/public/projects/golaser-barao-geraldo/golaser-mobile.png" style="margin-top:-2800px" alt=""></div>
+    </div>
+  </div>
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

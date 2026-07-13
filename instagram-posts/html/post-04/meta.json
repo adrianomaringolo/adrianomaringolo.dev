@@ -4,7 +4,7 @@
   "type": "carousel",
   "format": "1080x1350",
   "slides": [
-    { "file": "slide-01.html", "title": "Capa — IA para humanos", "description": "Hook dark: 'IA para humanos.' — conceitos de IA em linguagem acessível" },
+    { "file": "slide-01.html", "title": "Capa — IA para humanos", "description": "Capa com foto de fundo (robô simpático azul/branco), degradê escuro sobre a imagem, headline 'IA para humanos.' em duas linhas" },
     { "file": "slide-02.html", "title": "Conceito 01 — O que é IA?", "description": "Máquinas que aprendem padrões. Analogia da criança reconhecendo gatos." },
     { "file": "slide-03.html", "title": "Conceito 02 — O que é um LLM?", "description": "Large Language Model. Expansão da sigla + pills: ChatGPT, Claude, Gemini, Llama" },
     { "file": "slide-04.html", "title": "Conceito 03 — O que é um Agente?", "description": "Agente age, não só responde. Fluxo: Objetivo → Planejar → Agir → Resultado" },

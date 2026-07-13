@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #080f1e; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #080f1e; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-color: #080f1e;
+    background-image:
+      linear-gradient(rgba(99, 102, 241, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.07) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+  .bg-vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, transparent 40%, rgba(8, 15, 30, 0.65) 100%);
+  }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .header { padding: 56px 72px 20px 80px; flex-shrink: 0; position: relative; z-index: 10; }
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #475569; margin-bottom: 10px; }
+  .title { font-size: 62px; font-weight: 900; color: #f1f5f9; line-height: 1.0; letter-spacing: -0.03em; }
+  .title em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .subtitle { font-size: 22px; font-weight: 500; color: #64748b; margin-top: 10px; line-height: 1.5; }
+
+  .browser-wrap {
+    flex: 1; padding: 4px 44px 16px 52px; overflow: hidden;
+    display: flex; flex-direction: column; position: relative; z-index: 10;
+  }
+  .browser {
+    flex: 1; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2), 0 8px 28px rgba(0,0,0,0.3), 0 0 0 1px rgba(6,182,212,0.18);
+    background: #1a2035; display: flex; flex-direction: column;
+  }
+  .browser-bar {
+    flex-shrink: 0; height: 36px; background: #0f172a; border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; padding: 0 12px; gap: 6px;
+  }
+  .bdots { display: flex; gap: 5px; align-items: center; }
+  .bd-r { width: 10px; height: 10px; border-radius: 50%; background: #f87171; }
+  .bd-y { width: 10px; height: 10px; border-radius: 50%; background: #fbbf24; }
+  .bd-g { width: 10px; height: 10px; border-radius: 50%; background: #34d399; }
+  .url-bar {
+    margin-left: 10px; flex: 1; max-width: 420px; height: 20px;
+    background: #1e293b; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px;
+    display: flex; align-items: center; padding: 0 8px;
+    font-size: 10px; font-weight: 600; color: #64748b; font-family: 'Manrope', sans-serif;
+  }
+  .browser-body { flex: 1; overflow: hidden; background: #0d1117; }
+  .col-img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top left; }
+
+  .cta-strip {
+    position: relative; z-index: 10;
+    margin: 0 52px 88px; padding: 24px 32px;
+    background: rgba(6,182,212,0.08); border: 1.5px solid rgba(6,182,212,0.22);
+    border-radius: 18px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .cta-text { display: flex; flex-direction: column; gap: 4px; }
+  .cta-label { font-size: 14px; font-weight: 700; color: #475569; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cta-value { font-size: 24px; font-weight: 800; color: #f1f5f9; letter-spacing: -0.01em; }
+  .cta-value span { color: #06b6d4; }
+  .cta-btn { display: flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 12px; background: rgba(6,182,212,0.14); border: 1px solid rgba(6,182,212,0.30); flex-shrink: 0; }
+  .cta-btn-text { font-size: 17px; font-weight: 700; color: #06b6d4; }
+
+  .progress { position: absolute; bottom: 44px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.12); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 38px; right: 72px; font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.25); z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-grid"></div>
+  <div class="bg-vignette"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="header">
+    <div class="eyebrow">Open Source · GitHub</div>
+    <div class="title">Quer <em>contribuir?</em></div>
+    <div class="subtitle">Issues, sugestões de componentes e PRs são bem-vindos.</div>
+  </div>
+
+  <div class="browser-wrap">
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="bdots"><span class="bd-r"></span><span class="bd-y"></span><span class="bd-g"></span></div>
+        <div class="url-bar">github.com/adrianomaringolo/buildgrid-ui / CONTRIBUTING.md</div>
+      </div>
+      <div class="browser-body">
+        <img class="col-img"
+             src="file:///home/adriano/Projects/personal/adrianomaringolo.dev/public/projects/buildgrid-ui/buildgridui-contribution.jpeg"
+             alt="BuildGrid UI — contribuição">
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip">
+    <div class="cta-text">
+      <div class="cta-label">repositório</div>
+      <div class="cta-value">github.com/<span>adrianomaringolo</span></div>
+    </div>
+    <div class="cta-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span class="cta-btn-text">Ver no GitHub</span>
+    </div>
+  </div>
+
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
