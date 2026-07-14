@@ -1,10 +1,13 @@
 'use client'
 
 import { useLocale } from '@/hooks/use-locale'
+import { cn } from '@/lib/utils'
 import type { BlogPostMetadata } from '@/types/blog'
+import { Button } from 'buildgrid-ui'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { useMemo, useState } from 'react'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -14,12 +17,33 @@ interface BlogListClientProps {
 
 export function BlogListClient({ posts }: BlogListClientProps) {
   const { locale, t } = useLocale()
+  const [selectedTag, setSelectedTag] = useState<string | null>(null)
 
   const formatDate = (dateString: string) =>
     new Date(dateString).toLocaleDateString(locale === 'pt-BR' ? 'pt-BR' : 'en-US', {
       year: 'numeric',
       month: 'short',
     })
+
+  const tagCounts = useMemo(() => {
+    const counts = new Map<string, number>()
+    for (const post of posts) {
+      for (const tag of post.tags) {
+        counts.set(tag, (counts.get(tag) ?? 0) + 1)
+      }
+    }
+    return counts
+  }, [posts])
+
+  const tags = useMemo(
+    () => Array.from(tagCounts.keys()).sort((a, b) => tagCounts.get(b)! - tagCounts.get(a)!),
+    [tagCounts],
+  )
+
+  const filteredPosts = useMemo(
+    () => (selectedTag ? posts.filter((post) => post.tags.includes(selectedTag)) : posts),
+    [posts, selectedTag],
+  )
 
   return (
     <section className="py-24 px-6 md:px-12 lg:px-20">
@@ -46,10 +70,47 @@ export function BlogListClient({ posts }: BlogListClientProps) {
           </p>
         </motion.div>
 
+        {/* Tag filter */}
+        {tags.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1, ease }}
+            className="flex flex-wrap gap-2 mb-10"
+          >
+            <Button
+              type="button"
+              variant={selectedTag === null ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setSelectedTag(null)}
+              className={cn(
+                'rounded-full font-mono',
+                selectedTag === null && 'bg-foreground text-background border-foreground hover:bg-foreground/90',
+              )}
+            >
+              {locale === 'pt-BR' ? 'Todos' : 'All'}
+              <span className="ml-1.5 opacity-50">{posts.length}</span>
+            </Button>
+            {tags.map((tag) => (
+              <Button
+                key={tag}
+                type="button"
+                variant={selectedTag === tag ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
+                className="rounded-full font-mono"
+              >
+                {t(`blog.tags.${tag}`)}
+                <span className="ml-1.5 opacity-50">{tagCounts.get(tag)}</span>
+              </Button>
+            ))}
+          </motion.div>
+        )}
+
         {/* Post list */}
-        {posts.length > 0 ? (
+        {filteredPosts.length > 0 ? (
           <ul className="divide-y divide-border/40 border-y border-border/40">
-            {posts.map((post: BlogPostMetadata, index: number) => (
+            {filteredPosts.map((post: BlogPostMetadata, index: number) => (
               <motion.li
                 key={post.slug}
                 initial={{ opacity: 0, y: 12 }}
@@ -59,12 +120,24 @@ export function BlogListClient({ posts }: BlogListClientProps) {
                 className="group"
               >
                 <Link href={`/blog/${post.slug}`}>
-                  <div className="grid grid-cols-[32px_1fr] lg:grid-cols-[48px_1fr_32px] gap-4 lg:gap-8 py-8 items-start rounded-lg -mx-4 px-4 transition-colors hover:bg-muted/40">
+                  <div className="grid grid-cols-[28px_96px_1fr] sm:grid-cols-[32px_120px_1fr] lg:grid-cols-[48px_144px_1fr_32px] gap-4 lg:gap-8 py-8 items-start rounded-lg -mx-4 px-4 transition-colors hover:bg-muted/40">
 
                     {/* Index */}
                     <span className="text-sm text-muted-foreground/30 font-mono pt-0.5 tabular-nums select-none">
                       {String(index + 1).padStart(2, '0')}
                     </span>
+
+                    {/* Thumbnail */}
+                    <div className="w-full aspect-[4/3] lg:aspect-[16/11] overflow-hidden rounded-lg ring-1 ring-border/50 bg-muted shrink-0">
+                      {post.image && (
+                        <img
+                          src={post.image}
+                          alt=""
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      )}
+                    </div>
 
                     {/* Content */}
                     <div className="space-y-2 min-w-0">
@@ -101,6 +174,22 @@ export function BlogListClient({ posts }: BlogListClientProps) {
               </motion.li>
             ))}
           </ul>
+        ) : posts.length > 0 ? (
+          <div className="py-16 border-t border-border/40">
+            <p className="text-sm text-muted-foreground/60">
+              {locale === 'pt-BR'
+                ? 'Nenhum artigo encontrado para essa tag.'
+                : 'No articles found for this tag.'}
+            </p>
+            <Button
+              type="button"
+              variant="link"
+              onClick={() => setSelectedTag(null)}
+              className="px-0 h-auto text-sm mt-1"
+            >
+              {locale === 'pt-BR' ? 'Limpar filtro' : 'Clear filter'}
+            </Button>
+          </div>
         ) : (
           <div className="py-16 border-t border-border/40">
             <p className="text-sm text-muted-foreground/60">{t('blog.underConstruction')}</p>

@@ -278,7 +278,10 @@
       "performance": "performance",
       "ai": "ia",
       "produtividade": "produtividade",
-      "ferramentas": "ferramentas"
+      "ferramentas": "ferramentas",
+      "solid": "solid",
+      "arquitetura": "arquitetura",
+      "clean-code": "clean code"
     },
     "comments": "Comentários",
     "relatedPosts": "Posts Relacionados",

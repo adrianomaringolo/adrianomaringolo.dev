@@ -1,0 +1,41 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Single Responsibility Principle: um componente com muitas tarefas se tornando três componentes focados</title>
+  <defs>
+    <pattern id="grid-s" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#cbd5e1" opacity="0.5"/>
+    </pattern>
+    <marker id="arrow-s" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="#f8fafc"/>
+  <rect width="800" height="450" fill="url(#grid-s)"/>
+
+  <!-- before: cluttered box -->
+  <rect x="120" y="145" width="160" height="160" rx="12" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2.5"/>
+  <g stroke="#64748b" stroke-width="2" fill="none">
+    <rect x="160" y="180" width="34" height="26" rx="3" transform="rotate(-8 177 193)"/>
+    <circle cx="230" cy="200" r="15"/>
+    <path d="M230,185 L230,215 M215,200 L245,200 M220,190 L240,210 M240,190 L220,210" stroke-width="1.5"/>
+    <path d="M170,250 L210,235 L225,265 Z" transform="rotate(10 195 250)"/>
+  </g>
+
+  <!-- arrow -->
+  <path d="M300,225 L370,225" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow-s)"/>
+
+  <!-- after: 3 focused boxes -->
+  <line x1="500" y1="150" x2="500" y2="300" stroke="#cbd5e1" stroke-width="2"/>
+  <g>
+    <rect x="440" y="150" width="120" height="44" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="488" y="163" width="24" height="18" rx="2" fill="none" stroke="#0891b2" stroke-width="2"/>
+
+    <rect x="440" y="206" width="120" height="44" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <circle cx="500" cy="228" r="11" fill="none" stroke="#0891b2" stroke-width="2"/>
+
+    <rect x="440" y="262" width="120" height="44" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <path d="M488,296 L500,272 L512,296 Z" fill="none" stroke="#0891b2" stroke-width="2"/>
+  </g>
+
+  <circle cx="60" cy="60" r="26" fill="#0f172a"/>
+  <text x="60" y="69" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700" font-size="24" fill="#ffffff">S</text>
+</svg>

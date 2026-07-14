@@ -1,0 +1,72 @@
+---
+title: "SOLID no React: um guia introdutório para os 5 princípios"
+excerpt: "SOLID nasceu na programação orientada a objetos, mas seus princípios continuam fazendo sentido em componentes, hooks e contextos. Uma introdução visual a cada uma das cinco letras."
+author: "Adriano Maringolo"
+publishedAt: "2026-07-14"
+readingTime: 9
+tags: ["react", "solid", "arquitetura", "clean-code"]
+featured: false
+image: "/blog/solid-principles-in-react/hero-solid-overview-og.png"
+---
+
+Em algum momento da carreira, todo desenvolvedor React esbarra num componente de 600 linhas que ninguém quer tocar. Um hook que faz busca de dados, validação, formatação e efeitos colaterais ao mesmo tempo. Uma prop `type` que muda o comportamento inteiro de um componente através de uma cascata de `if`s. O código funciona, mas cada mudança dá medo.
+
+SOLID é um conjunto de cinco princípios criados por Robert C. Martin nos anos 2000, pensados originalmente para programação orientada a objetos em linguagens como Java e C#. React não é orientado a objetos, e por muito tempo isso fez esses princípios parecerem irrelevantes para quem trabalha no ecossistema. Mas os problemas que o SOLID resolve, componentes que fazem coisa demais, código que quebra ao crescer, dependências difíceis de trocar, são exatamente os mesmos problemas que aparecem em qualquer base de código React que envelhece.
+
+![Diagrama com cinco colunas (S, O, L, I, D) sustentando uma mesma viga, representando os cinco princípios como base de uma arquitetura estável](/blog/solid-principles-in-react/hero-solid-overview.svg)
+
+Este artigo é uma introdução rápida às cinco letras, com uma imagem e uma explicação curta para cada uma. A ideia não é esgotar o assunto aqui, mas dar um mapa geral antes de mergulhar fundo em cada princípio individualmente nos próximos artigos.
+
+## S — Single Responsibility Principle
+
+*Um componente, um motivo para mudar.*
+
+O Princípio da Responsabilidade Única diz que uma unidade de código deve ter apenas uma razão para ser modificada. Em React, isso se traduz em componentes e hooks que fazem uma coisa bem feita: um componente cuida de apresentação, um hook cuida de uma fonte de dados, uma função de utilidade cuida de uma transformação.
+
+Na prática, é o princípio que te faz separar um componente `UserProfile` que busca dados, formata datas, valida formulário e renderiza HTML em pedaços menores, cada um responsável por uma dessas tarefas. Quando a lógica de busca muda, só o hook de busca é tocado. Quando o layout muda, só o componente visual é tocado.
+
+![Diagrama mostrando um componente com responsabilidades misturadas se transformando em três componentes menores, cada um com uma única função](/blog/solid-principles-in-react/srp-single-responsibility.svg)
+
+## O — Open/Closed Principle
+
+*Aberto para extensão, fechado para modificação.*
+
+Esse princípio propõe que você deveria conseguir adicionar comportamento novo a um sistema sem precisar alterar o código que já existe e já funciona. Em vez de abrir um componente estável para enfiar mais um `if` toda vez que surge um caso novo, você projeta pontos de extensão, como props de composição, slots ou render props, que permitem crescer por fora.
+
+Um exemplo comum em React é um componente `Button` que aceita `children` e uma prop `icon` em vez de uma lista fixa de variantes cravadas no código. Novos casos de uso passam a ser resolvidos compondo, não editando o componente original.
+
+![Diagrama de um núcleo fechado e sólido recebendo três extensões plugáveis em suas bordas, sem alterar o núcleo original](/blog/solid-principles-in-react/ocp-open-closed.svg)
+
+## L — Liskov Substitution Principle
+
+*Peças que se encaixam devem ser intercambiáveis sem quebrar o sistema.*
+
+O Princípio da Substituição de Liskov, na sua origem, fala sobre subtipos poderem substituir seus tipos base sem alterar o comportamento esperado do programa. Em React, a leitura mais útil é sobre contratos entre componentes: se dois componentes implementam a mesma interface de props, um deve poder substituir o outro sem surpresas.
+
+Isso aparece quando você troca um `<Input />` por um `<Select />` dentro de um formulário genérico, ou quando troca a implementação de um hook de autenticação por outra. Se a substituição exige mudar o código que consome o componente, o contrato estava quebrado desde o início.
+
+![Diagrama de dois componentes de mesma forma, A e B, encaixando cada um no mesmo slot central, indicando que são intercambiáveis](/blog/solid-principles-in-react/lsp-liskov-substitution.svg)
+
+## I — Interface Segregation Principle
+
+*Não force um componente a depender de props que ele não usa.*
+
+O Princípio da Segregação de Interface diz que interfaces grandes e genéricas devem ser quebradas em interfaces menores e específicas, para que nenhum consumidor seja forçado a lidar com coisas que não precisa. Em React, isso se traduz em evitar props gigantes tipo `config: AllTheOptions` passadas para todo componente, em favor de props específicas e hooks menores que expõem só o que cada consumidor realmente usa.
+
+Um hook `useUser()` que retorna 20 campos quando um componente só precisa do nome é um sintoma clássico. Melhor ter hooks focados, como `useUserName()` ou seletores específicos, que entregam exatamente o que cada lugar do código precisa.
+
+![Diagrama comparando uma interface inchada forçando conexões não usadas com duas interfaces enxutas, cada uma entregando só o que é necessário](/blog/solid-principles-in-react/isp-interface-segregation.svg)
+
+## D — Dependency Inversion Principle
+
+*Dependa de abstrações, não de implementações concretas.*
+
+O Princípio da Inversão de Dependência propõe que módulos de alto nível não devem depender diretamente de módulos de baixo nível, ambos devem depender de abstrações. Em React, isso aparece na forma de Context, injeção via props ou hooks que abstraem uma fonte de dados específica.
+
+Em vez de um componente chamar `fetch('/api/users')` diretamente, ele depende de um hook `useUsers()` cuja implementação pode vir do React Query, de uma chamada REST ou de dados mockados em teste, sem que o componente saiba ou se importe com qual é qual. É esse princípio que torna um componente testável isoladamente e uma base de código adaptável quando a infraestrutura muda por baixo.
+
+![Diagrama de um módulo de alto nível e três implementações de baixo nível, todos apontando para uma mesma abstração central](/blog/solid-principles-in-react/dip-dependency-inversion.svg)
+
+## O que vem a seguir
+
+Essas cinco letras não são regras para seguir cegamente, são lentes para enxergar onde o acoplamento está crescendo antes que ele vire dívida técnica. Nos próximos artigos desta série, vou aprofundar cada princípio separadamente, com exemplos de código React antes e depois, e os limites de cada um, porque aplicar SOLID ao pé da letra também tem seus próprios riscos.

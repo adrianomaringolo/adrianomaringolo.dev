@@ -1,0 +1,72 @@
+---
+title: "SOLID in React: An Introductory Guide to the 5 Principles"
+excerpt: "SOLID was born in object-oriented programming, but its principles still hold up in components, hooks, and contexts. A visual introduction to each of the five letters."
+author: "Adriano Maringolo"
+publishedAt: "2026-07-14"
+readingTime: 9
+tags: ["react", "solid", "arquitetura", "clean-code"]
+featured: false
+image: "/blog/solid-principles-in-react/hero-solid-overview-og.png"
+---
+
+At some point in every React developer's career, they run into a 600-line component nobody wants to touch. A hook that fetches data, validates, formats, and handles side effects all at once. A `type` prop that changes a component's entire behavior through a cascade of `if`s. The code works, but every change feels risky.
+
+SOLID is a set of five principles coined by Robert C. Martin in the 2000s, originally meant for object-oriented programming in languages like Java and C#. React isn't object-oriented, and for a long time that made these principles feel irrelevant to people working in the ecosystem. But the problems SOLID solves, components doing too much, code that breaks as it grows, dependencies that are hard to swap, are exactly the same problems that show up in any React codebase as it ages.
+
+![Diagram of five columns (S, O, L, I, D) holding up a single beam, representing the five principles as the foundation of a stable architecture](/blog/solid-principles-in-react/hero-solid-overview.svg)
+
+This article is a quick introduction to all five letters, with one image and one short explanation for each. The goal isn't to cover everything here, but to give a general map before diving deep into each principle individually in upcoming articles.
+
+## S — Single Responsibility Principle
+
+*One component, one reason to change.*
+
+The Single Responsibility Principle says a unit of code should have only one reason to be modified. In React, that translates into components and hooks that do one thing well: a component handles presentation, a hook handles a data source, a utility function handles a transformation.
+
+In practice, it's the principle that pushes you to split a `UserProfile` component that fetches data, formats dates, validates a form, and renders HTML into smaller pieces, each responsible for one of those tasks. When the fetching logic changes, only the fetching hook is touched. When the layout changes, only the visual component is touched.
+
+![Diagram showing a component with mixed responsibilities turning into three smaller components, each with a single function](/blog/solid-principles-in-react/srp-single-responsibility.svg)
+
+## O — Open/Closed Principle
+
+*Open for extension, closed for modification.*
+
+This principle proposes that you should be able to add new behavior to a system without altering code that already exists and already works. Instead of opening up a stable component to cram in another `if` every time a new case appears, you design extension points, like composition props, slots, or render props, that let it grow from the outside.
+
+A common React example is a `Button` component that accepts `children` and an `icon` prop instead of a fixed list of variants baked into the code. New use cases get solved by composing, not by editing the original component.
+
+![Diagram of a closed, solid core receiving three pluggable extensions at its edges, without altering the original core](/blog/solid-principles-in-react/ocp-open-closed.svg)
+
+## L — Liskov Substitution Principle
+
+*Interchangeable pieces should fit without breaking the system.*
+
+The Liskov Substitution Principle, in its original form, is about subtypes being able to replace their base types without changing a program's expected behavior. In React, the most useful reading is about contracts between components: if two components implement the same props interface, one should be able to replace the other without surprises.
+
+This shows up when you swap an `<Input />` for a `<Select />` inside a generic form, or when you swap one authentication hook implementation for another. If the swap requires changing the code that consumes the component, the contract was broken from the start.
+
+![Diagram of two same-shaped components, A and B, each fitting into the same central slot, indicating they are interchangeable](/blog/solid-principles-in-react/lsp-liskov-substitution.svg)
+
+## I — Interface Segregation Principle
+
+*Don't force a component to depend on props it doesn't use.*
+
+The Interface Segregation Principle says large, generic interfaces should be broken into smaller, specific ones, so no consumer is forced to deal with things it doesn't need. In React, that means avoiding giant `config: AllTheOptions` props passed to every component, in favor of specific props and smaller hooks that expose only what each consumer actually uses.
+
+A `useUser()` hook that returns 20 fields when a component only needs the name is a classic symptom. It's better to have focused hooks, like `useUserName()` or specific selectors, that deliver exactly what each part of the code needs.
+
+![Diagram comparing a bloated interface forcing unused connections with two lean interfaces, each delivering only what's needed](/blog/solid-principles-in-react/isp-interface-segregation.svg)
+
+## D — Dependency Inversion Principle
+
+*Depend on abstractions, not on concrete implementations.*
+
+The Dependency Inversion Principle proposes that high-level modules shouldn't depend directly on low-level modules, both should depend on abstractions. In React, this shows up as Context, prop injection, or hooks that abstract away a specific data source.
+
+Instead of a component calling `fetch('/api/users')` directly, it depends on a `useUsers()` hook whose implementation might come from React Query, a REST call, or mocked data in a test, without the component knowing or caring which one it is. This is the principle that makes a component testable in isolation and a codebase adaptable when the infrastructure underneath changes.
+
+![Diagram of a high-level module and three low-level implementations, all pointing to the same central abstraction](/blog/solid-principles-in-react/dip-dependency-inversion.svg)
+
+## What's next
+
+These five letters aren't rules to follow blindly, they're lenses for spotting where coupling is growing before it turns into technical debt. In upcoming articles in this series, I'll dig into each principle separately, with before-and-after React code examples and each one's limits, because applying SOLID to the letter has its own risks too.

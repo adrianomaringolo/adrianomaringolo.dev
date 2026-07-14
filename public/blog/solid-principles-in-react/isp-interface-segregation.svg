@@ -1,0 +1,44 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Interface Segregation Principle: interface inchada forçando dependências não usadas versus interfaces enxutas</title>
+  <defs>
+    <pattern id="grid-i" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#cbd5e1" opacity="0.5"/>
+    </pattern>
+    <marker id="arrow-i" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="#f8fafc"/>
+  <rect width="800" height="450" fill="url(#grid-i)"/>
+
+  <line x1="400" y1="90" x2="400" y2="360" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6,6"/>
+
+  <!-- left: fat interface -->
+  <rect x="110" y="130" width="140" height="190" rx="10" fill="#eef2f6" stroke="#94a3b8" stroke-width="2.5"/>
+  <g>
+    <circle cx="150" cy="165" r="8" fill="#0891b2"/>
+    <circle cx="210" cy="165" r="8" fill="#cbd5e1"/>
+    <circle cx="150" cy="200" r="8" fill="#cbd5e1"/>
+    <circle cx="210" cy="200" r="8" fill="#0891b2"/>
+    <circle cx="150" cy="235" r="8" fill="#cbd5e1"/>
+    <circle cx="210" cy="235" r="8" fill="#cbd5e1"/>
+    <circle cx="150" cy="270" r="8" fill="#cbd5e1"/>
+    <circle cx="210" cy="270" r="8" fill="#cbd5e1"/>
+  </g>
+  <path d="M250,225 L305,225" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow-i)"/>
+  <rect x="310" y="185" width="80" height="80" rx="10" fill="#0f172a"/>
+
+  <!-- right: segregated interfaces -->
+  <rect x="420" y="185" width="80" height="80" rx="10" fill="#0f172a"/>
+  <path d="M500,205 L555,175" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrow-i)"/>
+  <path d="M500,245 L555,275" stroke="#0891b2" stroke-width="2.5" marker-end="url(#arrow-i)"/>
+
+  <rect x="560" y="145" width="70" height="60" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+  <circle cx="595" cy="175" r="8" fill="#0891b2"/>
+
+  <rect x="560" y="245" width="70" height="60" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+  <circle cx="595" cy="275" r="8" fill="#0891b2"/>
+
+  <circle cx="60" cy="60" r="26" fill="#0f172a"/>
+  <text x="60" y="69" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700" font-size="24" fill="#ffffff">I</text>
+</svg>
