@@ -122,7 +122,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.client && (
             <div className="text-xs text-muted-foreground">
               {t('projects.client')}:{' '}
-              <span className="font-medium">{project.client.name}</span>
+              <span className="font-medium">{project.client.name[locale]}</span>
             </div>
           )}
 

@@ -85,8 +85,8 @@ export const asmMarketingDigital: Project = {
   startDate: '2025-04-09',
   endDate: '2025-05-15',
   client: {
-    name: 'ASM Marketing Digital',
-    industry: 'Marketing Digital',
+    name: { 'pt-BR': 'ASM Marketing Digital', 'en-US': 'ASM Marketing Digital' },
+    industry: { 'pt-BR': 'Marketing Digital', 'en-US': 'Digital Marketing' },
     size: 'small',
   },
   challenges: [

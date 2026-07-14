@@ -108,8 +108,11 @@ export const gotaDeCura: Project = {
   status: 'continous-improvement',
   startDate: '2021-08-01',
   client: {
-    name: 'Gota de Cura',
-    industry: 'Aromaterapia e Cosméticos Naturais',
+    name: { 'pt-BR': 'Gota de Cura', 'en-US': 'Gota de Cura' },
+    industry: {
+      'pt-BR': 'Aromaterapia e Cosméticos Naturais',
+      'en-US': 'Aromatherapy & Natural Cosmetics',
+    },
     size: 'small',
   },
   challenges: [

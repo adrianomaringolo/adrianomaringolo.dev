@@ -146,8 +146,8 @@ export const buildgridUI: Project = {
   featured: true,
   startDate: '2024-08-01',
   client: {
-    name: 'Projeto Open Source',
-    industry: 'Desenvolvimento de Software',
+    name: { 'pt-BR': 'Projeto Open Source', 'en-US': 'Open Source Project' },
+    industry: { 'pt-BR': 'Desenvolvimento de Software', 'en-US': 'Software Development' },
     size: 'small',
   },
   challenges: [

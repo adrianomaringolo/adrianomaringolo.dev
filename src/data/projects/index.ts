@@ -4,6 +4,7 @@ import { buildgridUI } from './buildgrid-ui'
 import { golaserBaraoGeraldo } from './golaser-barao-geraldo'
 import { gotaDeCura } from './gota-de-cura'
 import { portalDaMorada } from './portal-da-morada'
+import { reactHtmlContentEditor } from './react-html-content-editor'
 import { symproLanding } from './sympro-landing'
 import { yaneLeitao } from './yane-leitao'
 
@@ -15,6 +16,7 @@ export const projects: Project[] = [
   symproLanding,
   yaneLeitao,
   golaserBaraoGeraldo,
+  reactHtmlContentEditor,
 ]
 
 export function getProjectBySlug(slug: string): Project | undefined {
@@ -30,4 +32,13 @@ export function getProjectsByCategory(category: Project['category']): Project[] 
 }
 
 // Export individual projects
-export { asmMarketingDigital, buildgridUI, golaserBaraoGeraldo, gotaDeCura, portalDaMorada, symproLanding, yaneLeitao }
+export {
+  asmMarketingDigital,
+  buildgridUI,
+  golaserBaraoGeraldo,
+  gotaDeCura,
+  portalDaMorada,
+  reactHtmlContentEditor,
+  symproLanding,
+  yaneLeitao,
+}

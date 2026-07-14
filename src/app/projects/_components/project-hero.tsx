@@ -91,7 +91,7 @@ export function ProjectHero({ project, locale }: ProjectHeroProps) {
           >
             <p className="text-sm tracking-[0.18em] text-white uppercase font-mono mb-3">
               {project.category}
-              {project.client && ` · ${project.client.name}`}
+              {project.client && ` · ${project.client.name[locale]}`}
             </p>
             <h1
               className="font-bold tracking-tight text-white text-balance [font-family:var(--font-geist-sans)]"

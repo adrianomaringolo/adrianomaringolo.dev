@@ -169,8 +169,11 @@ export const yaneLeitao: Project = {
   startDate: '2025-12-01',
   endDate: '2026-05-31',
   client: {
-    name: 'Yane Leitão Personal Chef',
-    industry: 'Gastronomia / Alimentação Funcional',
+    name: { 'pt-BR': 'Yane Leitão Personal Chef', 'en-US': 'Yane Leitão Personal Chef' },
+    industry: {
+      'pt-BR': 'Gastronomia / Alimentação Funcional',
+      'en-US': 'Gastronomy / Functional Food',
+    },
     size: 'small',
   },
   challenges: [

@@ -141,8 +141,8 @@ export const golaserBaraoGeraldo: Project = {
   startDate: '2026-04-01',
   endDate: '2026-05-31',
   client: {
-    name: 'GoLaser Barão Geraldo',
-    industry: 'Estética / Saúde',
+    name: { 'pt-BR': 'GoLaser Barão Geraldo', 'en-US': 'GoLaser Barão Geraldo' },
+    industry: { 'pt-BR': 'Estética / Saúde', 'en-US': 'Aesthetics / Health' },
     size: 'small',
   },
   challenges: [

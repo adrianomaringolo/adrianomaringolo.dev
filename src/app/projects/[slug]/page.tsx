@@ -74,7 +74,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               {project.client && (
                 <div className="flex gap-2">
                   <span className="text-muted-foreground/40 w-16 shrink-0">{t('projects.client')}</span>
-                  <span className="text-foreground/70">{project.client.name}</span>
+                  <span className="text-foreground/70">{project.client.name[locale]}</span>
                 </div>
               )}
               <div className="flex gap-2">

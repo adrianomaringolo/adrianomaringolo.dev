@@ -166,8 +166,11 @@ export const portalDaMorada: Project = {
   featured: true,
   startDate: '2021-09-01',
   client: {
-    name: 'Morada Espírita Prof. Lairi Hans',
-    industry: 'Organização Comunitária',
+    name: {
+      'pt-BR': 'Morada Espírita Prof. Lairi Hans',
+      'en-US': 'Morada Espírita Prof. Lairi Hans',
+    },
+    industry: { 'pt-BR': 'Organização Comunitária', 'en-US': 'Community Organization' },
     size: 'small',
   },
   challenges: [

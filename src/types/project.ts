@@ -80,14 +80,21 @@ export interface Project {
   liveUrl?: string
   githubUrl?: string
   figmaUrl?: string
+  npmUrl?: string
   status?: 'completed' | 'in-progress' | 'continous-improvement' | 'concept'
   myRole?: 'founder' | 'freelancer' | 'employee' | 'contributor'
   featured: boolean
   startDate: string
   endDate?: string
   client?: {
-    name: string
-    industry: string
+    name: {
+      'pt-BR': string
+      'en-US': string
+    }
+    industry: {
+      'pt-BR': string
+      'en-US': string
+    }
     size: 'startup' | 'small' | 'medium' | 'enterprise'
   }
   challenges: ProjectChallenge[]
