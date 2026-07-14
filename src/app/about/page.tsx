@@ -1,6 +1,13 @@
 'use client'
 
-import { AboutCareer, AboutHero, AboutHistory, AboutPrinciples, AboutTechnologies } from './_components'
+import {
+  AboutCareer,
+  AboutFaq,
+  AboutHero,
+  AboutHistory,
+  AboutPrinciples,
+  AboutTechnologies,
+} from './_components'
 
 export default function SobrePage() {
   return (
@@ -10,6 +17,7 @@ export default function SobrePage() {
       <AboutCareer />
       <AboutTechnologies />
       <AboutPrinciples />
+      <AboutFaq />
     </div>
   )
 }

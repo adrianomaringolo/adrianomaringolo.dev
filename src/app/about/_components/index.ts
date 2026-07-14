@@ -1,4 +1,5 @@
 export { AboutCareer } from './about-career'
+export { AboutFaq } from './about-faq'
 export { AboutHero } from './about-hero'
 export { AboutHistory } from './about-history'
 export { AboutPrinciples } from './about-principles'

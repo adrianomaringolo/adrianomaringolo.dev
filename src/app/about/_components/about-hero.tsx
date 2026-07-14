@@ -97,7 +97,11 @@ export function AboutHero() {
             transition={{ duration: 0.6, delay: 0.22, ease }}
             className="space-y-6"
           >
-            <p className="text-lg leading-relaxed text-foreground/80 max-w-xl">
+            <p className="text-lg leading-relaxed text-foreground font-medium max-w-xl">
+              {t('about.directBio')}
+            </p>
+
+            <p className="text-base leading-relaxed text-foreground/70 max-w-xl">
               {t('about.description')
                 .replace(/^\.\.\. /, '')
                 .split('\n\n')[0]}

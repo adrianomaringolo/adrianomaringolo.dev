@@ -1,9 +1,15 @@
+import { projects } from '@/data/projects'
 import { getBlogPosts } from '@/lib/blog'
 import type { MetadataRoute } from 'next'
 
+// Bump this by hand when a static page's content meaningfully changes.
+// Using `new Date()` here would make every page look "modified now" on every
+// build, which is a misleading freshness signal to crawlers.
+const staticPagesLastModified = new Date('2026-07-14')
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://adrianomaringolo.dev'
-  const pages = ['', '/about', '/projects', '/blog', '/contact']
+  const pages = ['', '/about', '/projects', '/blog', '/contact', '/resume']
   const blogPosts = getBlogPosts()
 
   // Static pages
@@ -17,25 +23,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
             ? 0.8
             : page === '/blog'
               ? 0.7
-              : 0.6
+              : page === '/resume'
+                ? 0.5
+                : 0.6
     const changeFrequency =
       page === '/projects' || page === '/blog' ? 'weekly' : 'monthly'
 
+    // No `alternates.languages`: pt-BR/en-US share this URL (locale switches
+    // client-side), so there's no distinct URL per language to declare.
     return {
       url: `${baseUrl}${page}`,
-      lastModified: new Date(),
+      lastModified: staticPagesLastModified,
       changeFrequency: changeFrequency as 'weekly' | 'monthly',
       priority,
-      alternates: {
-        languages: {
-          'pt-BR': `${baseUrl}${page}`,
-          'en-US': `${baseUrl}${page}`, // Same URL for both languages (client-side switching)
-        },
-      },
     }
   })
 
-  // Blog posts
+  // Project pages — same as above, no distinct URL per language.
+  const projectPages = projects.map((project) => ({
+    url: `${baseUrl}/projects/${project.slug}`,
+    lastModified: new Date(project.startDate),
+    changeFrequency: 'monthly' as const,
+    priority: project.featured ? 0.8 : 0.6,
+  }))
+
+  // Blog posts — these DO have a distinct URL per language (see
+  // src/app/blog/[slug]/page.tsx generateMetadata), so hreflang is valid here.
   const blogPages = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.publishedAt),
@@ -44,10 +57,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: {
       languages: {
         'pt-BR': `${baseUrl}/blog/${post.slug}`,
-        'en-US': `${baseUrl}/blog/${post.slug}`,
+        'en-US': `${baseUrl}/blog/${post.slug}?lang=en-US`,
       },
     },
   }))
 
-  return [...staticPages, ...blogPages]
+  return [...staticPages, ...projectPages, ...blogPages]
 }

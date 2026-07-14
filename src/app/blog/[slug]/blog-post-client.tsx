@@ -105,10 +105,13 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
           >
             <ReactMarkdown
               components={{
+                // Rendered as h2, not h1: the page title above is already the
+                // page's only h1 — a `# heading` in post body must not compete
+                // with it for document outline / SEO purposes.
                 h1: ({ children }) => (
-                  <h1 className="text-2xl font-bold mb-6 mt-10 text-foreground tracking-tight [font-family:var(--font-geist-sans)] first:mt-0">
+                  <h2 className="text-2xl font-bold mb-6 mt-10 text-foreground tracking-tight [font-family:var(--font-geist-sans)] first:mt-0">
                     {children}
-                  </h1>
+                  </h2>
                 ),
                 h2: ({ children }) => (
                   <h2 className="text-xl font-semibold mb-4 mt-10 text-foreground tracking-tight">

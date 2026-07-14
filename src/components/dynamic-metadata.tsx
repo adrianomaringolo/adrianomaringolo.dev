@@ -1,5 +1,6 @@
 'use client'
 
+import { getProjectBySlug } from '@/data/projects'
 import { useLocale } from '@/hooks/use-locale'
 import { localeMetadata } from '@/lib/i18n'
 import { usePathname } from 'next/navigation'
@@ -12,8 +13,23 @@ export function DynamicMetadata() {
   useEffect(() => {
     if (isLoading) return
 
+    // Update lang attribute regardless of page
+    document.documentElement.lang = locale
+
+    // Blog posts already have correct per-post metadata from generateMetadata
+    // on the server (title, description, OG image, keywords from post tags).
+    // We can't read blog post data client-side (it's fs-based), so leave it alone.
+    if (/^\/blog\/[^/]+$/.test(pathname)) return
+
+    const projectSlugMatch = pathname.match(/^\/projects\/([^/]+)$/)
+    const project = projectSlugMatch ? getProjectBySlug(projectSlugMatch[1]) : undefined
+
     // Get page-specific translations
     const getPageTitle = () => {
+      if (project) {
+        return project.title[locale]
+      }
+
       if (pathname === '/') {
         return t('pages.homeTitle')
       }
@@ -30,10 +46,22 @@ export function DynamicMetadata() {
         return t('pages.contactTitle')
       }
 
+      if (pathname === '/resume') {
+        return t('pages.resumeTitle')
+      }
+
+      if (pathname === '/blog') {
+        return t('pages.blogTitle')
+      }
+
       return t('pages.homeTitle')
     }
 
     const getPageDescription = () => {
+      if (project) {
+        return project.shortDescription[locale]
+      }
+
       if (pathname === '/about') {
         return t('pages.aboutDescription')
       }
@@ -44,6 +72,14 @@ export function DynamicMetadata() {
 
       if (pathname === '/contact') {
         return t('pages.contactDescription')
+      }
+
+      if (pathname === '/resume') {
+        return t('pages.resumeDescription')
+      }
+
+      if (pathname === '/blog') {
+        return t('pages.blogDescription')
       }
 
       return t('pages.defaultDescription')
@@ -60,9 +96,6 @@ export function DynamicMetadata() {
     if (metaDescription) {
       metaDescription.setAttribute('content', description)
     }
-
-    // Update lang attribute
-    document.documentElement.lang = locale
 
     // Update Open Graph locale
     const ogLocale = document.querySelector('meta[property="og:locale"]')

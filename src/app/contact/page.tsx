@@ -13,9 +13,8 @@ import {
   Monitor,
   Send,
 } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
 import type React from 'react'
-import { Suspense, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function LinkedinIcon({ className }: { className?: string }) {
   return (
@@ -44,13 +43,18 @@ const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 function ContactContent() {
   const { t } = useLocale()
-  const searchParams = useSearchParams()
-  const serviceParam = searchParams.get('service') as ServiceKey | null
 
-  const [selectedService, setSelectedService] = useState<ServiceKey | null>(
-    serviceKeys.includes(serviceParam as ServiceKey) ? serviceParam : null,
-  )
+  const [selectedService, setSelectedService] = useState<ServiceKey | null>(null)
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const serviceParam = new URLSearchParams(window.location.search).get(
+      'service',
+    ) as ServiceKey | null
+    if (serviceKeys.includes(serviceParam as ServiceKey)) {
+      setSelectedService(serviceParam)
+    }
+  }, [])
   const [formData, setFormData] = useState({ nome: '', email: '', mensagem: '' })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -321,9 +325,7 @@ export default function ContatoPage() {
   return (
     <>
       <Toaster expand />
-      <Suspense>
-        <ContactContent />
-      </Suspense>
+      <ContactContent />
     </>
   )
 }

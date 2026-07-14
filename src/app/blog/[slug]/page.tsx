@@ -1,9 +1,11 @@
+import { JsonLd } from '@/components/json-ld'
 import { getBlogPost, getBlogPosts, getRelatedPosts } from '@/lib/blog'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { BlogPostClient } from './blog-post-client'
 
 type Locale = 'pt-BR' | 'en-US'
+const baseUrl = 'https://adrianomaringolo.dev'
 
 interface BlogPostProps {
   params: Promise<{ slug: string }>
@@ -75,5 +77,26 @@ export default async function BlogPost({ params }: BlogPostProps) {
 
   const relatedPosts = getRelatedPosts(post.slug, post.tags)
 
-  return <BlogPostClient post={post} relatedPosts={relatedPosts} />
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title['pt-BR'],
+    description: post.excerpt['pt-BR'],
+    datePublished: post.publishedAt,
+    keywords: post.tags.join(', '),
+    url: `${baseUrl}/blog/${post.slug}`,
+    image: post.image ? `${baseUrl}${post.image}` : undefined,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+      url: baseUrl,
+    },
+  }
+
+  return (
+    <>
+      <JsonLd data={jsonLd} />
+      <BlogPostClient post={post} relatedPosts={relatedPosts} />
+    </>
+  )
 }
