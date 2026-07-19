@@ -1,0 +1,164 @@
+---
+title: "Single Responsibility Principle na prática: refatorando um componente React real"
+excerpt: "O primeiro princípio do SOLID parece óbvio até você tentar aplicá-lo a um componente de verdade. Um UserProfile antes e depois, e os limites de levar a regra ao pé da letra."
+author: "Adriano Maringolo"
+publishedAt: "2026-07-18"
+readingTime: 9
+tags: ["react", "solid", "arquitetura", "clean-code"]
+featured: false
+image: "/blog/2026-07-18-solid-single-responsibility-principle/hero-srp-og.png"
+tldr:
+  - "SRP não é sobre \"funções pequenas\" — é sobre responder a um único motivo de mudança."
+  - "Um UserProfile que busca dados, formata datas e valida formulário mistura três motivos de mudança diferentes no mesmo lugar."
+  - "Separar por motivo de mudança, não por tamanho, reduz o raio de impacto de cada alteração futura e facilita testes isolados."
+  - "Fragmentação excessiva também é um problema — o critério é quantos motivos diferentes, não quantas linhas."
+---
+
+> Este artigo é a continuação de [SOLID no React: um guia introdutório para os 5 princípios](/blog/solid-principles-in-react), o primeiro da série.
+
+No post anterior desta série, usei de exemplo um `UserProfile` que busca dados, formata datas, valida formulário e renderiza HTML, tudo no mesmo componente. Prometi voltar em cada letra com código real de antes e depois. Vamos começar pelo S.
+
+![Selo S do SOLID acima de um componente UserProfile sobrecarregado se decompondo em quatro peças focadas: hook de dados, formatação de data, validação de e-mail e apresentação](/blog/2026-07-18-solid-single-responsibility-principle/hero-srp.svg)
+
+## O que diz o princípio
+
+*Uma unidade de código deve ter um, e apenas um, motivo para mudar.*
+
+O Single Responsibility Principle foi formulado por Robert C. Martin no início dos anos 2000, como o primeiro dos cinco princípios que mais tarde viraram o acrônimo SOLID. A definição original é enganosamente simples, e é fácil interpretá-la errado. SRP não é sobre ter "funções pequenas" ou "um arquivo por responsabilidade" como regra de estilo. É sobre responder a um único agente de mudança: uma única fonte de motivos pelos quais alguém precisaria abrir aquele código de novo no futuro.
+
+Tamanho não é o critério. Uma função de 80 linhas pode respeitar o SRP perfeitamente bem, se todo esse código responde à mesma pergunta de negócio. E uma função de 5 linhas pode violá-lo, se ela mistura, por exemplo, uma regra de validação com uma chamada de API. O que importa é quem pede a mudança e por quê, não quantas linhas o código ocupa.
+
+Em React, esse "motivo de mudança" costuma vir de um entre alguns lugares bem previsíveis: o formato dos dados que a API devolve, a regra de negócio que valida ou transforma esses dados, ou o jeito como a informação aparece na tela. Um componente ou hook que responde a apenas um desses lugares está respeitando o princípio. Um que responde a dois ou mais está pedindo para ser dividido, mesmo que hoje ainda pareça pequeno e inofensivo. É exatamente esse tipo de componente, pequeno e inofensivo até não ser mais, que vou usar de exemplo a seguir.
+
+## O sintoma: um componente que faz tudo
+
+Esse é o `UserProfile` como ele normalmente nasce: alguém precisa mostrar o perfil de um usuário, adiciona a busca de dados ali mesmo, depois adiciona um campo de e-mail editável, depois formata a data de cadastro para exibição. Nenhuma dessas adições, isoladamente, parece um problema.
+
+```tsx
+function UserProfile({ userId }: { userId: string }) {
+  const [user, setUser] = useState<User | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [emailError, setEmailError] = useState('')
+
+  useEffect(() => {
+    setLoading(true)
+    fetch(`/api/users/${userId}`)
+      .then((res) => res.json())
+      .then(setUser)
+      .finally(() => setLoading(false))
+  }, [userId])
+
+  function formatJoinDate(date: string) {
+    const d = new Date(date)
+    return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`
+  }
+
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+    setEmailError(isValid ? '' : 'E-mail inválido')
+    setUser((prev) => (prev ? { ...prev, email: value } : prev))
+  }
+
+  if (loading) return <Spinner />
+
+  return (
+    <div className="profile-card">
+      <h2>{user?.name}</h2>
+      <p>Membro desde {user && formatJoinDate(user.joinedAt)}</p>
+      <input defaultValue={user?.email} onChange={handleEmailChange} />
+      {emailError && <span className="error">{emailError}</span>}
+    </div>
+  )
+}
+```
+
+Quatro coisas diferentes vivem aqui dentro: buscar o usuário na API, formatar uma data, validar um e-mail, e renderizar a UI. Cada uma tem um motivo de mudança completamente diferente das outras.
+
+![Componente UserProfile monolítico se dividindo em quatro peças focadas: hook de dados, formatação de data, validação de e-mail e componente de apresentação](/blog/2026-07-18-solid-single-responsibility-principle/hero-srp-before-after.svg)
+
+## Por que isso dói (e não é só estética)
+
+O problema não é o componente ser "feio" ou "grande". É o que acontece quando algo muda:
+
+Se o backend renomeia um campo da resposta da API, você mexe dentro do `UserProfile`. Se o time de design pede outro formato de data, você mexe dentro do `UserProfile`. Se a regra de validação de e-mail muda para aceitar domínios corporativos, de novo, dentro do `UserProfile`. Três motivos de mudança completamente diferentes, três times ou contextos diferentes, e todos batendo no mesmo arquivo.
+
+Isso tem custo concreto, não teórico: testar a validação de e-mail exige montar o componente inteiro, com mock de fetch e loading state, só para verificar uma regex. Duas pessoas mexendo em coisas diferentes do perfil (uma no formato da data, outra na busca de dados) esbarram no mesmo bloco de código e geram conflito de merge por acidente, não porque o trabalho delas realmente se sobrepõe.
+
+O teste mental que uso: se para explicar o que um trecho de código faz eu preciso da palavra "e" duas ou três vezes ("busca o usuário **e** formata a data **e** valida o e-mail"), é sinal de que ali tem mais de uma responsabilidade disputando espaço.
+
+## Separando por motivo de mudança
+
+SRP não pede um arquivo por função. Pede que cada peça responda a um único motivo de mudança. Isso guia onde cortar:
+
+```tsx
+// useUserProfile.ts — a única coisa que muda quando a API muda
+function useUserProfile(userId: string) {
+  const [user, setUser] = useState<User | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch(`/api/users/${userId}`)
+      .then((res) => res.json())
+      .then(setUser)
+      .finally(() => setLoading(false))
+  }, [userId])
+
+  return { user, loading }
+}
+```
+
+```tsx
+// date.ts — a única coisa que muda quando o formato de exibição muda
+function formatJoinDate(date: string) {
+  const d = new Date(date)
+  return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`
+}
+```
+
+```tsx
+// validation.ts — a única coisa que muda quando a regra de e-mail muda
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+```
+
+```tsx
+// UserProfile.tsx — só sabe renderizar, não sabe de onde vêm os dados
+function UserProfile({ userId }: { userId: string }) {
+  const { user, loading } = useUserProfile(userId)
+  const [email, setEmail] = useState(user?.email ?? '')
+  const [emailError, setEmailError] = useState('')
+
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setEmail(e.target.value)
+    setEmailError(isValidEmail(e.target.value) ? '' : 'E-mail inválido')
+  }
+
+  if (loading) return <Spinner />
+
+  return (
+    <div className="profile-card">
+      <h2>{user?.name}</h2>
+      <p>Membro desde {user && formatJoinDate(user.joinedAt)}</p>
+      <input value={email} onChange={handleEmailChange} />
+      {emailError && <span className="error">{emailError}</span>}
+    </div>
+  )
+}
+```
+
+Nada aqui mudou o comportamento visível do componente. O que mudou é o raio de impacto de cada tipo de alteração futura. Trocar a fonte de dados agora é mexer só em `useUserProfile`. Trocar a regra de validação é mexer só em `validation.ts`, e essa função pode ser testada com um `expect(isValidEmail('a@b.com')).toBe(true)` direto, sem montar componente nenhum.
+
+## Onde a linha se desenha
+
+SRP levado ao extremo vira o oposto do problema que resolve: um projeto com um arquivo para cada função de duas linhas, onde entender um fluxo simples exige abrir oito arquivos diferentes. Isso também é um tipo de dívida técnica, só que disfarçada de boas práticas.
+
+O critério que uso não é "quantas linhas tem essa função", é "quantos motivos diferentes, vindos de lugares diferentes, fariam essa parte do código mudar". Se a resposta é um motivo só, ela pode crescer bastante em linhas e ainda estar respeitando o princípio. Se a resposta é dois ou mais motivos, mesmo em uma função de cinco linhas, vale separar.
+
+Também não existe uma única forma "certa" de separar: eu poderia ter deixado `formatJoinDate` e `isValidEmail` no mesmo arquivo `utils.ts`, já que as duas são funções puras sem estado. O que importa não é a contagem de arquivos, é que uma mudança na regra de negócio de validação não force ninguém a reler ou re-testar a lógica de formatação de data por engano.
+
+## O que vem a seguir
+
+Com o `UserProfile` decomposto, o próximo problema natural aparece quando um novo caso de uso surge: e se um tipo de usuário precisar de um campo extra no formulário? A tentação é abrir o `UserProfile` de novo e enfiar mais um `if`. É exatamente esse impulso que o próximo princípio, Open/Closed, existe para conter. É para lá que vou na próxima parte da série.

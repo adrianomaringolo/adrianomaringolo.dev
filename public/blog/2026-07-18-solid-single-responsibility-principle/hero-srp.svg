@@ -1,0 +1,84 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Single Responsibility Principle — an overloaded UserProfile component splitting into four focused pieces</title>
+  <defs>
+    <pattern id="grid-srp-hero" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1.3" fill="#cbd5e1" opacity="0.6"/>
+    </pattern>
+    <marker id="arrow-srp-hero" markerWidth="11" markerHeight="11" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#0f172a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="630" fill="url(#grid-srp-hero)"/>
+
+  <!-- eyebrow: S badge + series label -->
+  <circle cx="600" cy="66" r="28" fill="#0f172a"/>
+  <text x="600" y="75" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700" font-size="24" fill="#ffffff">S</text>
+  <text x="600" y="118" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="600" font-size="15" letter-spacing="3" fill="#0891b2">SOLID IN REACT · PART 1</text>
+
+  <!-- before: one overloaded component -->
+  <rect x="260" y="185" width="230" height="235" rx="14" fill="#e2e8f0" stroke="#94a3b8" stroke-width="3"/>
+  <text x="375" y="170" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#475569">UserProfile</text>
+
+  <g stroke="#64748b" stroke-width="2.4" fill="none" stroke-linecap="round">
+    <!-- fetch/plug icon -->
+    <circle cx="327" cy="250" r="19"/>
+    <path d="M327,231 L327,215 M310,250 L294,250 M327,269 L327,285 M344,250 L360,250" stroke-width="2"/>
+    <!-- calendar icon -->
+    <rect x="408" y="232" width="46" height="38" rx="4"/>
+    <path d="M408,246 L454,246 M420,224 L420,236 M442,224 L442,236" stroke-width="2"/>
+    <!-- validation/check icon -->
+    <circle cx="327" cy="335" r="21"/>
+    <path d="M318,335 L325,343 L338,323" stroke-width="2.4"/>
+    <!-- form/render icon -->
+    <rect x="394" y="313" width="76" height="52" rx="5"/>
+    <path d="M406,330 L458,330 M406,344 L446,344 M406,352 L434,352" stroke-width="1.8"/>
+  </g>
+
+  <!-- arrow -->
+  <path d="M508,302 L585,302" stroke="#0f172a" stroke-width="3.5" marker-end="url(#arrow-srp-hero)"/>
+
+  <!-- connecting spine -->
+  <g stroke="#cbd5e1" stroke-width="2" fill="none">
+    <path d="M585,302 L630,302 L630,230"/>
+    <path d="M585,302 L630,302 L630,375" />
+    <line x1="630" y1="230" x2="690" y2="230"/>
+    <line x1="630" y1="375" x2="690" y2="375"/>
+    <line x1="630" y1="230" x2="630" y2="375"/>
+    <line x1="770" y1="230" x2="830" y2="230"/>
+    <line x1="770" y1="375" x2="830" y2="375"/>
+  </g>
+
+  <!-- after: 4 focused pieces, 2x2 -->
+  <g fill="#ffffff" stroke="#0891b2" stroke-width="2.6">
+    <rect x="690" y="175" width="110" height="110" rx="12"/>
+    <rect x="830" y="175" width="110" height="110" rx="12"/>
+    <rect x="690" y="320" width="110" height="110" rx="12"/>
+    <rect x="830" y="320" width="110" height="110" rx="12"/>
+  </g>
+  <g stroke="#0891b2" stroke-width="2.2" fill="none" stroke-linecap="round">
+    <!-- hook: fetch icon -->
+    <circle cx="745" cy="230" r="15"/>
+    <path d="M745,215 L745,203 M730,230 L718,230 M745,245 L745,257 M760,230 L772,230" stroke-width="1.8"/>
+    <!-- date util: calendar icon -->
+    <rect x="863" y="212" width="44" height="36" rx="4"/>
+    <path d="M863,225 L907,225 M875,204 L875,215 M895,204 L895,215" stroke-width="1.8"/>
+    <!-- validation util: check icon -->
+    <circle cx="745" cy="375" r="17"/>
+    <path d="M737,375 L743,382 L755,364" stroke-width="2"/>
+    <!-- presentational component: render icon -->
+    <rect x="852" y="352" width="66" height="46" rx="5"/>
+    <path d="M862,367 L908,367 M862,379 L898,379 M862,387 L886,387" stroke-width="1.5"/>
+  </g>
+
+  <!-- baseline -->
+  <rect x="258" y="462" width="684" height="7" rx="3.5" fill="#0891b2"/>
+
+  <!-- wordmark -->
+  <text x="600" y="545" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="800" font-size="60" letter-spacing="-1.5" fill="#0f172a">SRP</text>
+  <text x="600" y="580" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="600" font-size="20" letter-spacing="4" fill="#0891b2">SINGLE RESPONSIBILITY PRINCIPLE</text>
+
+  <!-- footer -->
+  <text x="600" y="612" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="500" font-size="16" letter-spacing="1" fill="#94a3b8">adrianomaringolo.dev</text>
+</svg>
