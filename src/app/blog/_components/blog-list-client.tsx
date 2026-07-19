@@ -1,6 +1,7 @@
 'use client'
 
 import { useLocale } from '@/hooks/use-locale'
+import { parseLocalDate } from '@/lib/formatters'
 import { cn } from '@/lib/utils'
 import type { BlogPostMetadata } from '@/types/blog'
 import { Button } from 'buildgrid-ui'
@@ -20,7 +21,7 @@ export function BlogListClient({ posts }: BlogListClientProps) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
 
   const formatDate = (dateString: string) =>
-    new Date(dateString).toLocaleDateString(locale === 'pt-BR' ? 'pt-BR' : 'en-US', {
+    parseLocalDate(dateString).toLocaleDateString(locale === 'pt-BR' ? 'pt-BR' : 'en-US', {
       year: 'numeric',
       month: 'short',
     })

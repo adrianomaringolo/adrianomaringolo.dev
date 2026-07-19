@@ -1,6 +1,7 @@
 'use client'
 
 import { useLocale } from '@/hooks/use-locale'
+import { parseLocalDate } from '@/lib/formatters'
 import type { BlogPostMetadata } from '@/types/blog'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
@@ -17,7 +18,7 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
   const { locale, t } = useLocale()
 
   const formatDate = (dateString: string) =>
-    new Date(dateString).toLocaleDateString(locale === 'pt-BR' ? 'pt-BR' : 'en-US', {
+    parseLocalDate(dateString).toLocaleDateString(locale === 'pt-BR' ? 'pt-BR' : 'en-US', {
       year: 'numeric',
       month: 'short',
     })

@@ -264,6 +264,8 @@
     "readMore": "Read more",
     "backToBlog": "Back to Blog",
     "readingTime": "min read",
+    "tldr": "TL;DR",
+    "tableOfContents": "In this article",
     "publishedAt": "Published on",
     "author": "By",
     "tags": {

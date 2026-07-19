@@ -7,6 +7,13 @@ readingTime: 9
 tags: ["react", "solid", "arquitetura", "clean-code"]
 featured: false
 image: "/blog/2026-07-14-solid-principles-in-react/hero-solid-overview-og.png"
+tldr:
+  - "SOLID nasceu na POO, mas os problemas que resolve, componentes que fazem coisa demais, acoplamento difícil de trocar, também aparecem em bases de código React que envelhecem."
+  - "S — Single Responsibility: um componente, um motivo para mudar."
+  - "O — Open/Closed: extensível por composição, sem precisar reabrir código estável."
+  - "L — Liskov: componentes com a mesma interface de props devem ser intercambiáveis."
+  - "I — Interface Segregation: não force um componente a depender de props que ele não usa."
+  - "D — Dependency Inversion: dependa de abstrações (hooks, Context), não de implementações concretas."
 ---
 
 Em algum momento da carreira, todo desenvolvedor React esbarra num componente de 600 linhas que ninguém quer tocar. Um hook que faz busca de dados, validação, formatação e efeitos colaterais ao mesmo tempo. Uma prop `type` que muda o comportamento inteiro de um componente através de uma cascata de `if`s. O código funciona, mas cada mudança dá medo.

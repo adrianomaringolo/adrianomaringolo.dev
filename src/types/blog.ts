@@ -12,6 +12,10 @@ export interface BlogPost {
     'pt-BR': string
     'en-US': string
   }
+  tldr: {
+    'pt-BR': string[]
+    'en-US': string[]
+  }
   author: string
   publishedAt: string
   readingTime: number

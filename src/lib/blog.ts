@@ -99,6 +99,10 @@ export function getBlogPost(slug: string): BlogPost | undefined {
       'pt-BR': ptBR?.content ?? enUS?.content ?? '',
       'en-US': enUS?.content ?? ptBR?.content ?? '',
     },
+    tldr: {
+      'pt-BR': (ptBR?.data.tldr as string[] | undefined) ?? [],
+      'en-US': (enUS?.data.tldr as string[] | undefined) ?? [],
+    },
     author: data.author as string,
     publishedAt: data.publishedAt as string,
     readingTime: calcReadingTime(ptBR?.content ?? enUS?.content ?? ''),

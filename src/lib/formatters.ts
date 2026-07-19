@@ -1,5 +1,13 @@
 import type { Locale } from './i18n'
 
+// Parses a "YYYY-MM-DD" string as local time. `new Date("YYYY-MM-DD")` parses
+// it as UTC midnight per the ISO 8601 spec — once formatted in a timezone
+// behind UTC, that rolls the displayed date back by one day.
+export function parseLocalDate(dateString: string): Date {
+  const [year, month, day] = dateString.split('-').map(Number)
+  return new Date(year, month - 1, day)
+}
+
 // Date formatting utilities
 export function formatDate(
   date: Date,
