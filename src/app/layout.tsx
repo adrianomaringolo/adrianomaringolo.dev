@@ -11,6 +11,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import { Manrope } from 'next/font/google'
+import Script from 'next/script'
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -116,6 +117,13 @@ export default function RootLayout({
               </div>
             </Suspense>
             <Analytics />
+            {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+              <Script
+                src="https://cloud.umami.is/script.js"
+                data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+                strategy="afterInteractive"
+              />
+            )}
           </LocaleProvider>
         </ThemeProvider>
       </body>
