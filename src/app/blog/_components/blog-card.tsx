@@ -35,6 +35,17 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
           {String(index + 1).padStart(2, '0')}
         </span>
 
+        {post.image && (
+          <div className="w-24 aspect-[4/3] overflow-hidden rounded-lg ring-1 ring-border/50 bg-muted shrink-0">
+            <img
+              src={post.image}
+              alt=""
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        )}
+
         <div className="flex-1 space-y-1.5 min-w-0">
           <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
             {post.title[locale]}

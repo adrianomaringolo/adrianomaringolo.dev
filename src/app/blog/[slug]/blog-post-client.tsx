@@ -257,14 +257,19 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                 strong: ({ children }) => (
                   <strong className="text-foreground font-semibold">{children}</strong>
                 ),
-                a: ({ children, href }) => (
-                  <a
-                    href={href}
-                    className="text-primary underline underline-offset-2 decoration-primary/30 hover:decoration-primary transition-colors"
-                  >
-                    {children}
-                  </a>
-                ),
+                a: ({ children, href }) => {
+                  const isExternal = href?.startsWith('http')
+                  return (
+                    <a
+                      href={href}
+                      target={isExternal ? '_blank' : undefined}
+                      rel={isExternal ? 'noopener noreferrer' : undefined}
+                      className="text-primary underline underline-offset-2 decoration-primary/30 hover:decoration-primary transition-colors"
+                    >
+                      {children}
+                    </a>
+                  )
+                },
                 blockquote: ({ children }) => (
                   <blockquote className="border-l-2 border-primary/30 pl-5 my-6 text-muted-foreground italic">
                     {children}
