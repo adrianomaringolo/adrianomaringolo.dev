@@ -1,0 +1,201 @@
+---
+title: "The Open/Closed Principle in Practice: Extending a React Component Without Reopening It"
+excerpt: "Every new case arrives with an `if` baked into the request. SOLID's second principle exists to hold back that impulse, and to make clear when giving in to it is still the right call."
+author: "Adriano Maringolo"
+publishedAt: "2026-07-30"
+readingTime: 8
+tags: ["react", "solid", "arquitetura", "clean-code"]
+featured: false
+image: "/blog/2026-07-30-solid-open-closed-principle/hero-ocp-og.png"
+tldr:
+  - "Open for extension, closed for modification: a stable component should gain new behavior from the outside, without its source being reopened for every case."
+  - "A `variant` prop that grows into a chain of conditionals makes the generic component aware of every specific consumer, inverting the dependency direction."
+  - "In React, the extension point is almost always composition: `children`, named slots, or render props, with each variation living in its own file."
+  - "The real cost isn't writing the new `if`, it's the regression risk to everything that was already correct inside that file."
+  - "OCP isn't for predicting the future: write the `if` the first time, and open the extension point when the same pressure comes back a third time."
+---
+
+> This post is the third part of the SOLID in React series, following [SOLID in React: An Introductory Guide to the 5 Principles](/blog/solid-principles-in-react) and [The Single Responsibility Principle in Practice](/blog/solid-single-responsibility-principle).
+
+In the previous post, `UserProfile` ended up decomposed: a hook handling data, two pure functions handling formatting and validation, and a component that only knows how to render. It stayed clean for a few weeks.
+
+Then the request that always comes, comes: admin users need to see their access level on the profile. Two weeks later, partners need to see the company they're tied to. Neither request is unreasonable, and the fastest way out is always one `if` away.
+
+![SOLID's O badge above a component reopened for every new if, contrasted with a closed core receiving pluggable extensions](/blog/2026-07-30-solid-open-closed-principle/hero-ocp.svg)
+
+## What the principle actually says
+
+*Open for extension, closed for modification.*
+
+The phrasing comes from Bertrand Meyer, in *Object-Oriented Software Construction* (1988), almost a decade before the SOLID acronym existed. Meyer was thinking about inheritance: a stable, already-tested class stays "closed," and new behavior comes in through subclasses that extend it without touching it. Robert C. Martin reframed the idea in the 1990s in terms of abstraction and polymorphism, shifting the principle's center of gravity: what matters isn't inheriting, it's that the stable module depends on an abstraction whose implementations can be added from the outside.
+
+React has no component inheritance, and that's exactly the good part: the useful version of the principle here is about composition. A component should be able to gain new behavior from the outside, without its source having to be reopened for every case.
+
+It's worth saying what "closed" doesn't mean. It doesn't mean frozen: bugs still get fixed, refactors still happen, and the internal implementation can change when it needs to. It means that one more predictable variation showing up, one more user type, one more card layout, one more data source, shouldn't be a reason to edit a file that was already working.
+
+## The symptom: a prop that became a switch
+
+The `UserProfile` that came out of the previous post had no variation conditionals at all. Two requests later, it has these:
+
+```tsx
+type UserVariant = 'default' | 'admin' | 'partner'
+
+function UserProfile({ userId, variant }: { userId: string; variant: UserVariant }) {
+  const { user, loading } = useUserProfile(userId)
+
+  if (loading) return <Spinner />
+  if (!user) return null
+
+  return (
+    <div className="profile-card">
+      <h2>{user.name}</h2>
+      <p>Member since {formatJoinDate(user.joinedAt)}</p>
+
+      {variant === 'admin' && (
+        <label>
+          Access level
+          <select defaultValue={user.accessLevel}>
+            <option value="viewer">Viewer</option>
+            <option value="editor">Editor</option>
+          </select>
+        </label>
+      )}
+
+      {variant === 'partner' && (
+        <label>
+          Partner company
+          <input defaultValue={user.partnerCompany} />
+        </label>
+      )}
+    </div>
+  )
+}
+```
+
+Notice the quiet side effect one floor below: `accessLevel` and `partnerCompany` had to be added to the `User` type as optional fields, even though they only exist for a fraction of users. The data model started carrying the UI's variations, and every place that consumes `User` now lives with two fields that are almost always `undefined`.
+
+Once those blocks grow, almost everyone's first instinct is to extract each one into its own component. It's a good instinct, and it's where the names `AdminFields` and `PartnerFields` start existing in the project:
+
+```tsx
+import { AdminFields } from './AdminFields'
+import { PartnerFields } from './PartnerFields'
+
+function UserProfile({ userId, variant }: { userId: string; variant: UserVariant }) {
+  const { user, loading } = useUserProfile(userId)
+
+  if (loading) return <Spinner />
+  if (!user) return null
+
+  return (
+    <div className="profile-card">
+      <h2>{user.name}</h2>
+      <p>Member since {formatJoinDate(user.joinedAt)}</p>
+
+      {variant === 'admin' && <AdminFields user={user} />}
+      {variant === 'partner' && <PartnerFields user={user} />}
+    </div>
+  )
+}
+```
+
+Each extracted component takes the `user` and owns its slice of the form: `AdminFields` renders the access level selector, `PartnerFields` renders the linked company field. The file got much more readable, and it's common for the refactor to stop right here, believing the problem is solved.
+
+From an Open/Closed standpoint, though, nothing changed. The fourth profile type, say a `SupplierFields` for suppliers, still requires a new line inside `UserProfile`, a new value in the `UserVariant` type, and one more `import` at the top of the file. Extracting components fixed the size of the file, which was a single responsibility problem. What's still standing is the other one: the generic component is still the one deciding which variations exist.
+
+![UserProfile component with a variant prop and a chain of conditionals, refactored into a closed component with extensions composed from the outside](/blog/2026-07-30-solid-open-closed-principle/ocp-before-after.svg)
+
+## Why this actually hurts
+
+The third user type shows up eventually, and the third conditional comes with it. In isolation, none of them is expensive to write. The cost lives somewhere else.
+
+Every new variation forces someone to open a stable file. The risk isn't that the new `if` is wrong, it's what happens by accident to what was already right: a `return` that shifts position, a piece of state that ends up shared between two branches, a test that stays green because it was testing something else. You pay a regression risk across every existing case each time you add a new one.
+
+The direction of the dependency flips, too. `UserProfile` is the generic component, but, as those two `import` lines at the top show, it's the one that knows about `AdminFields`, `PartnerFields`, and whatever comes next. The generic one depends on each of the specific cases, when it should be the other way around. That has a very concrete consequence in React: any screen that renders a profile ships the code for every variation in its bundle, including the public screen that will never show a single one of them.
+
+And there's the cost that only surfaces a year later. In shared component codebases I've maintained, this is the most common erosion pattern I've seen: the component becomes the meeting point for every team, each one leaving its conditional behind. After a while, nobody can say with confidence which prop combinations are still valid, which are accidental, and which stopped being used. And the test matrix grows by multiplying variants by states, not by adding them.
+
+The mental test here is different from the one I used for SRP. It's no longer "how many reasons to change live in this file," it's: *to add the next case, do I have to edit this file, or can I just create a new one?*
+
+## Opening up through composition
+
+If the answer is "edit," the move is to turn the point of variation into a point of extension. In React that almost always means handing over a space for the caller to fill, instead of trying to predict its contents:
+
+```tsx
+// UserProfile.tsx: closed, it doesn't know admins or partners exist
+type UserProfileProps = {
+  userId: string
+  children?: (user: User) => ReactNode
+}
+
+function UserProfile({ userId, children }: UserProfileProps) {
+  const { user, loading } = useUserProfile(userId)
+
+  if (loading) return <Spinner />
+  if (!user) return null
+
+  return (
+    <div className="profile-card">
+      <h2>{user.name}</h2>
+      <p>Member since {formatJoinDate(user.joinedAt)}</p>
+      {children?.(user)}
+    </div>
+  )
+}
+```
+
+The components we had already extracted stay the same, with one important difference: they stop depending on the `User` type for their specific fields and start fetching their own data.
+
+```tsx
+// AdminFields.tsx: open, each variation lives in its own file
+function AdminFields({ user }: { user: User }) {
+  const { accessLevel, update } = useAccessLevel(user.id)
+
+  return (
+    <label>
+      Access level
+      <select value={accessLevel} onChange={(e) => update(e.target.value)}>
+        <option value="viewer">Viewer</option>
+        <option value="editor">Editor</option>
+      </select>
+    </label>
+  )
+}
+```
+
+```tsx
+// each screen composes the profile it needs
+<UserProfile userId={id} />
+
+<UserProfile userId={id}>{(user) => <AdminFields user={user} />}</UserProfile>
+
+<UserProfile userId={id}>{(user) => <PartnerFields user={user} />}</UserProfile>
+```
+
+`PartnerFields` has exactly the same shape: it takes the `user`, fetches what it needs about the linked company, and renders its own field. Neither one knows the other exists, and neither one needs to.
+
+`accessLevel` left the `User` type along with the variation: whoever needs the data fetches the data. The shared type goes back to describing what every user has, and the public screen stops importing admin code.
+
+The payoff shows up on the next request. That `SupplierFields` for suppliers, which in the previous version would have cost one more `import`, one more value in `UserVariant`, and one more line inside the component, is now a new file and a new line at the call site. `UserProfile` doesn't appear in the diff at all. That's the "closed" half of the principle, and it's verifiable: you can look at the pull request for a new feature and check whether the base component was touched.
+
+Passing `user` as an argument works well for one level of nesting and starts to grate when the extension sits deeper in the tree. The same design still holds with Context, with extensions reading a `useProfileUser()` instead of receiving props. But that's the series' fifth letter walking on stage, and I'll come back to it in the right place.
+
+## Where the line gets drawn
+
+Applying OCP too early costs more than applying it too late. An extension point built for a variation that never arrived is speculative abstraction: real indirection paying for an imaginary requirement. I've refactored components like that, with generic slots and flexible configuration, that ended up with exactly one consumer in two years.
+
+Two stable conditionals that haven't grown in a year and a half aren't a violation of the principle: they're two conditionals. Swapping them for a composition mechanism only hurts readability. The explicit `if` is honest: whoever reads the file sees the two cases that exist, without having to hunt down where someone injected behavior.
+
+The test I use is about timing, not structure. OCP isn't for predicting axes of variation, it's for reacting to them once they show up. The first time, write the `if`. The second time, make a mental note. When the same pressure hits the same file a third time, it stopped being a coincidence: that's the domain's axis of variation introducing itself, and that's when it's worth opening that component one last time so you don't have to open it again.
+
+It's also worth naming what you give up in the trade. With composition, the call site says less: a bare `<UserProfile />` no longer tells you which fields show up on screen, because that now depends on whoever composes it. It's a deliberate trade, less predictability when reading one file in exchange for less risk on every change, and it only pays off when the axis of variation is real.
+
+## What's next
+
+With the extension point in place, a new question appears: `AdminFields`, `PartnerFields`, and `SupplierFields` all plug into the same slot, but do they actually honor the same contract? If one of them breaks when the user has no confirmed email, or demands a piece of data the others don't, substitution stopped being transparent and the slot became a false promise. That's exactly what the series' next letter is about, the L for Liskov.
+
+## References
+
+- Bertrand Meyer, *Object-Oriented Software Construction* (1988), the original formulation of "open for extension, closed for modification"
+- Robert C. Martin, ["The Open Closed Principle"](https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html) (2014)
+- Robert C. Martin, ["The Open-Closed Principle"](https://objectmentor.com/resources/articles/ocp.pdf), the original article from the C++ Report (1996)
+- Robert C. Martin, ["Design Principles and Design Patterns"](https://staff.cs.utu.fi/~jounsmed/doos_06/material/DesignPrinciplesAndPatterns.pdf)

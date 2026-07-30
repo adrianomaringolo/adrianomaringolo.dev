@@ -11,7 +11,8 @@
 |---|---|---|
 | Why Every Developer Needs a Professional Portfolio | Carreira | ✅ Publicado |
 | SOLID in React: An Introductory Guide to the 5 Principles | Background técnico | ✅ Publicado — promete 5 posts de aprofundamento, um por letra (S, O, L, I, D), com código antes/depois. |
-| SOLID: Single Responsibility Principle na prática (React) | Background técnico | ✅ Publicado — primeiro post da série de aprofundamento (S), com refatoração real do `UserProfile` teasado no post introdutório. **Próximo da série: Open/Closed (O).** |
+| SOLID: Single Responsibility Principle na prática (React) | Background técnico | ✅ Publicado — primeiro post da série de aprofundamento (S), com refatoração real do `UserProfile` teasado no post introdutório. |
+| SOLID: Open/Closed Principle na prática (React) | Background técnico | ✅ Publicado — segundo post da série (O), continua o mesmo `UserProfile`: prop `variant` com cascata de `if`s refatorada para composição. **Próximo da série: Liskov (L).** |
 | 10 Técnicas Avançadas para Otimizar Performance em React | Background técnico | 📝 Rascunho (`_2025-01-20-react-performance-optimization`) — hoje é só uma lista de bullets, precisa de exemplos reais para ser publicado |
 | Next.js 15: O Que Há de Novo | Background técnico | 📝 Rascunho (`_2025-01-18-nextjs-15-whats-new`) — provavelmente vale reescrever com foco em Server Components/Server Actions em vez de changelog de versão |
 | Como a IA Está Transformando o Desenvolvimento Web | Background técnico | 📝 Rascunho (`_2025-01-15-how-ai-transforms-web-development`) — genérico demais hoje; a sugestão #6 abaixo é uma versão mais específica e defensável (fala do seu uso real de Claude Code/Cursor, não de IA em geral) |

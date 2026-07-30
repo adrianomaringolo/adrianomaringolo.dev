@@ -118,7 +118,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
 
             {/* Title */}
             <h1
-              className="font-bold tracking-tight text-foreground [font-family:var(--font-geist-sans)] text-wrap-balance mb-8"
+              className="font-bold tracking-tight leading-[1.15] text-foreground [font-family:var(--font-geist-sans)] text-wrap-balance mb-8"
               style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}
             >
               {post.title[locale]}

@@ -1,0 +1,86 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Open/Closed Principle — a component reopened for every new if, versus a closed core receiving pluggable extensions</title>
+  <defs>
+    <pattern id="grid-ocp-hero" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1.3" fill="#cbd5e1" opacity="0.6"/>
+    </pattern>
+    <marker id="arrow-ocp-hero" markerWidth="11" markerHeight="11" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#0f172a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="630" fill="url(#grid-ocp-hero)"/>
+
+  <!-- eyebrow: O badge + series label -->
+  <circle cx="600" cy="66" r="28" fill="#0f172a"/>
+  <text x="600" y="75" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700" font-size="24" fill="#ffffff">O</text>
+  <text x="600" y="118" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="600" font-size="15" letter-spacing="3" fill="#0891b2">SOLID IN REACT · PART 2</text>
+
+  <!-- before: one component reopened for every case -->
+  <rect x="250" y="185" width="240" height="235" rx="14" fill="#e2e8f0" stroke="#94a3b8" stroke-width="3"/>
+  <text x="370" y="170" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#475569">UserProfile</text>
+
+  <g fill="#ffffff" stroke="#64748b" stroke-width="2.2">
+    <rect x="278" y="212" width="184" height="46" rx="8"/>
+    <rect x="278" y="279" width="184" height="46" rx="8"/>
+    <rect x="278" y="346" width="184" height="46" rx="8"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" fill="#475569">
+    <text x="298" y="241">if admin</text>
+    <text x="298" y="308">if partner</text>
+    <text x="298" y="375">if …</text>
+  </g>
+
+  <!-- edit/reopen pencils on each branch -->
+  <g stroke="#64748b" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M424,243 L424,231 L436,219 L444,227 L432,239 Z M424,243 L433,240"/>
+    <path d="M424,310 L424,298 L436,286 L444,294 L432,306 Z M424,310 L433,307"/>
+    <path d="M424,377 L424,365 L436,353 L444,361 L432,373 Z M424,377 L433,374"/>
+  </g>
+
+  <!-- arrow -->
+  <path d="M508,302 L585,302" stroke="#0f172a" stroke-width="3.5" marker-end="url(#arrow-ocp-hero)"/>
+
+  <!-- after: closed core -->
+  <rect x="650" y="232" width="140" height="140" rx="14" fill="#0f172a"/>
+  <g transform="translate(720,302)" stroke="#f8fafc" stroke-width="3.2" fill="none">
+    <rect x="-19" y="-5" width="38" height="31" rx="4"/>
+    <path d="M-12,-5 L-12,-19 A12,12 0 0 1 12,-19 L12,-5"/>
+  </g>
+  <text x="720" y="404" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" fill="#475569">closed core</text>
+
+  <!-- connectors -->
+  <g stroke="#0891b2" stroke-width="3">
+    <line x1="790" y1="270" x2="838" y2="212"/>
+    <line x1="790" y1="302" x2="838" y2="302"/>
+    <line x1="790" y1="334" x2="838" y2="392"/>
+  </g>
+  <g fill="#0891b2">
+    <circle cx="790" cy="270" r="5.5"/>
+    <circle cx="790" cy="302" r="5.5"/>
+    <circle cx="790" cy="334" r="5.5"/>
+  </g>
+
+  <!-- pluggable extensions -->
+  <g fill="none" stroke="#0891b2" stroke-width="2.8" stroke-dasharray="8,7">
+    <rect x="838" y="180" width="112" height="64" rx="11"/>
+    <rect x="838" y="270" width="112" height="64" rx="11"/>
+    <rect x="838" y="360" width="112" height="64" rx="11"/>
+  </g>
+  <g stroke="#0891b2" stroke-width="2.8" stroke-linecap="round">
+    <path d="M881,212 h26 M894,199 v26"/>
+    <path d="M881,302 h26 M894,289 v26"/>
+    <path d="M881,392 h26 M894,379 v26"/>
+  </g>
+
+  <!-- baseline -->
+  <rect x="250" y="462" width="700" height="7" rx="3.5" fill="#0891b2"/>
+
+  <!-- wordmark -->
+  <text x="600" y="545" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="800" font-size="60" letter-spacing="-1.5" fill="#0f172a">OCP</text>
+  <text x="600" y="580" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="600" font-size="20" letter-spacing="4" fill="#0891b2">OPEN/CLOSED PRINCIPLE</text>
+
+  <!-- footer -->
+  <text x="600" y="612" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="500" font-size="16" letter-spacing="1" fill="#94a3b8">adrianomaringolo.dev</text>
+</svg>
