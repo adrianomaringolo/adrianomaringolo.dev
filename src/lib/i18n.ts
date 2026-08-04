@@ -37,13 +37,11 @@ export function createTranslator(locale: Locale) {
 export const localeMetadata = {
   'pt-BR': {
     name: 'Português (Brasil)',
-    flag: '🇧🇷',
     dir: 'ltr',
     hreflang: 'pt-BR',
   },
   'en-US': {
     name: 'English (US)',
-    flag: '🇺🇸',
     dir: 'ltr',
     hreflang: 'en-US',
   },
