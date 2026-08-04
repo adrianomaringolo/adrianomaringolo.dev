@@ -94,7 +94,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground text-sm font-semibold px-4 py-2 rounded-md hover:opacity-90 transition-opacity"
                 >
-                  {t('projects.viewDemo')}
+                  {t(project.isDemo ? 'projects.viewDemo' : 'projects.viewLive')}
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               )}

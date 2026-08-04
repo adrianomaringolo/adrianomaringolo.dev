@@ -64,6 +64,7 @@ export const buildgridUI: Project = {
     '/projects/buildgrid-ui/buildgridui-blocks.jpeg',
   ],
   liveUrl: 'https://adrianomaringolo.github.io/buildgrid-ui',
+  isDemo: true,
   githubUrl: 'https://github.com/adrianomaringolo/buildgrid-ui',
   screenshots: [
     {

@@ -78,6 +78,12 @@ export interface Project {
   images: string[]
   screenshots: ProjectScreenshot[]
   liveUrl?: string
+  /**
+   * Marks `liveUrl` as pointing to a demo or documentation site rather than the
+   * project running in production — a GitHub Pages sandbox for a library, say.
+   * Drives the label on the link: "Ver Online" by default, "Ver Demo" here.
+   */
+  isDemo?: boolean
   githubUrl?: string
   figmaUrl?: string
   npmUrl?: string

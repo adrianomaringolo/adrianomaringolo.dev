@@ -65,6 +65,7 @@ export const reactHtmlContentEditor: Project = {
     '/projects/react-html-content-editor/03-all-controls.png',
   ],
   liveUrl: 'https://adrianomaringolo.github.io/react-html-content-editor/',
+  isDemo: true,
   githubUrl: 'https://github.com/adrianomaringolo/react-html-content-editor',
   npmUrl: 'https://www.npmjs.com/package/react-html-content-editor',
   screenshots: [
