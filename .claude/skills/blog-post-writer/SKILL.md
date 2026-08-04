@@ -60,6 +60,7 @@ Frontmatter (mesmo formato nos dois idiomas):
 ```yaml
 ---
 title: "Título do post"
+series: "Nome da Série"
 excerpt: "Um ou dois períodos que resumem a tese central, não um teaser vago."
 author: "Adriano Maringolo"
 publishedAt: "YYYY-MM-DD"
@@ -75,6 +76,7 @@ tldr:
 ```
 
 - `readingTime`: é recalculado automaticamente no build (`words/200` sobre o conteúdo real, ver `calcReadingTime` em `src/lib/blog.ts`) — o valor do frontmatter é só cosmético/histórico, preencha uma estimativa razoável mas não perca tempo calculando com precisão.
+- `series`: **opcional** — só existe quando o post integra uma série. Omita a chave inteira em post avulso (não deixe string vazia). É o único campo do frontmatter que se traduz junto com `title` e `excerpt`: `"SOLID no React"` no `pt-BR.mdx`, `"SOLID in React"` no `en-US.mdx`. Escreva exatamente o mesmo nome em todos os posts da série — ele é a chave que os agrupa visualmente, e uma variação de grafia quebra o agrupamento. Aparece como eyebrow acima do título do post, na listagem do blog e nos cards de posts relacionados, além de entrar no JSON-LD como `isPartOf`.
 - `tags`: minúsculas, em português, separadas por hífen quando forem compostas (`clean-code`). 3-5 tags.
 - `image`: **precisa ser raster** (`.jpg`/`.png`), nunca `.svg` diretamente — é usada em Open Graph/Twitter cards (`src/app/blog/[slug]/page.tsx`), e a maioria das redes sociais não renderiza SVG em preview de link. Se o hero do post for um diagrama SVG, gere também uma versão PNG exportada para essa função (como em `hero-solid-overview-og.png` vs `hero-solid-overview.svg`).
 - `featured`: só marque `true` se o Adriano confirmar — afeta o destaque na home/listagem.

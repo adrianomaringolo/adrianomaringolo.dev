@@ -86,6 +86,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
     keywords: post.tags.join(', '),
     url: `${baseUrl}/blog/${post.slug}`,
     image: post.image ? `${baseUrl}${post.image}` : undefined,
+    isPartOf: post.series
+      ? { '@type': 'CreativeWorkSeries', name: post.series['pt-BR'] }
+      : undefined,
     author: {
       '@type': 'Person',
       name: post.author,

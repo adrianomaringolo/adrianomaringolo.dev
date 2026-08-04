@@ -109,6 +109,14 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
               {t('blog.backToBlog')}
             </Link>
 
+            {/* Series marker */}
+            {post.series && (
+              <p className="text-xs font-mono uppercase tracking-[0.15em] mb-3">
+                <span className="text-muted-foreground/50">{t('blog.series')}</span>
+                <span className="text-primary/70"> · {post.series[locale]}</span>
+              </p>
+            )}
+
             {/* Featured marker */}
             {post.featured && (
               <p className="text-xs font-mono text-primary/60 uppercase tracking-[0.15em] mb-4">

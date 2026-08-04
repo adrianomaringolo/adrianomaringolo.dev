@@ -142,9 +142,19 @@ export function BlogListClient({ posts }: BlogListClientProps) {
 
                     {/* Content */}
                     <div className="space-y-2 min-w-0">
-                      {post.featured && (
-                        <p className="text-xs font-mono text-primary/60 uppercase tracking-[0.15em]">
-                          {locale === 'pt-BR' ? 'Destaque' : 'Featured'}
+                      {(post.series || post.featured) && (
+                        <p className="text-xs font-mono uppercase tracking-[0.15em] space-x-1.5">
+                          {post.series && (
+                            <span className="text-primary/70">{post.series[locale]}</span>
+                          )}
+                          {post.series && post.featured && (
+                            <span className="text-muted-foreground/30">·</span>
+                          )}
+                          {post.featured && (
+                            <span className="text-primary/60">
+                              {locale === 'pt-BR' ? 'Destaque' : 'Featured'}
+                            </span>
+                          )}
                         </p>
                       )}
                       <h2 className="text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors leading-snug text-wrap-balance">

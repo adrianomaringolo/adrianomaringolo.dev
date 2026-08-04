@@ -11,7 +11,10 @@ export async function GET() {
     .join('\n')
 
   const blogLines = blogPosts
-    .map((p) => `- [${p.title['pt-BR']}](${baseUrl}/blog/${p.slug}): ${p.excerpt['pt-BR']}`)
+    .map((p) => {
+      const series = p.series ? ` (série: ${p.series['pt-BR']})` : ''
+      return `- [${p.title['pt-BR']}](${baseUrl}/blog/${p.slug})${series}: ${p.excerpt['pt-BR']}`
+    })
     .join('\n')
 
   const body = `# Adriano Maringolo

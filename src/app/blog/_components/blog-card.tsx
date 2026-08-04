@@ -47,6 +47,11 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
         )}
 
         <div className="flex-1 space-y-1.5 min-w-0">
+          {post.series && (
+            <p className="text-[0.6875rem] font-mono text-primary/60 uppercase tracking-[0.15em] truncate">
+              {post.series[locale]}
+            </p>
+          )}
           <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
             {post.title[locale]}
           </h3>

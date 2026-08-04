@@ -1,9 +1,15 @@
+export interface BlogSeries {
+  'pt-BR': string
+  'en-US': string
+}
+
 export interface BlogPost {
   slug: string
   title: {
     'pt-BR': string
     'en-US': string
   }
+  series?: BlogSeries
   excerpt: {
     'pt-BR': string
     'en-US': string
@@ -31,6 +37,7 @@ export interface BlogPostMetadata {
     'pt-BR': string
     'en-US': string
   }
+  series?: BlogSeries
   excerpt: {
     'pt-BR': string
     'en-US': string

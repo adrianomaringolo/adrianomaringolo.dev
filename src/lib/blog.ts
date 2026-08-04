@@ -1,4 +1,4 @@
-import type { BlogPost, BlogPostMetadata } from '@/types/blog'
+import type { BlogPost, BlogPostMetadata, BlogSeries } from '@/types/blog'
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
@@ -30,6 +30,19 @@ function readMdxFile(dir: string, locale: Locale): { data: Record<string, unknow
   return { data, content }
 }
 
+type MdxFile = { data: Record<string, unknown>; content: string } | null
+
+// `series` is optional: a post that belongs to no series simply omits the
+// frontmatter key, and the field stays undefined so the UI can skip it. When
+// only one locale declares it, the other falls back to that same name rather
+// than rendering an empty label.
+function readSeries(ptBR: MdxFile, enUS: MdxFile): BlogSeries | undefined {
+  const pt = ptBR?.data.series as string | undefined
+  const en = enUS?.data.series as string | undefined
+  if (!pt && !en) return undefined
+  return { 'pt-BR': pt ?? (en as string), 'en-US': en ?? (pt as string) }
+}
+
 function getEntries(): { slug: string; dir: string }[] {
   if (!fs.existsSync(CONTENT_DIR)) return []
   return fs
@@ -56,6 +69,7 @@ export function getBlogPosts(): BlogPostMetadata[] {
           'pt-BR': (ptBR?.data.title as string) ?? (enUS?.data.title as string) ?? slug,
           'en-US': (enUS?.data.title as string) ?? (ptBR?.data.title as string) ?? slug,
         },
+        series: readSeries(ptBR, enUS),
         excerpt: {
           'pt-BR': (ptBR?.data.excerpt as string) ?? '',
           'en-US': (enUS?.data.excerpt as string) ?? '',
@@ -91,6 +105,7 @@ export function getBlogPost(slug: string): BlogPost | undefined {
       'pt-BR': (ptBR?.data.title as string) ?? (enUS?.data.title as string) ?? slug,
       'en-US': (enUS?.data.title as string) ?? (ptBR?.data.title as string) ?? slug,
     },
+    series: readSeries(ptBR, enUS),
     excerpt: {
       'pt-BR': (ptBR?.data.excerpt as string) ?? '',
       'en-US': (enUS?.data.excerpt as string) ?? '',
