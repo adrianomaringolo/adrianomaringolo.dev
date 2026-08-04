@@ -58,11 +58,15 @@ export function ProjectHero({ project, locale }: ProjectHeroProps) {
         </div>
       </nav>
 
-      {/* Hero image — full bleed, always visible */}
-      <div
-        className="relative w-full overflow-hidden"
-        style={{ height: 'clamp(340px, 58vh, 700px)' }}
-      >
+      {/*
+        Hero image — full bleed. Height is not fixed: a reserved viewing area
+        plus whatever the identity band needs. With a fixed height the band ate
+        into the image, so a three-line title left almost nothing of the
+        screenshot visible while a one-line title left plenty. Reserving the
+        viewing area instead keeps that amount constant and lets the container
+        grow with the title.
+      */}
+      <div className="relative w-full overflow-hidden">
         <Image
           src={project.thumbnail}
           alt={project.title[locale]}
@@ -72,34 +76,73 @@ export function ProjectHero({ project, locale }: ProjectHeroProps) {
           priority
         />
 
-        {/*
-          Dark scrim — guarantees white text contrast over any image regardless of theme.
-          Heavier at the bottom (text zone), dissolves toward top so the image reads.
-        */}
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.50) 20%, rgba(0,0,0,0.12) 48%, transparent 68%)' }}
-        />
+        {/* Reserved viewing area — the part of the image the band never covers. */}
+        <div aria-hidden style={{ height: 'clamp(240px, 32vh, 480px)' }} />
 
-        {/* Project identity — always visible, motion only for entrance polish */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 lg:px-20 pb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease }}
-          >
-            <p className="text-sm tracking-[0.18em] text-white uppercase font-mono mb-3">
-              {project.category}
-              {project.client && ` · ${project.client.name[locale]}`}
-            </p>
-            <h1
-              className="font-bold tracking-tight text-white text-balance [font-family:var(--font-geist-sans)]"
-              style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.75rem)' }}
+        {/*
+          The identity band sits in flow, so it adds its own height rather than
+          overlapping. The two treatment layers hang off it — a one-line title
+          and a three-line title land on the same guaranteed contrast. Tying
+          fixed gradient stops to a variable-height text block is what left the
+          eyebrow stranded on a pale strip of the screenshot.
+        */}
+        <div className="relative">
+          {/*
+            Blur first. Thumbnails are full screenshots, so the area under the
+            title already carries the project's own headline type — white text
+            over black text reads as noise however dark the scrim gets. This
+            turns the competing type into texture, masked so the image above
+            stays sharp.
+          */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 -top-40"
+            style={{
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              maskImage:
+                'linear-gradient(to top, black calc(100% - 160px), rgba(0,0,0,0.45) calc(100% - 74px), transparent 100%)',
+              WebkitMaskImage:
+                'linear-gradient(to top, black calc(100% - 160px), rgba(0,0,0,0.45) calc(100% - 74px), transparent 100%)',
+            }}
+          />
+
+          {/*
+            Then the scrim carries the contrast. Stops are pinned in pixels off
+            the top edge, not in percentages: percentages stretch with the band,
+            so a one-line title pulled the eyebrow up into the fade while a
+            two-line title kept it safe. In pixels the plateau always covers the
+            text and the fade always lives in the 160px overhang above it.
+            The floor is the worst case — white type over a near-white screenshot.
+          */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 -top-48"
+            style={{
+              background:
+                'linear-gradient(to top, rgba(0,0,0,0.90) 0, rgba(0,0,0,0.88) calc(100% - 192px), rgba(0,0,0,0.72) calc(100% - 140px), rgba(0,0,0,0.38) calc(100% - 78px), transparent 100%)',
+            }}
+          />
+
+          {/* Project identity — always visible, motion only for entrance polish */}
+          <div className="relative px-6 md:px-12 lg:px-20 pb-12 pt-6">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease }}
             >
-              {project.title[locale]}
-            </h1>
-          </motion.div>
+              <p className="text-sm tracking-[0.18em] text-white/85 uppercase font-mono mb-3">
+                {project.category}
+                {project.client && ` · ${project.client.name[locale]}`}
+              </p>
+              <h1
+                className="font-bold tracking-tight text-white text-balance [font-family:var(--font-geist-sans)]"
+                style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3.75rem)' }}
+              >
+                {project.title[locale]}
+              </h1>
+            </motion.div>
+          </div>
         </div>
       </div>
     </>
