@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+
+  .slide { width: 1080px; height: 1350px; background: #0f172a; position: relative; overflow: hidden; }
+
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(148,163,184,0.10) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+  }
+  .blob-1 { position: absolute; width: 900px; height: 900px; top: -320px; right: -300px;
+    background: radial-gradient(circle, rgba(6,182,212,0.20) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 900px; height: 900px; bottom: -340px; left: -320px;
+    background: radial-gradient(circle, rgba(99,102,241,0.20) 0%, transparent 70%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .content { position: absolute; inset: 0; z-index: 10; padding: 150px 88px 0 88px;
+    display: flex; flex-direction: column; }
+
+  .eyebrow { font-size: 17px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #64748b; margin-bottom: 34px; }
+
+  .headline { font-size: 92px; font-weight: 900; line-height: 1.02; letter-spacing: -0.035em; color: #f1f5f9; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .subtitle { margin-top: 34px; font-size: 37px; font-weight: 500; color: #94a3b8; line-height: 1.5; max-width: 760px; }
+
+  .chips { margin-top: 128px; display: flex; flex-wrap: wrap; gap: 14px; max-width: 860px; }
+  .chip { padding: 15px 26px; border-radius: 999px; border: 1px solid rgba(148,163,184,0.24);
+    background: rgba(255,255,255,0.04); color: #cbd5e1; font-size: 25px; font-weight: 700; }
+
+  .footer-row { position: absolute; bottom: 150px; left: 88px; right: 88px;
+    display: flex; align-items: center; gap: 22px; z-index: 15; }
+  .swipe { font-size: 27px; font-weight: 800; color: #f1f5f9; letter-spacing: -0.01em; }
+  .arrow { color: #06b6d4; display: flex; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Memes · Inteligência Artificial</div>
+
+    <h1 class="headline">
+      Todo mundo<br>usa IA.<br><em>Ninguém usa<br>direito.</em>
+    </h1>
+
+    <p class="subtitle">Cinco situações que você provavelmente já viveu nesta semana.</p>
+
+    <div class="chips">
+      <div class="chip">O e-mail gigante</div>
+      <div class="chip">A resposta inventada</div>
+      <div class="chip">O "obrigado" preventivo</div>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <div class="swipe">Arrasta para o lado</div>
+    <div class="arrow">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

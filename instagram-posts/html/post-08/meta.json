@@ -1,0 +1,28 @@
+{
+  "title": "84% dos devs já usam IA",
+  "date": "2026-07-30",
+  "type": "single",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Gráfico de pizza — uso de IA por devs",
+      "description": "Slide único dark com donut simplificado de duas fatias (84% usam ou planejam usar IA / 16% não pretendem usar), número em destaque no centro, legenda com rótulos diretos e nota de rodapé com o dado de uso diário. Fonte: Stack Overflow Developer Survey 2025."
+    }
+  ],
+  "caption": "📊 84% dos devs já usam IA. E quase metade usa TODO DIA.\n\nO Stack Overflow Developer Survey 2025 ouviu mais de 49 mil desenvolvedores. O resultado não deixa muito espaço para dúvida:\n\n→ 🤖 47% usam IA diariamente\n→ ⚡ 84% usam ou planejam usar\n→ 🚫 só 16% não pretendem usar\n\nMas tem um detalhe que quase ninguém comenta: a adoção subiu e a confiança caiu. 😬\n\n46% dos devs dizem que NÃO confiam na precisão do que a IA entrega. Era 31% no ano anterior.\n\nOu seja: a gente usa muito, mas revisa tudo. E é exatamente assim que deveria ser. 🎯\n\nIA não substitui critério técnico. Ela acelera quem já sabe o que está fazendo, e multiplica o retrabalho de quem não sabe. 🛠️\n\nA pergunta certa não é \"você usa IA?\". É \"você sabe revisar o que ela te entrega?\" 💭\n\nVocê está nos 84% ou nos 16%? Conta aí. 👇\n\n#ia #inteligenciaartificial #desenvolvimento #devbr #programacao #stackoverflow #softwareengineering #carreiratech #produtividade #frontend #techbrasil #dadosdev",
+  "hashtags": [
+    "ia",
+    "inteligenciaartificial",
+    "desenvolvimento",
+    "devbr",
+    "programacao",
+    "stackoverflow",
+    "softwareengineering",
+    "carreiratech",
+    "produtividade",
+    "frontend",
+    "techbrasil",
+    "dadosdev"
+  ]
+}

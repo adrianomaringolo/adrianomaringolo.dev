@@ -39,10 +39,12 @@ const reelId         = process.argv[2];
 const scenesArg      = getArg('--scenes');
 const FPS            = parseInt(getArg('--fps', '30'));
 const musicArg       = getArg('--music');
+const musicStartArg  = getArg('--music-start', '0');
 const volume         = parseFloat(getArg('--volume', '0.35'));
 const TRANSITION     = getArg('--transition', 'blocks');
 const TRANSITION_DUR = parseFloat(getArg('--transition-duration', '0.5'));
 const COVER_MODE     = process.argv.includes('--cover');
+const RESUME         = process.argv.includes('--resume');
 const COVER_TIME     = parseFloat(getArg('--cover-time', '1.5'));
 
 if (!reelId) {
@@ -52,8 +54,10 @@ if (!reelId) {
   console.error('  --transition blocks|slideup|fade  transition mode (default: blocks)');
   console.error('  --transition-duration 0.5         xfade duration in seconds');
   console.error('  --scenes 1,3                      export only these scenes');
+  console.error('  --resume                          reaproveita cenas .mp4 ja renderizadas');
   console.error('  --fps 30                          frames per second');
   console.error('  --music file.mp3                  background music');
+  console.error('  --music-start 12 | end            trecho da faixa: segundos, ou "end" para o final');
   console.error('  --volume 0.35                     music volume 0–1');
   process.exit(1);
 }
@@ -221,6 +225,13 @@ for (const scene of toExport) {
   const duration  = scene.duration ?? 3;
   const sceneIdx  = String(scenes.indexOf(scene) + 1).padStart(2, '0');
 
+  // --resume: reaproveita cenas ja renderizadas (util quando o Chrome cai por falta de memoria)
+  if (RESUME && fs.existsSync(mp4Path)) {
+    sceneMp4Paths.push(mp4Path);
+    console.log(`  ⏭️   ${mp4Name}  —  ${scene.title}  (reaproveitado)`);
+    continue;
+  }
+
   const frames = await captureHtml(browser, htmlPath, duration, mp4Path, scene.file);
   sceneMp4Paths.push(mp4Path);
   console.log(`  ✅  ${mp4Name}  —  ${scene.title}  (${duration}s · ${frames} frames)`);
@@ -299,8 +310,27 @@ if (USE_BLOCKS && sceneMp4Paths.length > 1) {
 const finalMp4 = path.join(outputDir, `${reelId}.mp4`);
 
 if (musicPath) {
+  // --music-start: de onde recortar a faixa. "end" alinha o fim da musica com o fim do reel,
+  // util quando o climax esta no final do track.
+  let musicStart = 0;
+  if (musicStartArg === 'end') {
+    const probe = spawnSync('ffprobe', [
+      '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', musicPath,
+    ], { stdio: ['ignore', 'pipe', 'pipe'] });
+    const trackDur = parseFloat(probe.stdout.toString().trim());
+    if (!Number.isFinite(trackDur)) {
+      console.error(`nao foi possivel ler a duracao de ${path.basename(musicPath)}`);
+      process.exit(1);
+    }
+    musicStart = Math.max(0, trackDur - effectiveDuration);
+  } else {
+    musicStart = Math.max(0, parseFloat(musicStartArg) || 0);
+  }
+
   const fadeOutStart = Math.max(0, effectiveDuration - 1.5);
   const audioFilter  = [
+    // atrim=start precisa de asetpts para o restante da cadeia enxergar PTS a partir de zero
+    ...(musicStart > 0 ? [`atrim=start=${musicStart.toFixed(3)}`, `asetpts=N/SR/TB`] : []),
     `aloop=loop=-1:size=2e+09`,
     `atrim=duration=${effectiveDuration}`,
     `volume=${volume}`,
@@ -318,7 +348,7 @@ if (musicPath) {
 
   if (mix.status !== 0) { console.error(`music mix error:\n${mix.stderr.toString()}`); process.exit(1); }
   fs.unlinkSync(rawMp4);
-  console.log(`\n  🎵  musica mixada  (vol ${volume} · fade in/out)`);
+  console.log(`\n  🎵  musica mixada  (vol ${volume} · trecho a partir de ${musicStart.toFixed(1)}s · fade in/out)`);
 }
 
 const finalSize = (fs.statSync(finalMp4).size / 1024).toFixed(0);

@@ -98,11 +98,14 @@ node scripts/export-reel.mjs reel-01 --cover --cover-time 2.0
 node scripts/export-reel.mjs reel-01 --transition blocks    # blocos coloridos (recomendado)
 node scripts/export-reel.mjs reel-01 --transition slideup   # ffmpeg xfade slideup
 
-# Com música de fundo (arquivo MP3/WAV fornecido pelo usuário):
-node scripts/export-reel.mjs reel-01 --music /caminho/para/track.mp3
+# Com música de fundo (ver seção "Música de fundo"):
+node scripts/export-reel.mjs reel-01 --music music/track.mp3
 
-# Ajustar volume da música (padrão: 0.35, range: 0.0–1.0):
-node scripts/export-reel.mjs reel-01 --music track.mp3 --volume 0.4
+# Usar o final da faixa (alinha o clímax com o fim do reel) e ajustar volume:
+node scripts/export-reel.mjs reel-01 --music music/track.mp3 --music-start end --volume 0.3
+
+# Reaproveitar cenas já renderizadas (só refaz o concat e a mixagem):
+node scripts/export-reel.mjs reel-01 --resume --music music/track.mp3 --music-start end
 
 # Exportar só cenas específicas (útil para revisar uma cena):
 node scripts/export-reel.mjs reel-01 --scenes 1,3
@@ -358,7 +361,7 @@ Além das animações de **entrada** (fadeUp/fadeIn com `animation-fill-mode: bo
 
 | Contexto | Elemento | Animação |
 |---|---|---|
-| Hook / palavra-chave | Glow pulsante via `::after` com `radial-gradient` | `pulse: opacity 0.4→1→0.4, scale 1→1.08` |
+| Hook / palavra-chave | Glow pulsante em `<div>` posicionado com `radial-gradient` | `pulse: opacity 0.4→1→0.4, scale 1→1.08` |
 | Título de alerta / erro | Halo vermelho em volta do texto | `scale 1→1.05, opacity 0.3→0.8` |
 | Bloco de código | Cursor piscando (`|`) no final | `blink: opacity 1→0, step-end, 1s` |
 | Bloco de código | Scan line horizontal atravessando | `translateY 0%→100%, linear, 2s` |
@@ -371,33 +374,49 @@ Além das animações de **entrada** (fadeUp/fadeIn com `animation-fill-mode: bo
 
 ### Regras para elementos animados contínuos
 
+0. **Nunca animar pseudo-elementos (`::before` / `::after`)** — ver abaixo. É a regra mais importante desta seção
 1. **Sempre `animation-iteration-count: infinite`** — a cena dura vários segundos e o elemento deve continuar animando
 2. **`animation-delay` inicial ≥ 0.8s** — deixar as animações de entrada terminarem antes de iniciar os contínuos
 3. **Amplitude sutil** — max 10px de translação, max 10% de scale, opacidade máxima 1.0
 4. **Nunca bloquear a leitura** — os elementos contínuos ficam atrás do conteúdo (`z-index` menor) ou nas bordas
 5. **Infinitos não interferem no validador** — o script `validate-reel.mjs` ignora animações `infinite` no cálculo de settle_time
 
-### Exemplo: glow pulsante em palavra-chave
+### ⚠️ Animação só funciona em elementos reais — nunca em `::before` / `::after`
 
+O `export-reel.mjs` renderiza o vídeo **frame a frame**: pausa todas as animações e faz scrub do `animation-delay` para o instante de cada frame. O seletor usado é `document.querySelectorAll('*')`, que **não alcança pseudo-elementos**.
+
+Consequência: uma animação em `::after` não é pausada nem sincronizada. Ela roda em **tempo de parede** durante a captura — e como cada frame leva ~1s de processamento, uma animação de 1.8s cicla várias vezes entre frames consecutivos. O resultado no vídeo é um **piscar aleatório**, não a pulsação suave que aparece no navegador.
+
+Isso vale para qualquer animação, contínua ou de entrada. Sempre usar um `<div>` real:
+
+```html
+<span class="highlight-word">
+  <span class="glow"></span>
+  concorrente.
+</span>
+```
 ```css
 .highlight-word {
   position: relative;
   display: inline-block;
 }
-.highlight-word::after {
-  content: '';
+.glow {
   position: absolute;
   inset: -8px -16px;
+  z-index: -1;
   background: radial-gradient(ellipse, rgba(239,68,68,0.35) 0%, transparent 70%);
   border-radius: 10px;
-  animation: glowPulse 1.8s ease-in-out infinite;
-  animation-delay: 0.9s;
+  animation: glowPulse 1.8s ease-in-out 0.9s infinite;
 }
 @keyframes glowPulse {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50%       { opacity: 1;   transform: scale(1.08); }
 }
 ```
+
+Pseudo-elementos **estáticos** (sem `animation`) continuam liberados — só a animação é que quebra.
+
+> **Nota sobre o scrub**: mesmo em elementos reais, o scrub tem um pequeno deslocamento, porque as animações já avançaram um pouco entre o load da página e o pause. Na prática a timeline sai comprimida: entradas escalonadas projetadas para ~3s acontecem em ~1,8s de vídeo. Considere isso ao dimensionar a duração da cena — sobra tempo de leitura, não falta.
 
 ### Exemplo: cursor piscando
 
@@ -517,7 +536,7 @@ node scripts/export-reel.mjs reel-01 --cover --cover-time 2.5
 
 ## Música de fundo
 
-O usuário deve fornecer um arquivo MP3/WAV de música royalty-free. Formatos aceitos: `.mp3`, `.wav`, `.aac`, `.ogg`.
+Formatos aceitos: `.mp3`, `.wav`, `.aac`, `.ogg`. As faixas ficam em `instagram-reels/music/` (no `.gitignore` — mp3 não entra no repositório).
 
 O script:
 - **Loopa** automaticamente se a música for mais curta que o reel
@@ -526,7 +545,80 @@ O script:
 - **Reduz o volume** ao padrão 35% (`--volume 0.35`) para não sobrepor o conteúdo visual
 - Encoda o áudio final em AAC 192kbps
 
-Se o usuário não fornecer música, o reel é gerado sem áudio (correto para Instagram, que permite adicionar música pelo próprio app ao publicar).
+Se o usuário não fornecer música, o reel é gerado sem áudio — o que também é uma opção válida: faixas da biblioteca nativa do Instagram costumam ter melhor distribuição, e áudio embutido concorre com isso. A versão com música serve para publicar em outros canais ou como fallback.
+
+### Escolher o trecho da faixa (`--music-start`)
+
+Por padrão a música começa do zero. Muitas faixas royalty-free só ganham corpo depois de 30–40s, e o começo é uma intro rala que enfraquece o hook.
+
+```bash
+--music-start end     # alinha o FIM da música com o fim do reel (recomendado)
+--music-start 24      # começa em 24s da faixa
+```
+
+`end` calcula `duração_da_faixa − duração_do_reel` via ffprobe. Para um reel de 53,7s com uma faixa de 100s, começa em 46,4s — ou seja, o reel roda em cima do clímax. Use isso como padrão, salvo quando a faixa já abrir forte.
+
+### Banco de músicas — Mixkit
+
+**Mixkit** (mixkit.co, da Envato) é a fonte padrão: licença livre para uso comercial, **sem atribuição obrigatória**, e com mp3 em link direto — dá para baixar sem navegador. A única restrição é não redistribuir a faixa isolada, o que não afeta o uso em reel.
+
+Alternativas se o Mixkit não tiver o clima certo:
+
+| Fonte | Observação |
+|---|---|
+| **Pixabay Music** (pixabay.com/music) | Equivalente direto ao Pexels, sem atribuição. Bloqueia requisição automatizada (403) — download manual |
+| **Free Music Archive** / **ccMixter** | Creative Commons, mas checar licença faixa a faixa (algumas exigem atribuição) |
+| **Biblioteca de Áudio do YouTube** / **Uppbeat** | Boas, mas exigem login |
+
+> O Pexels teve uma seção de música própria, mas o acervo hoje vive no Pixabay. Não existe skill `/pexels-search` equivalente para áudio.
+
+#### Como buscar e baixar do Mixkit
+
+As páginas de tag trazem um bloco JSON-LD com nome, gênero, artista, duração e URL do mp3 de cada faixa. Listar os candidatos:
+
+```bash
+python3 - <<'EOF'
+import re, urllib.request
+
+TAG = 'corporate'   # corporate | technology | inspiring | happy | dramatic ...
+req = urllib.request.Request(f'https://mixkit.co/free-stock-music/tag/{TAG}/',
+                             headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'})
+h = urllib.request.urlopen(req, timeout=25).read().decode('utf-8', 'ignore')
+
+for m in re.finditer(r'"@type":"MusicRecording",(.*?)"datePublished"', h):
+    b = m.group(1)
+    name  = re.search(r'"name":"([^"]*)"', b)
+    genre = re.search(r'"genre":"([^"]*)"', b)
+    url   = re.search(r'"url":"([^"]*)"', b)
+    d     = re.search(r'"duration":"PT(?:(\d+)M)?(?:(\d+)S)?"', b)
+    secs  = int(d.group(1) or 0) * 60 + int(d.group(2) or 0) if d else 0
+    print(f'{secs:>4}s  {name.group(1):<34} {genre.group(1):<18} {url.group(1)}')
+EOF
+```
+
+O mp3 segue o padrão `https://assets.mixkit.co/music/<id>/<id>.mp3`. Baixar:
+
+```bash
+mkdir -p instagram-reels/music
+curl -sL -A "Mozilla/5.0" "https://assets.mixkit.co/music/173/173.mp3" \
+     -o instagram-reels/music/better-times-are-coming.mp3
+```
+
+#### Como escolher a faixa
+
+1. **Baixar 3–4 candidatas com vibes distintas** e apresentar ao usuário para ele ouvir — nunca escolher sozinho e já mixar, o critério é de gosto
+2. **Recomendar uma**, com justificativa ligada ao conteúdo do reel (a curva emocional do roteiro, não o visual das cenas)
+3. **Casar com o público**, não com a estética: reel de venda para público não-técnico pede faixa otimista/crescente, mesmo que o visual seja dark; techno frio soa distante
+4. **Sem vocais** — competem com o texto na tela
+5. **Duração ≥ a do reel** sempre que possível, para evitar loop audível
+
+#### Registrar no meta.json
+
+Anotar a faixa e os parâmetros usados no campo `music`, para reproduzir o export depois:
+
+```json
+"music": "better-times-are-coming.mp3 (Mixkit #173) — --music-start end --volume 0.3"
+```
 
 ---
 
@@ -537,13 +629,15 @@ Se o usuário não fornecer música, o reel é gerado sem áudio (correto para I
 - [ ] Animações de **entrada** em todos os elementos (fadeUp/fadeIn, `animation-fill-mode: both`)
 - [ ] Ao menos **1 elemento animado contínuo** (`infinite`) por cena (glow, cursor, seta, sparkle...)
 - [ ] Elementos contínuos com `animation-delay ≥ 0.8s` para não conflitar com entradas
+- [ ] **Nenhuma animação em `::before` / `::after`** — só em elementos reais (pisca no vídeo)
 - [ ] Sem emojis nos HTMLs — apenas ícones SVG inline
 - [ ] Handle `@adrianomaringolo.dev` em todas as cenas
 - [ ] Fonte Manrope carregada via Google Fonts
 - [ ] Paleta dark respeitada (fundo `#0f172a`)
 - [ ] `meta.json` com `duration` e `description` por cena, legenda e hashtags
 - [ ] **Validação aprovada**: `node scripts/validate-reel.mjs reel-NN` → todos ✅ OK
-- [ ] Export executado: `node scripts/export-reel.mjs reel-NN [--music track.mp3]`
+- [ ] Export executado: `node scripts/export-reel.mjs reel-NN [--music music/track.mp3 --music-start end]`
+- [ ] Faixa escolhida pelo usuário (3–4 candidatas apresentadas) e registrada no `music` do `meta.json`
 - [ ] **MP4 único final gerado**: `output/reel-NN/reel-NN.mp4`
 - [ ] **Capa exportada**: `node scripts/export-reel.mjs reel-NN --cover` → `output/reel-NN/cover.png`
 - [ ] `caption.md` gerado e exibido para revisão
