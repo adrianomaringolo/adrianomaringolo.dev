@@ -1,0 +1,233 @@
+---
+title: "The Liskov Substitution Principle in Practice: When Two React Components Aren't Really Interchangeable"
+series: "SOLID in React"
+excerpt: "Three components that fit the same slot and pass the type check can still break the code that consumes them. SOLID's third principle is about the contract the type doesn't describe."
+author: "Adriano Maringolo"
+publishedAt: "2026-08-07"
+readingTime: 13
+tags: ["react", "solid", "arquitetura", "clean-code"]
+featured: false
+image: "/blog/2026-08-07-solid-liskov-substitution-principle/hero-lsp-og.png"
+tldr:
+  - "LSP says one implementation can replace another without the caller needing to know which one showed up. In React, the contract is props plus behavior, not just the type."
+  - "TypeScript checks the shape of props and doesn't check behavior: two components with identical signatures can demand more, deliver less, or cause effects the other never causes."
+  - "An extension that requires one extra prop strengthens the precondition; one that silently returns `null` weakens the postcondition. Either way, the `if` comes right back into the component that Open/Closed had just closed."
+  - "The fix is to name the contract as a type, pull extra dependencies inside the extension itself, and turn the empty case into a visible empty state."
+  - "A contract test suite, with the same assertions running against every implementation, is the verifiable half of the principle."
+---
+
+> This post is the fourth part of the SOLID in React series, following [SOLID in React: An Introductory Guide to the 5 Principles](/blog/solid-principles-in-react), [The Single Responsibility Principle in Practice](/blog/solid-single-responsibility-principle), and [The Open/Closed Principle in Practice](/blog/solid-open-closed-principle).
+
+The previous post ended with `UserProfile` closed and a slot open. Each screen composes the profile it needs, `AdminFields` and `PartnerFields` each live in their own file, and adding a new case no longer means editing the base component.
+
+Then `SupplierFields` arrived, for suppliers. It fit the same slot, passed the type check, and shipped. Two weeks later, the suppliers screen started showing a profile card with a name, a join date, and nothing underneath. No console error, no failing test, no alert.
+
+![SOLID's L badge above three pieces pointing at the same socket, one of them shaped differently and not fitting, contrasted with three identical pieces fitting the same socket](/blog/2026-08-07-solid-liskov-substitution-principle/hero-lsp.svg)
+
+## What the principle actually says
+
+*If you swap one implementation for another, the caller shouldn't have to know.*
+
+Barbara Liskov introduced the idea in 1987, in an OOPSLA keynote titled "Data Abstraction and Hierarchy," and formalized it in 1994 together with Jeannette Wing. The short version, the one everybody quotes: if `S` is a subtype of `T`, then objects of type `T` can be replaced by objects of type `S` without altering any desirable property of the program.
+
+The detail that usually gets lost in translation to React is that Liskov and Wing weren't talking about signatures. They were talking about behavior. A subtype with exactly the same methods, taking and returning exactly the same types, still violates the principle if it demands more to work or delivers less than the base type promised.
+
+That's why TypeScript won't save you here. It checks the shape of the props and the shape of the return. It has no way to check that a component renders something visible, that another one doesn't fire a navigation mid-render, that a third one doesn't depend on a field that only exists for half the users. A React component's contract is much larger than its type, and the part that doesn't fit in the type is exactly the part that breaks in production.
+
+## The symptom: a fit that compiles and lies
+
+The slot from the previous post has this signature, and everyone reads it as "the contract":
+
+```tsx
+type UserProfileProps = {
+  userId: string
+  children?: (user: User) => ReactNode
+}
+```
+
+`AdminFields` and `PartnerFields` were written against it. So was `SupplierFields`, almost:
+
+```tsx
+// SupplierFields.tsx: same shape as the other two, different contract
+function SupplierFields({ user, onSave }: { user: User; onSave: (data: SupplierData) => void }) {
+  const { supplier } = useSupplier(user.id)
+
+  if (!supplier?.taxId) return null
+
+  return (
+    <label>
+      Tax ID
+      <input defaultValue={supplier.taxId} onBlur={(e) => onSave({ taxId: e.target.value })} />
+    </label>
+  )
+}
+```
+
+Six lines with two broken promises inside.
+
+The first one is `onSave`. The other two components need nothing but `user`, this one needs more. The effect shows up at the call site:
+
+```tsx
+<UserProfile userId={id}>{(user) => <AdminFields user={user} />}</UserProfile>
+
+<UserProfile userId={id}>{(user) => <SupplierFields user={user} onSave={saveSupplier} />}</UserProfile>
+```
+
+Read quickly, it looks like one extra prop. What those two lines actually say is that the slot stopped accepting any extension: it accepts two of them one way and a third one another way.
+
+The second broken promise is `return null`. The slot's implicit contract was always "renders a section of the profile." `SupplierFields` honors that contract when the supplier has a registered tax ID, and disappears when it doesn't. That's the empty card that showed up in production, and it's why nothing errored: as far as React is concerned, rendering `null` is a perfectly valid answer.
+
+There's a third one, harder to spot, that had crept into `PartnerFields` months earlier: when the partner company isn't approved yet, it calls `router.push('/onboarding')` inside an effect. Rendering a profile can now take the user off the page. None of the other extensions do that, and nothing in the signature suggests any of them could.
+
+## The `if` that comes back through the side door
+
+As long as each screen knows at write time which extension it's using, you can live with all three differences. The problem shows up the day someone needs to treat the three as one thing. That day came when the backoffice started composing the profile from the user's type:
+
+```tsx
+const extensions = {
+  admin: AdminFields,
+  partner: PartnerFields,
+  supplier: SupplierFields,
+}
+
+function ProfilePage({ userId, kind }: { userId: string; kind: UserKind }) {
+  const Extension = extensions[kind]
+
+  return <UserProfile userId={userId}>{(user) => <Extension user={user} />}</UserProfile>
+}
+```
+
+That code doesn't compile. `SupplierFields` requires `onSave`, the generic `Extension` has no way to supply it, and TypeScript complains about the only one of the three problems it can actually see. The fastest way out, as always, is one `if` away:
+
+```tsx
+{(user) =>
+  kind === 'supplier' ? (
+    <SupplierFields user={user} onSave={saveSupplier} />
+  ) : (
+    <Extension user={user} />
+  )
+}
+```
+
+And there's the point of this post. The Liskov violation brought back exactly the conditional that Open/Closed had just removed from that spot. That isn't a coincidence, it's the relationship between the two principles: an extension point stays closed only as long as every extension honors the same contract. The moment one of them doesn't, the caller has to tell them apart, and telling them apart means a conditional.
+
+![Three extensions with matching shapes and different contracts forcing a conditional on the caller, refactored into a single contract that makes the conditional unnecessary](/blog/2026-08-07-solid-liskov-substitution-principle/lsp-before-after.svg)
+
+## Why this actually hurts
+
+The three defects fail in different ways, and none of them is loud. The missing prop only surfaces when someone tries to generalize, months after the component was written. The silent `null` becomes an empty card nobody reports as a bug, because it doesn't look broken, it looks empty. The navigation inside an effect becomes a ticket about routing, filed by someone else, investigated in the wrong place.
+
+The test suite doesn't help either, for a specific reason: every extension had tests, and they all passed. They tested the implementation. The `SupplierFields` test mounted the component with the `onSave` it asked for and a supplier that had a tax ID, precisely the scenario where it works. Nobody tested the slot, because the slot belongs to nobody.
+
+The bigger cost arrives later, and it's about trust. Once the caller has to ask which implementation showed up, the abstraction has stopped doing its job: it turned into a union wearing an interface as a costume. From then on, every new person who touches that code learns the contract can't be trusted, and starts checking. Defensive conditionals multiply, and the slot that existed so new cases could arrive without touching what was already there becomes the place where every new case has to be declared all over again.
+
+On the accessible component library I helped maintain for an e-commerce project, this was the most expensive bug pattern I saw up close. The problems rarely came from wrong components. They came from correct components that didn't behave like the sibling they were replacing inside a generic form: one that didn't forward its `ref`, another that emitted `onChange` with a payload shape of its own. In both cases the types were immaculate and the form silently dropped data.
+
+The mental test here is different from the previous ones. With SRP I asked how many reasons to change lived in that file. With OCP, whether adding the next case meant editing the file or creating a new one. Here it's: *does the caller need to know which implementation it got?* If the answer is yes, those implementations aren't substitutable, and the slot pretending they are is telling a lie.
+
+## Preconditions and postconditions, translated into props
+
+Liskov and Wing's formalization rests on three rules, and all three translate directly to React:
+
+1. **Preconditions can't be strengthened.** The substitute can't demand more than the contract demands. One extra required prop is a stronger precondition, and so is any requirement that never shows up in the signature: needing to sit inside a specific Provider, depending on an optional `user` field that only some users have.
+2. **Postconditions can't be weakened.** The substitute can't deliver less than the contract promises. If the contract is to render a section, `return null` delivers less. If the contract is to call `onChange` on every edit, calling it only on blur delivers less.
+3. **Invariants must be preserved.** The substitute can't do what the others don't. Navigating, opening a modal, writing to storage on first render: all of it changes what the caller can assume about what happens when that space gets rendered.
+
+The practical translation of all three is the same. Whoever writes an extension needs to know they're writing against a contract, not against the specific screen they had in mind that day. That's less a technical problem than a matter of making the contract visible enough that nobody ignores it by accident.
+
+## Writing the contract before the fit
+
+The first step is the cheapest of all, and it's what had been missing since the previous post: give the contract a name.
+
+```tsx
+// ProfileExtension.ts
+import type { ReactNode } from 'react'
+
+/**
+ * Contract for every profile extension.
+ * Takes only the user and always renders a visible section.
+ * Its own data and persistence stay inside the extension.
+ * No extension navigates or opens a modal during render.
+ */
+export type ProfileExtension = (props: { user: User }) => ReactNode
+```
+
+Half of that definition is a type and the other half is a comment, and that's honest: only the first half is something the compiler can enforce. But writing the second half already changes things, because now there's a place where whoever builds the fourth extension finds out what's expected of them.
+
+With the contract written down, `SupplierFields` becomes this:
+
+```tsx
+// SupplierFields.tsx: same shape, now the same contract
+export const SupplierFields: ProfileExtension = ({ user }) => {
+  const { supplier, save } = useSupplier(user.id)
+
+  if (!supplier?.taxId) {
+    return <EmptyField label="Supplier details" hint="Registration pending approval" />
+  }
+
+  return (
+    <label>
+      Tax ID
+      <input defaultValue={supplier.taxId} onBlur={(e) => save({ taxId: e.target.value })} />
+    </label>
+  )
+}
+```
+
+`onSave` left the signature and moved into `useSupplier`. It's the same move `AdminFields` already made in the previous post: whoever needs the data fetches the data, and whoever needs to persist owns the persistence. The precondition is back in line with the other two.
+
+The `return null` became an empty state, and that part isn't only about the principle. The empty card in production was never a layout bug: it was the interface hiding from the user that there's a registration waiting for approval. Honoring the postcondition and showing why the space is empty is usually the right architectural call and the right product call at the same time.
+
+In `PartnerFields`, the navigation moves out of the effect and becomes what it always was: a decision belonging to the screen, not to the field. The component renders the pending-contract notice with a link, and the route decides whether to redirect. Now the map compiles with no conditional at all:
+
+```tsx
+const extensions: Record<UserKind, ProfileExtension> = {
+  admin: AdminFields,
+  partner: PartnerFields,
+  supplier: SupplierFields,
+}
+```
+
+`Record<UserKind, ProfileExtension>` does a job the earlier version didn't: it forces every new extension to declare itself as a `ProfileExtension` before it can enter the map. From there on, the compiler guarantees the shape half. It doesn't guarantee the behavior half, and that's exactly why the behavior half needs a test.
+
+## Testing the contract, not the implementation
+
+What was missing wasn't more tests, it was a different kind of test: written once, against the contract, and run against every implementation.
+
+```tsx
+// profile-extension.contract.test.tsx
+describe.each(Object.entries(extensions))('ProfileExtension contract: %s', (name, Extension) => {
+  it('renders a visible section even without the optional data', () => {
+    const { container } = render(<Extension user={userWithoutOptionalData} />)
+    expect(container).not.toBeEmptyDOMElement()
+  })
+
+  it('does not navigate during render', () => {
+    render(<Extension user={userWithoutOptionalData} />)
+    expect(navigate).not.toHaveBeenCalled()
+  })
+})
+```
+
+That file is the only thing in the project that knows the three extensions are supposed to be interchangeable. It's what breaks when the fourth one arrives carrying a new demand, and it breaks in the right place, with the name of the guilty implementation in the output. It's the same idea as contract tests between services, applied inside the front end: the test belongs to the contract, not to whoever implements it.
+
+It's worth writing that file before the fourth extension, not after the first incident. It's short, it ages well, and it grows with the contract: every new rule that lands in the `ProfileExtension` comment should land here as an assertion.
+
+## Where the line gets drawn
+
+Liskov only applies where substitution actually happens. Two components that never compete for the same spot owe each other nothing, however similar their names or their props. There's no violation between them, there's resemblance, and resemblance isn't a contract.
+
+The failure in the opposite direction is more common than it looks: forcing a shared contract onto things that aren't the same thing. The warning sign is the contract starting to collect optional props only one implementation reads, or an escape hatch like `extra?: unknown` to make room for the odd case. A contract with an escape hatch isn't a contract, it's a union wearing an interface. When you get there, the right move is to admit these are two different things and give them two slots, even if that means repeating some structure. Duplication is cheaper than the wrong abstraction, and the wrong abstraction gets paid for by everyone who touches it afterward.
+
+It's also worth not confusing contract with visual uniformity. Two extensions can render completely different things, a table and a single text field, and still honor the same contract. What has to match isn't what they show: it's the input requirements, the output guarantee, and the effects they cause.
+
+## What's next
+
+With the contract written and tested, the next pressure is easy to predict: it will want to grow. The fourth extension needs the user's permissions, the fifth needs the card's layout, and the quickest way out is to fatten `ProfileExtension` until everyone fits. Before long, every extension receives a handful of props it never reads just to satisfy the signature, and whoever writes the next one can no longer tell what's required from what's decoration. That's what the series' next letter is about, the I for Interface Segregation.
+
+## References
+
+- Barbara Liskov, *Data Abstraction and Hierarchy* (1987), the OOPSLA keynote where the idea first appears
+- Barbara Liskov and Jeannette Wing, ["A Behavioral Notion of Subtyping"](https://www.cs.cmu.edu/~wing/publications/LiskovWing94.pdf) (1994), the formalization in terms of preconditions, postconditions, and invariants
+- Robert C. Martin, ["The Liskov Substitution Principle"](https://objectmentor.com/resources/articles/lsp.pdf), the original article from the C++ Report (1996)
+- Sandi Metz, ["The Wrong Abstraction"](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction) (2016)

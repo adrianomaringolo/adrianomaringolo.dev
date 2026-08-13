@@ -1,0 +1,74 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Liskov Substitution Principle: three pieces aimed at the same socket, one shaped differently and rejected, versus three identical pieces that all fit</title>
+  <defs>
+    <pattern id="grid-lsp-hero" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1.3" fill="#cbd5e1" opacity="0.6"/>
+    </pattern>
+    <marker id="arrow-lsp-hero" markerWidth="11" markerHeight="11" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#0f172a"/>
+    </marker>
+    <marker id="arrow-lsp-hero-bad" markerWidth="11" markerHeight="11" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#b45309"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="630" fill="url(#grid-lsp-hero)"/>
+
+  <!-- eyebrow: L badge + series label -->
+  <circle cx="600" cy="66" r="28" fill="#0f172a"/>
+  <text x="600" y="75" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700" font-size="24" fill="#ffffff">L</text>
+  <text x="600" y="118" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="600" font-size="15" letter-spacing="3" fill="#0891b2">SOLID IN REACT · PART 3</text>
+
+  <!-- before: two pieces fit, one does not -->
+  <g fill="#0891b2" fill-opacity="0.14" stroke="#0891b2" stroke-width="3">
+    <circle cx="190" cy="212" r="30"/>
+    <circle cx="190" cy="302" r="30"/>
+  </g>
+  <rect x="160" y="362" width="60" height="60" rx="5" fill="#f59e0b" fill-opacity="0.16" stroke="#b45309" stroke-width="3"/>
+
+  <g stroke="#0f172a" stroke-width="3.5" fill="none">
+    <path d="M232,222 L368,272" marker-end="url(#arrow-lsp-hero)"/>
+    <path d="M232,302 L370,302" marker-end="url(#arrow-lsp-hero)"/>
+  </g>
+  <path d="M232,382 L368,332" stroke="#b45309" stroke-width="3.5" fill="none" stroke-dasharray="10,8" marker-end="url(#arrow-lsp-hero-bad)"/>
+
+  <!-- rejection mark on the mismatched piece -->
+  <g stroke="#b45309" stroke-width="4" stroke-linecap="round">
+    <path d="M296,344 L316,364 M316,344 L296,364"/>
+  </g>
+
+  <!-- socket: before -->
+  <circle cx="430" cy="302" r="52" fill="none" stroke="#0f172a" stroke-width="4" stroke-dasharray="9,8"/>
+  <text x="430" y="414" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" fill="#64748b">one piece doesn't fit</text>
+
+  <!-- transformation arrow -->
+  <path d="M520,302 L600,302" stroke="#0f172a" stroke-width="3.5" marker-end="url(#arrow-lsp-hero)"/>
+
+  <!-- after: three identical pieces -->
+  <g fill="#0891b2" fill-opacity="0.14" stroke="#0891b2" stroke-width="3">
+    <circle cx="700" cy="212" r="30"/>
+    <circle cx="700" cy="302" r="30"/>
+    <circle cx="700" cy="392" r="30"/>
+  </g>
+
+  <g stroke="#0f172a" stroke-width="3.5" fill="none">
+    <path d="M742,222 L878,272" marker-end="url(#arrow-lsp-hero)"/>
+    <path d="M742,302 L880,302" marker-end="url(#arrow-lsp-hero)"/>
+    <path d="M742,392 L878,332" marker-end="url(#arrow-lsp-hero)"/>
+  </g>
+
+  <!-- socket: after -->
+  <circle cx="940" cy="302" r="52" fill="none" stroke="#0f172a" stroke-width="4" stroke-dasharray="9,8"/>
+  <text x="940" y="414" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" fill="#64748b">interchangeable</text>
+
+  <!-- baseline -->
+  <rect x="160" y="462" width="820" height="7" rx="3.5" fill="#0891b2"/>
+
+  <!-- wordmark -->
+  <text x="600" y="545" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="800" font-size="60" letter-spacing="-1.5" fill="#0f172a">LSP</text>
+  <text x="600" y="580" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="600" font-size="20" letter-spacing="4" fill="#0891b2">LISKOV SUBSTITUTION PRINCIPLE</text>
+
+  <!-- footer -->
+  <text x="600" y="612" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="500" font-size="16" letter-spacing="1" fill="#94a3b8">adrianomaringolo.dev</text>
+</svg>

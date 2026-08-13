@@ -1,0 +1,233 @@
+---
+title: "Liskov Substitution Principle na prática: quando dois componentes React não são intercambiáveis"
+series: "SOLID no React"
+excerpt: "Três componentes que encaixam no mesmo slot e passam no TypeScript ainda podem quebrar quem os consome. O terceiro princípio do SOLID é sobre o contrato que o tipo não descreve."
+author: "Adriano Maringolo"
+publishedAt: "2026-08-07"
+readingTime: 13
+tags: ["react", "solid", "arquitetura", "clean-code"]
+featured: false
+image: "/blog/2026-08-07-solid-liskov-substitution-principle/hero-lsp-og.png"
+tldr:
+  - "LSP diz que uma implementação pode substituir outra sem que quem chama precise saber qual chegou. Em React, o contrato é o par props e comportamento, não só o tipo."
+  - "TypeScript valida a forma das props e não valida comportamento: dois componentes com a mesma assinatura podem exigir mais, entregar menos ou provocar efeitos que o outro não provoca."
+  - "Uma extensão que exige uma prop a mais fortalece a pré-condição; uma que retorna `null` em silêncio enfraquece a pós-condição. Nos dois casos, o `if` volta para o componente que o Open/Closed tinha acabado de fechar."
+  - "A refatoração é declarar o contrato como um tipo nomeado, fechar as dependências extras dentro da própria extensão e transformar o caso vazio em estado vazio visível."
+  - "Uma suíte de testes de contrato, com as mesmas asserções rodando contra todas as implementações, é a parte verificável do princípio."
+---
+
+> Este artigo é a quarta parte da série sobre SOLID em React, depois de [SOLID no React: um guia introdutório para os 5 princípios](/blog/solid-principles-in-react), [Single Responsibility Principle na prática](/blog/solid-single-responsibility-principle) e [Open/Closed Principle na prática](/blog/solid-open-closed-principle).
+
+O post anterior terminou com o `UserProfile` fechado e um slot aberto. Cada tela compõe o perfil de que precisa, `AdminFields` e `PartnerFields` vivem cada um no seu arquivo, e adicionar um caso novo deixou de exigir a edição do componente base.
+
+Aí chegou o `SupplierFields`, para fornecedores. Ele encaixou no mesmo slot, passou no type check e foi para produção. Duas semanas depois, a tela de fornecedores começou a mostrar um card de perfil com nome, data de cadastro e nada embaixo. Nenhum erro no console, nenhum teste vermelho, nenhum alerta.
+
+![Selo L do SOLID sobre três peças apontando para o mesmo encaixe, uma delas com formato diferente que não entra, contrastado com três peças idênticas entrando no mesmo encaixe](/blog/2026-08-07-solid-liskov-substitution-principle/hero-lsp.svg)
+
+## O que diz o princípio
+
+*Se você trocar uma implementação por outra, quem chama não deveria precisar saber.*
+
+Barbara Liskov apresentou a ideia em 1987, na palestra de abertura da OOPSLA chamada "Data Abstraction and Hierarchy", e a formalizou em 1994 junto com Jeannette Wing. A versão curta, que virou a mais citada: se `S` é um subtipo de `T`, então objetos de `T` podem ser substituídos por objetos de `S` sem alterar nenhuma propriedade desejável do programa.
+
+O detalhe que costuma se perder na tradução para React é que Liskov e Wing não estavam falando de assinatura. Estavam falando de comportamento. Um subtipo com exatamente os mesmos métodos, recebendo e devolvendo exatamente os mesmos tipos, ainda viola o princípio se exigir mais para funcionar ou entregar menos do que o tipo base prometia.
+
+É por isso que o TypeScript não te protege aqui. Ele verifica a forma das props e a forma do retorno. Ele não tem como verificar que um componente renderiza algo visível, que outro não dispara uma navegação no meio do render, que um terceiro não depende de um dado que só existe para metade dos usuários. O contrato de um componente React é bem maior do que o tipo dele, e a parte que não cabe no tipo é justamente a parte que quebra em produção.
+
+## O sintoma: o encaixe que compila e mente
+
+O slot do post anterior tem esta assinatura, e é ela que todo mundo entende como "o contrato":
+
+```tsx
+type UserProfileProps = {
+  userId: string
+  children?: (user: User) => ReactNode
+}
+```
+
+`AdminFields` e `PartnerFields` foram escritos contra ela. O `SupplierFields` também, quase:
+
+```tsx
+// SupplierFields.tsx: mesma forma dos outros dois, contrato diferente
+function SupplierFields({ user, onSave }: { user: User; onSave: (data: SupplierData) => void }) {
+  const { supplier } = useSupplier(user.id)
+
+  if (!supplier?.taxId) return null
+
+  return (
+    <label>
+      CNPJ
+      <input defaultValue={supplier.taxId} onBlur={(e) => onSave({ taxId: e.target.value })} />
+    </label>
+  )
+}
+```
+
+São seis linhas com duas quebras de contrato dentro.
+
+A primeira é o `onSave`. Os outros dois componentes precisam só do `user`, esse aqui precisa de mais. O efeito aparece no ponto de uso:
+
+```tsx
+<UserProfile userId={id}>{(user) => <AdminFields user={user} />}</UserProfile>
+
+<UserProfile userId={id}>{(user) => <SupplierFields user={user} onSave={saveSupplier} />}</UserProfile>
+```
+
+Lido rápido, parece só uma prop a mais. O que essas duas linhas dizem de verdade é que o slot deixou de aceitar qualquer extensão: ele aceita duas de um jeito e uma terceira de outro.
+
+A segunda quebra é o `return null`. O contrato implícito do slot sempre foi "renderiza uma seção do perfil". O `SupplierFields` cumpre esse contrato quando o fornecedor tem CNPJ cadastrado, e some quando não tem. É esse o card vazio que apareceu em produção, e é por isso que ele não gerou erro nenhum: do ponto de vista do React, renderizar `null` é uma resposta perfeitamente válida.
+
+Tem uma terceira, mais difícil de ver, que entrou no `PartnerFields` alguns meses antes: quando a empresa parceira ainda não está aprovada, ele chama `router.push('/onboarding')` dentro de um efeito. Renderizar um perfil passou a poder tirar o usuário da página. Nenhuma das outras extensões faz isso, e nada na assinatura sugere que alguma possa fazer.
+
+## O `if` que volta pela porta dos fundos
+
+Enquanto cada tela souber, em tempo de escrita, qual extensão vai usar, dá para conviver com as três diferenças. O problema aparece no dia em que alguém precisa tratar as três como uma coisa só. Foi o que aconteceu quando o backoffice passou a montar o perfil a partir do tipo do usuário:
+
+```tsx
+const extensions = {
+  admin: AdminFields,
+  partner: PartnerFields,
+  supplier: SupplierFields,
+}
+
+function ProfilePage({ userId, kind }: { userId: string; kind: UserKind }) {
+  const Extension = extensions[kind]
+
+  return <UserProfile userId={userId}>{(user) => <Extension user={user} />}</UserProfile>
+}
+```
+
+Esse código não compila. O `SupplierFields` exige `onSave`, o `Extension` genérico não tem como fornecer, e o TypeScript reclama do único dos três problemas que ele consegue enxergar. A saída mais rápida, como sempre, está a um `if` de distância:
+
+```tsx
+{(user) =>
+  kind === 'supplier' ? (
+    <SupplierFields user={user} onSave={saveSupplier} />
+  ) : (
+    <Extension user={user} />
+  )
+}
+```
+
+E aqui está o ponto do post. A violação de Liskov trouxe de volta exatamente a condicional que o Open/Closed tinha acabado de tirar dali. Isso não é coincidência, é a relação entre os dois princípios: um ponto de extensão só continua fechado enquanto todas as extensões respeitarem o mesmo contrato. Quando uma delas não respeita, quem consome precisa distinguir, e distinguir quer dizer condicional.
+
+![Três extensões com formatos iguais e contratos diferentes forçando uma condicional em quem consome, refatoradas para um contrato único que dispensa a condicional](/blog/2026-08-07-solid-liskov-substitution-principle/lsp-before-after.svg)
+
+## Por que isso dói
+
+Os três defeitos falham de formas diferentes, e nenhuma delas é barulhenta. A prop faltando só aparece quando alguém tenta generalizar, meses depois de o componente ter sido escrito. O `null` silencioso vira um card vazio que ninguém reporta como bug, porque ele não parece quebrado, parece vazio. A navegação no efeito vira um chamado sobre a rota, aberto por outra pessoa, investigado no lugar errado.
+
+A suíte de testes não ajuda, e por um motivo específico: cada extensão tinha teste, e todos passavam. Eles testavam a implementação. O teste do `SupplierFields` montava o componente com o `onSave` que ele pedia e um fornecedor com CNPJ, exatamente o cenário em que ele funciona. Ninguém testava o slot, porque o slot não é de ninguém.
+
+O custo maior chega depois, e é de confiança. Quando quem consome precisa perguntar qual implementação chegou, a abstração parou de servir: ela virou uma união disfarçada de interface. A partir daí, cada pessoa nova que encosta naquele código aprende que não dá para confiar no contrato, e passa a conferir. As condicionais defensivas se multiplicam, e o slot, que existia para permitir que casos novos entrassem sem tocar no que já existe, vira o lugar onde todo caso novo precisa ser declarado outra vez.
+
+Na biblioteca de componentes acessíveis que ajudei a manter num projeto de e-commerce, esse foi o padrão de bug mais caro que vi de perto. Os problemas raramente vinham de componentes errados. Vinham de componentes certos que não se comportavam como o irmão que eles substituíam dentro de um formulário genérico: um que não repassava a `ref`, outro que emitia o `onChange` com um payload de formato próprio. Nos dois casos, o tipo estava impecável e o formulário perdia dados em silêncio.
+
+O teste mental aqui é diferente dos anteriores. No SRP eu perguntava quantos motivos de mudança viviam naquele arquivo. No OCP, se adicionar o próximo caso exigia editar o arquivo ou criar um novo. Aqui é: *quem consome precisa saber qual implementação chegou?* Se a resposta for sim, essas implementações não são substituíveis, e o slot que finge que são está mentindo.
+
+## Pré-condição e pós-condição, traduzidas para props
+
+A formalização de Liskov e Wing se apoia em três regras, e as três têm tradução direta para React:
+
+1. **Pré-condições não podem ser fortalecidas.** A substituta não pode exigir mais do que o contrato exige. Uma prop obrigatória a mais é uma pré-condição mais forte, e o mesmo vale para exigências que não aparecem na assinatura: precisar estar dentro de um Provider específico, depender de um campo opcional do `user` que só existe para alguns.
+2. **Pós-condições não podem ser enfraquecidas.** A substituta não pode entregar menos do que o contrato promete. Se o contrato é renderizar uma seção, `return null` entrega menos. Se o contrato é chamar `onChange` a cada alteração, chamar só no blur entrega menos.
+3. **Invariantes precisam ser preservadas.** A substituta não pode fazer o que as outras não fazem. Navegar, abrir modal, escrever em storage no primeiro render: tudo isso muda o que quem chama pode assumir sobre o que acontece ao renderizar aquele espaço.
+
+A tradução prática das três é a mesma. Quem escreve uma extensão precisa saber que está escrevendo contra um contrato, e não contra a tela específica que tinha na cabeça naquele dia. Isso é menos uma questão de técnica do que de deixar o contrato visível o bastante para não ser ignorado por acidente.
+
+## Escrevendo o contrato antes do encaixe
+
+O primeiro passo é o mais barato de todos, e é o que faltava desde o post anterior: dar um nome ao contrato.
+
+```tsx
+// ProfileExtension.ts
+import type { ReactNode } from 'react'
+
+/**
+ * Contrato de toda extensão de perfil.
+ * Recebe apenas o usuário e sempre renderiza uma seção visível.
+ * Dados e persistência próprios ficam dentro da extensão.
+ * Nenhuma extensão navega ou abre modal durante o render.
+ */
+export type ProfileExtension = (props: { user: User }) => ReactNode
+```
+
+Metade dessa definição é tipo e a outra metade é comentário, e isso é honesto: só a primeira metade o compilador consegue garantir. Mas escrever a segunda já muda o jogo, porque agora existe um lugar onde a pessoa que vai criar a quarta extensão descobre o que se espera dela.
+
+Com o contrato escrito, o `SupplierFields` fica assim:
+
+```tsx
+// SupplierFields.tsx: mesma forma, agora o mesmo contrato
+export const SupplierFields: ProfileExtension = ({ user }) => {
+  const { supplier, save } = useSupplier(user.id)
+
+  if (!supplier?.taxId) {
+    return <EmptyField label="Dados do fornecedor" hint="Cadastro pendente de aprovação" />
+  }
+
+  return (
+    <label>
+      CNPJ
+      <input defaultValue={supplier.taxId} onBlur={(e) => save({ taxId: e.target.value })} />
+    </label>
+  )
+}
+```
+
+O `onSave` saiu da assinatura e entrou no `useSupplier`. É o mesmo movimento que o `AdminFields` já tinha feito no post anterior: quem precisa do dado busca o dado, e quem precisa gravar é dono da gravação. A pré-condição voltou a ser igual à dos outros dois.
+
+O `return null` virou estado vazio, e essa parte não é só sobre o princípio. O card vazio em produção nunca foi um bug de layout: era a interface escondendo do usuário que existe um cadastro pendente de aprovação. Cumprir a pós-condição e mostrar o motivo do vazio costuma ser, ao mesmo tempo, a decisão certa de arquitetura e a decisão certa de produto.
+
+No `PartnerFields`, a navegação sai do efeito e vira o que ela sempre foi: uma decisão da tela, não do campo. O componente renderiza o aviso de contrato pendente com o link, e quem decide redirecionar é a rota. Agora o mapa compila sem nenhuma condicional:
+
+```tsx
+const extensions: Record<UserKind, ProfileExtension> = {
+  admin: AdminFields,
+  partner: PartnerFields,
+  supplier: SupplierFields,
+}
+```
+
+O `Record<UserKind, ProfileExtension>` faz um trabalho que a versão anterior não fazia: ele obriga toda extensão nova a se declarar como `ProfileExtension` antes de entrar no mapa. A parte da forma o compilador garante a partir daí. A parte do comportamento não, e é exatamente por isso que ela precisa de teste.
+
+## Testando o contrato, não a implementação
+
+O que faltava não era mais teste, era um teste de outro tipo: escrito uma vez, contra o contrato, e rodado contra todas as implementações.
+
+```tsx
+// profile-extension.contract.test.tsx
+describe.each(Object.entries(extensions))('contrato de ProfileExtension: %s', (name, Extension) => {
+  it('renderiza uma seção visível mesmo sem os dados opcionais', () => {
+    const { container } = render(<Extension user={userSemDadosOpcionais} />)
+    expect(container).not.toBeEmptyDOMElement()
+  })
+
+  it('não navega durante o render', () => {
+    render(<Extension user={userSemDadosOpcionais} />)
+    expect(navigate).not.toHaveBeenCalled()
+  })
+})
+```
+
+Esse arquivo é a única coisa no projeto que sabe que as três extensões deveriam ser intercambiáveis. É ele que vai quebrar quando a quarta chegar carregando uma exigência nova, e vai quebrar no lugar certo, com o nome da implementação culpada no output. É a mesma ideia dos contract tests entre serviços, aplicada dentro do front-end: o teste pertence ao contrato, não a quem o implementa.
+
+Vale a pena escrever esse arquivo antes da quarta extensão, e não depois do primeiro incidente. Ele é curto, envelhece bem e cresce junto com o contrato: toda regra nova que entra no comentário do `ProfileExtension` deveria entrar aqui como asserção.
+
+## Onde a linha se desenha
+
+Liskov só se aplica onde existe substituição de verdade. Dois componentes que nunca disputam o mesmo lugar não devem nada um ao outro, por mais parecidos que sejam os nomes ou as props. Não existe violação entre eles, existe semelhança, e semelhança não é contrato.
+
+A falha na direção oposta é mais comum do que parece: forçar um contrato comum entre coisas que não são a mesma coisa. O sinal de alerta é o contrato começar a ganhar props opcionais que só uma implementação lê, ou uma escotilha de fuga tipo `extra?: unknown` para caber o caso esquisito. Um contrato com escotilha não é um contrato, é uma união com capa de interface. Quando chegar nesse ponto, o certo é admitir que são duas coisas diferentes e dar dois slots, mesmo que isso signifique repetir estrutura. Duplicação sai mais barata do que a abstração errada, e o preço da abstração errada é pago por todo mundo que encostar nela depois.
+
+Também não vale confundir contrato com uniformidade visual. Duas extensões podem renderizar coisas completamente diferentes, uma tabela e um único campo de texto, e ainda respeitar o mesmo contrato. O que precisa ser igual não é o que elas mostram: são as exigências de entrada, a garantia de saída e os efeitos que elas provocam.
+
+## O que vem a seguir
+
+Com o contrato escrito e testado, a próxima pressão é fácil de prever: ele vai querer crescer. A quarta extensão precisa saber as permissões do usuário, a quinta precisa do layout do card, e a saída mais rápida é engordar o `ProfileExtension` até caber todo mundo. Em pouco tempo, toda extensão recebe um punhado de props que nunca lê, só para satisfazer a assinatura, e quem escreve a próxima não consegue mais dizer o que é obrigatório e o que é decoração. É esse o assunto da próxima letra da série, o I de Interface Segregation.
+
+## Referências
+
+- Barbara Liskov, *Data Abstraction and Hierarchy* (1987), a palestra de abertura da OOPSLA em que a ideia aparece pela primeira vez
+- Barbara Liskov e Jeannette Wing, ["A Behavioral Notion of Subtyping"](https://www.cs.cmu.edu/~wing/publications/LiskovWing94.pdf) (1994), a formalização em termos de pré-condições, pós-condições e invariantes
+- Robert C. Martin, ["The Liskov Substitution Principle"](https://objectmentor.com/resources/articles/lsp.pdf), o artigo original do C++ Report (1996)
+- Sandi Metz, ["The Wrong Abstraction"](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction) (2016)
