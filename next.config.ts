@@ -10,17 +10,12 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   // Image optimization
+  // Vercel's Image Optimization is a separately billed/limited feature
+  // (the /_next/image route). Source images are already pre-sized and
+  // compressed by hand, so we skip that route entirely and serve them as
+  // plain static files — immune to Image Optimization billing or limits.
   images: {
-    // A single format halves the transformation count per source image
-    // (Vercel bills per unique width x format combination).
-    formats: ['image/webp'],
-    // Trimmed to the widths actually requested across the site's `sizes`
-    // props (thumbnails at 64-288px, full-bleed heroes up to ~2560px).
-    deviceSizes: [640, 828, 1200, 1920, 2560],
-    imageSizes: [64, 96, 256, 384],
-    // Cache each transformed variant for 31 days instead of re-optimizing
-    // on every cache expiry.
-    minimumCacheTTL: 2678400,
+    unoptimized: true,
   },
 
   // Compression
