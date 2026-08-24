@@ -3,7 +3,7 @@ title: "Liskov Substitution Principle na prática: quando dois componentes React
 series: "SOLID no React"
 excerpt: "Três componentes que encaixam no mesmo slot e passam no TypeScript ainda podem quebrar quem os consome. O terceiro princípio do SOLID é sobre o contrato que o tipo não descreve."
 author: "Adriano Maringolo"
-publishedAt: "2026-08-07"
+publishedAt: "2026-08-20"
 readingTime: 11
 tags: ["react", "solid", "arquitetura", "clean-code"]
 featured: false
@@ -127,7 +127,9 @@ O teste mental aqui é diferente dos anteriores. No SRP eu perguntava quantos mo
 
 A formalização de Liskov e Wing se apoia em três regras, e as três têm tradução direta para React:
 
-1. **Pré-condições não podem ser fortalecidas.** A substituta não pode exigir mais do que o contrato exige — nem uma prop obrigatória a mais, nem depender de um Provider específico ou de um campo opcional do `user` que só existe para alguns.
+![As três regras de Liskov traduzidas para props: pré-condição não pode ser fortalecida, pós-condição não pode ser enfraquecida, invariante precisa ser preservada](/blog/2026-08-07-solid-liskov-substitution-principle/lsp-three-rules.svg)
+
+1. **Pré-condições não podem ser fortalecidas.** A substituta não pode exigir mais do que o contrato exige. Nem uma prop obrigatória a mais, nem depender de um Provider específico ou de um campo opcional do `user` que só existe para alguns.
 2. **Pós-condições não podem ser enfraquecidas.** A substituta não pode entregar menos do que o contrato promete. Se o contrato é renderizar uma seção, `return null` entrega menos; se é chamar `onChange` a cada alteração, chamar só no blur entrega menos.
 3. **Invariantes precisam ser preservadas.** A substituta não pode fazer o que as outras não fazem. Navegar, abrir modal, escrever em storage no primeiro render: tudo isso muda o que quem chama pode assumir ao renderizar aquele espaço.
 
@@ -150,7 +152,7 @@ import type { ReactNode } from 'react'
 export type ProfileExtension = (props: { user: User }) => ReactNode
 ```
 
-Metade dessa definição é tipo, a outra é comentário — só a primeira o compilador garante, mas escrever a segunda já muda o jogo: agora existe um lugar onde quem criar a quarta extensão descobre o que se espera dela.
+Metade dessa definição é tipo, a outra é comentário. Só a primeira o compilador garante, mas escrever a segunda já muda o jogo: agora existe um lugar onde quem criar a quarta extensão descobre o que se espera dela.
 
 Com o contrato escrito, o `SupplierFields` fica assim:
 
@@ -174,7 +176,7 @@ export const SupplierFields: ProfileExtension = ({ user }) => {
 
 O `onSave` saiu da assinatura e entrou no `useSupplier`, o mesmo movimento que o `AdminFields` já tinha feito no post anterior: quem precisa do dado busca o dado, quem precisa gravar é dono da gravação. A pré-condição voltou a ser igual à dos outros dois.
 
-O `return null` virou estado vazio. O card vazio em produção nunca foi um bug de layout, era a interface escondendo do usuário que existe um cadastro pendente de aprovação — cumprir a pós-condição e mostrar o motivo do vazio é, ao mesmo tempo, a decisão certa de arquitetura e de produto.
+O `return null` virou estado vazio. O card vazio em produção nunca foi um bug de layout, era a interface escondendo do usuário que existe um cadastro pendente de aprovação. Cumprir a pós-condição e mostrar o motivo do vazio é, ao mesmo tempo, a decisão certa de arquitetura e de produto.
 
 No `PartnerFields`, a navegação sai do efeito e vira o que sempre foi: uma decisão da tela, não do campo. O componente renderiza o aviso de contrato pendente com o link, e quem decide redirecionar é a rota. Agora o mapa compila sem nenhuma condicional:
 
@@ -209,13 +211,15 @@ describe.each(Object.entries(extensions))('contrato de ProfileExtension: %s', (n
 
 Esse arquivo é a única coisa no projeto que sabe que as três extensões deveriam ser intercambiáveis. É ele que vai quebrar quando a quarta chegar carregando uma exigência nova, e vai quebrar no lugar certo, com o nome da implementação culpada no output. É a mesma ideia dos contract tests entre serviços, aplicada dentro do front-end: o teste pertence ao contrato, não a quem o implementa.
 
+![Matriz de teste de contrato: as mesmas duas asserções rodando contra AdminFields, PartnerFields e SupplierFields, todas passando](/blog/2026-08-07-solid-liskov-substitution-principle/lsp-contract-matrix.svg)
+
 Vale a pena escrever esse arquivo antes da quarta extensão, e não depois do primeiro incidente. Ele é curto, envelhece bem e cresce junto com o contrato: toda regra nova que entra no comentário do `ProfileExtension` deveria entrar aqui como asserção.
 
 ## Onde a linha se desenha
 
 Liskov só se aplica onde existe substituição de verdade. Dois componentes que nunca disputam o mesmo lugar não devem nada um ao outro, por mais parecidos que sejam os nomes ou as props: existe semelhança, não contrato.
 
-O erro na direção oposta é mais comum: forçar um contrato comum entre coisas que não são a mesma coisa. O sinal de alerta é o contrato ganhar props opcionais que só uma implementação lê, ou uma escotilha tipo `extra?: unknown` para caber o caso esquisito. Um contrato com escotilha é uma união disfarçada. Nesse ponto, o certo é admitir que são duas coisas diferentes e dar dois slots, mesmo repetindo estrutura — duplicação sai mais barata do que a abstração errada.
+O erro na direção oposta é mais comum: forçar um contrato comum entre coisas que não são a mesma coisa. O sinal de alerta é o contrato ganhar props opcionais que só uma implementação lê, ou uma escotilha tipo `extra?: unknown` para caber o caso esquisito. Um contrato com escotilha é uma união disfarçada. Nesse ponto, o certo é admitir que são duas coisas diferentes e dar dois slots, mesmo repetindo estrutura: duplicação sai mais barata do que a abstração errada.
 
 Também não vale confundir contrato com uniformidade visual. Duas extensões podem renderizar coisas completamente diferentes, uma tabela e um campo de texto, e ainda respeitar o mesmo contrato: o que precisa ser igual são as exigências de entrada, a garantia de saída e os efeitos que provocam.
 

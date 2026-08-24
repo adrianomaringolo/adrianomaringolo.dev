@@ -3,7 +3,7 @@ title: "The Liskov Substitution Principle in Practice: When Two React Components
 series: "SOLID in React"
 excerpt: "Three components that fit the same slot and pass the type check can still break the code that consumes them. SOLID's third principle is about the contract the type doesn't describe."
 author: "Adriano Maringolo"
-publishedAt: "2026-08-07"
+publishedAt: "2026-08-20"
 readingTime: 11
 tags: ["react", "solid", "arquitetura", "clean-code"]
 featured: false
@@ -127,7 +127,9 @@ The mental test here is different from the previous ones. With SRP I asked how m
 
 Liskov and Wing's formalization rests on three rules, and all three translate directly to React:
 
-1. **Preconditions can't be strengthened.** The substitute can't demand more than the contract demands — not one extra required prop, not needing to sit inside a specific Provider, not depending on an optional `user` field only some users have.
+![Liskov's three rules translated to props: preconditions can't be strengthened, postconditions can't be weakened, invariants must be preserved](/blog/2026-08-07-solid-liskov-substitution-principle/lsp-three-rules.svg)
+
+1. **Preconditions can't be strengthened.** The substitute can't demand more than the contract demands. Not one extra required prop, not needing to sit inside a specific Provider, not depending on an optional `user` field only some users have.
 2. **Postconditions can't be weakened.** The substitute can't deliver less than the contract promises. If the contract is to render a section, `return null` delivers less; if it's to call `onChange` on every edit, calling it only on blur delivers less.
 3. **Invariants must be preserved.** The substitute can't do what the others don't. Navigating, opening a modal, writing to storage on first render: all of it changes what the caller can assume when that space gets rendered.
 
@@ -150,7 +152,7 @@ import type { ReactNode } from 'react'
 export type ProfileExtension = (props: { user: User }) => ReactNode
 ```
 
-Half of that definition is a type, the other half a comment — only the first half is something the compiler enforces, but writing the second already changes things: now there's a place where whoever builds the fourth extension finds out what's expected of them.
+Half of that definition is a type, the other half a comment. Only the first half is something the compiler enforces, but writing the second already changes things: now there's a place where whoever builds the fourth extension finds out what's expected of them.
 
 With the contract written down, `SupplierFields` becomes this:
 
@@ -174,7 +176,7 @@ export const SupplierFields: ProfileExtension = ({ user }) => {
 
 `onSave` left the signature and moved into `useSupplier`, the same move `AdminFields` already made in the previous post: whoever needs the data fetches the data, whoever needs to persist owns the persistence. The precondition is back in line with the other two.
 
-The `return null` became an empty state. The empty card in production was never a layout bug, it was the interface hiding from the user that there's a registration waiting for approval — honoring the postcondition and showing why the space is empty is the right architectural call and the right product call at once.
+The `return null` became an empty state. The empty card in production was never a layout bug, it was the interface hiding from the user that there's a registration waiting for approval. Honoring the postcondition and showing why the space is empty is the right architectural call and the right product call at once.
 
 In `PartnerFields`, the navigation moves out of the effect and becomes what it always was: a decision belonging to the screen, not the field. The component renders the pending-contract notice with a link, and the route decides whether to redirect. Now the map compiles with no conditional at all:
 
@@ -209,13 +211,15 @@ describe.each(Object.entries(extensions))('ProfileExtension contract: %s', (name
 
 That file is the only thing in the project that knows the three extensions are supposed to be interchangeable. It's what breaks when the fourth one arrives carrying a new demand, and it breaks in the right place, with the name of the guilty implementation in the output. It's the same idea as contract tests between services, applied inside the front end: the test belongs to the contract, not to whoever implements it.
 
+![A contract test matrix: the same two assertions running against AdminFields, PartnerFields, and SupplierFields, all passing](/blog/2026-08-07-solid-liskov-substitution-principle/lsp-contract-matrix.svg)
+
 It's worth writing that file before the fourth extension, not after the first incident. It's short, it ages well, and it grows with the contract: every new rule that lands in the `ProfileExtension` comment should land here as an assertion.
 
 ## Where the line gets drawn
 
 Liskov only applies where substitution actually happens. Two components that never compete for the same spot owe each other nothing, however similar their names or props: there's resemblance, not a contract.
 
-The failure in the opposite direction is more common: forcing a shared contract onto things that aren't the same thing. The warning sign is the contract collecting optional props only one implementation reads, or an escape hatch like `extra?: unknown` for the odd case. A contract with an escape hatch is a union in disguise. At that point, the right move is to admit these are two different things and give them two slots, even if it means repeating some structure — duplication is cheaper than the wrong abstraction.
+The failure in the opposite direction is more common: forcing a shared contract onto things that aren't the same thing. The warning sign is the contract collecting optional props only one implementation reads, or an escape hatch like `extra?: unknown` for the odd case. A contract with an escape hatch is a union in disguise. At that point, the right move is to admit these are two different things and give them two slots, even if it means repeating some structure: duplication is cheaper than the wrong abstraction.
 
 It's also worth not confusing contract with visual uniformity. Two extensions can render completely different things, a table and a text field, and still honor the same contract: what has to match is the input requirements, the output guarantee, and the effects they cause.
 

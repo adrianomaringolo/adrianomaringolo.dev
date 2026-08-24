@@ -1,0 +1,45 @@
+<svg width="800" height="360" viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>A contract test matrix: the same two assertions run against AdminFields, PartnerFields, and SupplierFields, all passing</title>
+  <defs>
+    <pattern id="grid-lsp-matrix" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#cbd5e1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="360" fill="#f8fafc"/>
+  <rect width="800" height="360" fill="url(#grid-lsp-matrix)"/>
+
+  <circle cx="60" cy="52" r="26" fill="#0f172a"/>
+  <text x="60" y="61" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700" font-size="24" fill="#ffffff">L</text>
+  <text x="440" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">one contract test file, three implementations</text>
+
+  <!-- column headers -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#0f172a" text-anchor="middle">
+    <text x="430" y="112">AdminFields</text>
+    <text x="580" y="112">PartnerFields</text>
+    <text x="730" y="112">SupplierFields</text>
+  </g>
+  <line x1="290" y1="126" x2="780" y2="126" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <!-- row 1 -->
+  <text x="80" y="168" font-family="system-ui, sans-serif" font-size="13" fill="#334155">renders a visible section</text>
+  <line x1="80" y1="198" x2="780" y2="198" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- row 2 -->
+  <text x="80" y="238" font-family="system-ui, sans-serif" font-size="13" fill="#334155">does not navigate during render</text>
+  <line x1="80" y1="268" x2="780" y2="268" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- checkmarks -->
+  <g stroke="#0891b2" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M418,164 L426,173 L442,152"/>
+    <path d="M568,164 L576,173 L592,152"/>
+    <path d="M718,164 L726,173 L742,152"/>
+
+    <path d="M418,234 L426,243 L442,222"/>
+    <path d="M568,234 L576,243 L592,222"/>
+    <path d="M718,234 L726,243 L742,222"/>
+  </g>
+
+  <!-- footer note -->
+  <rect x="80" y="292" width="700" height="46" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="430" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#0e7490">the fourth extension has to pass the same two rows before it joins the map</text>
+</svg>
