@@ -52,21 +52,21 @@ export const symproLanding: Project = {
     'Vercel Analytics',
     'Vercel',
   ],
-  thumbnail: '/projects/sympro/01-hero-desktop.png',
+  thumbnail: '/projects/sympro/01-hero-desktop.jpg',
   images: [
-    '/projects/sympro/01-hero-desktop.png',
-    '/projects/sympro/03-pillars-section.png',
+    '/projects/sympro/01-hero-desktop.jpg',
+    '/projects/sympro/03-pillars-section.jpg',
     '/projects/sympro/05-beneficios.png',
-    '/projects/sympro/06-funcionalidades.png',
+    '/projects/sympro/06-funcionalidades.jpg',
     '/projects/sympro/07-planos.png',
-    '/projects/sympro/08-team.png',
-    '/projects/sympro/09-hero-mobile.png',
+    '/projects/sympro/08-team.jpg',
+    '/projects/sympro/09-hero-mobile.jpg',
     '/projects/sympro/10-education-section.png',
   ],
   screenshots: [
     {
       id: '1',
-      url: '/projects/sympro/01-hero-desktop.png',
+      url: '/projects/sympro/01-hero-desktop.jpg',
       alt: 'Hero da landing page do SymPro',
       caption: {
         'pt-BR': 'Hero com typewriter animation e formulário de inscrição na lista de espera',
@@ -75,7 +75,7 @@ export const symproLanding: Project = {
     },
     {
       id: '2',
-      url: '/projects/sympro/03-pillars-section.png',
+      url: '/projects/sympro/03-pillars-section.jpg',
       alt: 'Seção de pilares do SymPro',
       caption: {
         'pt-BR': 'Pilares de valor: clientes, agenda e finanças em um só lugar',
@@ -93,7 +93,7 @@ export const symproLanding: Project = {
     },
     {
       id: '4',
-      url: '/projects/sympro/06-funcionalidades.png',
+      url: '/projects/sympro/06-funcionalidades.jpg',
       alt: 'Seção de funcionalidades do SymPro',
       caption: {
         'pt-BR': 'Diferenciais únicos: semáforo de follow-up, metas e relatórios',
@@ -111,7 +111,7 @@ export const symproLanding: Project = {
     },
     {
       id: '6',
-      url: '/projects/sympro/08-team.png',
+      url: '/projects/sympro/08-team.jpg',
       alt: 'Seção do time SymPro',
       caption: {
         'pt-BR': 'Apresentação do time responsável pelo projeto',
@@ -120,7 +120,7 @@ export const symproLanding: Project = {
     },
     {
       id: '7',
-      url: '/projects/sympro/09-hero-mobile.png',
+      url: '/projects/sympro/09-hero-mobile.jpg',
       alt: 'Hero mobile do SymPro',
       caption: {
         'pt-BR': 'Layout mobile-first otimizado para celular e tablet',

@@ -61,10 +61,10 @@ export const reactHtmlContentEditor: Project = {
     'GitHub Actions',
     'GitHub Pages',
   ],
-  thumbnail: '/projects/react-html-content-editor/cover.png',
+  thumbnail: '/projects/react-html-content-editor/cover.jpg',
   images: [
-    '/projects/react-html-content-editor/02-wysiwyg.png',
-    '/projects/react-html-content-editor/03-all-controls.png',
+    '/projects/react-html-content-editor/02-wysiwyg.jpg',
+    '/projects/react-html-content-editor/03-all-controls.jpg',
   ],
   liveUrl: 'https://adrianomaringolo.github.io/react-html-content-editor/',
   isDemo: true,
@@ -82,7 +82,7 @@ export const reactHtmlContentEditor: Project = {
     },
     {
       id: '2',
-      url: '/projects/react-html-content-editor/02-wysiwyg.png',
+      url: '/projects/react-html-content-editor/02-wysiwyg.jpg',
       alt: 'Editor WYSIWYG',
       caption: {
         'pt-BR': 'Editor rich-text WYSIWYG montado por composição de controles',
@@ -91,7 +91,7 @@ export const reactHtmlContentEditor: Project = {
     },
     {
       id: '3',
-      url: '/projects/react-html-content-editor/03-all-controls.png',
+      url: '/projects/react-html-content-editor/03-all-controls.jpg',
       alt: 'Todos os controles WYSIWYG',
       caption: {
         'pt-BR':

@@ -11,29 +11,16 @@ const nextConfig: NextConfig = {
 
   // Image optimization
   images: {
-    formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**',
-      },
-    ],
+    // A single format halves the transformation count per source image
+    // (Vercel bills per unique width x format combination).
+    formats: ['image/webp'],
+    // Trimmed to the widths actually requested across the site's `sizes`
+    // props (thumbnails at 64-288px, full-bleed heroes up to ~2560px).
+    deviceSizes: [640, 828, 1200, 1920, 2560],
+    imageSizes: [64, 96, 256, 384],
+    // Cache each transformed variant for 31 days instead of re-optimizing
+    // on every cache expiry.
+    minimumCacheTTL: 2678400,
   },
 
   // Compression

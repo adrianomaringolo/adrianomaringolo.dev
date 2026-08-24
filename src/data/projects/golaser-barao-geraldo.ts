@@ -59,20 +59,20 @@ export const golaserBaraoGeraldo: Project = {
     'Google Ads',
     'Vercel',
   ],
-  thumbnail: '/projects/golaser-barao-geraldo/01-hero.png',
+  thumbnail: '/projects/golaser-barao-geraldo/01-hero.jpg',
   images: [
-    '/projects/golaser-barao-geraldo/01-hero.png',
+    '/projects/golaser-barao-geraldo/01-hero.jpg',
     '/projects/golaser-barao-geraldo/07-hero-mobile.png',
-    '/projects/golaser-barao-geraldo/02-experiencia.png',
-    '/projects/golaser-barao-geraldo/03-modal-protocolo.png',
-    '/projects/golaser-barao-geraldo/04-jornada.png',
-    '/projects/golaser-barao-geraldo/05-antes-depois.png',
-    '/projects/golaser-barao-geraldo/06-contato-instagram.png',
+    '/projects/golaser-barao-geraldo/02-experiencia.jpg',
+    '/projects/golaser-barao-geraldo/03-modal-protocolo.jpg',
+    '/projects/golaser-barao-geraldo/04-jornada.jpg',
+    '/projects/golaser-barao-geraldo/05-antes-depois.jpg',
+    '/projects/golaser-barao-geraldo/06-contato-instagram.jpg',
   ],
   screenshots: [
     {
       id: '1',
-      url: '/projects/golaser-barao-geraldo/01-hero.png',
+      url: '/projects/golaser-barao-geraldo/01-hero.jpg',
       alt: 'Homepage do site GoLaser Barão Geraldo',
       caption: {
         'pt-BR': 'Homepage com proposta de valor, destaque para a tecnologia Hakon 4D e CTAs para WhatsApp',
@@ -90,7 +90,7 @@ export const golaserBaraoGeraldo: Project = {
     },
     {
       id: '2',
-      url: '/projects/golaser-barao-geraldo/02-experiencia.png',
+      url: '/projects/golaser-barao-geraldo/02-experiencia.jpg',
       alt: 'Seção Experiência GoLaser — Santuário da Pele',
       caption: {
         'pt-BR': 'Seção "Santuário da Pele" com os diferenciais da clínica: atendimento humanizado, tecnologia avançada e protocolos exclusivos',
@@ -99,7 +99,7 @@ export const golaserBaraoGeraldo: Project = {
     },
     {
       id: '3',
-      url: '/projects/golaser-barao-geraldo/03-modal-protocolo.png',
+      url: '/projects/golaser-barao-geraldo/03-modal-protocolo.jpg',
       alt: 'Modal de protocolo — Revitalização Facial',
       caption: {
         'pt-BR': 'Modal detalhado do protocolo de Revitalização Facial com duração, frequência, resultado e CTA para agendamento',
@@ -108,7 +108,7 @@ export const golaserBaraoGeraldo: Project = {
     },
     {
       id: '4',
-      url: '/projects/golaser-barao-geraldo/04-jornada.png',
+      url: '/projects/golaser-barao-geraldo/04-jornada.jpg',
       alt: 'Seção Sua Jornada de Transformação com tecnologia Hakon 4D',
       caption: {
         'pt-BR': '"Sua Jornada de Transformação" — processo em 4 etapas (Avaliação, Personalização, Execução e Acompanhamento) com destaque para o Hakon 4D',
@@ -117,7 +117,7 @@ export const golaserBaraoGeraldo: Project = {
     },
     {
       id: '5',
-      url: '/projects/golaser-barao-geraldo/05-antes-depois.png',
+      url: '/projects/golaser-barao-geraldo/05-antes-depois.jpg',
       alt: 'Seção Antes e Depois com resultados reais de clientes',
       caption: {
         'pt-BR': 'Seção "Antes & Depois" com resultados reais em depilação a laser e terapia capilar para construção de prova social',
@@ -126,7 +126,7 @@ export const golaserBaraoGeraldo: Project = {
     },
     {
       id: '6',
-      url: '/projects/golaser-barao-geraldo/06-contato-instagram.png',
+      url: '/projects/golaser-barao-geraldo/06-contato-instagram.jpg',
       alt: 'Seção de contato com mapa e feed do Instagram',
       caption: {
         'pt-BR': 'Seção "Onde nos encontrar" com endereço, telefone, horários e mapa integrado, ao lado do feed do Instagram da clínica',

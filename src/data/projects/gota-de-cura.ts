@@ -62,14 +62,14 @@ export const gotaDeCura: Project = {
     'Vercel',
     'Vercel Analytics',
   ],
-  thumbnail: '/projects/gota-de-cura/01-hero.png',
+  thumbnail: '/projects/gota-de-cura/01-hero.jpg',
   images: [
-    '/projects/gota-de-cura/01-hero.png',
-    '/projects/gota-de-cura/02-catalogo.png',
+    '/projects/gota-de-cura/01-hero.jpg',
+    '/projects/gota-de-cura/02-catalogo.jpg',
     '/projects/gota-de-cura/03-laudos.png',
-    '/projects/gota-de-cura/04-blog.png',
-    '/projects/gota-de-cura/05-post.png',
-    '/projects/gota-de-cura/06-visitacao.png',
+    '/projects/gota-de-cura/04-blog.jpg',
+    '/projects/gota-de-cura/05-post.jpg',
+    '/projects/gota-de-cura/06-visitacao.jpg',
     '/projects/gota-de-cura/07-admin-produtos.png',
     '/projects/gota-de-cura/08-hero-mobile.png',
     '/projects/gota-de-cura/09-blog-mobile.png',
@@ -77,7 +77,7 @@ export const gotaDeCura: Project = {
   screenshots: [
     {
       id: '1',
-      url: '/projects/gota-de-cura/01-hero.png',
+      url: '/projects/gota-de-cura/01-hero.jpg',
       alt: 'Homepage da Gota de Cura com foto da loja física e dados de endereço e horário',
       caption: {
         'pt-BR':
@@ -88,7 +88,7 @@ export const gotaDeCura: Project = {
     },
     {
       id: '2',
-      url: '/projects/gota-de-cura/02-catalogo.png',
+      url: '/projects/gota-de-cura/02-catalogo.jpg',
       alt: 'Seção O catálogo com as prateleiras de produtos em cartões',
       caption: {
         'pt-BR':
@@ -110,7 +110,7 @@ export const gotaDeCura: Project = {
     },
     {
       id: '4',
-      url: '/projects/gota-de-cura/04-blog.png',
+      url: '/projects/gota-de-cura/04-blog.jpg',
       alt: 'Listagem do blog com filtros por tag e o primeiro artigo publicado',
       caption: {
         'pt-BR':
@@ -121,7 +121,7 @@ export const gotaDeCura: Project = {
     },
     {
       id: '5',
-      url: '/projects/gota-de-cura/05-post.png',
+      url: '/projects/gota-de-cura/05-post.jpg',
       alt: 'Artigo do blog aberto, com autor, data, tempo de leitura e tags',
       caption: {
         'pt-BR':
@@ -132,7 +132,7 @@ export const gotaDeCura: Project = {
     },
     {
       id: '6',
-      url: '/projects/gota-de-cura/06-visitacao.png',
+      url: '/projects/gota-de-cura/06-visitacao.jpg',
       alt: 'Seção de visitação à Chácara da Mãe Luzia com duração, local, valores e próximas datas',
       caption: {
         'pt-BR':
