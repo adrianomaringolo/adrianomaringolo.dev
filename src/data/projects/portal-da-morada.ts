@@ -57,10 +57,10 @@ export const portalDaMorada: Project = {
     'n8n',
     'Google Apps Script',
   ],
-  thumbnail: '/projects/portal-da-morada/portal-login.png',
+  thumbnail: '/projects/portal-da-morada/portal-login.jpg',
   images: [
     '/projects/portal-da-morada/portal-acessos.png',
-    '/projects/portal-da-morada/portal-membros.png',
+    '/projects/portal-da-morada/portal-membros.jpg',
   ],
   liveUrl: 'https://portal.morada.org.br/',
   screenshots: [
@@ -75,7 +75,7 @@ export const portalDaMorada: Project = {
     },
     {
       id: '2',
-      url: '/projects/portal-da-morada/portal-membros.png',
+      url: '/projects/portal-da-morada/portal-membros.jpg',
       alt: 'Gestão de membros',
       caption: {
         'pt-BR': 'Sistema completo de gestão de membros com histórico e permissões',
@@ -113,7 +113,7 @@ export const portalDaMorada: Project = {
     },
     {
       id: '7',
-      url: '/projects/portal-da-morada/portal-biblioteca.png',
+      url: '/projects/portal-da-morada/portal-biblioteca.jpg',
       alt: 'Biblioteca',
       caption: {
         'pt-BR':

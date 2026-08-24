@@ -62,21 +62,21 @@ export const yaneLeitao: Project = {
     'pnpm',
     'Vercel',
   ],
-  thumbnail: '/projects/yane-leitao/01-hero.png',
+  thumbnail: '/projects/yane-leitao/01-hero.jpg',
   images: [
-    '/projects/yane-leitao/01-hero.png',
+    '/projects/yane-leitao/01-hero.jpg',
     '/projects/yane-leitao/01-hero-mobile.png',
     '/projects/yane-leitao/02-sobre.png',
-    '/projects/yane-leitao/03-servico-domicilio.png',
-    '/projects/yane-leitao/04-depoimentos.png',
+    '/projects/yane-leitao/03-servico-domicilio.jpg',
+    '/projects/yane-leitao/04-depoimentos.jpg',
     '/projects/yane-leitao/05-faq.png',
-    '/projects/yane-leitao/06-galeria.png',
+    '/projects/yane-leitao/06-galeria.jpg',
     '/projects/yane-leitao/07-cardapio.png',
   ],
   screenshots: [
     {
       id: '1',
-      url: '/projects/yane-leitao/01-hero.png',
+      url: '/projects/yane-leitao/01-hero.jpg',
       alt: 'Homepage do site da Yane Leitão Personal Chef',
       caption: {
         'pt-BR': 'Homepage com banner hero, logo assinatura e proposta de valor imediata',
@@ -103,7 +103,7 @@ export const yaneLeitao: Project = {
     },
     {
       id: '3',
-      url: '/projects/yane-leitao/03-servico-domicilio.png',
+      url: '/projects/yane-leitao/03-servico-domicilio.jpg',
       alt: 'Modal do serviço de personal chef em domicílio',
       caption: {
         'pt-BR': 'Modal detalhado do serviço de personal chef em domicílio com CTA para contato',
@@ -112,7 +112,7 @@ export const yaneLeitao: Project = {
     },
     {
       id: '4',
-      url: '/projects/yane-leitao/04-depoimentos.png',
+      url: '/projects/yane-leitao/04-depoimentos.jpg',
       alt: 'Seção de depoimentos de clientes',
       caption: {
         'pt-BR': 'Seção "O que nossos clientes dizem" com carrossel de depoimentos reais',
@@ -130,7 +130,7 @@ export const yaneLeitao: Project = {
     },
     {
       id: '6',
-      url: '/projects/yane-leitao/06-galeria.png',
+      url: '/projects/yane-leitao/06-galeria.jpg',
       alt: 'Galeria de fotos de pratos da Yane Leitão',
       caption: {
         'pt-BR': 'Galeria com fotos de pratos reais, lightbox e navegação fluida',
