@@ -4,7 +4,7 @@ import { useLocale } from '@/hooks/use-locale'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, Check, LayoutDashboard, Lightbulb, Monitor, X } from 'lucide-react'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -22,14 +22,27 @@ const pointKeys = ['point1', 'point2', 'point3', 'point4'] as const
 export function ServicePickerSection() {
   const { t } = useLocale()
   const [open, setOpen] = useState<ServiceKey | null>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const lastTriggerRef = useRef<HTMLButtonElement | null>(null)
 
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden'
+      closeButtonRef.current?.focus()
     } else {
       document.body.style.overflow = ''
+      lastTriggerRef.current?.focus()
     }
     return () => { document.body.style.overflow = '' }
+  }, [open])
+
+  useEffect(() => {
+    if (!open) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(null)
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
   }, [open])
 
   const ActiveIcon = open ? serviceIcons[open] : null
@@ -64,7 +77,10 @@ export function ServicePickerSection() {
             return (
               <motion.button
                 key={key}
-                onClick={() => setOpen(key)}
+                onClick={(e) => {
+                  lastTriggerRef.current = e.currentTarget
+                  setOpen(key)
+                }}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.08, ease }}
@@ -113,6 +129,9 @@ export function ServicePickerSection() {
 
             <motion.aside
               key="panel"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="service-picker-panel-title"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -125,7 +144,7 @@ export function ServicePickerSection() {
                     <ActiveIcon className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground leading-tight">
+                    <p id="service-picker-panel-title" className="font-semibold text-foreground leading-tight">
                       {t(`home.servicePicker.${open}.label`)}
                     </p>
                     <p className="text-xs text-muted-foreground/60 mt-0.5">
@@ -134,6 +153,7 @@ export function ServicePickerSection() {
                   </div>
                 </div>
                 <button
+                  ref={closeButtonRef}
                   onClick={() => setOpen(null)}
                   aria-label="Fechar"
                   className="p-1.5 rounded-md text-muted-foreground/50 hover:text-foreground hover:bg-muted transition-colors"
