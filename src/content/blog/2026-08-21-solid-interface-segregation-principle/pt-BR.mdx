@@ -1,0 +1,255 @@
+---
+title: "Interface Segregation Principle na prática: o contrato que engordou para caber todo mundo"
+series: "SOLID no React"
+excerpt: "Duas extensões novas bastaram para inflar o contrato que a Liskov Substitution tinha acabado de fechar. O quarto princípio do SOLID é sobre não obrigar quem implementa, ou quem consome, a carregar o que não usa."
+author: "Adriano Maringolo"
+publishedAt: "2026-08-21"
+readingTime: 11
+tags: ["react", "solid", "arquitetura", "clean-code"]
+featured: false
+image: "/blog/2026-08-21-solid-interface-segregation-principle/hero-isp-og.png"
+tldr:
+  - "ISP diz que ninguém deveria ser forçado a depender de props ou métodos que não usa. Um contrato React inchado força cada extensão, e cada teste, a carregar dados que nunca lê."
+  - "Uma prop nova no contrato compartilhado parece barata, mas se propaga para toda implementação existente e para o ponto de composição, que passa a buscar aquele dado para todo mundo, mesmo para quem não precisa."
+  - "O sintoma mais caro é indireto: a suíte de testes de contrato, escrita para tratar as implementações como uma coisa só, volta a precisar de exceção por implementação, o mesmo `if` que o post anterior tinha eliminado."
+  - "A correção é encolher o contrato de volta ao mínimo comum e deixar cada extensão buscar, ela mesma, a capacidade extra que só ela precisa, via hook ou contexto próprio, em vez de recebê-la de fora."
+  - "Segregar demais também é erro: uma necessidade compartilhada pela maioria das implementações pertence ao contrato base, não a um hook isolado por implementação."
+---
+
+> Este artigo é a quinta parte da série sobre SOLID em React, depois de [SOLID no React: um guia introdutório para os 5 princípios](/blog/solid-principles-in-react), [Single Responsibility Principle na prática](/blog/solid-single-responsibility-principle), [Open/Closed Principle na prática](/blog/solid-open-closed-principle) e [Liskov Substitution Principle na prática](/blog/solid-liskov-substitution-principle).
+
+O post anterior terminou com o `ProfileExtension` nomeado, testado e cumprindo o que prometia: qualquer uma das três extensões podia entrar no lugar de qualquer outra, e uma suíte de testes de contrato provava isso a cada mudança. Foi bom enquanto durou.
+
+Chegou o `ManagerFields`, para gestores internos. Ele precisa saber se o usuário logado pode revogar o acesso de quem está vendo o perfil, e essa informação não existe em `user`, vem de uma consulta de permissões à parte. Duas semanas depois, o mesmo card de perfil que aparece na tela cheia passou a aparecer também num widget compacto, a lista de equipe no dashboard, e o `SupplierFields` precisou mudar de forma dependendo de onde estava: campo editável na tela cheia, texto simples no card compacto.
+
+Nenhuma das duas mudanças quebrou nada. As duas entraram do mesmo jeito, como prop nova no contrato. E foi exatamente aí que o problema começou.
+
+![Selo I do SOLID sobre um contrato único carregando quatro capacidades diferentes, do qual só uma parte é usada por cada extensão, contrastado com contratos menores em que cada extensão depende só do que usa](/blog/2026-08-21-solid-interface-segregation-principle/hero-isp.svg)
+
+## O que diz o princípio
+
+*Nenhum cliente deveria ser forçado a depender de métodos que não usa.*
+
+Robert C. Martin descreveu o princípio em 1996, batizando-o a partir de um caso real na Xerox. Um sistema de impressão tinha uma única interface `Job`, com métodos para imprimir, grampear e enviar fax. A maioria das impressoras só imprimia. Ainda assim, cada classe que implementava `Job` precisava declarar `staple()` e `fax()`, e a saída mais comum era lançar uma exceção dizendo "não suportado". O contrato existia para servir a impressora mais completa, e todas as outras pagavam o preço de fingir que também eram aquilo.
+
+A tradução para React troca classes por props, mas o mecanismo é idêntico. Um contrato de componente que cresce para caber a próxima necessidade específica deixa de ser o contrato de ninguém e passa a ser o contrato de todo mundo somado. Cada implementação carrega props que não lê, e cada consumidor do contrato precisa fornecer dados que só uma fração das implementações realmente usa.
+
+## O sintoma: o contrato que engorda a cada extensão
+
+O `ProfileExtension` saiu do post anterior deste jeito, e por um bom motivo: era exatamente o que as três extensões existentes precisavam, nem mais nem menos.
+
+```tsx
+export type ProfileExtension = (props: { user: User }) => ReactNode
+```
+
+O `ManagerFields` chega precisando de permissões:
+
+```tsx
+// ManagerFields.tsx: precisa de algo que não está no contrato
+function ManagerFields({ user, permissions }: { user: User; permissions: Permissions }) {
+  return (
+    <div>
+      <p>Equipe: {user.team}</p>
+      {permissions.canRevoke && <button onClick={() => revokeAccess(user.id)}>Revogar acesso</button>}
+    </div>
+  )
+}
+```
+
+A lição do post de Liskov ainda está fresca: não force uma prop obrigatória a mais só numa implementação, isso quebra a substituição. A saída que parece certa, então, é generalizar o contrato em vez de generalizar uma exceção:
+
+```tsx
+export type ProfileExtension = (props: {
+  user: User
+  permissions: Permissions
+}) => ReactNode
+```
+
+Duas semanas depois, o card de perfil passa a ser reaproveitado num segundo lugar, o widget compacto da lista de equipe, e o `SupplierFields` precisa saber em qual dos dois está:
+
+```tsx
+export type ProfileExtension = (props: {
+  user: User
+  permissions: Permissions
+  layout: 'compact' | 'full'
+}) => ReactNode
+```
+
+Cada mudança, isolada, parece pequena. Juntas, elas fizeram o contrato crescer de um campo para três, e nenhuma das quatro extensões usa os três ao mesmo tempo.
+
+## O `if` que a suíte de testes tinha eliminado
+
+O ponto de composição precisa fornecer o contrato inteiro, então passa a buscar tudo, para todo mundo, em todo render:
+
+```tsx
+function ProfilePage({ userId, kind }: { userId: string; kind: UserKind }) {
+  const permissions = usePermissions(userId)
+  const Extension = extensions[kind]
+
+  return (
+    <UserProfile userId={userId}>
+      {(user) => <Extension user={user} permissions={permissions} layout="full" />}
+    </UserProfile>
+  )
+}
+```
+
+A tela de administrador nunca olha para `permissions`, mas toda vez que ela renderiza, a consulta de permissões roda do mesmo jeito. O mesmo vale para `TeamRosterCard`, o widget compacto: ele existe para o `SupplierFields`, mas passa `permissions` para o `AdminFields` e o `PartnerFields` também, porque o tipo exige.
+
+O efeito mais caro aparece na suíte de testes de contrato, a mesma que o post anterior escreveu para nunca mais precisar de exceção por implementação:
+
+```tsx
+describe.each(Object.entries(extensions))('contrato de ProfileExtension: %s', (name, Extension) => {
+  it('renderiza uma seção visível mesmo sem os dados opcionais', () => {
+    const { container } = render(
+      <Extension user={userSemDadosOpcionais} permissions={permissoesVazias} layout="full" />,
+    )
+    expect(container).not.toBeEmptyDOMElement()
+  })
+})
+```
+
+`AdminFields`, `PartnerFields` e `SupplierFields` agora recebem `permissoesVazias`, um valor que não significa nada para eles, só para satisfazer o tipo. E quando alguém precisa testar o comportamento específico do `ManagerFields`, a asserção não cabe no loop genérico:
+
+```tsx
+it('esconde ações restritas sem permissão', () => {
+  if (name !== 'manager') return
+
+  render(<Extension user={user} permissions={permissoesVazias} layout="full" />)
+  expect(screen.queryByText('Revogar acesso')).not.toBeInTheDocument()
+})
+```
+
+Esse `if (name !== 'manager') return` é o mesmo `if` que o post de Liskov tinha acabado de tirar do meio do caminho, só que dessa vez ele entrou pela suíte de testes em vez de pelo componente. A relação entre os princípios continua a mesma: um contrato só serve a todo mundo igualmente enquanto ele for do tamanho do que todo mundo precisa. Assim que ele cresce para caber uma exceção, a exceção reaparece em algum outro lugar, e geralmente é um lugar que ninguém estava olhando.
+
+## Por que isso dói
+
+O custo do `staple()` fantasma na Xerox era uma exceção em tempo de execução, fácil de notar. O custo aqui é mais quieto: nada quebra, nada lança erro, o TypeScript está satisfeito porque toda prop existe e tem o tipo certo. O que se perde é mais difícil de apontar num code review, é a leitura.
+
+Quem abre `AdminFields.tsx` pela primeira vez e vê a assinatura aceitando `permissions` e `layout` tem todo motivo para presumir que o componente usa os dois. Não usa. A assinatura virou uma promessa que o corpo do componente não cumpre, e a única forma de descobrir isso é ler a implementação inteira, exatamente o trabalho que uma assinatura de tipo deveria evitar.
+
+O segundo custo é o de performance e acoplamento de dados: `usePermissions(userId)` roda para toda extensão, mesmo as que nunca leem o resultado. Numa consulta local isso é desperdício pequeno. Numa chamada de rede, ou numa que dispara um efeito colateral, é trabalho real acontecendo sem necessidade, pago por telas que não pediram por ele.
+
+O terceiro, e o que dói mais na prática, é o que aconteceu com o teste. A suíte existia para provar uma coisa só: que as extensões eram intercambiáveis. No momento em que ela precisa de um `if` para saber de qual implementação está falando, ela parou de provar isso. Ela virou quatro testes soltos morando no mesmo arquivo, fingindo ser um teste de contrato.
+
+## Segregando o contrato
+
+A correção começa perguntando, prop por prop, quem realmente usa aquilo. `user` é comum às quatro extensões, fica no contrato base. `permissions` e `layout` servem a uma extensão cada, então não deveriam nunca ter saído dali.
+
+```tsx
+export type ProfileExtension = (props: { user: User }) => ReactNode
+```
+
+O `ManagerFields` busca permissões sozinho, do mesmo jeito que o `SupplierFields` já buscava dados de fornecedor desde o post de Liskov:
+
+```tsx
+// ManagerFields.tsx: mesmo contrato, capacidade extra por conta própria
+function ManagerFields({ user }: { user: User }) {
+  const { canRevoke } = usePermissions(user.id)
+
+  return (
+    <div>
+      <p>Equipe: {user.team}</p>
+      {canRevoke && <button onClick={() => revokeAccess(user.id)}>Revogar acesso</button>}
+    </div>
+  )
+}
+```
+
+Para o `layout`, o problema é um pouco diferente: não é um dado que se busca, é um contexto que já existe no lugar onde o componente está montado. Em vez de descer como prop pelo ponto de composição genérico, ele vira um contexto que só quem precisa consome:
+
+```tsx
+// SupplierFields.tsx: pergunta pelo layout só quando importa
+function SupplierFields({ user }: { user: User }) {
+  const layout = useContext(CardLayoutContext)
+  const { supplier, save } = useSupplier(user.id)
+
+  if (!supplier?.taxId) {
+    return <EmptyField label="Dados do fornecedor" hint="Cadastro pendente de aprovação" />
+  }
+
+  if (layout === 'compact') {
+    return <span>{supplier.taxId}</span>
+  }
+
+  return (
+    <label>
+      CNPJ
+      <input defaultValue={supplier.taxId} onBlur={(e) => save({ taxId: e.target.value })} />
+    </label>
+  )
+}
+```
+
+O ponto de composição volta a ser exatamente o que era no post anterior, sem saber nada sobre permissões ou layout:
+
+```tsx
+function ProfilePage({ userId, kind }: { userId: string; kind: UserKind }) {
+  const Extension = extensions[kind]
+
+  return <UserProfile userId={userId}>{(user) => <Extension user={user} />}</UserProfile>
+}
+
+function TeamRosterCard({ userId, kind }: { userId: string; kind: UserKind }) {
+  const Extension = extensions[kind]
+
+  return (
+    <CardLayoutContext.Provider value="compact">
+      <UserProfile userId={userId}>{(user) => <Extension user={user} />}</UserProfile>
+    </CardLayoutContext.Provider>
+  )
+}
+```
+
+Nenhum dos dois componentes sabe que `ManagerFields` existe ou que `SupplierFields` lê o layout. Eles continuam falando só com o contrato mínimo, e cada extensão resolve por conta própria o que é só dela.
+
+## Testando cada capacidade isoladamente
+
+A suíte de contrato volta a ser uniforme, porque o contrato voltou a ser uniforme:
+
+```tsx
+describe.each(Object.entries(extensions))('contrato de ProfileExtension: %s', (name, Extension) => {
+  it('renderiza uma seção visível mesmo sem os dados opcionais', () => {
+    const { container } = render(<Extension user={userSemDadosOpcionais} />)
+    expect(container).not.toBeEmptyDOMElement()
+  })
+
+  it('não navega durante o render', () => {
+    render(<Extension user={userSemDadosOpcionais} />)
+    expect(navigate).not.toHaveBeenCalled()
+  })
+})
+```
+
+Nenhum `if` sobrando, nenhum mock que não significa nada para três das quatro implementações. O comportamento de `permissions` e de `layout` não desapareceu, só mudou de endereço: mora junto do hook e do contexto que cada um usa, não dentro do teste que existe para tratar todo mundo igual.
+
+```tsx
+// use-permissions.test.ts
+it('esconde ações restritas sem permissão', () => {
+  mockPermissions({ canRevoke: false })
+
+  render(<ManagerFields user={user} />)
+  expect(screen.queryByText('Revogar acesso')).not.toBeInTheDocument()
+})
+```
+
+Esse teste não precisa saber que existe um `ProfileExtension`, e o teste de contrato não precisa saber que existe um `canRevoke`. Cada um cresce sozinho, no ritmo da coisa que ele testa.
+
+## Onde a linha se desenha
+
+Nem toda prop diferente entre extensões é uma violação de ISP. Se `user.locale` fosse usado por três das quatro para formatar datas e moedas, tirar `locale` do contrato base e forçar as três a buscá-lo de forma independente seria o erro oposto: fragmentar algo que já era, de fato, uma necessidade compartilhada. Segregar um contrato serve para separar capacidades incidentais, que servem a uma minoria, não para desmontar tudo que é comum em nome de um princípio.
+
+O sinal de que uma prop pertence ao contrato base, e não a um hook isolado, é simples: quantas implementações atuais dependeriam dela se pudessem escolher. Uma em quatro é sinal de segregar. Três em quatro é sinal de deixar em paz, e talvez até promover para obrigatória.
+
+Também vale desconfiar de segregar cedo demais, antes de existir uma segunda implementação que não precise da capacidade em questão. Um contrato com um campo a mais, usado por todo mundo que existe até agora, não é um problema esperando para ser resolvido, é só um contrato que ainda não encontrou seu primeiro caso divergente.
+
+## O que vem a seguir
+
+Com o contrato enxuto de novo, repare no que aconteceu por baixo: `ManagerFields` agora importa `usePermissions` direto, e `SupplierFields` importa `useContext(CardLayoutContext)` direto. Cada extensão ganhou uma dependência concreta e específica, embutida no próprio arquivo. Funciona até o dia em que `usePermissions` precisa de duas implementações diferentes, uma para o ambiente de testes e outra para produção, ou até o dia em que o `CardLayoutContext` precisa vir de um provider diferente em cada aplicação que reaproveita esses componentes. Nesse dia, quem depende diretamente do concreto sente o peso de nunca ter dependido de uma abstração. É esse o assunto da última letra da série, o D de Dependency Inversion.
+
+## Referências
+
+- Robert C. Martin, *The Interface Segregation Principle* (Engineering Notebook, C++ Report, 1996), o artigo original, com o caso da Xerox que batizou o princípio
+- Robert C. Martin, ["The Interface Segregation Principle"](https://objectmentor.com/resources/articles/isp.pdf), versão revisada do mesmo artigo
+- Robert C. Martin, *Agile Software Development: Principles, Patterns, and Practices* (2002), capítulo sobre ISP aplicado a hierarquias de classes
+- Kent C. Dodds, ["Colocation"](https://kentcdodds.com/blog/colocation) (2019), sobre manter dado e lógica perto de quem realmente precisa deles
