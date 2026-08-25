@@ -51,7 +51,7 @@ const personJsonLd = {
   url: 'https://adrianomaringolo.dev',
   jobTitle: 'Full-stack Software Engineer',
   description: t.about.directBio,
-  image: 'https://adrianomaringolo.dev/images/about-profile-photo-light.jpeg',
+  image: 'https://adrianomaringolo.dev/images/about-profile-photo.jpeg',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'São Paulo',

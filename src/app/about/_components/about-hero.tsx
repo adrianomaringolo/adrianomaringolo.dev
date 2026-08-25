@@ -1,7 +1,6 @@
 'use client'
 
 import { useLocale } from '@/hooks/use-locale'
-import { useTheme } from '@/hooks/use-theme'
 import { useExperience } from '@/hooks/use-experience'
 import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
@@ -28,7 +27,6 @@ const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 export function AboutHero() {
   const { t } = useLocale()
-  const { resolvedTheme } = useTheme()
   const { years } = useExperience()
 
   const heading = t('about.header').replace('{{years}}', String(years))
@@ -55,7 +53,7 @@ export function AboutHero() {
           className="relative overflow-hidden rounded-xl w-full aspect-[3/4] lg:sticky lg:top-28"
         >
           <Image
-            src={`/images/about-profile-photo-${resolvedTheme}.jpeg`}
+            src="/images/about-profile-photo.jpeg"
             alt="Adriano Maringolo"
             fill
             sizes="(max-width: 1024px) 100vw, 280px"
