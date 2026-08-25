@@ -3,11 +3,11 @@ title: "The Interface Segregation Principle in Practice: The Contract That Grew 
 series: "SOLID in React"
 excerpt: "Two new extensions were enough to bloat the contract that Liskov Substitution had just closed. SOLID's fourth principle is about never forcing an implementer, or a caller, to carry what it doesn't use."
 author: "Adriano Maringolo"
-publishedAt: "2026-08-21"
+publishedAt: "2026-08-24"
 readingTime: 11
 tags: ["react", "solid", "arquitetura", "clean-code"]
 featured: false
-image: "/blog/2026-08-21-solid-interface-segregation-principle/hero-isp-og.png"
+image: "/blog/2026-08-24-solid-interface-segregation-principle/hero-isp-og.png"
 tldr:
   - "ISP says no one should be forced to depend on props or methods it doesn't use. A bloated React contract forces every extension, and every test, to carry data it never reads."
   - "One new prop on the shared contract looks cheap, but it spreads to every existing implementation and to the composition point, which now fetches that data for everyone, whether they need it or not."
@@ -24,7 +24,7 @@ Then `ManagerFields` arrived, for internal managers. It needs to know whether th
 
 Neither change broke anything. Both landed the same way, as a new prop on the contract. That's exactly where the trouble started.
 
-![SOLID's I badge above a single contract carrying four different capabilities, of which each extension only uses a slice, contrasted with smaller contracts where every extension depends only on what it uses](/blog/2026-08-21-solid-interface-segregation-principle/hero-isp.svg)
+![SOLID's I badge above a single contract carrying four different capabilities, of which each extension only uses a slice, contrasted with smaller contracts where every extension depends only on what it uses](/blog/2026-08-24-solid-interface-segregation-principle/hero-isp.svg)
 
 ## What the principle actually says
 

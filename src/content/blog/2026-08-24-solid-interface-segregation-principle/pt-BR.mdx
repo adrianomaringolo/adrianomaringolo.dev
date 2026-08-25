@@ -3,11 +3,11 @@ title: "Interface Segregation Principle na prática: o contrato que engordou par
 series: "SOLID no React"
 excerpt: "Duas extensões novas bastaram para inflar o contrato que a Liskov Substitution tinha acabado de fechar. O quarto princípio do SOLID é sobre não obrigar quem implementa, ou quem consome, a carregar o que não usa."
 author: "Adriano Maringolo"
-publishedAt: "2026-08-21"
+publishedAt: "2026-08-24"
 readingTime: 11
 tags: ["react", "solid", "arquitetura", "clean-code"]
 featured: false
-image: "/blog/2026-08-21-solid-interface-segregation-principle/hero-isp-og.png"
+image: "/blog/2026-08-24-solid-interface-segregation-principle/hero-isp-og.png"
 tldr:
   - "ISP diz que ninguém deveria ser forçado a depender de props ou métodos que não usa. Um contrato React inchado força cada extensão, e cada teste, a carregar dados que nunca lê."
   - "Uma prop nova no contrato compartilhado parece barata, mas se propaga para toda implementação existente e para o ponto de composição, que passa a buscar aquele dado para todo mundo, mesmo para quem não precisa."
@@ -24,7 +24,7 @@ Chegou o `ManagerFields`, para gestores internos. Ele precisa saber se o usuári
 
 Nenhuma das duas mudanças quebrou nada. As duas entraram do mesmo jeito, como prop nova no contrato. E foi exatamente aí que o problema começou.
 
-![Selo I do SOLID sobre um contrato único carregando quatro capacidades diferentes, do qual só uma parte é usada por cada extensão, contrastado com contratos menores em que cada extensão depende só do que usa](/blog/2026-08-21-solid-interface-segregation-principle/hero-isp.svg)
+![Selo I do SOLID sobre um contrato único carregando quatro capacidades diferentes, do qual só uma parte é usada por cada extensão, contrastado com contratos menores em que cada extensão depende só do que usa](/blog/2026-08-24-solid-interface-segregation-principle/hero-isp.svg)
 
 ## O que diz o princípio
 
