@@ -20,15 +20,32 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     // Prevent hydration mismatch by only running on client
     const initializeLocale = () => {
       try {
+        // A `?lang=` in the URL (how blog-post pages resolve their locale
+        // server-side, see localizedBlogHref) takes priority over saved
+        // preference: a shared English link should open in English even if
+        // this browser has a different stored/detected locale. This is also
+        // what keeps `document.documentElement.lang` in sync — it's the
+        // single place that writes it, so there's no ordering race with a
+        // page-level effect.
+        const urlLang = new URLSearchParams(window.location.search).get('lang')
+        if (urlLang === 'pt-BR' || urlLang === 'en-US') {
+          setLocaleState(urlLang)
+          document.documentElement.lang = urlLang
+          localStorage.setItem('preferred-locale', urlLang)
+          return
+        }
+
         // Check localStorage first
         const savedLocale = localStorage.getItem('preferred-locale') as Locale
         if (savedLocale && (savedLocale === 'pt-BR' || savedLocale === 'en-US')) {
           setLocaleState(savedLocale)
+          document.documentElement.lang = savedLocale
         } else {
           // Detect system language
           const systemLang = navigator.language
           const detectedLocale = systemLang.startsWith('pt') ? 'pt-BR' : 'en-US'
           setLocaleState(detectedLocale)
+          document.documentElement.lang = detectedLocale
           localStorage.setItem('preferred-locale', detectedLocale)
         }
       } catch (error) {
