@@ -1,7 +1,7 @@
 'use client'
 
-import { useLocale } from '@/hooks/use-locale'
 import { parseLocalDate } from '@/lib/formatters'
+import { createTranslator, localizedBlogHref, type Locale } from '@/lib/i18n'
 import type { BlogPostMetadata } from '@/types/blog'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
@@ -9,13 +9,14 @@ import Link from 'next/link'
 
 interface BlogCardProps {
   post: BlogPostMetadata
+  locale: Locale
   index?: number
 }
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
-export function BlogCard({ post, index = 0 }: BlogCardProps) {
-  const { locale, t } = useLocale()
+export function BlogCard({ post, locale, index = 0 }: BlogCardProps) {
+  const { t } = createTranslator(locale)
 
   const formatDate = (dateString: string) =>
     parseLocalDate(dateString).toLocaleDateString(locale === 'pt-BR' ? 'pt-BR' : 'en-US', {
@@ -30,7 +31,7 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
       transition={{ duration: 0.4, delay: index * 0.06, ease }}
       viewport={{ once: true, amount: 0 }}
     >
-      <Link href={`/blog/${post.slug}`} className="group flex items-start gap-4 py-5">
+      <Link href={localizedBlogHref(post.slug, locale)} className="group flex items-start gap-4 py-5">
         <span className="text-xs font-mono text-muted-foreground/25 w-5 shrink-0 tabular-nums select-none pt-0.5">
           {String(index + 1).padStart(2, '0')}
         </span>

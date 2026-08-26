@@ -33,6 +33,13 @@ export function createTranslator(locale: Locale) {
   return { t, locale }
 }
 
+// Blog posts have a real per-language URL (`?lang=en-US`); every internal
+// link to one must carry the current locale so navigation doesn't silently
+// drop back to the default language.
+export function localizedBlogHref(slug: string, locale: Locale): string {
+  return locale === 'en-US' ? `/blog/${slug}?lang=en-US` : `/blog/${slug}`
+}
+
 // Locale metadata for SEO
 export const localeMetadata = {
   'pt-BR': {

@@ -1,6 +1,7 @@
 'use client'
 
 import { useLocale } from '@/hooks/use-locale'
+import { localizedBlogHref } from '@/lib/i18n'
 import type { BlogPostMetadata } from '@/types/blog'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
@@ -49,7 +50,7 @@ export function FeaturedBlog({ posts }: FeaturedBlogProps) {
             transition={{ duration: 0.6, ease }}
             viewport={{ once: true, amount: 0 }}
           >
-            <Link href={`/blog/${featured.slug}`} className="group block">
+            <Link href={localizedBlogHref(featured.slug, locale)} className="group block">
               {featured.image && (
                 <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-5 bg-muted">
                   <Image
@@ -94,7 +95,7 @@ export function FeaturedBlog({ posts }: FeaturedBlogProps) {
                   transition={{ duration: 0.5, delay: index * 0.07, ease }}
                   viewport={{ once: true, amount: 0 }}
                 >
-                  <Link href={`/blog/${post.slug}`} className="group flex gap-3 py-5 items-start">
+                  <Link href={localizedBlogHref(post.slug, locale)} className="group flex gap-3 py-5 items-start">
                     {post.image && (
                       <div className="relative w-16 h-16 shrink-0 rounded-md overflow-hidden bg-muted">
                         <Image

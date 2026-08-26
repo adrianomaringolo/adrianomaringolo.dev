@@ -69,8 +69,10 @@ export async function generateMetadata({ params, searchParams }: BlogPostProps):
   }
 }
 
-export default async function BlogPost({ params }: BlogPostProps) {
+export default async function BlogPost({ params, searchParams }: BlogPostProps) {
   const { slug } = await params
+  const { lang } = await searchParams
+  const locale = resolveLocale(lang)
   const post = getBlogPost(slug)
 
   if (!post) notFound()
@@ -80,14 +82,15 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: post.title['pt-BR'],
-    description: post.excerpt['pt-BR'],
+    headline: post.title[locale],
+    description: post.excerpt[locale],
     datePublished: post.publishedAt,
     keywords: post.tags.join(', '),
-    url: `${baseUrl}/blog/${post.slug}`,
+    inLanguage: locale,
+    url: locale === 'en-US' ? `${baseUrl}/blog/${post.slug}?lang=en-US` : `${baseUrl}/blog/${post.slug}`,
     image: post.image ? `${baseUrl}${post.image}` : undefined,
     isPartOf: post.series
-      ? { '@type': 'CreativeWorkSeries', name: post.series['pt-BR'] }
+      ? { '@type': 'CreativeWorkSeries', name: post.series[locale] }
       : undefined,
     author: {
       '@type': 'Person',
@@ -99,7 +102,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <BlogPostClient post={post} relatedPosts={relatedPosts} />
+      <BlogPostClient post={post} relatedPosts={relatedPosts} locale={locale} />
     </>
   )
 }

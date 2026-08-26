@@ -2,6 +2,7 @@
 
 import { useLocale } from '@/hooks/use-locale'
 import { parseLocalDate } from '@/lib/formatters'
+import { localizedBlogHref } from '@/lib/i18n'
 import { cn } from '@/lib/utils'
 import type { BlogPostMetadata } from '@/types/blog'
 import { Button } from 'buildgrid-ui'
@@ -120,7 +121,7 @@ export function BlogListClient({ posts }: BlogListClientProps) {
                 viewport={{ once: true, amount: 0 }}
                 className="group"
               >
-                <Link href={`/blog/${post.slug}`}>
+                <Link href={localizedBlogHref(post.slug, locale)}>
                   <div className="grid grid-cols-[28px_96px_1fr] sm:grid-cols-[32px_120px_1fr] lg:grid-cols-[48px_144px_1fr_32px] gap-4 lg:gap-8 py-8 items-start rounded-lg -mx-4 px-4 transition-colors hover:bg-muted/40">
 
                     {/* Index */}

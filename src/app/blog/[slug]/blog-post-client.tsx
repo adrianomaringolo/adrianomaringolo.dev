@@ -4,8 +4,8 @@ import { BlogCard } from '@/app/blog/_components/blog-card'
 import { GiscusComments } from '@/app/blog/_components/giscus-comments'
 import { ShareModal } from '@/app/blog/_components/share-modal'
 import { ReadingProgressBar } from '@/components/reading-progress-bar'
-import { useLocale } from '@/hooks/use-locale'
 import { parseLocalDate } from '@/lib/formatters'
+import { createTranslator, type Locale } from '@/lib/i18n'
 import type { BlogPost, BlogPostMetadata } from '@/types/blog'
 import { motion } from 'framer-motion'
 import GithubSlugger from 'github-slugger'
@@ -20,6 +20,11 @@ const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 interface BlogPostClientProps {
   post: BlogPost
   relatedPosts: BlogPostMetadata[]
+  // Resolved server-side from `?lang=`, not the global (client-only) site
+  // locale: this page's URL is the source of truth for its content language,
+  // so search engines and non-JS crawlers see the same language the
+  // metadata (generateMetadata's `alternates.languages`) promises them.
+  locale: Locale
 }
 
 interface TocItem {
@@ -57,8 +62,8 @@ function headingText(children: ReactNode): string {
     .join('')
 }
 
-export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
-  const { locale, t } = useLocale()
+export function BlogPostClient({ post, relatedPosts, locale }: BlogPostClientProps) {
+  const { t } = createTranslator(locale)
 
   const tocItems = useMemo(() => extractToc(post.content[locale]), [post.content, locale])
 
@@ -155,7 +160,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
                   {post.tags.map((tag) => t(`blog.tags.${tag}`)).join(' · ')}
                 </p>
               )}
-              <ShareModal post={post} />
+              <ShareModal post={post} locale={locale} />
             </div>
           </motion.div>
         </div>
@@ -358,7 +363,7 @@ export function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
               <ul className="divide-y divide-border/40 border-y border-border/40">
                 {relatedPosts.map((relatedPost, index) => (
                   <li key={relatedPost.slug}>
-                    <BlogCard post={relatedPost} index={index} />
+                    <BlogCard post={relatedPost} locale={locale} index={index} />
                   </li>
                 ))}
               </ul>

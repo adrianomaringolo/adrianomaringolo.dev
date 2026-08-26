@@ -1,6 +1,6 @@
 'use client'
 
-import { useLocale } from '@/hooks/use-locale'
+import { createTranslator, localizedBlogHref, type Locale } from '@/lib/i18n'
 import type { BlogPost } from '@/types/blog'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Copy, Share2, X } from 'lucide-react'
@@ -49,17 +49,17 @@ interface ShareOption {
 
 interface ShareModalProps {
   post: BlogPost
+  locale: Locale
 }
 
-export function ShareModal({ post }: ShareModalProps) {
+export function ShareModal({ post, locale }: ShareModalProps) {
   const [open, setOpen] = useState(false)
   const [copied, setCopied] = useState(false)
-  const { locale, t } = useLocale()
+  const { t } = createTranslator(locale)
 
   const getUrl = () => {
     const base = typeof window !== 'undefined' ? window.location.origin : 'https://adrianomaringolo.dev'
-    const langParam = locale === 'en-US' ? '?lang=en-US' : ''
-    return `${base}/blog/${post.slug}${langParam}`
+    return `${base}${localizedBlogHref(post.slug, locale)}`
   }
 
   const title = post.title[locale] ?? post.title['pt-BR']
