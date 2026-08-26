@@ -76,6 +76,18 @@ e descrição de cada um.
 confirma o Markdown gerado corretamente, incluindo todos os 8 projetos e o post
 de blog publicado.
 
+> **Atualização (2026-08-26):** incrementado para bilíngue. Cada seção
+> (páginas principais, projetos, blog) agora tem uma versão em inglês logo
+> abaixo da versão em pt-BR — para o blog, o link da versão em inglês já usa
+> `?lang=en-US` (URL real, mesmo padrão do item 5 abaixo); para projetos e
+> páginas estáticas, que não têm URL própria em inglês, o link continua
+> apontando para a mesma URL pt-BR, com uma nota explícita no topo do arquivo
+> avisando disso — para não reproduzir ali o mesmo mismatch metadata↔conteúdo
+> que existia no blog antes da correção documentada no item 5. Essa é a mesma
+> decisão do item 5 (não vale a pena rotear o site inteiro por idioma), só que
+> aplicada ao próprio `llms.txt`: como é um índice em texto, não uma página
+> real, dá pra ele ser bilíngue sem reabrir aquela decisão.
+
 ---
 
 ## 2. ~~`Person` JSON-LD raso~~ CORRIGIDO — o site já tinha os fatos, só não estavam estruturados
@@ -230,6 +242,20 @@ Isso não é um item novo — é uma decisão já registrada no item 4 do
 não escolhida por custo). Só reforçando aqui porque o *motivo* de reconsiderar
 muda: não é só sobre hreflang estar "tecnicamente correto", é sobre o site
 literalmente não ser recuperável em inglês por esses mecanismos.
+
+> **Atualização (2026-08-26):** a decisão de não rotear o site inteiro por
+> idioma continua de pé, mas dois gaps adjacentes que essa decisão não cobria
+> foram fechados nesta sessão: (1) o `?lang=en-US` do blog gerava metadata em
+> inglês (`generateMetadata`) mas o corpo renderizado continuava seguindo o
+> locale client-side (`useLocale()`), então um crawler sem JS via `<title>` em
+> inglês com conteúdo em português — `BlogPostClient`, `ShareModal` e
+> `BlogCard` agora recebem o locale resolvido da URL como prop em vez de
+> puxar do hook global; (2) `document.documentElement.lang` nunca era
+> atualizado pela detecção automática de idioma (só pelo toggle manual) —
+> corrigido em `use-locale.tsx`, que também passou a dar prioridade a um
+> `?lang=` na URL sobre a preferência salva. Também foi adicionado
+> `BreadcrumbList` JSON-LD em posts e projetos (não coberto no item 8 do
+> `SEO_AUDIT.md`). O `llms.txt` (item 1 acima) ganhou seções em inglês.
 
 ---
 
