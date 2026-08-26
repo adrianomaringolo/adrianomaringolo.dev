@@ -1,5 +1,6 @@
 import { JsonLd } from '@/components/json-ld'
 import { getBlogPost, getBlogPosts, getRelatedPosts } from '@/lib/blog'
+import { getTranslations } from '@/lib/i18n'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { BlogPostClient } from './blog-post-client'
@@ -78,6 +79,9 @@ export default async function BlogPost({ params, searchParams }: BlogPostProps) 
   if (!post) notFound()
 
   const relatedPosts = getRelatedPosts(post.slug, post.tags)
+  const t = getTranslations(locale)
+  const postUrl =
+    locale === 'en-US' ? `${baseUrl}/blog/${post.slug}?lang=en-US` : `${baseUrl}/blog/${post.slug}`
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -87,7 +91,7 @@ export default async function BlogPost({ params, searchParams }: BlogPostProps) 
     datePublished: post.publishedAt,
     keywords: post.tags.join(', '),
     inLanguage: locale,
-    url: locale === 'en-US' ? `${baseUrl}/blog/${post.slug}?lang=en-US` : `${baseUrl}/blog/${post.slug}`,
+    url: postUrl,
     image: post.image ? `${baseUrl}${post.image}` : undefined,
     isPartOf: post.series
       ? { '@type': 'CreativeWorkSeries', name: post.series[locale] }
@@ -99,9 +103,20 @@ export default async function BlogPost({ params, searchParams }: BlogPostProps) 
     },
   }
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: t.nav.home, item: baseUrl },
+      { '@type': 'ListItem', position: 2, name: t.nav.blog, item: `${baseUrl}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title[locale], item: postUrl },
+    ],
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       <BlogPostClient post={post} relatedPosts={relatedPosts} locale={locale} />
     </>
   )

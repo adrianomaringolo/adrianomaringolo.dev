@@ -1,5 +1,6 @@
 import { JsonLd } from '@/components/json-ld'
 import { getProjectBySlug } from '@/data/projects'
+import { getTranslations } from '@/lib/i18n'
 import type { Project } from '@/types/project'
 import type { Metadata } from 'next'
 import type React from 'react'
@@ -98,9 +99,23 @@ export default async function ProjectDetailLayout({
       : {}),
   }
 
+  // Projects have no `?lang=` variant (unlike blog posts) — content is
+  // pt-BR only, so the breadcrumb labels match that.
+  const t = getTranslations('pt-BR')
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: t.nav.home, item: baseUrl },
+      { '@type': 'ListItem', position: 2, name: t.nav.projects, item: `${baseUrl}/projects` },
+      { '@type': 'ListItem', position: 3, name: project.title['pt-BR'], item: url },
+    ],
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       {children}
     </>
   )
