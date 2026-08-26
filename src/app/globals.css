@@ -351,6 +351,22 @@
   }
 }
 
+/* Hero name line-reveal — CSS-driven so it plays at first paint instead of
+   waiting on JS hydration (a slow hydration previously left the name
+   clipped out of view for longer than intended). */
+@keyframes hero-line-reveal {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.hero-line-reveal {
+  animation: hero-line-reveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

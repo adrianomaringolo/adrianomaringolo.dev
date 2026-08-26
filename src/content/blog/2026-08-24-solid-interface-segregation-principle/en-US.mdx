@@ -1,0 +1,255 @@
+---
+title: "The Interface Segregation Principle in Practice: The Contract That Grew Fat to Fit Everyone"
+series: "SOLID in React"
+excerpt: "Two new extensions were enough to bloat the contract that Liskov Substitution had just closed. SOLID's fourth principle is about never forcing an implementer, or a caller, to carry what it doesn't use."
+author: "Adriano Maringolo"
+publishedAt: "2026-08-24"
+readingTime: 11
+tags: ["react", "solid", "arquitetura", "clean-code"]
+featured: false
+image: "/blog/2026-08-24-solid-interface-segregation-principle/hero-isp-og.png"
+tldr:
+  - "ISP says no one should be forced to depend on props or methods it doesn't use. A bloated React contract forces every extension, and every test, to carry data it never reads."
+  - "One new prop on the shared contract looks cheap, but it spreads to every existing implementation and to the composition point, which now fetches that data for everyone, whether they need it or not."
+  - "The costliest symptom is indirect: the contract test suite, written to treat every implementation as one thing, needs a per-implementation exception again, the same `if` the previous post had just removed."
+  - "The fix is to shrink the contract back to the common minimum and let each extension fetch, on its own, the extra capability only it needs, through its own hook or context instead of receiving it from outside."
+  - "Over-segregating is its own mistake: a need shared by most implementations belongs in the base contract, not in a hook isolated per implementation."
+---
+
+> This post is the fifth part of the SOLID in React series, following [SOLID in React: An Introductory Guide to the 5 Principles](/blog/solid-principles-in-react), [The Single Responsibility Principle in Practice](/blog/solid-single-responsibility-principle), [The Open/Closed Principle in Practice](/blog/solid-open-closed-principle), and [The Liskov Substitution Principle in Practice](/blog/solid-liskov-substitution-principle).
+
+The previous post ended with `ProfileExtension` named, tested, and delivering on its promise: any one of the three extensions could stand in for any other, and a contract test suite proved it on every change. That lasted about as long as these things do.
+
+Then `ManagerFields` arrived, for internal managers. It needs to know whether the logged-in user can revoke access from whoever they're viewing, and that information doesn't live on `user`, it comes from a separate permissions lookup. Two weeks later, the same profile card that renders full-page started showing up in a compact widget too, the team roster on the dashboard, and `SupplierFields` needed to know which of the two it was in: an editable field on the full page, plain text on the compact card.
+
+Neither change broke anything. Both landed the same way, as a new prop on the contract. That's exactly where the trouble started.
+
+![SOLID's I badge above a single contract carrying four different capabilities, of which each extension only uses a slice, contrasted with smaller contracts where every extension depends only on what it uses](/blog/2026-08-24-solid-interface-segregation-principle/hero-isp.svg)
+
+## What the principle actually says
+
+*No client should be forced to depend on methods it doesn't use.*
+
+Robert C. Martin described the principle in 1996, naming it after a real case at Xerox. A printing system had a single `Job` interface, with methods to print, staple, and fax. Most printers only printed. Every class implementing `Job` still had to declare `staple()` and `fax()`, and the usual body was an exception saying "not supported." The contract existed to serve the most capable printer, and every other one paid the price of pretending to be that printer too.
+
+The translation to React swaps classes for props, but the mechanism is identical. A component contract that grows to fit the next specific need stops being anyone's contract and becomes everyone's contract combined. Every implementation carries props it doesn't read, and every caller of the contract has to supply data that only a fraction of the implementations actually use.
+
+## The symptom: a contract that grows fatter with every extension
+
+`ProfileExtension` left the previous post like this, and for good reason: it was exactly what the three existing extensions needed, no more, no less.
+
+```tsx
+export type ProfileExtension = (props: { user: User }) => ReactNode
+```
+
+`ManagerFields` shows up needing permissions:
+
+```tsx
+// ManagerFields.tsx: needs something the contract doesn't have
+function ManagerFields({ user, permissions }: { user: User; permissions: Permissions }) {
+  return (
+    <div>
+      <p>Team: {user.team}</p>
+      {permissions.canRevoke && <button onClick={() => revokeAccess(user.id)}>Revoke access</button>}
+    </div>
+  )
+}
+```
+
+The lesson from the Liskov post is still fresh: don't force one extra required prop onto a single implementation, that breaks substitution. So the move that looks right is to generalize the contract instead of generalizing an exception:
+
+```tsx
+export type ProfileExtension = (props: {
+  user: User
+  permissions: Permissions
+}) => ReactNode
+```
+
+Two weeks later, the profile card gets reused in a second place, the compact team-roster widget, and `SupplierFields` needs to know which of the two it's in:
+
+```tsx
+export type ProfileExtension = (props: {
+  user: User
+  permissions: Permissions
+  layout: 'compact' | 'full'
+}) => ReactNode
+```
+
+Each change, on its own, looks small. Together, they grew the contract from one field to three, and none of the four extensions use all three at once.
+
+## The `if` the test suite had just gotten rid of
+
+The composition point now has to supply the whole contract, so it fetches everything, for everyone, on every render:
+
+```tsx
+function ProfilePage({ userId, kind }: { userId: string; kind: UserKind }) {
+  const permissions = usePermissions(userId)
+  const Extension = extensions[kind]
+
+  return (
+    <UserProfile userId={userId}>
+      {(user) => <Extension user={user} permissions={permissions} layout="full" />}
+    </UserProfile>
+  )
+}
+```
+
+The admin screen never looks at `permissions`, but every time it renders, the permissions lookup runs anyway. Same story for `TeamRosterCard`, the compact widget: it exists for `SupplierFields`, but it passes `permissions` to `AdminFields` and `PartnerFields` too, because the type demands it.
+
+The most expensive effect shows up in the contract test suite, the very one the previous post wrote so it would never need a per-implementation exception again:
+
+```tsx
+describe.each(Object.entries(extensions))('ProfileExtension contract: %s', (name, Extension) => {
+  it('renders a visible section even without the optional data', () => {
+    const { container } = render(
+      <Extension user={userWithoutOptionalData} permissions={emptyPermissions} layout="full" />,
+    )
+    expect(container).not.toBeEmptyDOMElement()
+  })
+})
+```
+
+`AdminFields`, `PartnerFields`, and `SupplierFields` now all receive `emptyPermissions`, a value that means nothing to them, just to satisfy the type. And when someone needs to test `ManagerFields`'s specific behavior, the assertion doesn't fit the generic loop:
+
+```tsx
+it('hides restricted actions without permission', () => {
+  if (name !== 'manager') return
+
+  render(<Extension user={user} permissions={emptyPermissions} layout="full" />)
+  expect(screen.queryByText('Revoke access')).not.toBeInTheDocument()
+})
+```
+
+That `if (name !== 'manager') return` is the same `if` the Liskov post had just pulled out of the way, only this time it landed in the test suite instead of the component. The relationship between the principles holds: a contract serves everyone equally only as long as it's the size of what everyone needs. The moment it grows to fit one exception, the exception resurfaces somewhere else, usually somewhere nobody was watching.
+
+## Why this actually hurts
+
+The cost of the phantom `staple()` at Xerox was a runtime exception, easy to spot. The cost here is quieter: nothing breaks, nothing throws, TypeScript is satisfied because every prop exists with the right type. What gets lost is harder to flag in a code review: readability.
+
+Whoever opens `AdminFields.tsx` for the first time and sees a signature accepting `permissions` and `layout` has every reason to assume the component uses both. It doesn't. The signature became a promise the component's body doesn't keep, and the only way to find that out is to read the whole implementation, exactly the work a type signature is supposed to save.
+
+The second cost is performance and data coupling: `usePermissions(userId)` runs for every extension, even the ones that never read the result. For a local lookup that's small waste. For a network call, or one that triggers a side effect, it's real work happening for no reason, paid by screens that never asked for it.
+
+The third cost, and the one that hurts most in practice, is what happened to the test. The suite existed to prove exactly one thing: that the extensions were interchangeable. The moment it needs an `if` to know which implementation it's looking at, it stopped proving that. It turned into four separate tests sharing a file, pretending to be a contract test.
+
+## Segregating the contract
+
+The fix starts by asking, prop by prop, who actually uses it. `user` is common to all four extensions, so it stays in the base contract. `permissions` and `layout` each serve exactly one extension, so they should never have left their own files.
+
+```tsx
+export type ProfileExtension = (props: { user: User }) => ReactNode
+```
+
+`ManagerFields` fetches permissions on its own, the same way `SupplierFields` has been fetching supplier data since the Liskov post:
+
+```tsx
+// ManagerFields.tsx: same contract, extra capability on its own
+function ManagerFields({ user }: { user: User }) {
+  const { canRevoke } = usePermissions(user.id)
+
+  return (
+    <div>
+      <p>Team: {user.team}</p>
+      {canRevoke && <button onClick={() => revokeAccess(user.id)}>Revoke access</button>}
+    </div>
+  )
+}
+```
+
+`layout` is a slightly different problem: it isn't data to fetch, it's context that already exists wherever the component is mounted. Instead of flowing down as a prop through the generic composition point, it becomes a context that only the component that cares subscribes to:
+
+```tsx
+// SupplierFields.tsx: asks about layout only when it matters
+function SupplierFields({ user }: { user: User }) {
+  const layout = useContext(CardLayoutContext)
+  const { supplier, save } = useSupplier(user.id)
+
+  if (!supplier?.taxId) {
+    return <EmptyField label="Supplier details" hint="Registration pending approval" />
+  }
+
+  if (layout === 'compact') {
+    return <span>{supplier.taxId}</span>
+  }
+
+  return (
+    <label>
+      Tax ID
+      <input defaultValue={supplier.taxId} onBlur={(e) => save({ taxId: e.target.value })} />
+    </label>
+  )
+}
+```
+
+The composition point goes back to exactly what it was in the previous post, knowing nothing about permissions or layout:
+
+```tsx
+function ProfilePage({ userId, kind }: { userId: string; kind: UserKind }) {
+  const Extension = extensions[kind]
+
+  return <UserProfile userId={userId}>{(user) => <Extension user={user} />}</UserProfile>
+}
+
+function TeamRosterCard({ userId, kind }: { userId: string; kind: UserKind }) {
+  const Extension = extensions[kind]
+
+  return (
+    <CardLayoutContext.Provider value="compact">
+      <UserProfile userId={userId}>{(user) => <Extension user={user} />}</UserProfile>
+    </CardLayoutContext.Provider>
+  )
+}
+```
+
+Neither component knows `ManagerFields` exists, or that `SupplierFields` reads the layout. They still talk only to the minimal contract, and each extension handles on its own whatever is only its business.
+
+## Testing each capability on its own
+
+The contract suite is uniform again, because the contract is uniform again:
+
+```tsx
+describe.each(Object.entries(extensions))('ProfileExtension contract: %s', (name, Extension) => {
+  it('renders a visible section even without the optional data', () => {
+    const { container } = render(<Extension user={userWithoutOptionalData} />)
+    expect(container).not.toBeEmptyDOMElement()
+  })
+
+  it('does not navigate during render', () => {
+    render(<Extension user={userWithoutOptionalData} />)
+    expect(navigate).not.toHaveBeenCalled()
+  })
+})
+```
+
+No leftover `if`, no mock that means nothing to three out of four implementations. The behavior of `permissions` and `layout` didn't disappear, it just moved address: it lives next to the hook and the context each one uses, not inside the test that exists to treat everyone the same.
+
+```tsx
+// use-permissions.test.ts
+it('hides restricted actions without permission', () => {
+  mockPermissions({ canRevoke: false })
+
+  render(<ManagerFields user={user} />)
+  expect(screen.queryByText('Revoke access')).not.toBeInTheDocument()
+})
+```
+
+That test doesn't need to know `ProfileExtension` exists, and the contract test doesn't need to know `canRevoke` exists. Each one grows on its own, at the pace of the thing it tests.
+
+## Where the line gets drawn
+
+Not every prop that differs between extensions is an ISP violation. If `user.locale` were used by three of the four to format dates and currency, pulling `locale` out of the base contract and forcing all three to fetch it independently would be the opposite mistake: fragmenting something that was, in fact, a shared need. Segregating a contract is meant to separate incidental capabilities that serve a minority, not to dismantle everything that's common in the name of a principle.
+
+The signal that a prop belongs in the base contract, not in an isolated hook, is simple: how many current implementations would depend on it if they could choose. One out of four is a sign to segregate. Three out of four is a sign to leave it alone, and maybe even promote it to required.
+
+It's also worth being wary of segregating too early, before a second implementation exists that doesn't need the capability in question. A contract with one extra field, used by everyone that currently exists, isn't a problem waiting to be solved, it's just a contract that hasn't met its first divergent case yet.
+
+## What's next
+
+With the contract lean again, notice what happened underneath: `ManagerFields` now imports `usePermissions` directly, and `SupplierFields` imports `useContext(CardLayoutContext)` directly. Each extension picked up a concrete, specific dependency baked right into its own file. That works fine until the day `usePermissions` needs two different implementations, one for tests and one for production, or until the day `CardLayoutContext` needs to come from a different provider in every application that reuses these components. On that day, whoever depends directly on the concrete thing feels the weight of never having depended on an abstraction instead. That's what the series' final letter is about, the D for Dependency Inversion.
+
+## References
+
+- Robert C. Martin, *The Interface Segregation Principle* (Engineering Notebook, C++ Report, 1996), the original article, with the Xerox case that named the principle
+- Robert C. Martin, ["The Interface Segregation Principle"](https://objectmentor.com/resources/articles/isp.pdf), a revised version of the same article
+- Robert C. Martin, *Agile Software Development: Principles, Patterns, and Practices* (2002), the chapter applying ISP to class hierarchies
+- Kent C. Dodds, ["Colocation"](https://kentcdodds.com/blog/colocation) (2019), on keeping data and logic close to whoever actually needs them

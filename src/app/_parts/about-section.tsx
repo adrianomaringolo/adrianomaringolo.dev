@@ -1,7 +1,6 @@
 'use client'
 
 import { useLocale } from '@/hooks/use-locale'
-import { useTheme } from '@/hooks/use-theme'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
@@ -13,7 +12,6 @@ const disciplineKeys = ['frontend', 'fullstack', 'architecture'] as const
 
 export function AboutSection() {
   const { t } = useLocale()
-  const { resolvedTheme } = useTheme()
   const years = new Date().getFullYear() - 2009
 
   const intro = t('home.about.intro').replace('{{years}}', years.toString())
@@ -30,7 +28,7 @@ export function AboutSection() {
           className="relative overflow-hidden rounded-xl w-full aspect-[3/4] lg:sticky lg:top-28"
         >
           <Image
-            src={`/images/about-profile-photo-${resolvedTheme}.jpeg`}
+            src="/images/about-profile-photo.jpeg"
             alt="Adriano Maringolo"
             fill
             sizes="(max-width: 1024px) 100vw, 280px"

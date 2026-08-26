@@ -4,30 +4,93 @@ import { useLocale } from '@/hooks/use-locale'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { useCallback, useRef } from 'react'
-import { FilledBlobName, OutlinedBlobName } from './hero-blobs'
-import { NeuralNetworkCanvas } from './neural-network-canvas'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
+const HERO_VIDEO_SOURCES = [
+  '/videos/hero-bg-1-waveform.mp4',
+  '/videos/hero-bg-2-earth-projection.mp4',
+  '/videos/hero-bg-3-code-display.mp4',
+  '/videos/hero-bg-4-coding-glow.mp4',
+  '/videos/hero-bg-5-neon-tunnel.mp4',
+]
+
+/** Desktop + motion-safe only: avoids autoplay cost/battery drain on mobile. */
+function useHeroVideoEnabled() {
+  const [enabled, setEnabled] = useState(false)
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const desktop = window.matchMedia('(min-width: 768px)')
+    const update = () => setEnabled(desktop.matches && !reducedMotion.matches)
+    update()
+    reducedMotion.addEventListener('change', update)
+    desktop.addEventListener('change', update)
+    return () => {
+      reducedMotion.removeEventListener('change', update)
+      desktop.removeEventListener('change', update)
+    }
+  }, [])
+
+  return enabled
+}
+
+function HeroBackgroundVideo() {
+  const enabled = useHeroVideoEnabled()
+  const [index, setIndex] = useState(0)
+  const [visible, setVisible] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const fadeOut = useCallback(() => setVisible(false), [])
+
+  useEffect(() => {
+    if (!enabled) return
+    const v = videoRef.current
+    if (!v) return
+    v.load()
+    v.play().catch(() => {})
+  }, [enabled, index])
+
+  if (!enabled) return null
+
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <video
+        ref={videoRef}
+        muted
+        playsInline
+        preload="metadata"
+        onCanPlay={() => setVisible(true)}
+        onEnded={fadeOut}
+        onError={fadeOut}
+        onTransitionEnd={() => {
+          if (!visible) setIndex((i) => (i + 1) % HERO_VIDEO_SOURCES.length)
+        }}
+        className="absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-300"
+        style={{ opacity: visible ? 0.28 : 0 }}
+      >
+        <source src={HERO_VIDEO_SOURCES[index]} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/55" />
+    </div>
+  )
+}
+
 function LineReveal({
   children,
-  delay = 0,
+  delayMs = 0,
   descender = false,
 }: {
   children: React.ReactNode
-  delay?: number
+  delayMs?: number
   descender?: boolean
 }) {
   return (
     <div className={`overflow-hidden ${descender ? 'pb-[0.25em]' : ''}`}>
-      <motion.div
-        initial={{ y: '105%' }}
-        animate={{ y: '0%' }}
-        transition={{ duration: 0.75, delay, ease }}
-      >
+      <div className="hero-line-reveal" style={{ animationDelay: `${delayMs}ms` }}>
         {children}
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -46,13 +109,6 @@ function DrawLine({ delay = 0 }: { delay?: number }) {
 export function HeroSection() {
   const { t, locale } = useLocale()
   const years = new Date().getFullYear() - 2009
-  const glowRef = useRef<HTMLDivElement>(null)
-
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    if (!glowRef.current) return
-    const rect = e.currentTarget.getBoundingClientRect()
-    glowRef.current.style.transform = `translate(calc(${e.clientX - rect.left}px - 50%), calc(${e.clientY - rect.top}px - 50%))`
-  }, [])
 
   const yearsUnit = locale === 'pt-BR' ? 'anos' : 'yrs'
   const statusText = locale === 'pt-BR' ? 'disponível' : 'available'
@@ -61,23 +117,18 @@ export function HeroSection() {
     <section
       className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 overflow-hidden"
       style={{ minHeight: 'calc(100svh - 64px)' }}
-      onMouseMove={handleMouseMove}
     >
-      {/* Neural network ambient field — desktop only, fades in after text reveals */}
-      <NeuralNetworkCanvas />
+      <HeroBackgroundVideo />
 
-      {/* Cursor-following ambient glow */}
+      {/* Ambient glow — static, per the approved pattern in DESIGN.md */}
       <div
-        ref={glowRef}
         aria-hidden
         className="pointer-events-none absolute top-0 left-0 w-175 h-150 rounded-full"
         style={{
           background: 'radial-gradient(ellipse at center, oklch(0.65 0.13 200) 0%, transparent 70%)',
           opacity: 0.06,
           filter: 'blur(80px)',
-          willChange: 'transform',
           transform: 'translate(-20%, 60%)',
-          transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       />
 
@@ -105,12 +156,14 @@ export function HeroSection() {
             className="font-black leading-[0.88] tracking-[-0.04em] [font-family:var(--font-geist-sans)]"
             style={{ fontSize: 'clamp(4.5rem, 15vw, 11rem)' }}
           >
-            <LineReveal delay={0.1}>
-              <FilledBlobName>Adriano</FilledBlobName>
+            <LineReveal delayMs={100}>
+              <span className="text-foreground">Adriano</span>
             </LineReveal>
 
-            <LineReveal delay={0.22} descender>
-              <OutlinedBlobName>Maringolo</OutlinedBlobName>
+            <LineReveal delayMs={220} descender>
+              <span style={{ WebkitTextStroke: '2px var(--foreground)', color: 'transparent' }}>
+                Maringolo
+              </span>
             </LineReveal>
           </h1>
         </div>

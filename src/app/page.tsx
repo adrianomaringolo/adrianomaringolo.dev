@@ -18,7 +18,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <FeaturedProjects />
       <FeaturedBlog posts={posts} />
-      <CTASection posts={posts} />
+      <CTASection />
     </>
   )
 }

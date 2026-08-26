@@ -1,0 +1,105 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Interface Segregation Principle: a single fat contract carrying four capabilities that only one extension each actually uses, versus four small contracts where every extension depends only on what it uses</title>
+  <defs>
+    <pattern id="grid-isp-hero" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1.3" fill="#cbd5e1" opacity="0.6"/>
+    </pattern>
+    <marker id="arrow-isp-hero" markerWidth="11" markerHeight="11" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#0f172a"/>
+    </marker>
+    <marker id="arrow-isp-hero-bad" markerWidth="11" markerHeight="11" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#b45309"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="1200" height="630" fill="url(#grid-isp-hero)"/>
+
+  <!-- eyebrow: I badge + series label -->
+  <circle cx="600" cy="66" r="28" fill="#0f172a"/>
+  <text x="600" y="75" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="700" font-size="24" fill="#ffffff">I</text>
+  <text x="600" y="118" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="600" font-size="15" letter-spacing="3" fill="#0891b2">SOLID IN REACT · PART 4</text>
+
+  <!-- before: one fat contract, four consumers, most pins unused -->
+  <text x="250" y="178" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#64748b">one contract, four consumers</text>
+
+  <rect x="185" y="200" width="130" height="220" rx="10" fill="#fef3e7" stroke="#b45309" stroke-width="2.5"/>
+  <g>
+    <circle cx="220" cy="232" r="7" fill="#b45309"/>
+    <circle cx="280" cy="232" r="7" fill="#b45309"/>
+    <circle cx="220" cy="264" r="7" fill="#b45309"/>
+    <circle cx="280" cy="264" r="7" fill="#b45309"/>
+    <circle cx="220" cy="296" r="7" fill="#b45309"/>
+    <circle cx="280" cy="296" r="7" fill="#b45309"/>
+    <circle cx="220" cy="328" r="7" fill="#b45309"/>
+    <circle cx="280" cy="328" r="7" fill="#b45309"/>
+  </g>
+  <text x="250" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#94a3b8">4 fields</text>
+
+  <g stroke="#b45309" stroke-width="3" stroke-dasharray="9,7" fill="none">
+    <path d="M320,232 L390,166" marker-end="url(#arrow-isp-hero-bad)"/>
+    <path d="M320,264 L390,264" marker-end="url(#arrow-isp-hero-bad)"/>
+    <path d="M320,328 L390,362" marker-end="url(#arrow-isp-hero-bad)"/>
+    <path d="M320,296 L390,296" marker-end="url(#arrow-isp-hero-bad)" opacity="0.4"/>
+  </g>
+
+  <g fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+    <rect x="395" y="145" width="130" height="42" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <text x="460" y="170" text-anchor="middle">AdminFields</text>
+
+    <rect x="395" y="245" width="130" height="42" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <text x="460" y="270" text-anchor="middle">SupplierFields</text>
+
+    <rect x="395" y="345" width="130" height="42" rx="8" fill="#f1f5f9" stroke="#0891b2" stroke-width="2.5"/>
+    <text x="460" y="370" text-anchor="middle" fill="#0891b2">ManagerFields</text>
+  </g>
+  <text x="460" y="410" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">only one reads all 4 fields</text>
+
+  <!-- transformation arrow -->
+  <path d="M580,296 L660,296" stroke="#0f172a" stroke-width="3.5" marker-end="url(#arrow-isp-hero)"/>
+
+  <!-- after: small contracts, each consumer pulls only what it needs -->
+  <text x="880" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#64748b">small contracts, pulled on demand</text>
+
+  <g fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+    <rect x="700" y="145" width="130" height="42" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <text x="765" y="170" text-anchor="middle">AdminFields</text>
+
+    <rect x="700" y="245" width="130" height="42" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+    <text x="765" y="270" text-anchor="middle">SupplierFields</text>
+
+    <rect x="700" y="345" width="130" height="42" rx="8" fill="#f1f5f9" stroke="#0891b2" stroke-width="2.5"/>
+    <text x="765" y="370" text-anchor="middle" fill="#0891b2">ManagerFields</text>
+  </g>
+
+  <g stroke="#0891b2" stroke-width="3" fill="none">
+    <path d="M830,166 L905,166" marker-end="url(#arrow-isp-hero)"/>
+    <path d="M830,366 L905,366" marker-end="url(#arrow-isp-hero)"/>
+  </g>
+  <g stroke="#cbd5e1" stroke-width="2.5" fill="none">
+    <path d="M830,266 L890,266" marker-end="url(#arrow-isp-hero)" opacity="0.5"/>
+  </g>
+
+  <g fill="#ffffff" stroke="#0891b2" stroke-width="2.5">
+    <rect x="910" y="140" width="150" height="52" rx="8"/>
+    <rect x="910" y="340" width="150" height="52" rx="8"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#0f172a">
+    <text x="985" y="162" text-anchor="middle">{ user }</text>
+    <text x="985" y="358" text-anchor="middle">{ user }</text>
+    <text x="985" y="378" text-anchor="middle" fill="#0891b2">+ usePermissions()</text>
+  </g>
+  <rect x="925" y="240" width="120" height="52" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="985" y="262" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#0f172a">{ user }</text>
+  <text x="985" y="278" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#64748b">+ useCardLayout()</text>
+
+  <!-- baseline -->
+  <rect x="160" y="462" width="880" height="7" rx="3.5" fill="#0891b2"/>
+
+  <!-- wordmark -->
+  <text x="600" y="545" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="800" font-size="60" letter-spacing="-1.5" fill="#0f172a">ISP</text>
+  <text x="600" y="580" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="600" font-size="20" letter-spacing="4" fill="#0891b2">INTERFACE SEGREGATION PRINCIPLE</text>
+
+  <!-- footer -->
+  <text x="600" y="612" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-weight="500" font-size="16" letter-spacing="1" fill="#94a3b8">adrianomaringolo.dev</text>
+</svg>
