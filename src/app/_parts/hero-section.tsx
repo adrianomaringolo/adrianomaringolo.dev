@@ -4,8 +4,78 @@ import { useLocale } from '@/hooks/use-locale'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
+const HERO_VIDEO_SOURCES = [
+  '/videos/hero-bg-1-waveform.mp4',
+  '/videos/hero-bg-2-earth-projection.mp4',
+  '/videos/hero-bg-3-code-display.mp4',
+  '/videos/hero-bg-4-coding-glow.mp4',
+  '/videos/hero-bg-5-neon-tunnel.mp4',
+]
+
+/** Desktop + motion-safe only: avoids autoplay cost/battery drain on mobile. */
+function useHeroVideoEnabled() {
+  const [enabled, setEnabled] = useState(false)
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const desktop = window.matchMedia('(min-width: 768px)')
+    const update = () => setEnabled(desktop.matches && !reducedMotion.matches)
+    update()
+    reducedMotion.addEventListener('change', update)
+    desktop.addEventListener('change', update)
+    return () => {
+      reducedMotion.removeEventListener('change', update)
+      desktop.removeEventListener('change', update)
+    }
+  }, [])
+
+  return enabled
+}
+
+function HeroBackgroundVideo() {
+  const enabled = useHeroVideoEnabled()
+  const [index, setIndex] = useState(0)
+  const [visible, setVisible] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const fadeOut = useCallback(() => setVisible(false), [])
+
+  useEffect(() => {
+    if (!enabled) return
+    const v = videoRef.current
+    if (!v) return
+    v.load()
+    v.play().catch(() => {})
+  }, [enabled, index])
+
+  if (!enabled) return null
+
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <video
+        ref={videoRef}
+        muted
+        playsInline
+        preload="metadata"
+        onCanPlay={() => setVisible(true)}
+        onEnded={fadeOut}
+        onError={fadeOut}
+        onTransitionEnd={() => {
+          if (!visible) setIndex((i) => (i + 1) % HERO_VIDEO_SOURCES.length)
+        }}
+        className="absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-300"
+        style={{ opacity: visible ? 0.28 : 0 }}
+      >
+        <source src={HERO_VIDEO_SOURCES[index]} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/55" />
+    </div>
+  )
+}
 
 function LineReveal({
   children,
@@ -48,6 +118,8 @@ export function HeroSection() {
       className="relative flex flex-col justify-center px-6 md:px-12 lg:px-20 overflow-hidden"
       style={{ minHeight: 'calc(100svh - 64px)' }}
     >
+      <HeroBackgroundVideo />
+
       {/* Ambient glow — static, per the approved pattern in DESIGN.md */}
       <div
         aria-hidden
