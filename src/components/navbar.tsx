@@ -52,6 +52,7 @@ export function Navbar() {
               alt="Adriano Maringolo"
               width={28}
               height={28}
+              className="dark:brightness-0 dark:invert"
             />
           </Link>
 
