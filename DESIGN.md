@@ -105,7 +105,7 @@ CTA             — two-column: contact copy + recent blog posts
 ### Page structure (/about)
 ```
 Hero      — two-column: photo sticky + heading + availability + CTA
-History   — narrative paragraphs in 2-col grid
+History   — narrative paragraphs, single column (max-w-2xl)
 Career    — vertical timeline with connecting line and dots
 Tech      — categorized text list (Frontend / Back-end / Ferramentas / IA)
 Principles — numbered editorial list with icons

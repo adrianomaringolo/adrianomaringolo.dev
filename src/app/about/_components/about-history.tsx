@@ -23,7 +23,7 @@ export function AboutHistory() {
           {t('about.historyTitle')}
         </motion.p>
 
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-20">
+        <div className="max-w-2xl space-y-6">
           {paragraphs.map((paragraph, i) => (
             <motion.p
               key={i}
