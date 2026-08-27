@@ -21,6 +21,13 @@ export function AboutFaq() {
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    // Marks the question/answer text as speakable for voice assistants
+    // (Google Assistant) — scoped by id rather than the Tailwind classes
+    // below, so a future style change can't silently break the selector.
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#about-faq h3', '#about-faq p'],
+    },
     mainEntity: items.map((item) => ({
       '@type': 'Question',
       name: item.question,
@@ -32,7 +39,7 @@ export function AboutFaq() {
   }
 
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-20 border-t border-border/40">
+    <section id="about-faq" className="py-24 px-6 md:px-12 lg:px-20 border-t border-border/40">
       {/* Mirrors whatever locale is currently rendered — structured data
           must match visible content, so this re-renders on language switch. */}
       <JsonLd data={faqJsonLd} />

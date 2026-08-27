@@ -64,6 +64,9 @@ export function generatePageMetadata({
     // a real `?lang=en-US` URL and sets its own `alternates` accordingly.
     alternates: {
       canonical: `${baseUrl}${pagePath}`,
+      types: {
+        'application/rss+xml': `${baseUrl}/feed.xml`,
+      },
     },
     openGraph: {
       type: 'website',

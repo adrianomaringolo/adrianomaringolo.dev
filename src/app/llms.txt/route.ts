@@ -59,6 +59,7 @@ the link opens the Portuguese page.
 - [Blog](${baseUrl}/blog): artigos sobre React, Next.js e engenharia de software.
 - [Contato](${baseUrl}/contact): serviços oferecidos (site, web app, consultoria) e formas de contato.
 - [Currículo](${baseUrl}/resume): currículo completo em PDF.
+- [Feed RSS](${baseUrl}/feed.xml): feed dos posts do blog (versão em inglês: \`?lang=en-US\`).
 
 ## Main pages
 
@@ -67,6 +68,7 @@ the link opens the Portuguese page.
 - [Blog](${baseUrl}/blog): articles on React, Next.js and software engineering.
 - [Contact](${baseUrl}/contact): services offered (website, web app, consulting) and contact channels.
 - [Resume](${baseUrl}/resume): full resume as PDF.
+- [RSS feed](${baseUrl}/feed.xml?lang=en-US): blog posts feed (Portuguese version: without \`?lang=\`).
 
 ## Projetos
 
