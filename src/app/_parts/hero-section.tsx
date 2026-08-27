@@ -16,20 +16,17 @@ const HERO_VIDEO_SOURCES = [
   '/videos/hero-bg-5-neon-tunnel.mp4',
 ]
 
-/** Desktop + motion-safe only: avoids autoplay cost/battery drain on mobile. */
+/** Motion-safe only: honors prefers-reduced-motion, otherwise plays on all viewports. */
 function useHeroVideoEnabled() {
   const [enabled, setEnabled] = useState(false)
 
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const desktop = window.matchMedia('(min-width: 768px)')
-    const update = () => setEnabled(desktop.matches && !reducedMotion.matches)
+    const update = () => setEnabled(!reducedMotion.matches)
     update()
     reducedMotion.addEventListener('change', update)
-    desktop.addEventListener('change', update)
     return () => {
       reducedMotion.removeEventListener('change', update)
-      desktop.removeEventListener('change', update)
     }
   }, [])
 
