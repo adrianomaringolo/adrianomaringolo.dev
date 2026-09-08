@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; }
+
+  .bg-photo { position: absolute; inset: 0; background: url('bg-final.jpg') center center / cover no-repeat; }
+  .gradient-overlay { position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(10,18,38,0.80) 0%, rgba(10,18,38,0.52) 20%, rgba(10,18,38,0.28) 42%, rgba(10,18,38,0.34) 60%, rgba(10,18,38,0.74) 80%, rgba(10,18,38,0.96) 93%, rgba(10,18,38,1) 100%),
+      linear-gradient(90deg, rgba(10,18,38,0.30) 0%, rgba(10,18,38,0.05) 40%, rgba(10,18,38,0) 100%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .content { position: absolute; top: 0; left: 0; right: 0; z-index: 10; padding: 118px 88px 0 88px; display: flex; flex-direction: column; }
+
+  .eyebrow { font-size: 18px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #94a3b8; margin-bottom: 30px; }
+
+  .headline { font-size: 64px; font-weight: 900; line-height: 1.14; letter-spacing: -0.03em; color: #f1f5f9; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .subtitle { margin-top: 30px; font-size: 33px; font-weight: 500; color: #cbd5e1; line-height: 1.5; max-width: 830px; }
+
+  .cta { position: absolute; bottom: 150px; left: 88px; right: 80px; z-index: 15; }
+  .cta-label { font-size: 25px; font-weight: 600; color: #94a3b8; margin-bottom: 14px; }
+  .cta-site { font-size: 58px; font-weight: 900; letter-spacing: -0.03em; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 9px; z-index: 30; }
+  .dot { width: 24px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 44px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-photo"></div>
+  <div class="gradient-overlay"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">O ponto</div>
+    <h1 class="headline">Use a IA à vontade.<br>Mas tenha <em>alguém que<br>responde</em> pelo resultado.</h1>
+    <p class="subtitle">É isso que você contrata: não o código, o critério.</p>
+  </div>
+
+  <div class="cta">
+    <div class="cta-label">Vamos conversar sobre o seu site:</div>
+    <div class="cta-site">adrianomaringolo.dev</div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

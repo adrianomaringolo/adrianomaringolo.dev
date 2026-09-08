@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 860px; height: 860px; top: -320px; right: -300px;
+    background: radial-gradient(circle, rgba(8,145,178,0.12) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 860px; height: 860px; bottom: -340px; left: -300px;
+    background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+
+  .content { position: absolute; inset: 0; z-index: 10; padding: 96px 84px 0 84px; display: flex; flex-direction: column; }
+
+  .eyebrow { font-size: 19px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #94a3b8; margin-bottom: 28px; }
+
+  .headline { font-size: 98px; font-weight: 900; line-height: 1.03; letter-spacing: -0.038em; color: #0f172a; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .subtitle { margin-top: 30px; font-size: 39px; font-weight: 500; color: #64748b; line-height: 1.46; max-width: 900px; }
+
+  .art { margin: 40px -6px 0; }
+  .art svg { width: 108%; margin-left: -4%; height: auto; display: block; }
+
+  .footer-row { position: absolute; bottom: 150px; left: 88px; right: 88px;
+    display: flex; align-items: center; gap: 20px; z-index: 15; }
+  .swipe { font-size: 26px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; }
+  .arrow { color: #0891b2; display: flex; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Orçamento de site</div>
+    <h1 class="headline">Quanto custa<br>fazer <em>um site</em>?</h1>
+    <p class="subtitle">A resposta honesta é: depende. Mas dá para saber exatamente do que depende. São 5 fatores.</p>
+
+    <div class="art">
+    <svg viewBox="0 0 924 372" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0891b2"/><stop offset="1" stop-color="#6366f1"/>
+        </linearGradient>
+        <filter id="sk" x="-8%" y="-8%" width="116%" height="116%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="9" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/>
+        </filter>
+      </defs>
+
+      <g filter="url(#sk)" fill="none" stroke="#1e293b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="250" y="12" width="424" height="348" rx="20" fill="#ffffff"/>
+        <line x1="250" y1="70" x2="674" y2="70"/>
+        <rect x="286" y="36" width="168" height="16" rx="8" fill="#e2e8f0" stroke="none"/>
+
+        <!-- line items -->
+        <g>
+          <rect x="286" y="94" width="26" height="26" rx="6"/>
+          <polyline points="291,107 299,115 309,101"/>
+          <rect x="332" y="98" width="196" height="12" rx="6" fill="#eef2f6" stroke="none"/>
+          <rect x="580" y="98" width="58" height="12" rx="6" fill="#e2e8f0" stroke="none"/>
+        </g>
+        <g>
+          <rect x="286" y="138" width="26" height="26" rx="6"/>
+          <polyline points="291,151 299,159 309,145"/>
+          <rect x="332" y="142" width="230" height="12" rx="6" fill="#eef2f6" stroke="none"/>
+          <rect x="580" y="142" width="58" height="12" rx="6" fill="#e2e8f0" stroke="none"/>
+        </g>
+        <g>
+          <rect x="286" y="182" width="26" height="26" rx="6"/>
+          <rect x="332" y="186" width="176" height="12" rx="6" fill="#eef2f6" stroke="none"/>
+          <rect x="580" y="186" width="58" height="12" rx="6" fill="#e2e8f0" stroke="none"/>
+        </g>
+        <g>
+          <rect x="286" y="226" width="26" height="26" rx="6"/>
+          <rect x="332" y="230" width="210" height="12" rx="6" fill="#eef2f6" stroke="none"/>
+          <rect x="580" y="230" width="58" height="12" rx="6" fill="#e2e8f0" stroke="none"/>
+        </g>
+
+        <!-- total -->
+        <line x1="286" y1="288" x2="638" y2="288"/>
+        <rect x="286" y="302" width="120" height="16" rx="8" fill="#e2e8f0" stroke="none"/>
+        <rect x="540" y="292" width="98" height="44" rx="11" fill="url(#g)" stroke="none"/>
+
+        <g stroke="none" fill="#ffffff" font-family="Manrope, sans-serif" font-size="34" font-weight="900" text-anchor="middle">
+          <text x="589" y="326">?</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <div class="swipe">Arraste para ver os 5 fatores</div>
+    <div class="arrow">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

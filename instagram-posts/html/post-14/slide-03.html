@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 820px; height: 820px; top: -300px; right: -280px; background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 820px; height: 820px; bottom: -320px; left: -300px; background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 92px 84px 140px; display: flex; flex-direction: column; }
+  .counter { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+  .counter-line { width: 44px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .counter-text { font-size: 16px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #94a3b8; }
+  .title { font-size: 67px; font-weight: 900; color: #0f172a; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 22px; }
+  .title em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .desc { font-size: 30px; font-weight: 500; color: #475569; line-height: 1.5; max-width: 900px; }
+  .art { margin-top: auto; margin-bottom: auto; display: flex; justify-content: center; }
+  .art svg { width: 880px; height: auto; display: block; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 9px; z-index: 30; }
+  .dot { width: 24px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+  .dot.active { width: 44px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div><div class="blob-1"></div><div class="blob-2"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="content">
+    <div class="counter"><div class="counter-line"></div><span class="counter-text">O risco</span></div>
+    <div class="title">E dá para ser<br><em>despejado</em></div>
+    <div class="desc">A conta pode ser bloqueada, o alcance pode ser cortado e as regras mudam sem aviso. Você constrói em cima de um terreno que não controla.</div>
+
+    <div class="art">
+    <svg viewBox="0 0 640 470" xmlns="http://www.w3.org/2000/svg">
+      <!-- ===== ilha low-poly ===== -->
+      <polygon points="320,272 140,250 250,222" fill="#bbf7d0"/>
+      <polygon points="320,272 250,222 390,224" fill="#86efac"/>
+      <polygon points="320,272 390,224 500,255" fill="#4ade80"/>
+      <polygon points="320,272 500,255 440,315" fill="#6ee7b7"/>
+      <polygon points="320,272 440,315 300,335" fill="#4ade80"/>
+      <polygon points="320,272 300,335 170,300" fill="#a7f3d0"/>
+      <polygon points="320,272 170,300 140,250" fill="#86efac"/>
+      <polygon points="170,300 300,335 440,315 500,255 505,266 445,326 300,347 168,311" fill="#16a34a"/>
+      <polygon points="140,250 170,300 320,432 220,352" fill="#92400e"/>
+      <polygon points="170,300 300,335 320,432" fill="#78350f"/>
+      <polygon points="300,335 440,315 320,432" fill="#854d0e"/>
+      <polygon points="440,315 500,255 360,362 320,432" fill="#713f12"/>
+      <polygon points="170,300 300,335 245,305" fill="#a16207"/>
+      <polygon points="300,335 440,315 372,322" fill="#a8a29e"/>
+
+      <!-- ===== torre / condomínio ===== -->
+      <!-- laje do topo -->
+      <polygon points="243,64 358,64 350,46 251,46" fill="#475569"/>
+      <polygon points="243,64 251,46 350,46 358,64" fill="#3f4a58"/>
+      <polygon points="350,64 386,46 350,46" fill="#334155"/>
+      <!-- antena -->
+      <polygon points="299,46 303,46 302,20 300,20" fill="#94a3b8"/>
+      <circle cx="301" cy="18" r="4" fill="#06b6d4"/>
+      <!-- face frontal -->
+      <polygon points="252,238 300,238 252,64" fill="#9aa6b6"/>
+      <polygon points="300,238 300,64 252,64" fill="#a7b2c1"/>
+      <polygon points="300,238 348,238 300,64" fill="#818d9f"/>
+      <polygon points="348,238 348,64 300,64" fill="#717e90"/>
+      <!-- face lateral -->
+      <polygon points="348,238 386,219 386,46 348,64" fill="#5b6675"/>
+      <polygon points="348,238 386,46 348,64" fill="#67717f"/>
+      <!-- janelas frontais -->
+      <polygon points="264,86 278,84 278,98 264,100" fill="#c3ccd7"/>
+      <polygon points="286,86 300,84 300,98 286,100" fill="#c9d1db"/>
+      <polygon points="308,86 322,84 322,98 308,100" fill="#b7c0cc"/>
+      <polygon points="330,86 344,84 344,98 330,100" fill="#b0bac7"/>
+      <polygon points="264,110 278,108 278,122 264,124" fill="#c9d1db"/>
+      <polygon points="286,110 300,108 300,122 286,124" fill="#c3ccd7"/>
+      <polygon points="308,110 322,108 322,122 308,124" fill="#b7c0cc"/>
+      <polygon points="330,110 344,108 344,122 330,124" fill="#bcc5d0"/>
+      <!-- unidades apagadas -->
+      <polygon points="286,134 300,132 300,146 286,148" fill="#1e293b"/>
+      <polygon points="264,134 278,132 278,146 264,148" fill="#c3ccd7"/>
+      <polygon points="308,134 322,132 322,146 308,148" fill="#2b3648"/>
+      <polygon points="330,134 344,132 344,146 330,148" fill="#b7c0cc"/>
+      <polygon points="264,158 278,156 278,170 264,172" fill="#c9d1db"/>
+      <polygon points="286,158 300,156 300,170 286,172" fill="#2b3648"/>
+      <polygon points="308,158 322,156 322,170 308,172" fill="#c3ccd7"/>
+      <polygon points="330,158 344,156 344,170 330,172" fill="#b0bac7"/>
+      <polygon points="264,182 278,180 278,194 264,196" fill="#bcc5d0"/>
+      <polygon points="286,182 300,180 300,194 286,196" fill="#2b3648"/>
+      <polygon points="308,182 322,180 322,194 308,196" fill="#b7c0cc"/>
+      <polygon points="330,182 344,180 344,194 330,196" fill="#c3ccd7"/>
+      <!-- entrada -->
+      <polygon points="290,238 312,238 290,210" fill="#334155"/>
+      <polygon points="312,238 312,208 290,210" fill="#1e293b"/>
+
+      <!-- cadeado low-poly (na frente, sobre o terreno) -->
+      <g transform="translate(250,240) scale(1.3)">
+        <polygon points="-20,2 -10,2 -10,-24 -20,-28" fill="#8593a6"/>
+        <polygon points="10,2 20,2 20,-28 10,-24" fill="#8593a6"/>
+        <polygon points="-20,-28 20,-28 13,-44 -13,-44" fill="#a4afbe"/>
+        <polygon points="-13,-44 13,-44 8,-53 -8,-53" fill="#bcc6d1"/>
+        <polygon points="-32,2 32,2 32,52 -32,52" fill="#475569"/>
+        <polygon points="-32,2 32,2 0,14" fill="#5c6a7d"/>
+        <polygon points="32,2 32,52 10,52" fill="#3a4657"/>
+        <polyline points="-32,2 -32,52 32,52 32,2" fill="none" stroke="#f1f5f9" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="0" cy="24" r="7" fill="#f1f5f9"/>
+        <polygon points="-5,28 5,28 0,42" fill="#f1f5f9"/>
+      </g>
+    </svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

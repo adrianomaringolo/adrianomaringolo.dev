@@ -11,31 +11,36 @@
     },
     {
       "file": "slide-02.html",
+      "title": "O que é uma biblioteca de componentes",
+      "description": "Explicação para leigos — analogia de caixa de peças prontas + mini demo de componentes reais"
+    },
+    {
+      "file": "slide-03.html",
       "title": "Por que usar",
       "description": "Filosofia do projeto e benefícios principais"
     },
     {
-      "file": "slide-03.html",
+      "file": "slide-04.html",
       "title": "54 Componentes",
       "description": "Screenshot da página de componentes na documentação"
     },
     {
-      "file": "slide-04.html",
+      "file": "slide-05.html",
       "title": "15 Blocks",
       "description": "Dois screenshots: visão geral dos blocks e Data Table"
     },
     {
-      "file": "slide-05.html",
+      "file": "slide-06.html",
       "title": "Instalação",
       "description": "Terminal com npm install e exemplo de uso"
     },
     {
-      "file": "slide-06.html",
+      "file": "slide-07.html",
       "title": "Estatísticas",
       "description": "Em números: 54 componentes, 15 blocks, 19 utilitários, WCAG, MIT"
     },
     {
-      "file": "slide-07.html",
+      "file": "slide-08.html",
       "title": "Contribuição",
       "description": "CTA para colaboração com screenshot do CONTRIBUTING.md no GitHub"
     }

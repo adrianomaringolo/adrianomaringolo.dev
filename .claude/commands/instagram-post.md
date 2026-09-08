@@ -21,7 +21,8 @@ Exemplos:
 2. Cria os arquivos HTML em `instagram-posts/html/post-NN/`
 3. Cria o `meta.json` com título, data, slides, legenda e hashtags
 4. Exporta os PNGs e gera `caption.md` em `instagram-posts/output/post-NN/`
-5. Exibe os slides para revisão
+5. Atualiza o índice `instagram-posts/POSTS.md` (nova linha na tabela + bloco em "Detalhes por post" + data de "Última atualização")
+6. Exibe os slides para revisão
 
 ---
 
@@ -225,6 +226,10 @@ Todo texto escrito nos slides e na legenda deve seguir o português do Brasil co
 - **Travessão (—): usar com moderação**. Preferir dois-pontos (`:`), vírgula ou nova frase em vez de `—` encadeado. Máximo de 1 travessão por slide.
 - **Ponto final em frases declarativas** dentro de cards e callouts
 - **Sem abreviações desnecessárias** que prejudiquem a leitura
+- **Imperativo sempre na forma do subjuntivo (imperativo culto), nunca a coloquial que usa o indicativo.** Vale para títulos, CTAs, legenda e qualquer instrução ao leitor. Exemplos:
+  - `Alugue` (não `Aluga`) · `Construa` (não `Constrói`) · `Comece` (não `Começa`) · `Faça` (não `Faz`) · `Tenha` (não `Tem`) · `Escolha` (não `Escolhe`) · `Peça` (não `Pede`) · `Use` (ok, coincide) · `Salve` (não `Salva`) · `Siga` (não `Segue`) · `Veja` (não `Vê`) · `Diga` (não `Diz`)
+  - Negativo: `Não deixe` (não `Não deixa`) · `Não perca` (não `Não perde`)
+  - Consistência: se um trecho usa `você` implícito no imperativo, todo o post mantém a mesma pessoa.
 
 Antes de exportar, revisar cada slide buscando palavras sem acento que precisam de acento. Exemplos comuns a corrigir:
 `nao → não` · `voce → você` · `ja → já` · `e → é` (verbo) · `codigo → código` · `funcao → função` · `geracao → geração` · `nao → não` · `tecnico → técnico` · `magica → mágica`
@@ -253,7 +258,9 @@ body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; fon
 - [ ] Paleta de cores respeitada
 - [ ] `meta.json` com legenda e hashtags completas
 - [ ] **Textos revisados em pt-BR**: acentos, concordância, poucos travessões
+- [ ] **Imperativo na forma culta (subjuntivo)**: "Alugue", "Construa", "Comece" — nunca "Aluga", "Constrói", "Começa"
 - [ ] **Slides escuros**: `background: #0f172a` declarado no `body`
 - [ ] Export executado: `node instagram-posts/scripts/export.mjs post-NN`
+- [ ] `instagram-posts/POSTS.md` atualizado (tabela + detalhes + data)
 - [ ] PNGs exibidos para revisão
 - [ ] `output/post-NN/caption.md` gerado e exibido

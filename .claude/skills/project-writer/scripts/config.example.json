@@ -1,0 +1,15 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "outDir": "public/projects/exemplo-slug",
+  "desktop": { "width": 1440, "height": 900, "deviceScaleFactor": 2 },
+  "mobile": { "width": 390, "height": 844, "deviceScaleFactor": 3 },
+  "defaultQuality": 82,
+  "shots": [
+    { "name": "01-hero", "path": "/", "device": "desktop", "clip": "viewport", "hide": ["#cookie-banner"] },
+    { "name": "01-hero-mobile", "path": "/", "device": "mobile", "clip": "viewport" },
+    { "name": "02-sobre", "path": "/", "device": "desktop", "scrollTo": "#sobre", "format": "png" },
+    { "name": "03-servicos", "path": "/", "device": "desktop", "scrollTo": "#servicos" },
+    { "name": "04-depoimentos", "path": "/", "device": "desktop", "scrollTo": "#depoimentos" },
+    { "name": "05-dashboard", "path": "/app", "device": "desktop", "fullPage": true, "waitFor": 1500, "format": "png" }
+  ]
+}

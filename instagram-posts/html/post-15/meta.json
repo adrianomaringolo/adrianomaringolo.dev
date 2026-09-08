@@ -1,0 +1,32 @@
+{
+  "title": "Se a IA cria sites sozinha, por que contratar alguém?",
+  "date": "2026-09-07",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    { "file": "slide-01.html", "title": "Capa", "description": "Foto Pexels (mãos com wireframe ao lado do laptop) + a pergunta: se a IA cria sites sozinha, por que contratar alguém?" },
+    { "file": "slide-02.html", "title": "A resposta curta", "description": "A IA constrói, ela não decide. Ela gera layout/código/texto; escolher o que o site precisa fazer continua humano" },
+    { "file": "slide-03.html", "title": "Onde a IA brilha", "description": "Lista do que a IA faz muito bem: layout inicial, código repetitivo, rascunhos de texto, dúvida técnica. Nota: eu uso todo dia" },
+    { "file": "slide-04.html", "title": "Onde ela para", "description": "Lista do que a IA não faz: entender o cliente, estratégia de conversão, julgar performance/SEO/segurança/acessibilidade, assumir responsabilidade" },
+    { "file": "slide-05.html", "title": "Você não quer virar especialista", "description": "Quem quer um site quer um site funcionando, não aprender domínio, hospedagem, DNS, SEO, GEO, cache, deploy, LGPD e mais uma dúzia de siglas" },
+    { "file": "slide-06.html", "title": "O resultado sozinho", "description": "Bonito, mas igual a mil outros: some no Google, não guia o visitante, decisões técnicas que você não avalia" },
+    { "file": "slide-07.html", "title": "O risco", "description": "Funciona na demo, quebra no uso. O difícil é manter, evoluir e consertar. Você não sabe o que ainda não sabe" },
+    { "file": "slide-08.html", "title": "O melhor cenário", "description": "Profissional com IA, não contra. Fórmula: julgamento humano + IA = site que trabalha" },
+    { "file": "slide-09.html", "title": "CTA", "description": "Foto Pexels (profissional revisando o board do projeto) + 'use a IA, mas tenha alguém que responde pelo resultado'. adrianomaringolo.dev" }
+  ],
+  "caption": "🤖 \"Se a IA já cria sites sozinha, por que eu contrataria um web designer ou um desenvolvedor?\"\n\nÉ uma pergunta justa. E a resposta honesta não é defender território.\n\n---\n\n⚡ A IA constrói. Ela não decide.\n\nEm segundos ela gera um layout, escreve o código repetitivo e cria rascunhos de texto. Como ferramenta, ficou impressionante. Eu uso todos os dias.\n\nO que ela não faz é escolher o que o SEU site precisa fazer pelo SEU negócio.\n\n---\n\n🧠 O que continua sendo humano:\n\n→ Entender o seu cliente e o que faz ele comprar de você.\n→ Definir a estratégia de conversão do site.\n→ Julgar performance, SEO, segurança, acessibilidade.\n→ Assumir a responsabilidade quando algo dá errado.\n\n---\n\n🧰 E você não quer virar especialista nisso\n\nQuem precisa de um site quer um site funcionando. Não quer aprender configuração de domínio, hospedagem, DNS, SEO, GEO, cache, deploy, LGPD e mais uma dúzia de siglas. Contratar alguém é justamente para não precisar.\n\n---\n\n🎭 O site que a IA entrega sozinha\n\nParece pronto. Mas costuma ser genérico, sumir no Google, não guiar o visitante para a ação e tomar decisões técnicas que você não tem como avaliar.\n\nFunciona na demo. Quebra no uso. E aí não tem ninguém para manter, evoluir e consertar.\n\n---\n\n✅ O melhor cenário não é IA OU profissional. É profissional COM IA.\n\nA IA acelera a execução. A pessoa traz o julgamento, a estratégia e alguém que responde pelo resultado.\n\njulgamento humano + IA = site que trabalha\n\n---\n\nUse a IA à vontade. Mas tenha alguém que responde pelo resultado. É isso que você contrata: não o código, o critério. 🎯\n\n💾 Salve para mostrar a quem disser \"deixa que a IA faz\".\n💬 Você já testou fazer um site com IA? Como foi?\n\n#inteligenciaartificial #ia #site #desenvolvimentoweb #webdesign #presencadigital #empreendedorismo #pequenosnegocios #marketingdigital #negociodigital #devbr #tecnologia",
+  "hashtags": [
+    "inteligenciaartificial",
+    "ia",
+    "site",
+    "desenvolvimentoweb",
+    "webdesign",
+    "presencadigital",
+    "empreendedorismo",
+    "pequenosnegocios",
+    "marketingdigital",
+    "negociodigital",
+    "devbr",
+    "tecnologia"
+  ]
+}

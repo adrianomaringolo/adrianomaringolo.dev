@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 860px; height: 860px; top: -320px; right: -300px;
+    background: radial-gradient(circle, rgba(8,145,178,0.12) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 860px; height: 860px; bottom: -340px; left: -300px;
+    background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+
+  .content { position: absolute; inset: 0; z-index: 10; padding: 96px 84px 0 84px; display: flex; flex-direction: column; }
+
+  .eyebrow { font-size: 19px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #94a3b8; margin-bottom: 28px; }
+
+  .headline { font-size: 98px; font-weight: 900; line-height: 1.03; letter-spacing: -0.038em; color: #0f172a; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .subtitle { margin-top: 30px; font-size: 41px; font-weight: 500; color: #64748b; line-height: 1.46; max-width: 920px; }
+
+  .art { margin: 44px -6px 0; }
+  .art svg { width: 114%; margin-left: -7%; height: auto; display: block; }
+
+  .footer-row { position: absolute; bottom: 150px; left: 88px; right: 88px;
+    display: flex; align-items: center; gap: 20px; z-index: 15; }
+  .swipe { font-size: 26px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; }
+  .arrow { color: #0891b2; display: flex; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Presença digital</div>
+    <h1 class="headline">Que tipo de <em>site</em><br>o seu negócio<br>precisa?</h1>
+    <p class="subtitle">São 6 formatos diferentes. Cada um resolve um problema. Escolher o errado custa tempo e dinheiro.</p>
+
+    <div class="art">
+    <svg viewBox="0 0 924 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0891b2"/><stop offset="1" stop-color="#6366f1"/>
+        </linearGradient>
+        <filter id="sk" x="-8%" y="-8%" width="116%" height="116%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="2" seed="6" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5"/>
+        </filter>
+      </defs>
+
+      <g filter="url(#sk)" fill="none" stroke="#1e293b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- row 1 -->
+        <!-- A Landing -->
+        <g transform="translate(24,20)">
+          <rect x="0" y="0" width="270" height="110" rx="14" fill="#ffffff"/>
+          <line x1="0" y1="26" x2="270" y2="26"/>
+          <circle cx="16" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="28" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="40" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/>
+          <rect x="60" y="44" width="150" height="8" rx="4" fill="#e2e8f0" stroke="none"/>
+          <rect x="80" y="60" width="110" height="7" rx="3.5" fill="#eef2f6" stroke="none"/>
+          <rect x="95" y="80" width="80" height="20" rx="7" fill="url(#g)" stroke="none"/>
+        </g>
+        <!-- B Institucional -->
+        <g transform="translate(327,20)">
+          <rect x="0" y="0" width="270" height="110" rx="14" fill="#ffffff"/>
+          <line x1="0" y1="26" x2="270" y2="26"/>
+          <circle cx="16" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="28" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="40" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/>
+          <rect x="20" y="40" width="30" height="8" rx="4" fill="#e2e8f0" stroke="none"/>
+          <rect x="58" y="40" width="30" height="8" rx="4" fill="#e2e8f0" stroke="none"/>
+          <rect x="96" y="40" width="30" height="8" rx="4" fill="#e2e8f0" stroke="none"/>
+          <rect x="20" y="60" width="230" height="10" rx="4" fill="#eef2f6" stroke="none"/>
+          <rect x="20" y="80" width="66" height="22" rx="5"/><rect x="102" y="80" width="66" height="22" rx="5"/><rect x="184" y="80" width="66" height="22" rx="5"/>
+        </g>
+        <!-- C Portfolio -->
+        <g transform="translate(630,20)">
+          <rect x="0" y="0" width="270" height="110" rx="14" fill="#ffffff"/>
+          <line x1="0" y1="26" x2="270" y2="26"/>
+          <circle cx="16" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="28" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="40" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/>
+          <rect x="22" y="40" width="106" height="30" rx="5"/><rect x="142" y="40" width="106" height="30" rx="5"/>
+          <rect x="22" y="78" width="106" height="24" rx="5"/><rect x="142" y="78" width="106" height="24" rx="5"/>
+          <path d="M34 64 L48 50 L60 64"/><circle cx="112" cy="50" r="5"/>
+        </g>
+
+        <!-- row 2 -->
+        <!-- D Blog -->
+        <g transform="translate(24,164)">
+          <rect x="0" y="0" width="270" height="110" rx="14" fill="#ffffff"/>
+          <line x1="0" y1="26" x2="270" y2="26"/>
+          <circle cx="16" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="28" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="40" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/>
+          <rect x="22" y="42" width="70" height="58" rx="6"/>
+          <rect x="106" y="44" width="140" height="8" rx="4" fill="#e2e8f0" stroke="none"/>
+          <rect x="106" y="60" width="120" height="7" rx="3.5" fill="#eef2f6" stroke="none"/>
+          <rect x="106" y="74" width="130" height="7" rx="3.5" fill="#eef2f6" stroke="none"/>
+          <rect x="106" y="88" width="90" height="7" rx="3.5" fill="#eef2f6" stroke="none"/>
+        </g>
+        <!-- E Loja -->
+        <g transform="translate(327,164)">
+          <rect x="0" y="0" width="270" height="110" rx="14" fill="#ffffff"/>
+          <line x1="0" y1="26" x2="270" y2="26"/>
+          <circle cx="16" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="28" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="40" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/>
+          <rect x="22" y="40" width="106" height="30" rx="5"/><rect x="142" y="40" width="106" height="30" rx="5"/>
+          <rect x="22" y="78" width="106" height="24" rx="5"/><rect x="142" y="78" width="106" height="24" rx="5"/>
+          <path d="M96 46 h16 a4 4 0 0 1 4 4 v10 a4 4 0 0 1 -4 4 h-16 z"/><circle cx="100" cy="52" r="2"/>
+          <path d="M216 46 h16 a4 4 0 0 1 4 4 v10 a4 4 0 0 1 -4 4 h-16 z"/><circle cx="220" cy="52" r="2"/>
+        </g>
+        <!-- F Sistema -->
+        <g transform="translate(630,164)">
+          <rect x="0" y="0" width="270" height="110" rx="14" fill="#ffffff"/>
+          <line x1="0" y1="26" x2="270" y2="26"/>
+          <circle cx="16" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="28" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/><circle cx="40" cy="13" r="3.4" fill="#cbd5e1" stroke="none"/>
+          <rect x="20" y="38" width="40" height="64" rx="6" fill="#f1f5f9"/>
+          <polyline points="80,92 110,70 140,82 170,52 200,64 236,40"/>
+          <rect x="80" y="40" width="46" height="4" rx="2" fill="#e2e8f0" stroke="none"/>
+        </g>
+
+        <!-- labels -->
+        <g stroke="none" fill="#64748b" font-family="Manrope, sans-serif" font-size="15" font-weight="800" text-anchor="middle">
+          <text x="159" y="150">Landing</text>
+          <text x="462" y="150">Institucional</text>
+          <text x="765" y="150">Portfólio</text>
+          <text x="159" y="294">Blog</text>
+          <text x="462" y="294">Loja virtual</text>
+          <text x="765" y="294">Sistema web</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <div class="swipe">Arraste para ver cada um</div>
+    <div class="arrow">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

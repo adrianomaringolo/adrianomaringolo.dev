@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+
+  .slide {
+    width: 1080px; height: 1350px;
+    position: relative; overflow: hidden;
+    background: #0a1226;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 44px;
+    padding: 62px 84px 60px;
+  }
+
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%);
+            mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%);
+  }
+  .bg-glow {
+    position: absolute; left: 50%; top: -160px; transform: translateX(-50%);
+    width: 1100px; height: 820px;
+    background: radial-gradient(ellipse at 50% 40%, rgba(6,182,212,0.18) 0%, rgba(99,102,241,0.12) 42%, transparent 72%);
+  }
+  .bg-glow-low {
+    position: absolute; left: 50%; bottom: -260px; transform: translateX(-50%);
+    width: 1000px; height: 600px;
+    background: radial-gradient(ellipse at 50% 60%, rgba(99,102,241,0.10) 0%, transparent 70%);
+  }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .series {
+    position: relative; z-index: 10;
+    display: flex; align-items: center; gap: 12px;
+    padding: 9px 20px 9px 16px;
+    background: rgba(34,211,238,0.08);
+    border: 1px solid rgba(34,211,238,0.32);
+    border-radius: 999px;
+  }
+  .series-dot { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, #22d3ee, #818cf8); flex-shrink: 0; }
+  .series-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 21px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: #7dd3fc;
+  }
+
+  .headline {
+    position: relative; z-index: 10;
+    font-size: 57px; font-weight: 900;
+    color: #f1f5f9; line-height: 1.12;
+    letter-spacing: -0.035em; text-align: center;
+    max-width: 900px;
+  }
+  .headline .grad {
+    background: linear-gradient(92deg, #22d3ee, #818cf8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .panel {
+    position: relative; z-index: 10;
+    width: 888px;
+    background: #0c1730;
+    border: 1px solid rgba(6,182,212,0.24);
+    border-radius: 20px;
+    box-shadow: 0 34px 80px -22px rgba(0,0,0,0.62), inset 0 1px 0 rgba(255,255,255,0.05);
+    padding: 38px 44px 34px;
+  }
+  .prompt {
+    font-size: 30px; font-weight: 600; color: #94a3b8; margin-bottom: 30px;
+  }
+  .prompt b { color: #f1f5f9; font-weight: 700; }
+  .prompt .blank {
+    display: inline-block; width: 118px; border-bottom: 3px solid rgba(34,211,238,0.65);
+    vertical-align: -6px; margin-left: 4px;
+  }
+
+  .rows { display: flex; flex-direction: column; gap: 18px; }
+  .row { display: flex; align-items: center; gap: 18px; }
+  .word {
+    width: 100px; flex-shrink: 0; text-align: right;
+    font-size: 27px; font-weight: 700; color: #cbd5e1;
+  }
+  .track {
+    flex: 1; height: 38px; border-radius: 10px;
+    background: #172340;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.45);
+    overflow: hidden;
+  }
+  .fill {
+    display: block;
+    height: 100%; border-radius: 10px;
+    background: linear-gradient(90deg, #5486c9, #7488cf);
+    min-width: 10px;
+  }
+  .pct {
+    width: 54px; flex-shrink: 0;
+    font-size: 24px; font-weight: 700; color: #7c899e; font-variant-numeric: tabular-nums;
+  }
+  .tag { width: 122px; flex-shrink: 0; white-space: nowrap; }
+  .row.pick .word { color: #f1f5f9; }
+  .row.pick .fill { background: linear-gradient(90deg, #22d3ee, #818cf8); box-shadow: 0 0 22px rgba(34,211,238,0.35); }
+  .row.pick .pct { color: #22d3ee; }
+  .row.pick .tag {
+    font-size: 17px; font-weight: 700; color: #22d3ee; letter-spacing: 0.02em;
+  }
+
+  .loop {
+    margin-top: 30px; padding-top: 24px;
+    border-top: 1px solid rgba(148,163,184,0.14);
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    font-size: 21px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #8b9bb4;
+  }
+  .loop svg { color: #22d3ee; }
+  .loop .sep { width: 5px; height: 5px; border-radius: 50%; background: #475569; }
+
+  .note {
+    position: relative; z-index: 10;
+    font-size: 28px; font-weight: 500; color: #cbd5e1; line-height: 1.5;
+    text-align: center; max-width: 900px;
+  }
+  .note b { color: #f1f5f9; font-weight: 800; }
+
+  .source {
+    position: absolute; left: 84px; bottom: 128px; z-index: 10;
+    font-size: 18px; font-weight: 600; color: #7c899e; letter-spacing: 0.005em;
+  }
+  .handle {
+    position: absolute; bottom: 48px; right: 72px; z-index: 30;
+    font-size: 20px; font-weight: 700; color: rgba(241,245,249,0.5);
+  }
+  .handle em { color: #22d3ee; font-style: normal; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="bg-glow-low"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="series">
+    <span class="series-dot"></span>
+    <span class="series-label">Desmistificando a IA</span>
+  </div>
+
+  <h1 class="headline">
+    A IA só adivinha <span class="grad">a próxima palavra</span>. Uma de cada vez.
+  </h1>
+
+  <div class="panel">
+    <div class="prompt"><b>&ldquo;Vou tomar um copo de</b><span class="blank"></span></div>
+    <div class="rows">
+      <div class="row pick">
+        <span class="word">água</span>
+        <span class="track"><span class="fill" style="width:44%"></span></span>
+        <span class="pct">44%</span>
+        <span class="tag">&#9666; escolhida</span>
+      </div>
+      <div class="row">
+        <span class="word">leite</span>
+        <span class="track"><span class="fill" style="width:19%"></span></span>
+        <span class="pct">19%</span>
+        <span class="tag"></span>
+      </div>
+      <div class="row">
+        <span class="word">suco</span>
+        <span class="track"><span class="fill" style="width:13%"></span></span>
+        <span class="pct">13%</span>
+        <span class="tag"></span>
+      </div>
+      <div class="row">
+        <span class="word">café</span>
+        <span class="track"><span class="fill" style="width:9%"></span></span>
+        <span class="pct">9%</span>
+        <span class="tag"></span>
+      </div>
+    </div>
+    <div class="loop">
+      <span>escolhe uma</span><span class="sep"></span>
+      <span>adiciona ao texto</span><span class="sep"></span>
+      <span>repete</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+    </div>
+  </div>
+
+  <p class="note">
+    O ChatGPT não planeja a resposta inteira. A cada palavra ele calcula qual é a mais provável a seguir, escolhe uma e recomeça. <b>É por isso que soa tão seguro mesmo quando erra:</b> está completando um padrão, não consultando um fato.
+  </p>
+
+  <div class="source">Base: é assim que ChatGPT, Gemini, Claude e Copilot geram texto (modelos de linguagem).</div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
