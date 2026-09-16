@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 100px; gap: 36px; }
+
+  .blob-1 { position: absolute; top: -80px; right: -100px; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%); pointer-events: none; }
+  .blob-2 { position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); pointer-events: none; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; pointer-events: none; }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .header { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 22px; }
+  .icon-badge { display: flex; align-items: center; color: #ef4444; }
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #0891b2; }
+  .headline { font-size: 56px; font-weight: 900; line-height: 1.12;
+    letter-spacing: -0.03em; color: #0f172a; }
+  .headline em { font-style: normal;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .myths { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 16px; }
+  .myth { display: flex; align-items: center; gap: 22px; background: #fff; border: 1.5px solid #e2e8f0;
+    border-radius: 16px; padding: 24px 28px; }
+  .myth-x { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: #fef2f2; color: #ef4444; display: flex; align-items: center; justify-content: center; }
+  .myth-body { display: flex; flex-direction: column; gap: 4px; }
+  .myth-title { font-size: 25px; font-weight: 800; color: #0f172a; }
+  .myth-desc { font-size: 18px; font-weight: 500; color: #64748b; line-height: 1.35; }
+
+  .conclusion { position: relative; z-index: 10; font-size: 24px; font-weight: 700; color: #0f172a; line-height: 1.45;
+    padding: 26px 30px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #ede9fe 100%);
+    border-radius: 16px; border: 1.5px solid #e0f2fe; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 18px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="header">
+    <div class="icon-badge">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+    </div>
+    <div class="eyebrow">O erro mais comum</div>
+    <div class="headline">Presença digital não é <em>só</em> ter Instagram</div>
+  </div>
+
+  <div class="myths">
+    <div class="myth">
+      <div class="myth-x">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </div>
+      <div class="myth-body">
+        <div class="myth-title">Só Instagram</div>
+        <div class="myth-desc">O algoritmo decide quem te vê — e pode mudar amanhã.</div>
+      </div>
+    </div>
+    <div class="myth">
+      <div class="myth-x">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </div>
+      <div class="myth-body">
+        <div class="myth-title">Só WhatsApp</div>
+        <div class="myth-desc">Funciona pra quem já te conhece. Não te encontra ninguém novo.</div>
+      </div>
+    </div>
+    <div class="myth">
+      <div class="myth-x">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </div>
+      <div class="myth-body">
+        <div class="myth-title">Só aparecer no Google</div>
+        <div class="myth-desc">Te acham — mas sem site, não têm onde entender quem você é.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion">Sozinho, cada canal é frágil. Juntos — com um site no centro — viram presença de verdade.</div>
+
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

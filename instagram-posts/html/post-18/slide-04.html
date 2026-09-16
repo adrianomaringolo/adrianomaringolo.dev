@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 100px; gap: 48px; }
+
+  .blob-1 { position: absolute; top: -80px; right: -100px; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%); pointer-events: none; }
+  .blob-2 { position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); pointer-events: none; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; pointer-events: none; }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .header { position: relative; z-index: 10; }
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #0891b2; margin-bottom: 20px; }
+  .headline { font-size: 60px; font-weight: 900; line-height: 1.05;
+    letter-spacing: -0.03em; color: #0f172a; }
+  .headline em { font-style: normal;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .pillars { position: relative; z-index: 10; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pillar { display: flex; flex-direction: column; gap: 20px; background: #fff; border: 1.5px solid #e2e8f0;
+    border-radius: 20px; padding: 32px 30px; }
+  .pillar-icon { width: 62px; height: 62px; border-radius: 16px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(8,145,178,0.12), rgba(99,102,241,0.10));
+    display: flex; align-items: center; justify-content: center; color: #0891b2; }
+  .pillar-num { font-size: 15px; font-weight: 800; color: #94a3b8; letter-spacing: 0.08em; }
+  .pillar-title { font-size: 28px; font-weight: 800; color: #0f172a; line-height: 1.2; }
+  .pillar-desc { font-size: 19px; font-weight: 500; color: #64748b; line-height: 1.4; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 18px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="header">
+    <div class="eyebrow">Os 4 pilares</div>
+    <div class="headline">O que <em>compõe</em> uma presença digital</div>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+      </div>
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">Um endereço<br>que é seu</div>
+      <div class="pillar-desc">O site — onde você conta sua história do seu jeito, sem depender de ninguém.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+      </div>
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">Aparecer<br>quando procuram</div>
+      <div class="pillar-desc">Google, mapas, busca por voz — estar lá no momento em que decidem.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+      </div>
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">Relacionamento<br>nas redes</div>
+      <div class="pillar-desc">Instagram, WhatsApp, conteúdo — o contato próximo do dia a dia.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+      </div>
+      <div class="pillar-num">04</div>
+      <div class="pillar-title">Prova social<br>de verdade</div>
+      <div class="pillar-desc">Depoimentos, avaliações, portfólio — a confiança de quem já passou por lá.</div>
+    </div>
+  </div>
+
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
