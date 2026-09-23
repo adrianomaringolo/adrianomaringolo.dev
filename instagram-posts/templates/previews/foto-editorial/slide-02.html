@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #f5f7fa;
+    display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 120px; }
+
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; top: -80px; right: -100px; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+
+  .content { position: relative; z-index: 10; }
+
+  .counter { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+  .counter-line { width: 40px; height: 3px; background: linear-gradient(90deg, #0891b2, #6366f1); border-radius: 2px; }
+  .counter-text { font-size: 16px; font-weight: 700; color: #94a3b8; letter-spacing: 0.1em; text-transform: uppercase; }
+  .counter-num { color: #0891b2; }
+
+  .headline { font-size: 64px; font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: #0f172a; margin-bottom: 44px; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .card { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 34px 38px;
+    box-shadow: 0 8px 28px rgba(15,23,42,0.05); margin-bottom: 26px; }
+  .card-head { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+  .card-icon { color: #0891b2; display: flex; }
+  .card-title { font-size: 28px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; }
+  .card-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .card-list li { display: flex; align-items: flex-start; gap: 14px; font-size: 24px; font-weight: 500; color: #475569; line-height: 1.45; }
+  .li-dot { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(135deg, #0891b2, #6366f1); margin-top: 11px; flex-shrink: 0; }
+
+  .highlight { background: #fff; border: 1.5px solid #e2e8f0; border-left: 4px solid #0891b2;
+    border-radius: 16px; padding: 24px 30px; font-size: 27px; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 24px; }
+
+  .note { font-size: 24px; font-weight: 500; color: #64748b; line-height: 1.55;
+    padding: 24px 28px; background: #fff; border-left: 4px solid #6366f1; border-radius: 0 12px 12px 0; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 20px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="counter">
+      <div class="counter-line"></div>
+      <span class="counter-text">Ponto <span class="counter-num">01</span> / 03</span>
+    </div>
+
+    <h2 class="headline">Um conceito<br>por <em>slide</em>.</h2>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-icon">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        </div>
+        <div class="card-title">Título do card</div>
+      </div>
+      <ul class="card-list">
+        <li><span class="li-dot"></span>Primeiro detalhe que sustenta o conceito.</li>
+        <li><span class="li-dot"></span>Segundo detalhe, curto e concreto.</li>
+        <li><span class="li-dot"></span>Terceiro detalhe, quando fizer falta.</li>
+      </ul>
+    </div>
+
+    <div class="highlight">O takeaway do slide cabe em uma frase só.</div>
+
+    <p class="note">Observação ou ressalva honesta. Este bloco entra quando o conceito precisa de nuance.</p>
+  </div>
+
+  <div class="progress"><span class="dot"></span><span class="dot active"></span><span class="dot"></span></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

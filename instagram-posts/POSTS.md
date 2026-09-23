@@ -2,32 +2,43 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-09-16 (post-16 a post-18)
+> Última atualização: 2026-09-22 (post-24)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
-| ID | Título | Data | Tipo | Slides | Status | Tema |
-|---|---|---|---|---|---|---|
-| post-01 | Quem sou eu | 2026-06-09 | Carrossel | 6 | 🟢 | Reapresentação / bio — 17 anos de carreira, Codurance Lisboa |
-| post-02 | Sênior não é quem nunca erra | 2026-06-15 | Único | 1 | 🟢 | Frase — senioridade e documentação |
-| post-03 | 5 razões para ter um site profissional e atrair mais clientes | 2026-06-15 | Carrossel | 7 | 🟢 | Captação — prestadores de serviço |
-| post-04 | IA para humanos: LLMs, agentes e usos práticos | 2026-06-17 | Carrossel | 9 | 🟢 | Educativo — conceitos de IA para leigos |
-| post-05 | IA Generativa: a IA que "cria", não só processa | 2026-06-17 | Carrossel | 8 | 🟢 | Educativo — IA generativa, foco dev |
-| post-06 | GoLaser Barão Geraldo — Site Completo | 2026-06-22 | Carrossel | 6 | 🟡 | Case de projeto — clínica de estética |
-| post-07 | BuildGrid UI — Biblioteca de Componentes React | 2026-06-23 | Carrossel | 8 | 🟡 | Case / lançamento open source |
-| post-08 | 84% dos devs já usam IA | 2026-07-30 | Único | 1 | 🟢 | Dado — Stack Overflow Developer Survey 2025 |
-| post-09 | Todo mundo usa IA. Ninguém usa direito. | 2026-08-02 | Carrossel | 7 | 🟡 | Humor / memes sobre uso de IA |
-| post-10 | Que tipo de site o seu negócio precisa? | 2026-08-26 | Carrossel | 8 | 🟡 | Educativo — os 6 tipos de site, com sketches vetoriais de cada um |
-| post-11 | Ser educado com o ChatGPT custa milhões | 2026-08-31 | Único | 1 | 🟡 | Curiosidade (dark) — dizer "por favor"/"obrigado" à IA e o custo de compute (fala do Sam Altman) |
-| post-12 | A IA adivinha uma palavra por vez | 2026-08-31 | Único | 1 | 🟡 | Curiosidade (dark) — como a IA gera texto no dia a dia (previsão da próxima palavra) |
-| post-13 | Quanto custa um site? A tabela honesta | 2026-09-07 | Carrossel | 8 | 🔵 | Educativo — o preço vem do escopo: 5 fatores que definem quanto custa um site (sem valores em R$) |
-| post-14 | Seu site é uma casa. A rede social é aluguel | 2026-09-07 | Carrossel | 9 | 🔵 | Analogia — site = casa própria no terreno; rede social = apartamento alugado no condomínio. Ilustrações low-poly (ilhas flutuantes), casa colorida |
-| post-15 | Se a IA cria sites sozinha, por que contratar alguém? | 2026-09-07 | Carrossel | 9 | 🔵 | Educativo — IA é ferramenta, não substitui o julgamento sobre o negócio. Capa e slide final com fotos do Pexels |
-| post-16 | Yane Leitão Personal Chef — Website Institucional | 2026-09-10 | Carrossel | 6 | 🔵 | Case de projeto — personal chef / alimentação funcional. Mesmo modelo do post-06 |
-| post-17 | Presença digital não é SÓ ter perfil no Instagram | 2026-09-13 | Único | 1 | 🔵 | Frase (pilar 5/1, banco de `estrategia-conteudo.md` §9.7) — endereço próprio que também é encontrado, fundo azul duotone + composição tipográfica |
-| post-18 | O que é presença digital? | 2026-09-15 | Carrossel | 7 | 🔵 | Educativo — cenários do dia a dia (hotel/restaurante no Google) + define presença digital, os 4 pilares, o mito de "só Instagram basta" e um diagrama de rede (site no centro) |
+A coluna **Template** aponta o esqueleto visual de `templates/TEMPLATES.md`. Os posts de
+post-01 a post-19 foram classificados retroativamente (aproximação): os templates nasceram
+deles, não o contrário. A partir do post-20 o template é escolhido antes de desenhar e fica
+registrado também no `meta.json` do post.
 
-> post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-18: em revisão.
+| ID | Título | Data | Tipo | Template | Slides | Status | Tema |
+|---|---|---|---|---|---|---|---|
+| post-01 | Quem sou eu | 2026-06-09 | Carrossel | `tipografico` | 6 | 🟢 | Reapresentação / bio — 17 anos de carreira, Codurance Lisboa |
+| post-02 | Sênior não é quem nunca erra | 2026-06-15 | Único | `frase-unica` | 1 | 🟢 | Frase — senioridade e documentação |
+| post-03 | 5 razões para ter um site profissional e atrair mais clientes | 2026-06-15 | Carrossel | `foto-editorial` | 7 | 🟢 | Captação — prestadores de serviço |
+| post-04 | IA para humanos: LLMs, agentes e usos práticos | 2026-06-17 | Carrossel | `foto-editorial` | 9 | 🟢 | Educativo — conceitos de IA para leigos |
+| post-05 | IA Generativa: a IA que "cria", não só processa | 2026-06-17 | Carrossel | `foto-editorial` | 8 | 🟢 | Educativo — IA generativa, foco dev |
+| post-06 | GoLaser Barão Geraldo — Site Completo | 2026-06-22 | Carrossel | `case-showcase` | 6 | 🟡 | Case de projeto — clínica de estética |
+| post-07 | BuildGrid UI — Biblioteca de Componentes React | 2026-06-23 | Carrossel | `case-showcase` | 8 | 🟡 | Case / lançamento open source |
+| post-08 | 84% dos devs já usam IA | 2026-07-30 | Único | `dado-visual` | 1 | 🟢 | Dado — Stack Overflow Developer Survey 2025 |
+| post-09 | Todo mundo usa IA. Ninguém usa direito. | 2026-08-02 | Carrossel | `tipografico` | 7 | 🟡 | Humor / memes sobre uso de IA |
+| post-10 | Que tipo de site o seu negócio precisa? | 2026-08-26 | Carrossel | `tipografico` | 8 | 🟡 | Educativo — os 6 tipos de site, com sketches vetoriais de cada um |
+| post-11 | Ser educado com o ChatGPT custa milhões | 2026-08-31 | Único | `dado-visual` | 1 | 🟡 | Curiosidade (dark) — dizer "por favor"/"obrigado" à IA e o custo de compute (fala do Sam Altman) |
+| post-12 | A IA adivinha uma palavra por vez | 2026-08-31 | Único | `explicador-tecnico` | 1 | 🟡 | Curiosidade (dark) — como a IA gera texto no dia a dia (previsão da próxima palavra) |
+| post-13 | Quanto custa um site? A tabela honesta | 2026-09-07 | Carrossel | `tipografico` | 8 | 🔵 | Educativo — o preço vem do escopo: 5 fatores que definem quanto custa um site (sem valores em R$) |
+| post-14 | Seu site é uma casa. A rede social é aluguel | 2026-09-07 | Carrossel | `tipografico` | 9 | 🔵 | Analogia — site = casa própria no terreno; rede social = apartamento alugado no condomínio. Ilustrações low-poly (ilhas flutuantes), casa colorida |
+| post-15 | Se a IA cria sites sozinha, por que contratar alguém? | 2026-09-07 | Carrossel | `foto-editorial` | 9 | 🔵 | Educativo — IA é ferramenta, não substitui o julgamento sobre o negócio. Capa e slide final com fotos do Pexels |
+| post-16 | Yane Leitão Personal Chef — Website Institucional | 2026-09-10 | Carrossel | `case-showcase` | 6 | 🔵 | Case de projeto — personal chef / alimentação funcional. Mesmo modelo do post-06 |
+| post-17 | Presença digital não é SÓ ter perfil no Instagram | 2026-09-13 | Único | `frase-unica` | 1 | 🔵 | Frase (pilar 5/1, banco de `estrategia-conteudo.md` §9.7) — endereço próprio que também é encontrado, fundo azul duotone + composição tipográfica |
+| post-18 | O que é presença digital? | 2026-09-15 | Carrossel | `foto-editorial` | 7 | 🔵 | Educativo — cenários do dia a dia (hotel/restaurante no Google) + define presença digital, os 4 pilares, o mito de "só Instagram basta" e um diagrama de rede (site no centro) |
+| post-19 | Trabalho numa consultoria internacional. E ainda faço sites para pequenos negócios | 2026-09-16 | Carrossel | `foto-editorial` | 7 | 🔵 | Pessoal (pilar 5) — o rigor de projeto grande aplicado ao site de pequeno negócio; timeline de 17 anos de carreira e foto real na capa |
+| post-20 | Todo mundo fala de IA. 1 em cada 5 usa | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1, persona A) — uso de IA por porte de empresa. Série "nível de uso da IA", 1 de 4 |
+| post-21 | 84% dos devs usam IA. 3% confiam nela | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 4, persona C) — adoção alta, confiança baixa. Série "nível de uso da IA", 2 de 4 |
+| post-22 | Metade já usa IA no trabalho. 13% todo dia | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1/5) — funil de frequência entre trabalhadores. Série "nível de uso da IA", 3 de 4 |
+| post-23 | 88% das empresas usam IA. 6% lucram com ela | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1, persona B) — abismo entre adotar e capturar valor. Série "nível de uso da IA", 4 de 4 |
+| post-24 | Gota de Cura — o catálogo que sustenta uma causa | 2026-09-22 | Carrossel | `case-showcase` | 7 | 🔵 | Case de projeto (pilar 2) — plataforma voluntária de aromaterapia; fio condutor é a causa, com laudos de cromatografia como decisão de produto |
+
+> post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-24: em revisão.
 
 ---
 
@@ -106,6 +117,42 @@ Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produ�
 - Slide dark. Painel mostrando a previsão da próxima palavra (barras: água 44%, leite 19%, suco 13%, café 9%) + loop "escolhe, adiciona, repete". Explica que LLMs completam padrões, não consultam fatos — e os efeitos disso no uso diário (soa confiante mesmo errando; resposta muda a cada vez).
 - **Hashtags:** inteligenciaartificial, ia, chatgpt, comofunciona, tecnologia, produtividade, curiosidadetech, devbr, llm, gemini, copilot, dicasdeia
 
+### post-20 — Todo mundo fala de IA. 1 em cada 5 usa
+- **Data:** 2026-09-20 · **Tipo:** post único (1080×1350) · **Template:** `dado-visual` · **Slides:** 1
+- **HTML:** `html/post-20/` · **PNGs:** `output/post-20/`
+- Tema claro, barras por porte de empresa: 250+ funcionários 37%, 100 a 249 32%, até 4 funcionários menos de 20%. Recado para o dono de negócio pequeno: o atraso é geral, a corrida está aberta.
+- **Fonte:** US Census Bureau, Business Trends and Outlook Survey (dez/2025 a mai/2026), EUA.
+- **Hashtags:** inteligenciaartificial, ia, pequenosnegocios, empreendedorismo, produtividade, gestao, negocios, tecnologia, transformacaodigital, pme, dicasdenegocio, empreendedor
+
+### post-21 — 84% dos devs usam IA. 3% confiam nela
+- **Data:** 2026-09-20 · **Tipo:** post único (1080×1350) · **Template:** `dado-visual` · **Slides:** 1
+- **HTML:** `html/post-21/` · **PNGs:** `output/post-21/`
+- Tema escuro, donut de 84% com legenda de 51% (uso diário entre profissionais) e 3,1% (confiança alta). Mesmo dataset do post-08, recorte diferente: lá foi adoção, aqui é confiança.
+- **Fonte:** Stack Overflow Developer Survey 2025, 33.662 respostas na seção de IA.
+- **Hashtags:** desenvolvimento, programacao, devbr, inteligenciaartificial, ia, codigo, softwareengineering, carreiradev, stackoverflow, tecnologia, cleancode, produtividade
+
+### post-22 — Metade já usa IA no trabalho. 13% todo dia
+- **Data:** 2026-09-20 · **Tipo:** post único (1080×1350) · **Template:** `dado-visual` · **Slides:** 1
+- **HTML:** `html/post-22/` · **PNGs:** `output/post-22/`
+- Tema claro, pictograma de 5 em 10 ícones Lucide + três cards com o funil 50% / 28% / 13%. Tese: experimentar virou normal, incorporar à rotina não.
+- **Fonte:** Gallup, Workforce Study do 1º trimestre de 2026, 23.717 trabalhadores americanos.
+- **Hashtags:** inteligenciaartificial, ia, produtividade, futurodotrabalho, carreira, trabalho, tecnologia, chatgpt, gestaodetempo, desenvolvimentoprofissional, dicasdeprodutividade
+
+### post-23 — 88% das empresas usam IA. 6% lucram com ela
+- **Data:** 2026-09-20 · **Tipo:** post único (1080×1350) · **Template:** `dado-visual` · **Slides:** 1
+- **HTML:** `html/post-23/` · **PNGs:** `output/post-23/`
+- Tema escuro, funil de barras 88% / 37% / 6%. Fecha a série: a diferença dos 6% não é ferramenta, é redesenho de processo.
+- **Fonte:** McKinsey, The State of AI in 2026 (agosto de 2026), pesquisa global.
+- **Hashtags:** inteligenciaartificial, ia, gestao, negocios, estrategia, transformacaodigital, lideranca, produtividade, inovacao, tecnologia, empreendedorismo, mckinsey
+
+### post-24 — Gota de Cura — o catálogo que sustenta uma causa
+- **Data:** 2026-09-22 · **Tipo:** carrossel (1080×1350) · **Template:** `case-showcase` · **Slides:** 7
+- **HTML:** `html/post-24/` · **PNGs:** `output/post-24/`
+- Capa escura com mockup da home → a causa (produção artesanal, sem fins lucrativos, equipe voluntária) → o desafio (5 anos de acréscimo, refazer sem parar a operação) → o que foi construído (catálogo, pedidos, visitação, blog + shots desktop e mobile) → procedência via laudos de cromatografia → números e stack → CTA.
+- **Screenshots:** reaproveitados de `public/projects/gota-de-cura/` (01-hero, 02-catalogo, 03-laudos, 08-hero-mobile).
+- **Números:** 5 anos no ar, 1500+ pedidos, 17 prateleiras, 100% da renda para a causa. Confirmados pelo Adriano em 2026-09-22.
+- **Hashtags:** case, desenvolvimentoweb, nextjs, react, typescript, aromaterapia, oleosessenciais, projetosocial, voluntariado, tecnologia, webdesign, campinas
+
 ### post-13 — Quanto custa um site? A tabela honesta
 - **Data:** 2026-09-07 · **Tipo:** carrossel (1080×1350) · **Slides:** 8
 - **HTML:** `html/post-13/` · **PNGs:** `output/post-13/`
@@ -156,6 +203,16 @@ Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produ�
 
 
 
+
+### post-19 — Trabalho numa consultoria internacional. E ainda faço sites para pequenos negócios
+- **Data:** 2026-09-16 · **Tipo:** carrossel (1080×1350) · **Slides:** 7
+- **HTML:** `html/post-19/` · **PNGs:** `output/post-19/`
+- Capa (dark, **foto real** do Adriano em avatar circular com anel em gradiente — `foto.jpg`, copiada de `public/images/about-profile-photo.jpeg`) → a pergunta silenciosa ("Você não é grande demais pro meu negócio?") → timeline de 17 anos em 5 linhas (Sedna 2009, Venturus 2015, Dextra 2019, Avenue Code 2022, Codurance hoje) → 4 princípios que projeto grande obriga a aprender → os **mesmos 4 princípios traduzidos** para o negócio do cliente (ícones e ordem idênticos aos do slide anterior — o paralelo é intencional) → a parte pessoal (projeto grande × pequeno negócio) → CTA dark.
+- **Pilar 5 (Humano e opinião)** com viés de conversão: responde à objeção que a Persona A não verbaliza, usando a credencial internacional como argumento a favor — não contra.
+- Todos os dados de carreira vêm de `src/data/career.ts` (fonte da verdade): 160+ pessoas treinadas na Venturus, processo de 8h → 10min na Dextra, component library acessível (WCAG) na Avenue Code.
+- **Desvio consciente do design system:** a capa não usa foto full-bleed com overlay (regra 1). Um headshot em enquadramento fechado fica com o rosto atrás do headline; a solução foi manter a capa escura com blobs/dots e usar a foto como avatar circular de 216px ao lado do nome e do cargo. Se outros posts pessoais seguirem, vale promover esse layout a variante oficial de capa no `design-system.md`.
+- **Ícones:** paths reais do Lucide (route, message-circle, briefcase-business, gauge, accessibility, wrench, activity, store, heart) extraídos de `node_modules/lucide-react`.
+- **Hashtags:** desenvolvimentoweb, presencadigital, pequenosnegocios, empreendedorismo, sitesprofissionais, webdesign, devbr, carreira, softwarecraftsmanship, negociodigital
 
 ---
 

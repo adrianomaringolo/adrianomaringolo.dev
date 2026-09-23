@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #f5f7fa;
+    display: flex; flex-direction: column; justify-content: center; padding: 84px 84px 134px; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; top: -100px; right: -120px; width: 660px; height: 660px;
+    background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; bottom: -110px; left: -100px; width: 580px; height: 580px;
+    background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .content { position: relative; z-index: 10; }
+  .eyebrow { font-size: 19px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0891b2; margin-bottom: 20px; }
+  .headline { font-size: 68px; font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: #0f172a; margin-bottom: 42px; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 26px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 46px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+
+  .lead { font-size: 33px; font-weight: 500; color: #475569; line-height: 1.5; margin-bottom: 38px; }
+  .frame { border-radius: 18px; overflow: hidden; border: 1.5px solid #e2e8f0;
+    box-shadow: 0 20px 50px rgba(15,23,42,0.14); background: #fff; margin-bottom: 38px; }
+  .frame .bar { height: 34px; background: #e2e8f0; display: flex; align-items: center; gap: 8px; padding: 0 16px; }
+  .frame .bar span { width: 10px; height: 10px; border-radius: 50%; background: #cbd5e1; }
+  .frame .win { height: 340px; overflow: hidden; }
+  .frame img { width: 100%; display: block; object-fit: cover; object-position: top center; }
+  .highlight { background: #fff; border: 1.5px solid #e2e8f0; border-left: 5px solid #0891b2;
+    border-radius: 18px; padding: 28px 32px; font-size: 29px; font-weight: 700; color: #0f172a; line-height: 1.4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Decisão de produto</div>
+    <h2 class="headline">Parar de pedir<br>confiança. Mostrar <em>prova</em>.</h2>
+
+    <p class="lead">Cada laudo de cromatografia é publicado por planta, com nome popular e científico lado a lado. O texto explica o que é uma cromatografia antes de mostrar qualquer resultado.</p>
+
+    <div class="frame">
+      <div class="bar"><span></span><span></span><span></span></div>
+      <div class="win"><img src="03-laudos.png" alt=""></div>
+    </div>
+
+    <div class="highlight">A procedência virou verificável, sem depender da palavra da marca.</div>
+  </div>
+
+  <div class="progress"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

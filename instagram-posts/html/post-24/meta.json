@@ -1,0 +1,59 @@
+{
+  "title": "Gota de Cura — o catálogo que sustenta uma causa",
+  "date": "2026-09-22",
+  "type": "carousel",
+  "template": "case-showcase",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Grid escuro + mockup de browser com a home. Kicker Gota de Cura"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "O projeto",
+      "description": "A causa: produção artesanal, sem fins lucrativos, equipe voluntária"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "O desafio",
+      "description": "Cinco anos de acréscimo; refazer sem parar a operação"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "O que foi construído",
+      "description": "Catálogo, pedidos, visitação e blog + screenshots desktop e mobile"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Procedência",
+      "description": "Laudos de cromatografia por planta, com screenshot da página"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Onde chegou",
+      "description": "5 anos no ar, 1500+ pedidos, 17 prateleiras, 100% da renda para a causa + stack"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA",
+      "description": "Slide escuro com link do projeto e do site"
+    }
+  ],
+  "caption": "🌿 Tem um site que eu mantenho há cinco anos e que não é de nenhum cliente.\n\nA Gota de Cura produz óleos essenciais e hidrolatos de forma artesanal, na Chácara da Mãe Luzia. Toda a renda vai para os trabalhos assistenciais da Morada Espírita Prof. Lairi Hans. A equipe é voluntária. Eu também.\n\nA plataforma nasceu em 2021 para dar conta do catálogo e dos pedidos. E aí cresceu do jeito que projeto vivo cresce: por acréscimo. 🧩\n\n→ 🛒 categoria nova\n→ 🎟️ cupom\n→ 📊 relatório\n→ 📅 controle de visitas\n\nCinco anos depois, a interface já não acompanhava o que o projeto tinha virado. Refazer era necessário, mas com pedidos, visitas e cadastros entrando todo dia. Parar não era opção. ⚙️\n\nAlém do redesenho, faltavam duas coisas que a operação passou a exigir:\n\n📝 Um canal editorial próprio, em Markdown dentro do repositório, com o mesmo fluxo de revisão do código.\n\n🔬 E a parte de que eu mais gosto: os laudos de cromatografia, publicados por planta, com nome popular e científico lado a lado.\n\nIsso muda o jogo para quem compra. A marca deixa de dizer \"confia em mim\" e passa a mostrar o documento. Procedência virou verificável. ✅\n\nHoje são 5 anos no ar, mais de 1500 pedidos e 17 prateleiras no catálogo. Tudo feito por gente que não recebe por isso. 🙌\n\nÉ o tipo de projeto que me lembra por que eu gosto desse trabalho: site bem feito não é enfeite, é o que segura a operação de quem está do outro lado. 🎯\n\nConheça em gotadecura.com.br 👇",
+  "hashtags": [
+    "case",
+    "desenvolvimentoweb",
+    "nextjs",
+    "react",
+    "typescript",
+    "aromaterapia",
+    "oleosessenciais",
+    "projetosocial",
+    "voluntariado",
+    "tecnologia",
+    "webdesign",
+    "campinas"
+  ]
+}

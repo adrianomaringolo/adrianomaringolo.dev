@@ -1,0 +1,29 @@
+{
+  "title": "84% dos devs usam IA. 3% confiam nela",
+  "date": "2026-09-20",
+  "type": "single",
+  "template": "dado-visual",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "O dado",
+      "description": "Donut de 84% + legenda com 51% uso diário e 3,1% de confiança alta, tema escuro, fonte Stack Overflow Developer Survey 2025"
+    }
+  ],
+  "caption": "👨‍💻 84% dos desenvolvedores usam IA. E só 3% confiam nela.\n\nEsse número do Stack Overflow Developer Survey 2025 é o mais honesto que eu vi sobre IA no nosso trabalho:\n\n→ ⚡ 84% usam ou planejam usar\n→ 🔁 51% dos profissionais usam TODO DIA\n→ 😬 só 3,1% dizem confiar muito na precisão do que ela entrega\n\nParece contradição. Não é. 🎯\n\nQuem usa IA todo dia é exatamente quem mais aprendeu a desconfiar dela. Você aceita a sugestão, lê tudo, testa, e metade das vezes refaz.\n\nIsso não é sinal de que a ferramenta é ruim. É sinal de que o pessoal entendeu para que ela serve: acelerar quem já sabe julgar o resultado. 🛠️\n\nO risco mora em quem inverte a ordem. Quem ainda não tem repertório para revisar não está economizando tempo, está terceirizando decisão. E a conta chega depois, em bug, em retrabalho, em dívida técnica.\n\nIA não substitui critério. Ela multiplica o que você já tem — inclusive a falta dele. ⚠️\n\nVocê confia mais ou menos na IA hoje do que há um ano? 💬",
+  "hashtags": [
+    "desenvolvimento",
+    "programacao",
+    "devbr",
+    "inteligenciaartificial",
+    "ia",
+    "codigo",
+    "softwareengineering",
+    "carreiradev",
+    "stackoverflow",
+    "tecnologia",
+    "cleancode",
+    "produtividade"
+  ]
+}
