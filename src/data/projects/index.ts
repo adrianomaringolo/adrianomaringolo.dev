@@ -6,9 +6,10 @@ import { gotaDeCura } from './gota-de-cura'
 import { portalDaMorada } from './portal-da-morada'
 import { reactHtmlContentEditor } from './react-html-content-editor'
 import { symproLanding } from './sympro-landing'
+import { taskmate } from './taskmate'
 import { yaneLeitao } from './yane-leitao'
 
-export const projects: Project[] = [
+const allProjects: Project[] = [
   asmMarketingDigital,
   buildgridUI,
   gotaDeCura,
@@ -17,7 +18,13 @@ export const projects: Project[] = [
   yaneLeitao,
   golaserBaraoGeraldo,
   reactHtmlContentEditor,
+  taskmate,
 ]
+
+// Most recent first, by start date
+export const projects: Project[] = [...allProjects].sort((a, b) =>
+  b.startDate.localeCompare(a.startDate),
+)
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug)
@@ -40,5 +47,6 @@ export {
   portalDaMorada,
   reactHtmlContentEditor,
   symproLanding,
+  taskmate,
   yaneLeitao,
 }
