@@ -1,0 +1,50 @@
+{
+  "type": "story",
+  "title": "Preciso de um site. De qual tipo?",
+  "date": "2026-09-10",
+  "objective": "engajamento",
+  "evergreen": true,
+  "highlight": "Sites",
+  "music": "better-times-are-coming.mp3 (Mixkit #173) — --music-start end --volume 0.32",
+  "transition": "transition.html (blocos cyan/indigo, 1.0s) — só no story-01.mp4 concatenado",
+  "cta": "Frame 04: convite para SEGUIR o perfil (não link para post — story perene, sem post específico). Figurinha de menção ao @adrianomaringolo.dev por cima da sticker-slot.",
+  "reply_prompt": "Me diz seu nicho aqui no direct que eu falo qual tipo de site você precisa.",
+  "frames": [
+    {
+      "file": "frame-01.html",
+      "title": "Hook — de qual tipo?",
+      "role": "hook",
+      "duration": 6,
+      "sticker": "enquete",
+      "sticker_note": "Sobre a sticker-slot inferior. Pergunta: \"Você sabe qual tipo o seu negócio precisa?\" · Opções: \"Sei\" / \"Nem sabia que tinha tipo\"",
+      "description": "Tipografia gigante (188px) ocupando quase todo o quadro: \"Tá. Mas de qual tipo?\" com \"tipo?\" em gradiente cyan/indigo com shimmer. Badge com ícone de globo girando, aspas da fala do cliente. Ícone Lucide de lâmpada gigante (760px) ao fundo, opacidade ~0.10, cor âmbar — referência a \"ideia/esclarecimento\" sem competir com o texto. Padrão-interrupção. Duração calculada pelo tempo de leitura confortável (ver seção do skill)."
+    },
+    {
+      "file": "frame-02.html",
+      "title": "Os 6 formatos",
+      "role": "conteudo",
+      "duration": 10,
+      "sticker": "nenhum",
+      "sticker_note": "Frame de leitura — sem sticker. É o frame mais longo (10s) porque tem 6 itens + ícones entrando; fontes maiores (h2 76px, itens 50px).",
+      "description": "\"Cada um resolve um problema diferente\" + lista 01–06 com ícone Lucide por tipo (alvo, prédio, imagem, caneta, sacola, painel), cada item deslizando da esquerda e o ícone flutuando em loop. Partículas subindo ao fundo."
+    },
+    {
+      "file": "frame-03.html",
+      "title": "O custo de errar",
+      "role": "prova",
+      "duration": 9,
+      "sticker": "quiz",
+      "sticker_note": "Sobre a sticker-slot. Quiz: \"Clínica que quer ser achada no Google precisa de...\" · Opções: \"Site institucional\" (correta) / \"Loja virtual\". O erro engaja mais que o acerto.",
+      "description": "Ícone de cartão/dinheiro com micro-shake + glow vermelho pulsante. \"Escolher o tipo errado custa caro\" (98px) + duas linhas (50px) com X pulsante: paga pelo que não usa / fica sem o que precisava."
+    },
+    {
+      "file": "frame-04.html",
+      "title": "CTA — me siga",
+      "role": "cta",
+      "duration": 8,
+      "sticker": "mencao",
+      "sticker_note": "Sobre a sticker-slot: figurinha de menção ao @adrianomaringolo.dev (reforça o perfil). Sem link — a peça é perene, não divulga um post específico.",
+      "description": "Ícone de \"seguir\" (user-plus) em card gradiente com anel pulsante + sparkles girando. \"Me siga para se informar\" com \"se informar\" em cyan com glow pulsante + subtítulo. Fecha convidando resposta no direct (reply_prompt)."
+    }
+  ]
+}

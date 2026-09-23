@@ -54,8 +54,21 @@ fs.mkdirSync(outputDir, { recursive: true });
 console.log(`\n📸  "${meta.title}"  ·  ${postId}  ·  ${format}\n`);
 
 // Export PNGs
+const CHROME_CANDIDATES = [
+  process.env.CHROME_PATH,
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium',
+  '/usr/bin/chromium-browser',
+].filter(Boolean);
+const executablePath = CHROME_CANDIDATES.find(p => fs.existsSync(p));
+if (!executablePath) {
+  console.error('Chrome/Chromium not found. Set CHROME_PATH env var.');
+  process.exit(1);
+}
+
 const browser = await puppeteer.launch({
-  executablePath: '/usr/bin/google-chrome',
+  executablePath,
   args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security', '--allow-file-access-from-files'],
 });
 

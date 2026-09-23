@@ -1,0 +1,51 @@
+{
+  "title": "Yane Leitão Personal Chef — Website Institucional",
+  "date": "2026-09-10",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Yane Leitão Personal Chef — capa dark"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Desktop — Topo",
+      "description": "Topo do site em dois painéis"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Desktop — Rodapé",
+      "description": "Storytelling, depoimentos e rodapé"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Mobile",
+      "description": "Design responsivo mobile-first"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Funcionalidades + Lighthouse",
+      "description": "Características e métricas"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "CTA",
+      "description": "Posso construir para o seu negócio"
+    }
+  ],
+  "caption": "Novo case no ar: Yane Leitão Personal Chef 💜\n\nWebsite institucional para personal chef especializada em alimentação funcional e inclusiva — sem glúten, sem lactose, vegano, vegetariano.\n\nO que foi desenvolvido:\n\n🎯 Hero com proposta de valor imediata e CTA para WhatsApp\n🍽️ 4 serviços apresentados em modais detalhados\n📝 Anamnese nutricional que qualifica o lead antes do primeiro contato\n📖 Seção \"Sobre\" com o storytelling real da chef\n🖼️ Galeria de pratos reais com lightbox\n💬 Depoimentos em carrossel\n✨ Animações suaves e efeito parallax\n📱 100% responsivo — Lighthouse 91 / 100 / 100 / 100\n\nSe você presta um serviço e quer um site que comunica seu valor e qualifica quem chega — me chama. 💬\n\n#siteprofissional #personalchef #alimentacaofuncional #nutricao #webdesign #desenvolvimentoweb #portfolio #devbr #marketingdigital #presencadigital",
+  "hashtags": [
+    "siteprofissional",
+    "personalchef",
+    "alimentacaofuncional",
+    "nutricao",
+    "webdesign",
+    "desenvolvimentoweb",
+    "portfolio",
+    "devbr",
+    "marketingdigital",
+    "presencadigital"
+  ]
+}

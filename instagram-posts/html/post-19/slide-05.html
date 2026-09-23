@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 100px; gap: 36px; }
+
+  .blob-1 { position: absolute; top: -80px; right: -100px; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%); pointer-events: none; }
+  .blob-2 { position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); pointer-events: none; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; pointer-events: none; }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .header { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 18px; }
+  .icon-badge { display: flex; align-items: center; color: #0891b2; }
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0891b2; }
+  .headline { font-size: 52px; font-weight: 900; line-height: 1.12; letter-spacing: -0.03em; color: #0f172a; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .rows { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 16px; }
+  .row { display: flex; align-items: flex-start; gap: 22px; background: #fff; border: 1.5px solid #e2e8f0;
+    border-radius: 18px; padding: 26px 28px; }
+  .row-icon { width: 54px; height: 54px; border-radius: 14px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(8,145,178,0.12), rgba(99,102,241,0.10));
+    color: #0891b2; display: flex; align-items: center; justify-content: center; }
+  .row-body { display: flex; flex-direction: column; gap: 6px; }
+  .row-title { font-size: 26px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; }
+  .row-desc { font-size: 20px; font-weight: 500; color: #64748b; line-height: 1.42; }
+
+  .conclusion { position: relative; z-index: 10; font-size: 27px; font-weight: 700; color: #0f172a; line-height: 1.45;
+    padding: 28px 32px; background: linear-gradient(135deg, #f0f9ff 0%, #ede9fe 100%);
+    border-radius: 16px; border: 1.5px solid #e0f2fe; }
+  .conclusion span { display: block; font-size: 20px; font-weight: 500; color: #64748b; margin-top: 9px; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 18px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="header">
+    <div class="icon-badge">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></svg>
+    </div>
+    <div class="eyebrow">A mesma régua, no seu site</div>
+    <div class="headline">O que isso muda para <em>o seu negócio</em></div>
+  </div>
+
+  <div class="rows">
+    <div class="row">
+      <div class="row-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+      </div>
+      <div class="row-body">
+        <div class="row-title">Abre rápido de verdade</div>
+        <div class="row-desc">No 4G da rua, não no wi-fi do escritório. Quem espera, desiste.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg>
+      </div>
+      <div class="row-body">
+        <div class="row-title">Mais gente consegue usar</div>
+        <div class="row-desc">Contraste, fonte grande, leitor de tela. Quem enxerga pouco também compra.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
+      </div>
+      <div class="row-body">
+        <div class="row-title">Dá pra crescer sem refazer</div>
+        <div class="row-desc">No ano que vem você acrescenta uma página, não começa do zero.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+      </div>
+      <div class="row-body">
+        <div class="row-title">Você sabe o que está acontecendo</div>
+        <div class="row-desc">Quantos chegaram, de onde vieram, quantos chamaram no WhatsApp.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    Nada disso é luxo de empresa grande.
+    <span>É só o jeito certo de fazer — em qualquer tamanho de projeto.</span>
+  </div>
+
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

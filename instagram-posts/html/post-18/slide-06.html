@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; padding: 72px 80px 96px; gap: 32px; }
+
+  .blob-1 { position: absolute; top: -80px; right: -100px; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%); pointer-events: none; }
+  .blob-2 { position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); pointer-events: none; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; pointer-events: none; }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .header { position: relative; z-index: 10; width: 100%; display: flex; flex-direction: column; gap: 22px; }
+  .icon-badge { display: flex; align-items: center; color: #0891b2; }
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #0891b2; }
+  .headline { font-size: 50px; font-weight: 900; line-height: 1.16;
+    letter-spacing: -0.03em; color: #0f172a; max-width: 820px; }
+  .headline em { font-style: normal;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .diagram { position: relative; z-index: 10; width: 720px; height: 720px; flex-shrink: 0; }
+  .diagram svg.lines { position: absolute; inset: 0; z-index: 1; }
+
+  .node-center {
+    position: absolute; width: 156px; height: 156px; left: 282px; top: 282px;
+    border-radius: 50%; z-index: 3;
+    background: linear-gradient(135deg, #0891b2, #6366f1);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 24px 54px rgba(99,102,241,0.38), 0 0 0 10px rgba(99,102,241,0.08);
+  }
+  .node-center svg { color: #fff; }
+  .node-center span { color: #fff; font-size: 19px; font-weight: 800; letter-spacing: -0.01em; }
+
+  .node {
+    position: absolute; width: 108px; height: 108px;
+    border-radius: 50%; z-index: 3;
+    background: #ffffff; border: 1.5px solid #e2e8f0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 10px 26px rgba(15,23,42,0.07);
+  }
+  .node-icon { width: 40px; height: 40px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(8,145,178,0.12), rgba(99,102,241,0.10));
+    display: flex; align-items: center; justify-content: center; color: #0891b2; }
+  .node span { font-size: 14px; font-weight: 700; color: #0f172a; text-align: center; line-height: 1.15; max-width: 84px; }
+
+  .conclusion { position: relative; z-index: 10; width: 100%; font-size: 24px; font-weight: 700; color: #0f172a; line-height: 1.45;
+    padding: 24px 30px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #ede9fe 100%);
+    border-radius: 16px; border: 1.5px solid #e0f2fe; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 18px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="header">
+    <div class="icon-badge">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+    </div>
+    <div class="eyebrow">Como tudo se conecta</div>
+    <div class="headline">O site fica no <em>centro</em>. O resto gira em torno dele.</div>
+  </div>
+
+  <div class="diagram">
+    <svg class="lines" viewBox="0 0 720 720" fill="none">
+      <defs>
+        <linearGradient id="lineGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="720" y2="720">
+          <stop stop-color="#0891b2"/>
+          <stop offset="1" stop-color="#6366f1"/>
+        </linearGradient>
+      </defs>
+      <line x1="360" y1="360" x2="360" y2="80" stroke="url(#lineGrad)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <line x1="360" y1="360" x2="579" y2="185" stroke="url(#lineGrad)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <line x1="360" y1="360" x2="633" y2="422" stroke="url(#lineGrad)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <line x1="360" y1="360" x2="482" y2="612" stroke="url(#lineGrad)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <line x1="360" y1="360" x2="239" y2="612" stroke="url(#lineGrad)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <line x1="360" y1="360" x2="87" y2="422" stroke="url(#lineGrad)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <line x1="360" y1="360" x2="141" y2="185" stroke="url(#lineGrad)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+    </svg>
+
+    <div class="node-center">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+      <span>Seu site</span>
+    </div>
+
+    <!-- Topo: Google -->
+    <div class="node" style="left: 306px; top: 26px;">
+      <div class="node-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg></div>
+      <span>Google</span>
+    </div>
+    <!-- Superior direita: Instagram -->
+    <div class="node" style="left: 525px; top: 131px;">
+      <div class="node-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></div>
+      <span>Instagram</span>
+    </div>
+    <!-- Direita: WhatsApp -->
+    <div class="node" style="left: 579px; top: 368px;">
+      <div class="node-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></div>
+      <span>WhatsApp</span>
+    </div>
+    <!-- Inferior direita: Avaliações -->
+    <div class="node" style="left: 428px; top: 558px;">
+      <div class="node-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></div>
+      <span>Avaliações</span>
+    </div>
+    <!-- Inferior esquerda: Agentes de IA -->
+    <div class="node" style="left: 185px; top: 558px;">
+      <div class="node-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+      <span>Agentes de IA</span>
+    </div>
+    <!-- Esquerda: Indicações -->
+    <div class="node" style="left: 33px; top: 368px;">
+      <div class="node-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <span>Indicações</span>
+    </div>
+    <!-- Superior esquerda: E-mail -->
+    <div class="node" style="left: 87px; top: 131px;">
+      <div class="node-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
+      <span>E-mail</span>
+    </div>
+  </div>
+
+  <div class="conclusion">Cada canal traz gente até o site. O site é quem converte essa gente em cliente.</div>
+
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+
+  .frame {
+    width: 1080px; height: 1920px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+    padding: 280px 96px 340px 112px;
+  }
+
+  .bg-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.05) 1.5px, transparent 1.5px);
+    background-size: 48px 48px;
+  }
+  .blob {
+    position: absolute; top: 620px; left: -220px; width: 900px; height: 640px;
+    background: radial-gradient(ellipse, rgba(239,68,68,0.14) 0%, transparent 66%);
+    animation: pulse 3.4s ease-in-out 1s infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 0.6; transform: scale(0.98); } 50% { opacity: 1; transform: scale(1.04); } }
+  .accent-left { position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: linear-gradient(180deg, #06b6d4, #6366f1); }
+
+  .eyebrow {
+    font-size: 22px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #fca5a5; margin-bottom: 30px;
+    animation: fadeIn 0.4s ease both; animation-delay: 0.1s;
+  }
+
+  .icon-wrap {
+    width: 122px; height: 122px; border-radius: 30px; margin-bottom: 42px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fb7185; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.34);
+    animation: popIn 0.55s cubic-bezier(.2,1.2,.3,1) both, shake 4s ease-in-out 1.4s infinite;
+    animation-delay: 0.18s, 1.4s;
+  }
+  .icon-wrap svg { width: 60px; height: 60px; }
+  @keyframes popIn { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+  @keyframes shake {
+    0%, 88%, 100% { transform: translateX(0) rotate(0); }
+    91% { transform: translateX(-5px) rotate(-4deg); }
+    94% { transform: translateX(5px) rotate(4deg); }
+    97% { transform: translateX(-3px) rotate(-2deg); }
+  }
+
+  h2 {
+    font-size: 98px; font-weight: 900; letter-spacing: -0.035em; line-height: 1.04; color: #f8fafc;
+    max-width: 920px; margin-bottom: 58px;
+    animation: fadeUp 0.5s ease both; animation-delay: 0.3s;
+  }
+  h2 .accent {
+    background: linear-gradient(100deg, #fb7185, #ef4444);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .rows { display: flex; flex-direction: column; gap: 34px; max-width: 940px; }
+  .row {
+    display: flex; align-items: flex-start; gap: 24px;
+    font-size: 50px; font-weight: 600; color: #cbd5e1; line-height: 1.32;
+    animation: fadeUp 0.5s ease both;
+  }
+  .row:nth-child(1) { animation-delay: 0.6s; }
+  .row:nth-child(2) { animation-delay: 0.78s; }
+  .row .mark {
+    flex: none; margin-top: 10px; color: #ef4444;
+    animation: markPulse 3s ease-in-out infinite;
+  }
+  .row:nth-child(1) .mark { animation-delay: 1.4s; }
+  .row:nth-child(2) .mark { animation-delay: 1.9s; }
+  @keyframes markPulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.14); }
+  }
+
+  .sticker-slot { position: absolute; left: 0; right: 0; bottom: 96px; height: 240px; }
+
+  .handle {
+    position: absolute; bottom: 272px; right: 96px; z-index: 5;
+    font-size: 28px; font-weight: 600; color: #94a3b8;
+    animation: fadeIn 0.4s ease both; animation-delay: 1.05s;
+  }
+  .handle em { font-style: normal; color: #06b6d4; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</head>
+<body data-duration="9">
+<div class="frame">
+  <div class="bg-dots"></div>
+  <div class="blob"></div>
+  <div class="accent-left"></div>
+
+  <div class="eyebrow">O custo de errar</div>
+  <div class="icon-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+    </svg>
+  </div>
+  <h2>Escolher o tipo errado <span class="accent">custa caro.</span></h2>
+
+  <div class="rows">
+    <div class="row">
+      <span class="mark">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </span>
+      Ou você paga por função que nunca vai usar.
+    </div>
+    <div class="row">
+      <span class="mark">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </span>
+      Ou fica sem o que o negócio precisava de verdade.
+    </div>
+  </div>
+
+  <div class="sticker-slot"></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

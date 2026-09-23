@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 820px; height: 820px; top: -300px; right: -280px; background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 820px; height: 820px; bottom: -320px; left: -300px; background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 92px 84px 140px; display: flex; flex-direction: column; }
+  .counter { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+  .counter-line { width: 44px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .counter-text { font-size: 16px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #94a3b8; }
+  .title { font-size: 67px; font-weight: 900; color: #0f172a; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 22px; }
+  .title em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .desc { font-size: 30px; font-weight: 500; color: #475569; line-height: 1.5; max-width: 900px; }
+  .art { margin-top: auto; margin-bottom: auto; display: flex; justify-content: center; }
+  .art svg { width: 880px; height: auto; display: block; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 9px; z-index: 30; }
+  .dot { width: 24px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+  .dot.active { width: 44px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div><div class="blob-1"></div><div class="blob-2"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="content">
+    <div class="counter"><div class="counter-line"></div><span class="counter-text">A casa própria</span></div>
+    <div class="title">O seu site é a<br><em>casa própria</em></div>
+    <div class="desc">Você decide o que construir, a planta, o acabamento e as regras. Nada de síndico. O endereço tem o seu nome.</div>
+
+    <div class="art">
+    <svg viewBox="0 0 640 470" xmlns="http://www.w3.org/2000/svg">
+      <!-- ===== ilha low-poly ===== -->
+      <polygon points="320,272 140,250 250,222" fill="#bbf7d0"/>
+      <polygon points="320,272 250,222 390,224" fill="#86efac"/>
+      <polygon points="320,272 390,224 500,255" fill="#4ade80"/>
+      <polygon points="320,272 500,255 440,315" fill="#6ee7b7"/>
+      <polygon points="320,272 440,315 300,335" fill="#4ade80"/>
+      <polygon points="320,272 300,335 170,300" fill="#a7f3d0"/>
+      <polygon points="320,272 170,300 140,250" fill="#86efac"/>
+      <polygon points="170,300 300,335 440,315 500,255 505,266 445,326 300,347 168,311" fill="#16a34a"/>
+      <polygon points="140,250 170,300 320,432 220,352" fill="#92400e"/>
+      <polygon points="170,300 300,335 320,432" fill="#78350f"/>
+      <polygon points="300,335 440,315 320,432" fill="#854d0e"/>
+      <polygon points="440,315 500,255 360,362 320,432" fill="#713f12"/>
+      <polygon points="170,300 300,335 245,305" fill="#a16207"/>
+      <polygon points="300,335 440,315 372,322" fill="#a8a29e"/>
+
+      <!-- ===== árvores ===== -->
+      <polygon points="196,234 204,234 202,216 198,216" fill="#7c3f13"/>
+      <polygon points="180,218 218,218 199,178" fill="#166534"/>
+      <polygon points="184,192 214,192 199,156" fill="#16a34a"/>
+      <polygon points="187,170 211,170 199,140" fill="#22c55e"/>
+      <polygon points="426,270 434,270 432,254 428,254" fill="#7c3f13"/>
+      <polygon points="413,256 447,256 430,220" fill="#166534"/>
+      <polygon points="417,234 443,234 430,202" fill="#16a34a"/>
+
+      <!-- flores -->
+      <polygon points="246,286 252,292 246,298 240,292" fill="#ec4899"/>
+      <polygon points="386,290 392,296 386,302 380,296" fill="#f59e0b"/>
+      <polygon points="366,300 372,306 366,312 360,306" fill="#e11d48"/>
+
+      <!-- ===== casa ===== -->
+      <polygon points="288,240 306,240 314,300 274,300" fill="#e7e5e4"/>
+      <polygon points="306,240 314,300 274,300" fill="#d6d3d1"/>
+      <polygon points="248,240 332,240 248,138" fill="#fffdf5"/>
+      <polygon points="332,240 332,138 248,138" fill="#fdf6e3"/>
+      <polygon points="332,240 370,221 370,122 332,138" fill="#f2e4c2"/>
+      <polygon points="332,240 370,122 332,138" fill="#f8edcf"/>
+      <polygon points="236,144 290,88 290,144" fill="#fb923c"/>
+      <polygon points="290,88 344,144 290,144" fill="#f97316"/>
+      <polygon points="344,144 290,88 328,70" fill="#ea580c"/>
+      <polygon points="344,144 328,70 382,126" fill="#c2410c"/>
+      <polygon points="236,144 344,144 344,151 236,151" fill="#9a3412"/>
+      <polygon points="278,240 306,240 278,188" fill="#b45309"/>
+      <polygon points="306,240 306,184 278,188" fill="#92400e"/>
+      <circle cx="300" cy="214" r="3.6" fill="#fde68a"/>
+      <polygon points="266,158 282,176 266,176" fill="#fef9c3"/>
+      <polygon points="266,158 266,176 250,176" fill="#fde047"/>
+      <polygon points="266,176 282,176 266,194" fill="#fde047"/>
+      <polygon points="266,176 266,194 250,176" fill="#facc15"/>
+      <polygon points="266,158 282,176 266,194 250,176" fill="none" stroke="#a16207" stroke-width="2"/>
+      <polygon points="344,150 360,143 360,170 344,178" fill="#fcd34d"/>
+      <polygon points="346,100 358,100 358,72 346,74" fill="#dc2626"/>
+      <polygon points="344,74 360,72 360,66 344,68" fill="#7f1d1d"/>
+    </svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

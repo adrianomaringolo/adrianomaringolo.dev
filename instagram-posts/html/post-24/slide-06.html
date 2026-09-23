@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #f5f7fa;
+    display: flex; flex-direction: column; justify-content: center; padding: 84px 84px 134px; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; top: -100px; right: -120px; width: 660px; height: 660px;
+    background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; bottom: -110px; left: -100px; width: 580px; height: 580px;
+    background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .content { position: relative; z-index: 10; }
+  .eyebrow { font-size: 19px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0891b2; margin-bottom: 20px; }
+  .headline { font-size: 68px; font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: #0f172a; margin-bottom: 42px; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 26px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 46px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+
+  .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 44px; }
+  .m { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 34px;
+    box-shadow: 0 8px 28px rgba(15,23,42,0.05); }
+  .m-value { font-size: 80px; font-weight: 900; letter-spacing: -0.045em; line-height: 1;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .m-label { margin-top: 12px; font-size: 21px; font-weight: 700; color: #94a3b8; letter-spacing: 0.06em; text-transform: uppercase; }
+  .stack-title { font-size: 19px; font-weight: 700; color: #94a3b8; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 14px; }
+  .chip { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 100px; padding: 14px 28px;
+    font-size: 24px; font-weight: 700; color: #0f172a; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Onde chegou</div>
+    <h2 class="headline">Cinco anos no ar,<br>ainda <em>crescendo</em>.</h2>
+
+    <div class="metrics">
+      <div class="m"><div class="m-value">5</div><div class="m-label">anos no ar</div></div>
+      <div class="m"><div class="m-value">1500+</div><div class="m-label">pedidos processados</div></div>
+      <div class="m"><div class="m-value">17</div><div class="m-label">prateleiras no catálogo</div></div>
+      <div class="m"><div class="m-value">100%</div><div class="m-label">da renda para a causa</div></div>
+    </div>
+
+    <div class="stack-title">Stack</div>
+    <div class="chips">
+      <div class="chip">Next.js 16</div>
+      <div class="chip">React 19</div>
+      <div class="chip">TypeScript</div>
+      <div class="chip">Tailwind v4</div>
+      <div class="chip">Firebase</div>
+      <div class="chip">Vercel</div>
+    </div>
+  </div>
+
+  <div class="progress"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

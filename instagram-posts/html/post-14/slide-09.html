@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+
+  .slide { width: 1080px; height: 1350px; background: #0f172a; position: relative; overflow: hidden; }
+
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(148,163,184,0.10) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 900px; height: 900px; top: -330px; left: -300px;
+    background: radial-gradient(circle, rgba(6,182,212,0.20) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 900px; height: 900px; bottom: -300px; right: -320px;
+    background: radial-gradient(circle, rgba(99,102,241,0.20) 0%, transparent 70%); }
+  .glow { position: absolute; width: 660px; height: 660px; left: 220px; bottom: 195px;
+    background: radial-gradient(circle, rgba(251,191,36,0.24) 0%, transparent 66%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .content { position: absolute; inset: 0; z-index: 10; padding: 116px 88px 0 88px; display: flex; flex-direction: column; }
+
+  .eyebrow { font-size: 17px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #64748b; margin-bottom: 32px; }
+
+  .headline { font-size: 82px; font-weight: 900; line-height: 1.06; letter-spacing: -0.035em; color: #f1f5f9; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .subtitle { margin-top: 32px; font-size: 34px; font-weight: 500; color: #94a3b8; line-height: 1.5; max-width: 840px; }
+
+  .art { margin-top: 20px; display: flex; justify-content: center; }
+  .art svg { width: 740px; height: auto; display: block; }
+
+  .cta { position: absolute; bottom: 150px; left: 88px; right: 80px; z-index: 15; }
+  .cta-label { font-size: 26px; font-weight: 600; color: #94a3b8; margin-bottom: 14px; }
+  .cta-site { font-size: 60px; font-weight: 900; letter-spacing: -0.03em;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 9px; z-index: 30; }
+  .dot { width: 24px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 44px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="glow"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Hora de construir</div>
+
+    <h1 class="headline">Alugue o espaço.<br>Mas <em>construa<br>a sua casa.</em></h1>
+
+    <p class="subtitle">A rede social é para ser descoberto. O site é onde a relação vira cliente.</p>
+
+    <div class="art">
+    <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- ilha low-poly (tema escuro) -->
+      <polygon points="320,242 140,220 250,192" fill="#14532d"/>
+      <polygon points="320,242 250,192 390,194" fill="#166534"/>
+      <polygon points="320,242 390,194 500,225" fill="#15803d"/>
+      <polygon points="320,242 500,225 440,285" fill="#166534"/>
+      <polygon points="320,242 440,285 300,305" fill="#14532d"/>
+      <polygon points="320,242 300,305 170,270" fill="#1a5e3a"/>
+      <polygon points="320,242 170,270 140,220" fill="#14532d"/>
+      <polygon points="170,270 300,305 440,285 500,225 505,236 445,296 300,317 168,281" fill="#0d3d1f"/>
+      <polygon points="140,220 170,270 320,402 220,322" fill="#3f2d12"/>
+      <polygon points="170,270 300,305 320,402" fill="#2b1d09"/>
+      <polygon points="300,305 440,285 320,402" fill="#37260f"/>
+      <polygon points="440,285 500,225 360,332 320,402" fill="#231705"/>
+
+      <!-- casa -->
+      <polygon points="248,210 332,210 248,108" fill="#f4e8cc"/>
+      <polygon points="332,210 332,108 248,108" fill="#dccaa2"/>
+      <polygon points="332,210 370,191 370,92 332,108" fill="#b6a279"/>
+      <polygon points="332,210 370,92 332,108" fill="#c8b78c"/>
+      <polygon points="236,114 290,58 290,114" fill="#ea580c"/>
+      <polygon points="290,58 344,114 290,114" fill="#c2410c"/>
+      <polygon points="344,114 290,58 328,40" fill="#9a3412"/>
+      <polygon points="344,114 328,40 382,96" fill="#7c2d12"/>
+      <polygon points="236,114 344,114 344,121 236,121" fill="#7c2d12"/>
+      <polygon points="278,210 306,210 278,158" fill="#7c4a1e"/>
+      <polygon points="306,210 306,154 278,158" fill="#5c3512"/>
+      <circle cx="300" cy="184" r="3.6" fill="#fbbf24"/>
+      <polygon points="266,128 282,146 266,146" fill="#fef9c3"/>
+      <polygon points="266,128 266,146 250,146" fill="#fef08a"/>
+      <polygon points="266,146 282,146 266,164" fill="#fde047"/>
+      <polygon points="266,146 266,164 250,146" fill="#facc15"/>
+      <polygon points="344,120 360,113 360,140 344,148" fill="#fcd34d"/>
+      <polygon points="346,70 358,70 358,42 346,44" fill="#7f1d1d"/>
+    </svg>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-label">Vamos levantar a sua:</div>
+    <div class="cta-site">adrianomaringolo.dev</div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; }
+
+  .bg-photo {
+    position: absolute; inset: 0;
+    background: url('bg-cover.jpg') center center / cover no-repeat;
+  }
+
+  .gradient-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 18, 38, 1.00)  0%,
+      rgba(10, 18, 38, 0.97) 22%,
+      rgba(10, 18, 38, 0.90) 38%,
+      rgba(10, 18, 38, 0.78) 52%,
+      rgba(10, 18, 38, 0.65) 66%,
+      rgba(10, 18, 38, 0.55) 80%,
+      rgba(10, 18, 38, 0.50) 100%
+    );
+  }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .content {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    padding: 88px 80px 0 88px;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+
+  .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #475569; }
+
+  .headline { font-size: 92px; font-weight: 900; line-height: 1.02; letter-spacing: -0.03em; color: #f1f5f9; }
+  .headline-kicker { display: block; font-size: 44px; font-weight: 700; letter-spacing: -0.01em; color: #06b6d4; margin-bottom: 10px; }
+  .headline-gradient { background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .subtitle { font-size: 36px; font-weight: 500; color: #cbd5e1; line-height: 1.5; max-width: 820px; }
+
+  .arrow { margin-top: 12px; color: #ffffff; opacity: 0.7; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 27px; font-weight: 700; color: #f1f5f9; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-photo"></div>
+  <div class="gradient-overlay"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Educativo · Presença Digital</div>
+
+    <h1 class="headline">
+      <span class="headline-kicker">A pergunta simples</span>
+      O que é<br><span class="headline-gradient">presença digital?</span>
+    </h1>
+
+    <p class="subtitle">Todo mundo usa o termo. Poucos sabem explicar em uma frase.</p>
+
+    <div class="arrow">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

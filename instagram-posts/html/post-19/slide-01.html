@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #0a1226; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; gap: 92px; padding: 104px 88px 148px; }
+
+  .blob-1 { position: absolute; top: -260px; right: -220px; width: 760px; height: 760px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(6,182,212,0.14) 0%, transparent 70%); pointer-events: none; }
+  .blob-2 { position: absolute; bottom: -260px; left: -240px; width: 720px; height: 720px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%); pointer-events: none; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.04) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; pointer-events: none; }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .content { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 26px; }
+
+  .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #64748b; }
+
+  .headline { font-size: 88px; font-weight: 900; line-height: 1.02; letter-spacing: -0.03em; color: #f1f5f9; }
+  .headline-kicker { display: block; font-size: 42px; font-weight: 700; line-height: 1.22; letter-spacing: -0.01em; color: #06b6d4; margin-bottom: 18px; }
+  .headline-gradient { background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .subtitle { font-size: 36px; font-weight: 500; color: #cbd5e1; line-height: 1.45; max-width: 840px; }
+
+  .bottom { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 40px; }
+  .who { display: flex; align-items: center; gap: 32px; }
+  .avatar-ring { width: 216px; height: 216px; border-radius: 50%; flex-shrink: 0; padding: 4px;
+    background: linear-gradient(140deg, #06b6d4, #6366f1); }
+  .avatar { width: 100%; height: 100%; border-radius: 50%;
+    background: url('foto.jpg') center 18% / 122% no-repeat; border: 4px solid #0a1226; }
+  .who-body { display: flex; flex-direction: column; gap: 6px; }
+  .who-name { font-size: 37px; font-weight: 800; color: #f1f5f9; letter-spacing: -0.01em; }
+  .who-role { font-size: 25px; font-weight: 500; color: #64748b; line-height: 1.4; }
+
+  .arrow { color: #ffffff; opacity: 0.55; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 27px; font-weight: 700; color: #f1f5f9; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">De pessoa para pessoa</div>
+
+    <h1 class="headline">
+      <span class="headline-kicker">Trabalho numa consultoria internacional.</span>
+      E ainda faço sites para<br><span class="headline-gradient">pequenos negócios.</span>
+    </h1>
+
+    <p class="subtitle">Não é contradição.<br>É o motivo de eu fazer isso bem.</p>
+  </div>
+
+  <div class="bottom">
+    <div class="who">
+      <div class="avatar-ring"><div class="avatar"></div></div>
+      <div class="who-body">
+        <div class="who-name">Adriano Maringolo</div>
+      <div class="who-role">Senior Software Craftsperson<br>17 anos escrevendo software</div>
+      </div>
+    </div>
+
+    <div class="arrow">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

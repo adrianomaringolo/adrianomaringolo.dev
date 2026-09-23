@@ -1,0 +1,56 @@
+{
+  "title": "Trabalho numa consultoria internacional. E ainda faço sites para pequenos negócios",
+  "date": "2026-09-16",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Dark com foto real (avatar circular) — kicker 'Trabalho numa consultoria internacional' + headline 'E ainda faço sites para pequenos negócios'"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "A pergunta silenciosa",
+      "description": "\"Você não é grande demais pro meu negócio?\" — a objeção que ninguém verbaliza, e a virada"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Onde aprendi o ofício",
+      "description": "Timeline de 17 anos em 5 linhas: 2009 .NET, Venturus, Dextra (8h → 10min), Avenue Code, Codurance"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "O que projeto grande ensina",
+      "description": "4 princípios: performance como decisão de projeto, acessibilidade, código mantível, decisão com medição"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "O que muda no seu site",
+      "description": "Os mesmos 4 princípios traduzidos para o negócio do cliente (mesmos ícones, mesma ordem)"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "A parte pessoal",
+      "description": "Projeto grande x pequeno negócio: 'nos dois eu escrevo o mesmo código, só em um deles eu vejo a diferença que ele faz'"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA",
+      "description": "Dark — 'Seu negócio é pequeno. Seu site não precisa parecer.'"
+    }
+  ],
+  "caption": "Trabalho numa consultoria internacional. E ainda faço sites para pequenos negócios. 👋\n\nQuando eu conto onde trabalho, sinto a dúvida do outro lado: \"você não é grande demais pro meu negócio?\"\n\nA dúvida é justa. Mas a conclusão é o contrário do que parece.\n\nSão 17 anos: comecei em 2009 com sistemas corporativos, fui instrutor técnico de mais de 160 pessoas, fui tech lead de um time de 9 devs num projeto de saúde nos EUA (onde um processo crítico saiu de 8 horas para 10 minutos), construí uma component library acessível para um grande e-commerce americano e hoje sou Senior Software Craftsperson na Codurance.\n\nProjeto grande te obriga a aprender quatro coisas que não dá pra improvisar:\n\n⚡ Performance é decisão de projeto, não ajuste no fim\n♿ Acessibilidade não é extra — é quanta gente consegue usar\n🔧 Código que outra pessoa vai manter depois\n📊 Decisão com medição, não com achismo\n\nNo seu site, isso vira: abre rápido no 4G da rua, mais gente consegue usar, dá pra crescer sem refazer do zero e você sabe de onde vem cada contato.\n\nNada disso é luxo de empresa grande. É só o jeito certo de fazer.\n\nE por que eu não solto os projetos pequenos? Porque no projeto grande eu movo um número dentro de uma empresa que talvez nunca saiba meu nome. No pequeno negócio, eu vejo o telefone apitar. 📱\n\nNos dois eu escrevo o mesmo código. Só em um deles eu vejo a diferença que ele faz. 💙\n\nSeu negócio é pequeno — seu site não precisa parecer. Me chama no direct. 👇\n\n#desenvolvimentoweb #presencadigital #pequenosnegocios #empreendedorismo #sitesprofissionais #webdesign #devbr #carreira #softwarecraftsmanship #negociodigital",
+  "hashtags": [
+    "desenvolvimentoweb",
+    "presencadigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "sitesprofissionais",
+    "webdesign",
+    "devbr",
+    "carreira",
+    "softwarecraftsmanship",
+    "negociodigital"
+  ]
+}

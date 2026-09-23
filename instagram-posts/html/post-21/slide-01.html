@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #0f172a; }
+
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.04) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; top: -150px; right: -170px; width: 780px; height: 780px;
+    background: radial-gradient(circle, rgba(6,182,212,0.16) 0%, transparent 70%); }
+  .blob-2 { position: absolute; bottom: -170px; left: -170px; width: 720px; height: 720px;
+    background: radial-gradient(circle, rgba(99,102,241,0.13) 0%, transparent 70%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .content { position: absolute; inset: 0; z-index: 10; padding: 96px 84px 168px;
+    display: flex; flex-direction: column; justify-content: center; }
+
+  .label { display: inline-flex; align-items: center; gap: 11px; width: fit-content;
+    background: rgba(6,182,212,0.10); border: 1.5px solid rgba(6,182,212,0.28);
+    border-radius: 100px; padding: 12px 26px; margin-bottom: 34px; }
+  .label-dot { width: 9px; height: 9px; background: #06b6d4; border-radius: 50%; }
+  .label-text { font-size: 18px; font-weight: 700; color: #06b6d4; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .headline { font-size: 88px; font-weight: 900; line-height: 1.03; letter-spacing: -0.038em; color: #f1f5f9; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .chart-row { display: flex; align-items: center; gap: 62px; margin-top: 62px; }
+
+  .chart { position: relative; width: 372px; height: 372px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(#06b6d4 0 84%, rgba(148,163,184,0.20) 84% 100%); }
+  .chart-center { position: absolute; inset: 52px; border-radius: 50%; background: #0f172a;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+  .chart-value { font-size: 104px; font-weight: 900; letter-spacing: -0.045em; line-height: 1;
+    background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .chart-caption { font-size: 23px; font-weight: 700; color: #94a3b8; }
+
+  .legend { display: flex; flex-direction: column; gap: 30px; flex: 1; }
+  .legend-row { display: flex; flex-direction: column; gap: 6px; }
+  .legend-value { font-size: 46px; font-weight: 900; color: #f1f5f9; letter-spacing: -0.03em; }
+  .legend-label { font-size: 26px; font-weight: 600; color: #94a3b8; line-height: 1.35; }
+  .legend-row.alert .legend-value { color: #06b6d4; }
+
+  .footnote { margin-top: 58px; padding: 30px 34px; background: rgba(148,163,184,0.07);
+    border-left: 5px solid #6366f1; border-radius: 0 18px 18px 0; }
+  .footnote-text { font-size: 31px; font-weight: 600; color: #e2e8f0; line-height: 1.42; }
+
+  .source { position: absolute; bottom: 106px; left: 84px; right: 84px; z-index: 30;
+    font-size: 20px; font-weight: 600; color: #64748b; line-height: 1.35; }
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 25px; font-weight: 700; color: #f1f5f9; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="label">
+      <div class="label-dot"></div>
+      <span class="label-text">Desenvolvedores · 2025</span>
+    </div>
+
+    <h1 class="headline">84% usam IA.<br>3% <em>confiam</em> nela.</h1>
+
+    <div class="chart-row">
+      <div class="chart">
+        <div class="chart-center">
+          <div class="chart-value">84%</div>
+          <div class="chart-caption">usam ou planejam</div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-row">
+          <span class="legend-value">51%</span>
+          <span class="legend-label">dos desenvolvedores profissionais usam todo dia</span>
+        </div>
+        <div class="legend-row alert">
+          <span class="legend-value">3,1%</span>
+          <span class="legend-label">confiam muito na precisão do que a IA entrega</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnote">
+      <p class="footnote-text">A adoção virou padrão. A confiança, não. Quem usa todo dia é justamente quem mais revisa.</p>
+    </div>
+  </div>
+
+  <div class="source">Fonte: Stack Overflow Developer Survey 2025 · 33.662 respostas na seção de IA</div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

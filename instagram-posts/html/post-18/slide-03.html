@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 100px; }
+
+  .blob-1 { position: absolute; top: -80px; right: -100px; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%); pointer-events: none; }
+  .blob-2 { position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); pointer-events: none; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; pointer-events: none; }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .icon-badge { position: relative; z-index: 10; display: flex; align-items: center; color: #0891b2; margin-bottom: 22px; }
+
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #0891b2; margin-bottom: 24px; position: relative; z-index: 10; }
+
+  .headline { font-size: 66px; font-weight: 900; line-height: 1.22;
+    letter-spacing: -0.03em; color: #0f172a; margin-bottom: 48px; position: relative; z-index: 10; }
+  .headline em { font-style: normal;
+    background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .conclusion { position: relative; z-index: 10; font-size: 27px; font-weight: 700; color: #0f172a; line-height: 1.5;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #ede9fe 100%);
+    border-radius: 16px; border: 1.5px solid #e0f2fe; }
+  .conclusion span { display: block; font-size: 19px; font-weight: 500; color: #64748b; margin-top: 10px; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 18px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="icon-badge">
+    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+  </div>
+  <div class="eyebrow">A definição</div>
+
+  <h1 class="headline">
+    É todo lugar onde alguém pode <em>te encontrar</em>, entender o que você faz e decidir se confia — antes mesmo de falar com você.
+  </h1>
+
+  <div class="conclusion">
+    Não é uma rede social. É a soma de tudo isso.
+    <span>Site, Google, redes sociais e prova social — funcionando juntos.</span>
+  </div>
+
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

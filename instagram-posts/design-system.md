@@ -1,6 +1,13 @@
 # Design System — Instagram Posts (Carrossel)
 
-> Documento de referência para a skill `instagram-post`. Consulte antes de gerar qualquer slide.
+> Documento de referência para a skill `instagram-post` (genérica, em
+> `~/Projects/claude-skills/skills/instagram-post`). Consulte antes de gerar qualquer slide.
+>
+> Este arquivo descreve os **componentes e o CSS** compartilhados por todos os posts.
+> A identidade e a voz da marca estão em [`BRAND.md`](BRAND.md); os **esqueletos visuais**
+> (qual capa, quais slides, que papel a imagem tem) estão em
+> [`templates/TEMPLATES.md`](templates/TEMPLATES.md) — a skill pergunta qual template usar
+> antes de desenhar.
 
 ---
 

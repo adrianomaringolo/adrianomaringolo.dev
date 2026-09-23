@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 820px; height: 820px; top: -300px; right: -280px; background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 820px; height: 820px; bottom: -320px; left: -300px; background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 92px 84px 140px; display: flex; flex-direction: column; }
+  .counter { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+  .counter-line { width: 44px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .counter-text { font-size: 16px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #94a3b8; }
+  .title { font-size: 67px; font-weight: 900; color: #0f172a; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 22px; }
+  .title em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .desc { font-size: 30px; font-weight: 500; color: #475569; line-height: 1.5; max-width: 900px; }
+  .art { margin-top: auto; margin-bottom: auto; display: flex; justify-content: center; }
+  .art svg { width: 900px; height: auto; display: block; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 9px; z-index: 30; }
+  .dot { width: 24px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+  .dot.active { width: 44px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div><div class="blob-1"></div><div class="blob-2"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="content">
+    <div class="counter"><div class="counter-line"></div><span class="counter-text">E tem mais</span></div>
+    <div class="title">São <em>vários</em> condomínios.<br>E o movimento <em>muda</em>.</div>
+    <div class="desc">Cada rede é um prédio com regras e público próprios. E o condomínio badalado de hoje pode esvaziar amanhã. O movimento não é seu, é emprestado.</div>
+
+    <div class="art">
+    <svg viewBox="0 0 660 460" xmlns="http://www.w3.org/2000/svg">
+      <!-- ===== ilha low-poly ===== -->
+      <polygon points="330,262 150,240 260,212" fill="#bbf7d0"/>
+      <polygon points="330,262 260,212 400,214" fill="#86efac"/>
+      <polygon points="330,262 400,214 510,245" fill="#4ade80"/>
+      <polygon points="330,262 510,245 450,305" fill="#6ee7b7"/>
+      <polygon points="330,262 450,305 310,325" fill="#4ade80"/>
+      <polygon points="330,262 310,325 180,290" fill="#a7f3d0"/>
+      <polygon points="330,262 180,290 150,240" fill="#86efac"/>
+      <polygon points="180,290 310,325 450,305 510,245 515,256 455,316 310,337 178,301" fill="#16a34a"/>
+      <polygon points="150,240 180,290 330,422 230,342" fill="#92400e"/>
+      <polygon points="180,290 310,325 330,422" fill="#78350f"/>
+      <polygon points="310,325 450,305 330,422" fill="#854d0e"/>
+      <polygon points="450,305 510,245 370,352 330,422" fill="#713f12"/>
+      <polygon points="180,290 310,325 255,295" fill="#a16207"/>
+      <polygon points="310,325 450,305 382,312" fill="#a8a29e"/>
+
+      <!-- ===== B1 — torre alta indigo (esquerda) ===== -->
+      <polygon points="182,250 214,250 182,96" fill="#6366f1"/>
+      <polygon points="214,250 214,96 182,96" fill="#4f46e5"/>
+      <polygon points="214,250 230,242 230,88 214,96" fill="#4338ca"/>
+      <polygon points="182,96 214,96 230,88 198,88" fill="#312e81"/>
+      <polygon points="199,66 201,66 200,88 200,88" fill="#818cf8"/>
+      <polygon points="198,88 202,88 200,64" fill="#94a3b8"/>
+      <polygon points="188,112 198,110 198,122 188,124" fill="#a5b4fc"/>
+      <polygon points="202,112 212,110 212,122 202,124" fill="#a5b4fc"/>
+      <polygon points="188,138 198,136 198,148 188,150" fill="#4338ca"/>
+      <polygon points="202,138 212,136 212,148 202,150" fill="#a5b4fc"/>
+      <polygon points="188,164 198,162 198,174 188,176" fill="#a5b4fc"/>
+      <polygon points="202,164 212,162 212,174 202,176" fill="#4338ca"/>
+      <polygon points="188,190 198,188 198,200 188,202" fill="#a5b4fc"/>
+      <polygon points="202,190 212,188 212,200 202,202" fill="#a5b4fc"/>
+      <polygon points="188,216 198,214 198,226 188,228" fill="#4338ca"/>
+      <polygon points="202,216 212,214 212,226 202,228" fill="#a5b4fc"/>
+
+      <!-- ===== B2 — bloco largo coral ===== -->
+      <polygon points="224,252 292,252 224,168" fill="#fb923c"/>
+      <polygon points="292,252 292,168 224,168" fill="#f97316"/>
+      <polygon points="292,252 308,244 308,160 292,168" fill="#ea580c"/>
+      <polygon points="224,168 292,168 308,160 240,160" fill="#c2410c"/>
+      <polygon points="232,182 246,180 246,194 232,196" fill="#fde047"/>
+      <polygon points="252,182 266,180 266,194 252,196" fill="#7c2d12"/>
+      <polygon points="272,182 286,180 286,194 272,196" fill="#fde047"/>
+      <polygon points="232,206 246,204 246,218 232,220" fill="#fde047"/>
+      <polygon points="252,206 266,204 266,218 252,220" fill="#fde047"/>
+      <polygon points="272,206 286,204 286,218 272,220" fill="#7c2d12"/>
+      <polygon points="232,230 246,228 246,242 232,244" fill="#7c2d12"/>
+      <polygon points="252,230 266,228 266,242 252,244" fill="#fde047"/>
+      <polygon points="272,230 286,228 286,242 272,244" fill="#fde047"/>
+
+      <!-- ===== B3 — prédio badalado teal (centro, muitas luzes) ===== -->
+      <polygon points="300,250 344,250 300,116" fill="#0891b2"/>
+      <polygon points="344,250 344,116 300,116" fill="#0e7490"/>
+      <polygon points="344,250 360,242 360,108 344,116" fill="#155e75"/>
+      <polygon points="300,116 344,116 360,108 316,108" fill="#134e5c"/>
+      <polygon points="316,86 320,86 319,108 317,108" fill="#94a3b8"/>
+      <polygon points="315,86 321,86 318,82" fill="#67e8f9"/>
+      <polygon points="307,130 320,128 320,140 307,142" fill="#67e8f9"/>
+      <polygon points="324,130 337,128 337,140 324,142" fill="#67e8f9"/>
+      <polygon points="307,152 320,150 320,162 307,164" fill="#67e8f9"/>
+      <polygon points="324,152 337,150 337,162 324,164" fill="#a5f3fc"/>
+      <polygon points="307,174 320,172 320,184 307,186" fill="#a5f3fc"/>
+      <polygon points="324,174 337,172 337,184 324,186" fill="#67e8f9"/>
+      <polygon points="307,196 320,194 320,206 307,208" fill="#67e8f9"/>
+      <polygon points="324,196 337,194 337,206 324,208" fill="#67e8f9"/>
+      <polygon points="307,218 320,216 320,228 307,230" fill="#a5f3fc"/>
+      <polygon points="324,218 337,216 337,228 324,230" fill="#67e8f9"/>
+
+      <!-- ===== B4 — prédio escalonado âmbar (meia luz) ===== -->
+      <polygon points="356,252 404,252 356,150" fill="#f59e0b"/>
+      <polygon points="404,252 404,150 356,150" fill="#d97706"/>
+      <polygon points="404,252 420,244 420,142 404,150" fill="#b45309"/>
+      <polygon points="356,150 404,150 420,142 372,142" fill="#92400e"/>
+      <polygon points="368,124 396,124 368,150" fill="#f59e0b"/>
+      <polygon points="396,124 396,150 368,150" fill="#d97706"/>
+      <polygon points="396,124 396,150 410,144 410,120" fill="#b45309"/>
+      <polygon points="368,124 396,124 410,120 382,120" fill="#92400e"/>
+      <polygon points="364,166 376,164 376,176 364,178" fill="#fef08a"/>
+      <polygon points="382,166 394,164 394,176 382,178" fill="#7c2d12"/>
+      <polygon points="364,188 376,186 376,198 364,200" fill="#7c2d12"/>
+      <polygon points="382,188 394,186 394,198 382,200" fill="#fef08a"/>
+      <polygon points="364,210 376,208 376,220 364,222" fill="#7c2d12"/>
+      <polygon points="382,210 394,208 394,220 382,222" fill="#7c2d12"/>
+      <polygon points="364,232 376,230 376,242 364,244" fill="#fef08a"/>
+      <polygon points="382,232 394,230 394,242 382,244" fill="#7c2d12"/>
+
+      <!-- ===== B5 — prédio que esvaziou (cinza, luzes apagadas) ===== -->
+      <polygon points="416,254 470,254 416,186" fill="#94a3b8"/>
+      <polygon points="470,254 470,186 416,186" fill="#64748b"/>
+      <polygon points="470,254 486,246 486,178 470,186" fill="#475569"/>
+      <polygon points="416,186 470,186 486,178 432,178" fill="#334155"/>
+      <polygon points="424,200 438,198 438,212 424,214" fill="#334155"/>
+      <polygon points="446,200 460,198 460,212 446,214" fill="#334155"/>
+      <polygon points="424,222 438,220 438,234 424,236" fill="#475569"/>
+      <polygon points="446,222 460,220 460,234 446,236" fill="#334155"/>
+      <polygon points="424,244 438,242 438,256 424,258" fill="#334155"/>
+      <polygon points="446,244 460,242 460,256 446,258" fill="#334155"/>
+    </svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

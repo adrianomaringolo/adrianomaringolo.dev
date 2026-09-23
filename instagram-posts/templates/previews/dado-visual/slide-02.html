@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #0f172a; }
+
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(248,250,252,0.04) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; top: -140px; right: -160px; width: 740px; height: 740px;
+    background: radial-gradient(circle, rgba(6,182,212,0.16) 0%, transparent 70%); }
+  .blob-2 { position: absolute; bottom: -160px; left: -160px; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(99,102,241,0.13) 0%, transparent 70%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .content { position: absolute; inset: 0; z-index: 10; padding: 96px 84px 130px;
+    display: flex; flex-direction: column; justify-content: center; }
+
+  .label { display: inline-flex; align-items: center; gap: 10px; width: fit-content;
+    background: rgba(6,182,212,0.10); border: 1.5px solid rgba(6,182,212,0.25);
+    border-radius: 100px; padding: 10px 22px; margin-bottom: 32px; }
+  .label-dot { width: 8px; height: 8px; background: #06b6d4; border-radius: 50%; }
+  .label-text { font-size: 15px; font-weight: 700; color: #06b6d4; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .headline { font-size: 82px; font-weight: 900; line-height: 1.04; letter-spacing: -0.035em; color: #f1f5f9; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .bars { margin-top: 62px; display: flex; flex-direction: column; gap: 38px; }
+  .bar-row { display: flex; flex-direction: column; gap: 14px; }
+  .bar-head { display: flex; align-items: baseline; justify-content: space-between; }
+  .bar-label { font-size: 28px; font-weight: 700; color: #cbd5e1; }
+  .bar-value { font-size: 34px; font-weight: 900; color: #f1f5f9; letter-spacing: -0.02em; }
+  .track { height: 22px; border-radius: 11px; background: rgba(148,163,184,0.16); overflow: hidden; }
+  .fill { display: block; height: 100%; border-radius: 11px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .bar-row.muted .bar-label { color: #64748b; }
+  .bar-row.muted .bar-value { color: #94a3b8; }
+  .bar-row.muted .fill { background: rgba(148,163,184,0.35); }
+
+  .note { margin-top: 58px; font-size: 26px; font-weight: 500; color: #94a3b8; line-height: 1.5;
+    padding: 24px 28px; background: rgba(148,163,184,0.06); border-left: 4px solid #6366f1; border-radius: 0 14px 14px 0; }
+
+  .source { position: absolute; bottom: 46px; left: 84px; font-size: 17px; font-weight: 600; color: #64748b; z-index: 30; }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 24px; font-weight: 700; color: #f1f5f9; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="label">
+      <div class="label-dot"></div>
+      <span class="label-text">Variante escura · barras</span>
+    </div>
+
+    <h1 class="headline">Quando o dado<br>é uma <em>comparação</em>.</h1>
+
+    <div class="bars">
+      <div class="bar-row">
+        <div class="bar-head"><span class="bar-label">Primeira categoria</span><span class="bar-value">84%</span></div>
+        <div class="track"><span class="fill" style="width:84%"></span></div>
+      </div>
+      <div class="bar-row muted">
+        <div class="bar-head"><span class="bar-label">Segunda categoria</span><span class="bar-value">47%</span></div>
+        <div class="track"><span class="fill" style="width:47%"></span></div>
+      </div>
+      <div class="bar-row muted">
+        <div class="bar-head"><span class="bar-label">Terceira categoria</span><span class="bar-value">19%</span></div>
+        <div class="track"><span class="fill" style="width:19%"></span></div>
+      </div>
+    </div>
+
+    <p class="note">A barra é proporcional ao número real. Nada de "mais ou menos".</p>
+  </div>
+
+  <div class="source">Fonte: Instituição, 2026</div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

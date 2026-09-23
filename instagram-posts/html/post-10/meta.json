@@ -1,0 +1,31 @@
+{
+  "title": "Que tipo de site o seu negócio precisa?",
+  "date": "2026-08-26",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    { "file": "slide-01.html", "title": "Capa", "description": "Hook 'Que tipo de site o seu negócio precisa?' + collage sketch com os 6 formatos em mini browsers rotulados" },
+    { "file": "slide-02.html", "title": "Tipo 01 — Landing page", "description": "Sketch de página única e longa com um único CTA repetido e indicação de scroll. Ideal para lançamentos e captura de leads" },
+    { "file": "slide-03.html", "title": "Tipo 02 — Site institucional", "description": "Sketch de site multipágina (páginas empilhadas, nav com abas, hero, cards de serviços, contato). Ideal para presença e credibilidade" },
+    { "file": "slide-04.html", "title": "Tipo 03 — Portfólio", "description": "Sketch de grade 3x2 de miniaturas de projetos com chips de filtro. Ideal para freelancers e criativos" },
+    { "file": "slide-05.html", "title": "Tipo 04 — Blog / site de conteúdo", "description": "Sketch de artigo com barra de busca, imagem, parágrafos, sidebar de posts recentes e seta de crescimento de tráfego. Ideal para autoridade e tráfego orgânico" },
+    { "file": "slide-06.html", "title": "Tipo 05 — Loja virtual", "description": "Sketch de e-commerce com busca, carrinho com badge, chips de categoria e grade 2x2 de produtos com preço e botão adicionar. Ideal para vender produtos" },
+    { "file": "slide-07.html", "title": "Tipo 06 — Sistema web (web app)", "description": "Sketch de painel com sidebar, cadeado de login, cards de métricas, gráfico de linha e tabela. Ideal para processos próprios e SaaS" },
+    { "file": "slide-08.html", "title": "CTA", "description": "Slide dark de fechamento: comece pela pergunta certa, duas regras práticas e o site em destaque" }
+  ],
+  "caption": "🌐 \"Preciso de um site.\" Ok, mas de qual tipo?\n\nA maioria das pessoas pede um \"site\" sem saber que existem formatos bem diferentes, e escolher o errado significa pagar por coisa que não vai usar ou ficar sem o que precisava.\n\nSão 6 tipos principais 👇\n\n---\n\n🎯 01. Landing page\n\nUma página só, longa, com um único objetivo: fazer o visitante realizar uma ação. Sem menu, sem distração.\nIdeal para: lançamentos, campanhas de anúncio e captura de leads.\n\n---\n\n🏢 02. Site institucional\n\nVárias páginas que apresentam o negócio: início, sobre, serviços, contato. É o endereço oficial e fixo da marca.\nIdeal para: empresas que precisam de presença e credibilidade.\n\n---\n\n🖼️ 03. Portfólio\n\nUma vitrine visual dos seus trabalhos. Menos texto, mais prova. Bate o olho e entende o que você faz.\nIdeal para: freelancers, criativos e profissionais autônomos.\n\n---\n\n✍️ 04. Blog ou site de conteúdo\n\nPublicações frequentes que respondem o que o seu público pesquisa. Cada artigo vira uma porta de entrada pelo Google.\nIdeal para: quem quer autoridade e tráfego orgânico no longo prazo.\n\n---\n\n🛒 05. Loja virtual\n\nCatálogo, carrinho e pagamento no mesmo lugar. A venda acontece a qualquer hora, sem você atender.\nIdeal para: quem vende produtos e quer escalar.\n\n---\n\n⚙️ 06. Sistema web (web app)\n\nSoftware sob medida com área de login, painéis e automações. Não é um site que informa: é uma ferramenta que trabalha.\nIdeal para: negócios com processo próprio e produtos SaaS.\n\n---\n\nNão precisa acertar de primeira. Dá para começar simples e evoluir o formato conforme o negócio cresce. 🚀\n\n💾 Salva esse carrossel para consultar na hora de decidir.\n💬 Qual desses o seu negócio tem hoje? E qual falta?\n\n#site #presencadigital #sitesprofissionais #landingpage #ecommerce #lojavirtual #desenvolvimentoweb #webdesign #empreendedorismo #marketingdigital #devbr #negocios",
+  "hashtags": [
+    "site",
+    "presencadigital",
+    "sitesprofissionais",
+    "landingpage",
+    "ecommerce",
+    "lojavirtual",
+    "desenvolvimentoweb",
+    "webdesign",
+    "empreendedorismo",
+    "marketingdigital",
+    "devbr",
+    "negocios"
+  ]
+}

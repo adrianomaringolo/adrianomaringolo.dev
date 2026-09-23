@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 820px; height: 820px; top: -300px; right: -280px; background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 820px; height: 820px; bottom: -320px; left: -300px; background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 92px 84px 140px; display: flex; flex-direction: column; }
+  .counter { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+  .counter-line { width: 44px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .counter-text { font-size: 16px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #94a3b8; }
+  .title { font-size: 67px; font-weight: 900; color: #0f172a; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 22px; }
+  .title em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .desc { font-size: 30px; font-weight: 500; color: #475569; line-height: 1.5; max-width: 900px; }
+  .art { margin-top: auto; margin-bottom: auto; display: flex; justify-content: center; }
+  .art svg { width: 1000px; height: auto; display: block; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 9px; z-index: 30; }
+  .dot { width: 24px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+  .dot.active { width: 44px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div><div class="blob-1"></div><div class="blob-2"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="content">
+    <div class="counter"><div class="counter-line"></div><span class="counter-text">A jogada certa</span></div>
+    <div class="title">Use o condomínio para<br><em>trazer gente pra casa</em></div>
+    <div class="desc">A rede social atrai a visita. O site recebe, apresenta o trabalho e fecha. Um leva ao outro.</div>
+
+    <div class="art">
+    <svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg">
+      <!-- ===== CONDOMÍNIO (esquerda) ===== -->
+      <g transform="translate(-22,86) scale(0.5)">
+        <polygon points="320,272 140,250 250,222" fill="#bbf7d0"/>
+        <polygon points="320,272 250,222 390,224" fill="#86efac"/>
+        <polygon points="320,272 390,224 500,255" fill="#4ade80"/>
+        <polygon points="320,272 500,255 440,315" fill="#6ee7b7"/>
+        <polygon points="320,272 440,315 300,335" fill="#4ade80"/>
+        <polygon points="320,272 300,335 170,300" fill="#a7f3d0"/>
+        <polygon points="320,272 170,300 140,250" fill="#86efac"/>
+        <polygon points="170,300 300,335 440,315 500,255 505,266 445,326 300,347 168,311" fill="#16a34a"/>
+        <polygon points="140,250 170,300 320,432 220,352" fill="#92400e"/>
+        <polygon points="170,300 300,335 320,432" fill="#78350f"/>
+        <polygon points="300,335 440,315 320,432" fill="#854d0e"/>
+        <polygon points="440,315 500,255 360,362 320,432" fill="#713f12"/>
+        <polygon points="243,64 358,64 350,46 251,46" fill="#475569"/>
+        <polygon points="243,64 251,46 350,46 358,64" fill="#3f4a58"/>
+        <polygon points="350,64 386,46 350,46" fill="#334155"/>
+        <polygon points="252,238 300,238 252,64" fill="#9aa6b6"/>
+        <polygon points="300,238 300,64 252,64" fill="#a7b2c1"/>
+        <polygon points="300,238 348,238 300,64" fill="#818d9f"/>
+        <polygon points="348,238 348,64 300,64" fill="#717e90"/>
+        <polygon points="348,238 386,219 386,46 348,64" fill="#5b6675"/>
+        <polygon points="348,238 386,46 348,64" fill="#67717f"/>
+        <polygon points="264,90 278,88 278,104 264,106" fill="#22d3ee"/>
+        <polygon points="286,90 300,88 300,104 286,106" fill="#c9d1db"/>
+        <polygon points="308,90 322,88 322,104 308,106" fill="#22d3ee"/>
+        <polygon points="330,90 344,88 344,104 330,106" fill="#b0bac7"/>
+        <polygon points="264,120 278,118 278,134 264,136" fill="#c9d1db"/>
+        <polygon points="286,120 300,118 300,134 286,136" fill="#22d3ee"/>
+        <polygon points="308,120 322,118 322,134 308,136" fill="#b7c0cc"/>
+        <polygon points="330,120 344,118 344,134 330,136" fill="#22d3ee"/>
+        <polygon points="264,150 278,148 278,164 264,166" fill="#22d3ee"/>
+        <polygon points="286,150 300,148 300,164 286,166" fill="#bcc5d0"/>
+        <polygon points="308,150 322,148 322,164 308,166" fill="#c3ccd7"/>
+        <polygon points="330,150 344,148 344,164 330,166" fill="#22d3ee"/>
+        <polygon points="264,180 278,178 278,194 264,196" fill="#bcc5d0"/>
+        <polygon points="286,180 300,178 300,194 286,196" fill="#22d3ee"/>
+        <polygon points="308,180 322,178 322,194 308,196" fill="#b7c0cc"/>
+        <polygon points="330,180 344,178 344,194 330,196" fill="#c3ccd7"/>
+        <polygon points="290,238 312,238 290,210" fill="#334155"/>
+        <polygon points="312,238 312,208 290,210" fill="#1e293b"/>
+      </g>
+
+      <!-- ===== ponte low-poly ===== -->
+      <polygon points="182,236 456,236 474,258 164,258" fill="#e3ebf0"/>
+      <polygon points="182,236 456,236 319,247" fill="#eef3f6"/>
+      <polygon points="164,258 474,258 474,268 164,268" fill="#c4cfd9"/>
+
+      <!-- ===== SETA low-poly ===== -->
+      <g transform="translate(300,168)">
+        <polygon points="0,-13 42,-13 42,13 0,13" fill="#06b6d4"/>
+        <polygon points="42,-28 86,0 42,28" fill="#6366f1"/>
+        <polygon points="42,-28 86,0 42,0" fill="#818cf8"/>
+      </g>
+
+      <!-- ===== CASA (direita) ===== -->
+      <g transform="translate(392,86) scale(0.5)">
+        <polygon points="320,272 140,250 250,222" fill="#bbf7d0"/>
+        <polygon points="320,272 250,222 390,224" fill="#86efac"/>
+        <polygon points="320,272 390,224 500,255" fill="#4ade80"/>
+        <polygon points="320,272 500,255 440,315" fill="#6ee7b7"/>
+        <polygon points="320,272 440,315 300,335" fill="#4ade80"/>
+        <polygon points="320,272 300,335 170,300" fill="#a7f3d0"/>
+        <polygon points="320,272 170,300 140,250" fill="#86efac"/>
+        <polygon points="170,300 300,335 440,315 500,255 505,266 445,326 300,347 168,311" fill="#16a34a"/>
+        <polygon points="140,250 170,300 320,432 220,352" fill="#92400e"/>
+        <polygon points="170,300 300,335 320,432" fill="#78350f"/>
+        <polygon points="300,335 440,315 320,432" fill="#854d0e"/>
+        <polygon points="440,315 500,255 360,362 320,432" fill="#713f12"/>
+        <polygon points="196,234 204,234 202,216 198,216" fill="#7c3f13"/>
+        <polygon points="180,218 218,218 199,178" fill="#166534"/>
+        <polygon points="184,192 214,192 199,156" fill="#16a34a"/>
+        <polygon points="187,170 211,170 199,140" fill="#22c55e"/>
+        <polygon points="248,240 332,240 248,138" fill="#fffdf5"/>
+        <polygon points="332,240 332,138 248,138" fill="#fdf6e3"/>
+        <polygon points="332,240 370,221 370,122 332,138" fill="#f2e4c2"/>
+        <polygon points="332,240 370,122 332,138" fill="#f8edcf"/>
+        <polygon points="236,144 290,88 290,144" fill="#fb923c"/>
+        <polygon points="290,88 344,144 290,144" fill="#f97316"/>
+        <polygon points="344,144 290,88 328,70" fill="#ea580c"/>
+        <polygon points="344,144 328,70 382,126" fill="#c2410c"/>
+        <polygon points="236,144 344,144 344,151 236,151" fill="#9a3412"/>
+        <polygon points="278,240 306,240 278,188" fill="#b45309"/>
+        <polygon points="306,240 306,184 278,188" fill="#92400e"/>
+        <polygon points="266,158 282,176 266,176" fill="#fef9c3"/>
+        <polygon points="266,158 266,176 250,176" fill="#fde047"/>
+        <polygon points="266,176 282,176 266,194" fill="#fde047"/>
+        <polygon points="266,176 266,194 250,176" fill="#facc15"/>
+        <polygon points="344,150 360,143 360,170 344,178" fill="#fcd34d"/>
+      </g>
+
+      <!-- ===== pessoas caminhando na ponte ===== -->
+      <g>
+        <g transform="translate(238,244) scale(1.2)"><polygon points="-4,0 4,0 3,-9 -3,-9" fill="#334155"/><polygon points="-5,-9 5,-9 4,-20 -4,-20" fill="#0891b2"/><polygon points="-3,-20 3,-20 3.5,-25 0,-28 -3.5,-25" fill="#38bdf8"/></g>
+        <g transform="translate(272,250) scale(1.25)"><polygon points="-4,0 4,0 3,-9 -3,-9" fill="#3f3f6b"/><polygon points="-5,-9 5,-9 4,-20 -4,-20" fill="#6366f1"/><polygon points="-3,-20 3,-20 3.5,-25 0,-28 -3.5,-25" fill="#a5b4fc"/></g>
+        <g transform="translate(356,250) scale(1.25)"><polygon points="-4,0 4,0 3,-9 -3,-9" fill="#334155"/><polygon points="-5,-9 5,-9 4,-20 -4,-20" fill="#0891b2"/><polygon points="-3,-20 3,-20 3.5,-25 0,-28 -3.5,-25" fill="#38bdf8"/></g>
+        <g transform="translate(392,244) scale(1.2)"><polygon points="-4,0 4,0 3,-9 -3,-9" fill="#3f3f6b"/><polygon points="-5,-9 5,-9 4,-20 -4,-20" fill="#6366f1"/><polygon points="-3,-20 3,-20 3.5,-25 0,-28 -3.5,-25" fill="#a5b4fc"/></g>
+      </g>
+    </svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

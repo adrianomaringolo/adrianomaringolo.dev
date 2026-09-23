@@ -1,0 +1,31 @@
+{
+  "title": "Quanto custa um site? A tabela honesta",
+  "date": "2026-09-07",
+  "type": "carousel",
+  "format": "1080x1350",
+  "slides": [
+    { "file": "slide-01.html", "title": "Capa", "description": "Hook 'Quanto custa fazer um site?' + sketch de uma folha de orçamento com itens marcados e total em aberto ('?')" },
+    { "file": "slide-02.html", "title": "A base", "description": "Site não é uma coisa só: de uma página a um sistema com login. O que você paga é o escopo, e 5 fatores definem o escopo" },
+    { "file": "slide-03.html", "title": "Fator 01 — Tipo e tamanho", "description": "Landing, institucional, loja ou sistema. Cada degrau multiplica telas, testes e prazo. Chips 'puxa pra baixo / pra cima'" },
+    { "file": "slide-04.html", "title": "Fator 02 — Conteúdo pronto ou não", "description": "Textos, fotos e marca prontos deixam o projeto mais rápido. Criar tudo do zero vira trabalho à parte no orçamento" },
+    { "file": "slide-05.html", "title": "Fator 03 — Integrações", "description": "Agendamento, pagamento, CRM, nota fiscal. Cada conexão é código, teste e manutenção. Site que informa custa menos que site que opera" },
+    { "file": "slide-06.html", "title": "Fator 04 — Design", "description": "Tema pronto ajustado, layout sob medida ou design system completo. Três níveis de investimento" },
+    { "file": "slide-07.html", "title": "Fator 05 — Prazo e manutenção", "description": "Urgência custa mais. Site vivo tem custo mensal: hospedagem, domínio, ajustes, segurança. É ativo que se mantém, não compra única" },
+    { "file": "slide-08.html", "title": "CTA", "description": "Slide dark: me conta o escopo e aí sim eu te dou um número. Duas dicas pra pedir orçamento + adrianomaringolo.dev" }
+  ],
+  "caption": "💰 \"Quanto custa um site?\"\n\nÉ a primeira pergunta de quase todo mundo. E a resposta honesta incomoda: depende.\n\nNão é enrolação. \"Site\" pode ser uma página com um botão ou um sistema inteiro com login, painel e integrações. Entre um e outro tem meses de trabalho. Quem te dá um número na hora está chutando.\n\nO que você paga é o escopo. E são 5 fatores que definem o escopo 👇\n\n---\n\n📐 01. O tipo e o tamanho\nUma landing de uma página, um institucional de oito, uma loja ou um sistema sob medida. Cada degrau multiplica telas, testes e prazo.\n\n📝 02. O conteúdo pronto ou não\nTextos, fotos, logo e identidade na sua mão aceleram tudo. Criar do zero é um trabalho à parte dentro do projeto.\n\n🔌 03. As integrações\nAgendamento, pagamento, CRM, e-mail, nota fiscal. Cada conexão é código, teste e manutenção. Um site que só informa custa bem menos que um que opera.\n\n🎨 04. O design\nTema pronto ajustado à marca, layout sob medida ou design system completo. Três níveis de investimento, três resultados.\n\n⏱️ 05. O prazo e o depois\nUrgência custa mais. E todo site vivo tem custo mensal: hospedagem, domínio, ajustes, segurança. Site é ativo que se mantém, não compra única.\n\n---\n\nQuer um orçamento que vale? Chegue com o escopo na mão: liste o que o visitante precisa fazer no site e junte o que você já tem pronto. Aí sim dá pra dar um número de verdade. 🎯\n\n💾 Salva pra consultar na hora de pedir um orçamento.\n💬 Qual desses 5 fatores você nunca tinha pensado?\n\n#site #orcamento #quantocustaumsite #presencadigital #desenvolvimentoweb #webdesign #empreendedorismo #pequenosnegocios #marketingdigital #negociodigital #devbr #freelancer",
+  "hashtags": [
+    "site",
+    "orcamento",
+    "quantocustaumsite",
+    "presencadigital",
+    "desenvolvimentoweb",
+    "webdesign",
+    "empreendedorismo",
+    "pequenosnegocios",
+    "marketingdigital",
+    "negociodigital",
+    "devbr",
+    "freelancer"
+  ]
+}

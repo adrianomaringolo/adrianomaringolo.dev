@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 100px; gap: 44px; }
+
+  .blob-1 { position: absolute; top: -80px; right: -100px; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(8,145,178,0.08) 0%, transparent 70%); pointer-events: none; }
+  .blob-2 { position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); pointer-events: none; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; pointer-events: none; }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .header { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 22px; }
+  .icon-badge { display: flex; align-items: center; color: #0891b2; }
+  .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0891b2; }
+  .headline { font-size: 54px; font-weight: 900; line-height: 1.14; letter-spacing: -0.03em; color: #0f172a; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .quote { position: relative; z-index: 10; background: #fff; border: 1.5px solid #e2e8f0;
+    border-left: 4px solid #0891b2; border-radius: 0 20px 20px 0; padding: 40px 44px;
+    font-size: 40px; font-weight: 800; color: #0f172a; line-height: 1.32; }
+
+  .body-text { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 26px;
+    font-size: 28px; font-weight: 500; color: #475569; line-height: 1.5; }
+  .body-text strong { font-weight: 800; color: #0f172a; }
+
+  .conclusion { position: relative; z-index: 10; font-size: 27px; font-weight: 700; color: #0f172a; line-height: 1.45;
+    padding: 30px 34px; background: linear-gradient(135deg, #f0f9ff 0%, #ede9fe 100%);
+    border-radius: 16px; border: 1.5px solid #e0f2fe; }
+  .conclusion span { display: block; font-size: 20px; font-weight: 500; color: #64748b; margin-top: 10px; }
+
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: #e2e8f0; }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 18px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="header">
+    <div class="icon-badge">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+    </div>
+    <div class="eyebrow">A pergunta que ninguém faz em voz alta</div>
+    <div class="headline">Quando conto onde trabalho, sinto a dúvida <em>do outro lado</em></div>
+  </div>
+
+  <div class="quote">“Você não é grande demais pro meu negócio?”</div>
+
+  <div class="body-text">
+    <p>A dúvida é justa. Consultoria internacional, cliente de fora, projeto grande — parece um mundo que não conversa com quem tem uma equipe de três pessoas.</p>
+    <p>Só que a conclusão é o contrário do que parece.</p>
+  </div>
+
+  <div class="conclusion">
+    O aprendizado do projeto grande é justamente o que falta no site pequeno.
+    <span>Ele só costuma ficar preso lá dentro.</span>
+  </div>
+
+  <div class="progress"><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

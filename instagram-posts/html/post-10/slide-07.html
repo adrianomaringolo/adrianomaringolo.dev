@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 820px; height: 820px; top: -300px; right: -280px; background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 820px; height: 820px; bottom: -320px; left: -300px; background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 96px 84px 148px; display: flex; flex-direction: column; }
+  .counter { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+  .counter-line { width: 44px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .counter-text { font-size: 16px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #94a3b8; }
+  .counter-text b { color: #0891b2; font-weight: 800; }
+  .title { font-size: 60px; font-weight: 900; color: #0f172a; line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .title em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .desc { font-size: 30px; font-weight: 500; color: #64748b; line-height: 1.5; max-width: 880px; margin-bottom: 24px; }
+  .ideal { display: inline-flex; align-items: center; gap: 14px; align-self: flex-start; background: #fff; border: 1.5px solid #e2e8f0; border-left: 4px solid #0891b2; border-radius: 14px; padding: 16px 22px; margin-bottom: 26px; }
+  .ideal span { font-size: 15px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; }
+  .ideal strong { font-size: 23px; font-weight: 800; color: #0f172a; }
+  .mock { flex: 1; background: #fff; border: 1.5px solid #e2e8f0; border-radius: 24px; box-shadow: 0 20px 50px rgba(15,23,42,0.08); padding: 26px 30px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .mock svg { width: 100%; height: 100%; display: block; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 22px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div><div class="blob-1"></div><div class="blob-2"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="content">
+    <div class="counter"><div class="counter-line"></div><span class="counter-text">Tipo <b>06</b> / 06</span></div>
+    <div class="title">Sistema web <em>(web app)</em></div>
+    <div class="desc">Software sob medida com área de login, painéis e automações. Não é um site que informa: é uma ferramenta que trabalha.</div>
+    <div class="ideal"><span>Ideal para</span><strong>Negócios com processo próprio e produtos SaaS</strong></div>
+
+    <div class="mock">
+      <svg viewBox="0 0 720 600" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0891b2"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+          <filter id="sk" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="41" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/></filter>
+        </defs>
+        <g filter="url(#sk)" fill="none" stroke="#1e293b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="44" y="18" width="632" height="564" rx="18" fill="#ffffff"/>
+          <line x1="44" y1="58" x2="676" y2="58"/>
+          <circle cx="68" cy="38" r="4" fill="#cbd5e1" stroke="none"/><circle cx="84" cy="38" r="4" fill="#cbd5e1" stroke="none"/><circle cx="100" cy="38" r="4" fill="#cbd5e1" stroke="none"/>
+          <!-- lock + avatar -->
+          <rect x="590" y="30" width="18" height="16" rx="3"/><path d="M593 30 v-5 a6 6 0 0 1 12 0 v5"/>
+          <circle cx="644" cy="38" r="12"/>
+
+          <!-- sidebar -->
+          <rect x="44" y="58" width="160" height="524" fill="#f8fafc" stroke="none"/>
+          <rect x="66" y="92" width="118" height="34" rx="8" fill="url(#g)" stroke="none"/>
+          <rect x="66" y="140" width="20" height="20" rx="4"/><rect x="98" y="146" width="80" height="9" rx="4.5" fill="#e2e8f0" stroke="none"/>
+          <rect x="66" y="184" width="20" height="20" rx="4"/><rect x="98" y="190" width="80" height="9" rx="4.5" fill="#e2e8f0" stroke="none"/>
+          <rect x="66" y="228" width="20" height="20" rx="4"/><rect x="98" y="234" width="80" height="9" rx="4.5" fill="#e2e8f0" stroke="none"/>
+          <rect x="66" y="272" width="20" height="20" rx="4"/><rect x="98" y="278" width="80" height="9" rx="4.5" fill="#e2e8f0" stroke="none"/>
+
+          <!-- main: title + button -->
+          <rect x="232" y="86" width="220" height="16" rx="8" fill="#e2e8f0" stroke="none"/>
+          <rect x="556" y="82" width="96" height="30" rx="8"/>
+
+          <!-- stat cards -->
+          <rect x="232" y="128" width="132" height="94" rx="10"/>
+          <rect x="248" y="146" width="64" height="24" rx="6" fill="url(#g)" stroke="none"/><rect x="248" y="184" width="88" height="9" rx="4.5" fill="#eef2f6" stroke="none"/>
+          <rect x="380" y="128" width="132" height="94" rx="10"/>
+          <rect x="396" y="146" width="64" height="24" rx="6" fill="url(#g)" stroke="none"/><rect x="396" y="184" width="88" height="9" rx="4.5" fill="#eef2f6" stroke="none"/>
+          <rect x="528" y="128" width="124" height="94" rx="10"/>
+          <rect x="544" y="146" width="64" height="24" rx="6" fill="url(#g)" stroke="none"/><rect x="544" y="184" width="80" height="9" rx="4.5" fill="#eef2f6" stroke="none"/>
+
+          <!-- chart card -->
+          <rect x="232" y="240" width="420" height="150" rx="10"/>
+          <line x1="252" y1="362" x2="632" y2="362"/>
+          <polyline points="256,348 300,322 344,334 392,300 440,314 490,284 540,298 620,266"/>
+
+          <!-- table -->
+          <line x1="232" y1="418" x2="652" y2="418"/>
+          <g fill="#eef2f6" stroke="none">
+            <rect x="238" y="432" width="90" height="9" rx="4.5"/><rect x="352" y="432" width="120" height="9" rx="4.5"/><rect x="500" y="432" width="70" height="9" rx="4.5"/><rect x="592" y="432" width="52" height="9" rx="4.5"/>
+            <rect x="238" y="462" width="90" height="9" rx="4.5"/><rect x="352" y="462" width="120" height="9" rx="4.5"/><rect x="500" y="462" width="70" height="9" rx="4.5"/><rect x="592" y="462" width="52" height="9" rx="4.5"/>
+            <rect x="238" y="492" width="90" height="9" rx="4.5"/><rect x="352" y="492" width="120" height="9" rx="4.5"/><rect x="500" y="492" width="70" height="9" rx="4.5"/><rect x="592" y="492" width="52" height="9" rx="4.5"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="progress">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

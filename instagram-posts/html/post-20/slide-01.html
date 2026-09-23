@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #f5f7fa; }
+
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .blob-1 { position: absolute; top: -150px; right: -170px; width: 780px; height: 780px;
+    background: radial-gradient(circle, rgba(8,145,178,0.12) 0%, transparent 70%); }
+  .blob-2 { position: absolute; bottom: -170px; left: -170px; width: 720px; height: 720px;
+    background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+
+  .content { position: absolute; inset: 0; z-index: 10; padding: 96px 84px 168px;
+    display: flex; flex-direction: column; justify-content: center; }
+
+  .label { display: inline-flex; align-items: center; gap: 11px; width: fit-content;
+    background: rgba(8,145,178,0.10); border: 1.5px solid rgba(8,145,178,0.25);
+    border-radius: 100px; padding: 12px 26px; margin-bottom: 34px; }
+  .label-dot { width: 9px; height: 9px; background: #0891b2; border-radius: 50%; }
+  .label-text { font-size: 18px; font-weight: 700; color: #0891b2; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .headline { font-size: 86px; font-weight: 900; line-height: 1.04; letter-spacing: -0.038em; color: #0f172a; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .bars { margin-top: 62px; display: flex; flex-direction: column; gap: 34px; }
+  .bar-row { display: flex; flex-direction: column; gap: 14px; }
+  .bar-head { display: flex; align-items: baseline; justify-content: space-between; }
+  .bar-label { font-size: 30px; font-weight: 700; color: #334155; }
+  .bar-value { font-size: 40px; font-weight: 900; color: #0f172a; letter-spacing: -0.03em; }
+  .track { height: 26px; border-radius: 13px; background: #e2e8f0; overflow: hidden; }
+  .fill { display: block; height: 100%; border-radius: 13px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .bar-row.small .bar-label { color: #0f172a; font-weight: 800; }
+  .bar-row.small .bar-value { color: #0891b2; }
+
+  .footnote { margin-top: 58px; background: #fff; border: 1.5px solid #e2e8f0; border-left: 5px solid #0891b2;
+    border-radius: 18px; padding: 30px 34px; }
+  .footnote-text { font-size: 31px; font-weight: 600; color: #0f172a; line-height: 1.42; }
+
+  .source { position: absolute; bottom: 106px; left: 84px; right: 84px; z-index: 30;
+    font-size: 20px; font-weight: 600; color: #94a3b8; line-height: 1.35; }
+  .handle { position: absolute; bottom: 48px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="label">
+      <div class="label-dot"></div>
+      <span class="label-text">Empresas · EUA · 2026</span>
+    </div>
+
+    <h1 class="headline">Todo mundo fala de IA.<br>1 em cada 5 <em>usa</em>.</h1>
+
+    <div class="bars">
+      <div class="bar-row">
+        <div class="bar-head"><span class="bar-label">Empresas com 250+ funcionários</span><span class="bar-value">37%</span></div>
+        <div class="track"><span class="fill" style="width:37%"></span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-head"><span class="bar-label">Empresas com 100 a 249</span><span class="bar-value">32%</span></div>
+        <div class="track"><span class="fill" style="width:32%"></span></div>
+      </div>
+      <div class="bar-row small">
+        <div class="bar-head"><span class="bar-label">Empresas com até 4 funcionários</span><span class="bar-value">&lt; 20%</span></div>
+        <div class="track"><span class="fill" style="width:19%"></span></div>
+      </div>
+    </div>
+
+    <div class="footnote">
+      <p class="footnote-text">Quanto menor o negócio, menor o uso. E não é falta de acesso: as ferramentas são as mesmas e quase todas têm plano gratuito.</p>
+    </div>
+  </div>
+
+  <div class="source">Fonte: US Census Bureau · Business Trends and Outlook Survey, dez/2025 a mai/2026</div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
