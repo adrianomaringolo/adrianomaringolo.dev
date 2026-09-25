@@ -1,0 +1,130 @@
+{
+  "common": {
+    "changeLanguage": "Change language"
+  },
+  "nav": {
+    "packages": "Packages",
+    "process": "How it works",
+    "work": "Work",
+    "contact": "Contact",
+    "cta": "Get a quote"
+  },
+  "hero": {
+    "eyebrow": "Custom website development",
+    "headline": "A professional website, live on a fixed timeline and price",
+    "subline": "Business websites, landing pages, and custom web apps, built by a senior software engineer with 15+ years of experience. No middleman, no runaround.",
+    "ctaPrimary": "Get a quote",
+    "ctaSecondary": "See packages",
+    "availability": "Open for new projects"
+  },
+  "packages": {
+    "eyebrow": "Packages",
+    "headline": "Pick your starting point",
+    "subline": "Each package starts from a fixed scope. If your project looks different, we adjust it in the conversation.",
+    "disclaimer": "* Reference pricing, subject to confirmation based on project scope.",
+    "site": {
+      "name": "Business website",
+      "tagline": "For companies and professionals who need to look credible",
+      "price": "starting at $400*",
+      "features": [
+        "Up to 5 pages (home, about, services, contact + 1)",
+        "Responsive design, built around your content",
+        "Technical SEO out of the box",
+        "Integrated contact form",
+        "Delivery: 2 to 3 weeks"
+      ],
+      "cta": "I want a business website"
+    },
+    "landing": {
+      "name": "Landing page",
+      "tagline": "For converting traffic from a specific campaign or product",
+      "price": "starting at $300*",
+      "features": [
+        "Single page, built around one conversion goal",
+        "Copy and structure designed to convert",
+        "WhatsApp, form, or checkout integration",
+        "Analytics set up from day one",
+        "Delivery: 1 to 2 weeks"
+      ],
+      "cta": "I want a landing page"
+    },
+    "webapp": {
+      "name": "Web app / custom system",
+      "tagline": "For products with logins, data, and their own business rules",
+      "price": "custom quote*",
+      "features": [
+        "Requirements and architecture worked out before any code",
+        "Authentication, admin panel, integrations",
+        "Code that's tested and documented, not just delivered",
+        "Post-launch follow-up and support",
+        "Timeline set once the scope is defined"
+      ],
+      "cta": "I want to talk about a system"
+    }
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "headline": "From first message to site live",
+    "steps": [
+      {
+        "title": "Initial conversation",
+        "description": "I need to understand what you need, who the site is for, and what it has to do. No quote is trustworthy without this."
+      },
+      {
+        "title": "Proposal and timeline",
+        "description": "You get scope, timeline, and price in writing, before a single line of code gets written."
+      },
+      {
+        "title": "Development",
+        "description": "Staged progress with review points along the way, not one surprise delivery at the end."
+      },
+      {
+        "title": "Launch and support",
+        "description": "Site goes live, domain and hosting configured, with a support window included for fine-tuning."
+      }
+    ]
+  },
+  "proof": {
+    "eyebrow": "Real projects",
+    "headline": "A few sites I've shipped",
+    "items": [
+      {
+        "title": "Yane Leitão",
+        "description": "Business website with booking and a service catalog for a nutritionist."
+      },
+      {
+        "title": "GoLaser Barão Geraldo",
+        "description": "Aesthetic clinic website with a conversion-focused journey and WhatsApp integration."
+      },
+      {
+        "title": "Gota de Cura",
+        "description": "Business website with a blog and product catalog for a compounding pharmacy."
+      }
+    ],
+    "cta": "See the full portfolio"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "headline": "Let's talk about your project",
+    "subline": "Fill out the form or message me directly on WhatsApp. I answer personally.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "package": "Package you're interested in",
+      "packagePlaceholder": "Select a package",
+      "message": "Tell me a bit about the project",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "success": "Message sent! I'll get back to you soon.",
+      "error": "Couldn't send it right now. Try again or message me on WhatsApp."
+    },
+    "whatsappPrompt": "Prefer to talk directly? Message me.",
+    "whatsapp": "Message on WhatsApp",
+    "whatsappMessage": "Hi! I found you through the site and I'd like a quote for {package}."
+  },
+  "footer": {
+    "tagline": "Custom websites and systems, delivered by someone who's also a software engineer.",
+    "rights": "All rights reserved.",
+    "portfolio": "See personal portfolio"
+  }
+}
