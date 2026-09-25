@@ -1,0 +1,130 @@
+{
+  "common": {
+    "changeLanguage": "Mudar idioma"
+  },
+  "nav": {
+    "packages": "Pacotes",
+    "process": "Como funciona",
+    "work": "Projetos",
+    "contact": "Contato",
+    "cta": "Solicitar orçamento"
+  },
+  "hero": {
+    "eyebrow": "Criação de sites sob medida",
+    "headline": "Um site profissional no ar, com prazo e preço fechados",
+    "subline": "Sites institucionais, landing pages e sistemas sob medida, desenvolvidos por um engenheiro de software sênior com mais de 15 anos de experiência. Sem intermediário, sem enrolação.",
+    "ctaPrimary": "Solicitar orçamento",
+    "ctaSecondary": "Ver pacotes",
+    "availability": "Vagas abertas para novos projetos"
+  },
+  "packages": {
+    "eyebrow": "Pacotes",
+    "headline": "Escolha o ponto de partida",
+    "subline": "Cada pacote parte de um escopo fechado. Se o seu projeto for diferente disso, a gente ajusta na conversa.",
+    "disclaimer": "* Valores de referência, sujeitos a confirmação conforme o escopo do projeto.",
+    "site": {
+      "name": "Site institucional",
+      "tagline": "Para empresas e profissionais se apresentarem com credibilidade",
+      "price": "a partir de R$ 1.997*",
+      "features": [
+        "Até 5 páginas (home, sobre, serviços, contato + 1)",
+        "Design responsivo, feito para o seu conteúdo",
+        "Otimizado para buscadores (SEO técnico)",
+        "Formulário de contato integrado",
+        "Prazo de entrega: 2 a 3 semanas"
+      ],
+      "cta": "Quero um site institucional"
+    },
+    "landing": {
+      "name": "Landing page",
+      "tagline": "Para converter tráfego de uma campanha ou produto específico",
+      "price": "a partir de R$ 1.497*",
+      "features": [
+        "Página única, focada em uma conversão",
+        "Copy e estrutura pensadas para conversão",
+        "Integração com WhatsApp, formulário ou checkout",
+        "Analytics configurado desde o dia um",
+        "Prazo de entrega: 1 a 2 semanas"
+      ],
+      "cta": "Quero uma landing page"
+    },
+    "webapp": {
+      "name": "Web app / sistema sob medida",
+      "tagline": "Para produtos com login, dados e regras de negócio próprias",
+      "price": "sob orçamento*",
+      "features": [
+        "Levantamento de requisitos e arquitetura antes de codar",
+        "Autenticação, painel administrativo, integrações",
+        "Código testado e documentado, não só entregue",
+        "Acompanhamento e suporte pós-lançamento",
+        "Prazo definido após o escopo"
+      ],
+      "cta": "Quero conversar sobre um sistema"
+    }
+  },
+  "process": {
+    "eyebrow": "Como funciona",
+    "headline": "Do primeiro contato ao site no ar",
+    "steps": [
+      {
+        "title": "Conversa inicial",
+        "description": "Entendo o que você precisa, para quem é o site e o que ele precisa fazer. Sem essa conversa, nenhum orçamento é confiável."
+      },
+      {
+        "title": "Proposta e prazo",
+        "description": "Você recebe escopo, prazo e valor fechados por escrito, antes de qualquer linha de código."
+      },
+      {
+        "title": "Desenvolvimento",
+        "description": "Acompanhamento em etapas, com pontos de revisão no caminho, não só uma entrega surpresa no fim."
+      },
+      {
+        "title": "Lançamento e suporte",
+        "description": "Site no ar, domínio e hospedagem configurados, com um período de suporte incluso para ajustes finos."
+      }
+    ]
+  },
+  "proof": {
+    "eyebrow": "Projetos reais",
+    "headline": "Alguns sites que já coloquei no ar",
+    "items": [
+      {
+        "title": "Yane Leitão",
+        "description": "Site institucional com agendamento e catálogo de serviços para uma nutricionista."
+      },
+      {
+        "title": "GoLaser Barão Geraldo",
+        "description": "Site de clínica de estética, com jornada de conversão e integração com WhatsApp."
+      },
+      {
+        "title": "Gota de Cura",
+        "description": "Site institucional com blog e catálogo de produtos para uma farmácia de manipulação."
+      }
+    ],
+    "cta": "Ver o portfolio completo"
+  },
+  "contact": {
+    "eyebrow": "Contato",
+    "headline": "Vamos conversar sobre o seu projeto",
+    "subline": "Preencha o formulário ou chame direto no WhatsApp. Respondo pessoalmente.",
+    "form": {
+      "name": "Nome",
+      "email": "E-mail",
+      "package": "Pacote de interesse",
+      "packagePlaceholder": "Selecione um pacote",
+      "message": "Conte um pouco sobre o projeto",
+      "submit": "Enviar mensagem",
+      "submitting": "Enviando...",
+      "success": "Mensagem enviada! Retorno em breve.",
+      "error": "Não foi possível enviar agora. Tenta de novo ou chama no WhatsApp."
+    },
+    "whatsappPrompt": "Prefere conversar direto? Me chama.",
+    "whatsapp": "Chamar no WhatsApp",
+    "whatsappMessage": "Olá! Vim pelo site e quero um orçamento para {package}."
+  },
+  "footer": {
+    "tagline": "Sites e sistemas sob medida, entregues por quem também é engenheiro de software.",
+    "rights": "Todos os direitos reservados.",
+    "portfolio": "Ver portfolio pessoal"
+  }
+}
