@@ -1,7 +1,14 @@
 'use client'
 
-import { createTranslator, defaultLocale, type Locale } from '@/lib/i18n'
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+import { createTranslator, type Locale } from '@/lib/i18n'
+import { localePaths } from '@/lib/seo'
+import { createContext, useContext, useEffect, type ReactNode } from 'react'
+
+// Set only when the visitor clicks the language toggle. Not the old
+// 'preferred-locale' key: that one was also written by browser-language
+// auto-detection, and redirecting on it would bounce crawlers and shared
+// links away from the URL they asked for.
+const CHOICE_KEY = 'locale-choice'
 
 interface LocaleContextType {
   locale: Locale
@@ -9,54 +16,36 @@ interface LocaleContextType {
   tList: (key: string) => string[]
   raw: <T>(key: string) => T | undefined
   setLocale: (locale: Locale) => void
-  isLoading: boolean
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
 
-export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale)
-  const [isLoading, setIsLoading] = useState(true)
-
+export function LocaleProvider({ locale, children }: { locale: Locale; children: ReactNode }) {
   useEffect(() => {
-    // Reads browser-only APIs (localStorage, navigator.language), which
-    // aren't available during SSR — has to run post-mount, not in a lazy
-    // useState initializer, to avoid a hydration mismatch.
+    // Honor an explicit earlier choice when landing on the other language's URL.
     try {
-      const saved = localStorage.getItem('preferred-locale') as Locale
-      if (saved === 'pt-BR' || saved === 'en-US') {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setLocaleState(saved)
-      } else {
-        const detected = navigator.language.startsWith('pt') ? 'pt-BR' : 'en-US'
-        setLocaleState(detected)
-        localStorage.setItem('preferred-locale', detected)
+      const choice = localStorage.getItem(CHOICE_KEY)
+      if ((choice === 'pt-BR' || choice === 'en-US') && choice !== locale) {
+        window.location.replace(localePaths[choice] + window.location.hash)
       }
     } catch {
-      setLocaleState(defaultLocale)
-    } finally {
-      setIsLoading(false)
+      // Blocked storage: stay on the requested URL.
     }
-  }, [])
+  }, [locale])
 
   const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale)
     try {
-      localStorage.setItem('preferred-locale', newLocale)
-      document.documentElement.lang = newLocale
+      localStorage.setItem(CHOICE_KEY, newLocale)
     } catch {
-      // localStorage can throw in private/blocked-storage contexts; locale
-      // still updates for this session via state.
+      // Blocked storage: the navigation below still switches language.
     }
+    // Each locale is its own root layout, so this is a full navigation anyway.
+    window.location.assign(localePaths[newLocale] + window.location.hash)
   }
 
   const { t, tList, raw } = createTranslator(locale)
 
-  return (
-    <LocaleContext.Provider value={{ locale, t, tList, raw, setLocale, isLoading }}>
-      {children}
-    </LocaleContext.Provider>
-  )
+  return <LocaleContext.Provider value={{ locale, t, tList, raw, setLocale }}>{children}</LocaleContext.Provider>
 }
 
 export function useLocale() {

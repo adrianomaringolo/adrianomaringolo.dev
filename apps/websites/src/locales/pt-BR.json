@@ -1,35 +1,285 @@
 {
   "common": {
-    "changeLanguage": "Mudar idioma"
+    "changeLanguage": "Mudar idioma",
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "meta": {
+    "title": "Criação de sites e sistemas sob medida · Adriano Maringolo",
+    "description": "Sites institucionais, landing pages e sistemas web sob medida, com prazo e preço fechados. Responsivos, com SEO, AEO, GEO e performance otimizada, hospedagem e manutenção inclusas.",
+    "ogDescription": "Sites institucionais, landing pages e sistemas web sob medida, com prazo e preço fechados.",
+    "ogAlt": "Adriano Maringolo · Sites e sistemas sob medida, com prazo e preço fechados",
+    "siteName": "Adriano Maringolo · Websites",
+    "jobTitle": "Engenheiro de software sênior"
   },
   "nav": {
     "packages": "Pacotes",
     "process": "Como funciona",
     "work": "Projetos",
     "contact": "Contato",
-    "cta": "Solicitar orçamento"
+    "cta": "Pedir orçamento",
+    "faq": "Perguntas"
   },
   "hero": {
-    "eyebrow": "Criação de sites sob medida",
-    "headline": "Um site profissional no ar, com prazo e preço fechados",
-    "subline": "Sites institucionais, landing pages e sistemas sob medida, desenvolvidos por um engenheiro de software sênior com mais de 15 anos de experiência. Sem intermediário, sem enrolação.",
-    "ctaPrimary": "Solicitar orçamento",
-    "ctaSecondary": "Ver pacotes",
-    "availability": "Vagas abertas para novos projetos"
+    "availability": "Agenda aberta para novos projetos",
+    "headline": "Sites e sistemas sob medida, com prazo e preço fechados.",
+    "subline": "Feitos direto por um engenheiro de software sênior, com mais de 15 anos de experiência. Sem agência no meio, sem surpresa no fim.",
+    "builderLabel": "Qual é o nome do seu negócio?",
+    "builderPlaceholder": "Ex.: {example}",
+    "builderHint": "Escolha o ramo, digite o nome e role a página. O site é montado aqui, na sua frente.",
+    "segmentLabel": "Ramo do negócio",
+    "ctaPrimary": "Pedir orçamento",
+    "ctaSecondary": "Ver pacotes e preços"
+  },
+  "stage": {
+    "headline": "Do primeiro papo ao site no ar",
+    "steps": [
+      {
+        "title": "Conversa",
+        "description": "Entendo o que o seu negócio faz, para quem é o site e o que ele precisa resolver. Sem essa conversa, nenhum orçamento é confiável."
+      },
+      {
+        "title": "Proposta por escrito",
+        "description": "Escopo, prazo e valor fechados no papel, antes de qualquer linha de código."
+      },
+      {
+        "title": "Desenvolvimento",
+        "description": "Construído em etapas, com pontos de revisão no caminho. Você acompanha tudo, em vez de receber uma surpresa no fim."
+      },
+      {
+        "title": "No ar",
+        "description": "Domínio e HTTPS configurados e site publicado. Depois do lançamento, sigo junto com o pacote mensal de hospedagem e manutenção."
+      }
+    ],
+    "brief": {
+      "title": "Anotações da conversa",
+      "business": "Negócio",
+      "audience": "Quem atende",
+      "goal": "O site precisa"
+    },
+    "proposal": {
+      "title": "Proposta",
+      "scope": "Escopo",
+      "deadline": "Prazo",
+      "value": "Valor",
+      "valueText": "Fechado por escrito",
+      "approved": "Aprovada",
+      "care": "Hospedagem e manutenção",
+      "careText": "Pacote mensal"
+    },
+    "code": "Código",
+    "launched": "Publicado",
+    "launchedDetail": "Hospedagem, domínio e HTTPS configurados",
+    "demoLabel": "Demonstração",
+    "closing": "Esse é só um pequeno exemplo. O seu vai ser um site exclusivo, com a sua cara.",
+    "closingCta": "Pedir orçamento"
+  },
+  "why": {
+    "headline": "Por que ter um site próprio?",
+    "center": "Seu site",
+    "nodes": [
+      "Google",
+      "Instagram",
+      "WhatsApp",
+      "Avaliações",
+      "Agentes de IA",
+      "Indicações",
+      "E-mail"
+    ],
+    "reasons": [
+      {
+        "title": "Todo canal leva a algum lugar",
+        "description": "Google, Instagram, WhatsApp, avaliações, agentes de IA, indicações, e-mail. Cada um traz alguém procurando por você. A pergunta é: para onde essa pessoa vai?"
+      },
+      {
+        "title": "Perfil é alugado. Site é seu.",
+        "description": "Instagram e WhatsApp seguem as regras de outra empresa, que podem mudar amanhã. O site é o único endereço que é seu, com a sua história contada do seu jeito."
+      },
+      {
+        "title": "O site é quem converte",
+        "description": "Cada canal traz gente até o site. O site é quem transforma essa gente em cliente: mostra o que você faz, tira as dúvidas e leva até o contato."
+      }
+    ],
+    "diagramLabel": "Diagrama: o site no centro, ligado a Google, Instagram, WhatsApp, avaliações, agentes de IA, indicações e e-mail."
+  },
+  "faq": {
+    "headline": "Perguntas frequentes",
+    "more": "Não achou a sua pergunta?",
+    "moreCta": "Fale comigo",
+    "replay": "Ver de novo",
+    "items": [
+      {
+        "key": "why",
+        "question": "Por que ter um site próprio?"
+      },
+      {
+        "key": "included",
+        "question": "O que está incluso em todos os pacotes?",
+        "answer": "Todo site sai responsivo, com SEO, AEO, GEO e performance otimizada, e é publicado com domínio e HTTPS configurados. Depois do lançamento, hospedagem e manutenção ficam no pacote mensal."
+      },
+      {
+        "key": "maintenance",
+        "question": "O que é o pacote mensal de manutenção?",
+        "answer": "É o que mantém o seu site no ar e funcionando depois do lançamento: a hospedagem e a correção de bugs e problemas pontuais. Se algo parar de funcionar, eu resolvo. Novos desenvolvimentos, como páginas, funcionalidades ou mudanças de layout, não entram no pacote e são orçados à parte. O valor é de R$\u00a035/mês para landing pages e R$\u00a045/mês para sites institucionais. Para web apps, ele é definido junto com o escopo."
+      },
+      {
+        "key": "domain",
+        "question": "O domínio está incluso?",
+        "answer": "A configuração do domínio e do HTTPS, sim. A compra e a renovação do domínio não estão inclusas no valor, mas, se você preferir, eu mesmo faço a compra e a configuração, desde que você cubra o custo do domínio."
+      },
+      {
+        "key": "time",
+        "question": "Quanto tempo leva para o site ficar pronto?",
+        "answer": "Uma landing page leva de 1 a 2 semanas, e um site institucional, de 2 a 3 semanas. Para web apps e sistemas, o prazo é definido depois do levantamento de escopo. Em todos os casos, ele vem por escrito na proposta."
+      },
+      {
+        "key": "price",
+        "question": "O valor pode mudar no meio do projeto?",
+        "answer": "Não sem você saber. Escopo, prazo e valor ficam fechados por escrito antes de qualquer linha de código. Se o projeto precisar mudar, a gente conversa antes."
+      },
+      {
+        "key": "seo",
+        "question": "O que são SEO, AEO e GEO?",
+        "answer": "SEO é o que faz o seu site ser encontrado no Google. AEO prepara o conteúdo para respostas diretas e buscas por voz. GEO deixa o site fácil de entender e de citar por IAs como ChatGPT e Gemini."
+      },
+      {
+        "key": "addons",
+        "question": "Posso adicionar blog, CRM ou rastreamento de conversões depois?",
+        "answer": "Pode. Os serviços adicionais somam a qualquer pacote, agora ou depois que o site estiver no ar, e são orçados à parte."
+      },
+      {
+        "key": "who",
+        "question": "Quem vai fazer o meu site?",
+        "answer": "Eu, direto. Sou engenheiro de software sênior, com mais de 15 anos de experiência, e cuido do projeto da primeira conversa ao site no ar, sem agência no meio."
+      }
+    ]
+  },
+  "segments": [
+    {
+      "key": "saude",
+      "label": "Saúde",
+      "defaultName": "Clínica Aurora",
+      "headline": "Cuidado que começa na primeira consulta",
+      "sub": "Nutrição, fisioterapia e bem-estar em um só lugar.",
+      "cta": "Agendar consulta",
+      "nav": [
+        "Início",
+        "Serviços",
+        "Equipe",
+        "Contato"
+      ],
+      "services": [
+        "Consultas",
+        "Planos alimentares",
+        "Retornos online"
+      ],
+      "audience": "Pacientes da região",
+      "goal": "Mostrar os serviços e levar ao agendamento",
+      "package": "site"
+    },
+    {
+      "key": "alimentacao",
+      "label": "Alimentação",
+      "defaultName": "Padaria Estrela",
+      "headline": "Pão saindo do forno todo dia às 6h",
+      "sub": "Fermentação natural, encomendas e café da manhã.",
+      "cta": "Fazer encomenda",
+      "nav": [
+        "Início",
+        "Cardápio",
+        "Encomendas",
+        "Onde estamos"
+      ],
+      "services": [
+        "Cardápio do dia",
+        "Encomendas",
+        "Café da manhã"
+      ],
+      "audience": "A vizinhança e clientes de encomenda",
+      "goal": "Cardápio sempre atualizado e pedidos pelo WhatsApp",
+      "package": "site"
+    },
+    {
+      "key": "comercio",
+      "label": "Comércio",
+      "defaultName": "Flor de Lis",
+      "headline": "Flores frescas, entregues no mesmo dia",
+      "sub": "Buquês, arranjos e presentes para qualquer ocasião.",
+      "cta": "Montar um buquê",
+      "nav": [
+        "Início",
+        "Buquês",
+        "Eventos",
+        "Contato"
+      ],
+      "services": [
+        "Buquês",
+        "Eventos",
+        "Assinatura mensal"
+      ],
+      "audience": "Quem quer presentear alguém",
+      "goal": "Catálogo bonito e pedido direto no WhatsApp",
+      "package": "site"
+    },
+    {
+      "key": "startup",
+      "label": "Startup",
+      "defaultName": "Escala Fácil",
+      "headline": "A escala da sua equipe, sem planilha",
+      "sub": "Organize turnos, folgas e trocas em minutos.",
+      "cta": "Começar agora",
+      "nav": [
+        "Produto",
+        "Planos",
+        "Clientes",
+        "Entrar"
+      ],
+      "services": [
+        "Escalas",
+        "Aplicativo",
+        "Relatórios"
+      ],
+      "audience": "Gestores de equipes por turno",
+      "goal": "Transformar visita em cadastro",
+      "package": "landing"
+    }
+  ],
+  "audience": {
+    "headline": "Do site da padaria ao sistema da startup",
+    "local": {
+      "title": "Para o seu negócio",
+      "body": "Clínicas, lojas, restaurantes e profissionais liberais que precisam de um site bonito, rápido e que traga cliente pelo Google e pelo WhatsApp.",
+      "points": [
+        "Site institucional ou landing page",
+        "Entrega em 1 a 3 semanas",
+        "Formulário e WhatsApp integrados"
+      ],
+      "cta": "Ver pacotes",
+      "imageAlt": "Dono de mercearia abrindo a porta da loja pela manhã"
+    },
+    "company": {
+      "title": "Para empresas e startups",
+      "body": "Produtos com login, dados e regras de negócio próprias, pensados com a arquitetura de quem escreve software há mais de 15 anos.",
+      "points": [
+        "Requisitos e arquitetura antes de codar",
+        "Código testado e documentado",
+        "Acompanhamento depois do lançamento"
+      ],
+      "cta": "Conversar sobre um sistema",
+      "imageAlt": "Duas pessoas planejando telas de um software em um quadro branco"
+    }
   },
   "packages": {
-    "eyebrow": "Pacotes",
-    "headline": "Escolha o ponto de partida",
-    "subline": "Cada pacote parte de um escopo fechado. Se o seu projeto for diferente disso, a gente ajusta na conversa.",
+    "headline": "Preço de referência na mesa, desde o começo",
+    "subline": "Cada pacote parte de um escopo fechado. Depois do lançamento, hospedagem e manutenção ficam num pacote mensal. Se o seu projeto for diferente, a gente ajusta na conversa.",
     "disclaimer": "* Valores de referência, sujeitos a confirmação conforme o escopo do projeto.",
     "site": {
       "name": "Site institucional",
       "tagline": "Para empresas e profissionais se apresentarem com credibilidade",
-      "price": "a partir de R$ 1.997*",
+      "price": "a partir de R$ 1.597*",
+      "maintenance": "+ R$\u00a045/mês de manutenção",
       "features": [
         "Até 5 páginas (home, sobre, serviços, contato + 1)",
-        "Design responsivo, feito para o seu conteúdo",
-        "Otimizado para buscadores (SEO técnico)",
+        "Design feito para o seu conteúdo",
         "Formulário de contato integrado",
         "Prazo de entrega: 2 a 3 semanas"
       ],
@@ -37,8 +287,9 @@
     },
     "landing": {
       "name": "Landing page",
-      "tagline": "Para converter tráfego de uma campanha ou produto específico",
-      "price": "a partir de R$ 1.497*",
+      "tagline": "Para converter o tráfego de uma campanha ou produto específico",
+      "price": "a partir de R$ 987*",
+      "maintenance": "+ R$\u00a035/mês de manutenção",
       "features": [
         "Página única, focada em uma conversão",
         "Copy e estrutura pensadas para conversão",
@@ -52,61 +303,136 @@
       "name": "Web app / sistema sob medida",
       "tagline": "Para produtos com login, dados e regras de negócio próprias",
       "price": "sob orçamento*",
+      "maintenance": "+ manutenção mensal a definir",
       "features": [
         "Levantamento de requisitos e arquitetura antes de codar",
         "Autenticação, painel administrativo, integrações",
         "Código testado e documentado, não só entregue",
-        "Acompanhamento e suporte pós-lançamento",
         "Prazo definido após o escopo"
       ],
       "cta": "Quero conversar sobre um sistema"
+    },
+    "deadlineShort": {
+      "site": "2 a 3 semanas",
+      "landing": "1 a 2 semanas",
+      "webapp": "Definido após o escopo"
+    },
+    "scopeShort": {
+      "site": "Site institucional, até 5 páginas",
+      "landing": "Landing page focada em conversão",
+      "webapp": "Web app sob medida"
+    },
+    "included": {
+      "title": "Incluso em todos os pacotes",
+      "items": [
+        {
+          "key": "responsive",
+          "title": "Responsivo",
+          "description": "Impecável no celular, no tablet e no computador"
+        },
+        {
+          "key": "seo",
+          "title": "SEO",
+          "description": "Estruturado para ser encontrado no Google"
+        },
+        {
+          "key": "aeo",
+          "title": "AEO",
+          "description": "Pronto para respostas diretas e buscas por voz"
+        },
+        {
+          "key": "geo",
+          "title": "GEO",
+          "description": "Fácil de entender e citar por IAs como ChatGPT e Gemini"
+        },
+        {
+          "key": "performance",
+          "title": "Performance",
+          "description": "Carregamento rápido, otimizado de verdade"
+        },
+        {
+          "key": "hosting",
+          "title": "Publicação",
+          "description": "Site no ar, com domínio** e HTTPS configurados"
+        }
+      ]
+    },
+    "domainNote": "** A compra e a renovação do domínio não estão inclusas no valor.",
+    "addons": {
+      "title": "Serviços adicionais",
+      "subline": "Para somar a qualquer pacote, agora ou depois que o site estiver no ar.",
+      "price": "Sob orçamento",
+      "cta": "Tenho interesse",
+      "added": "Adicionado ao contato",
+      "items": [
+        {
+          "key": "blog",
+          "title": "Sistema de blog",
+          "description": "Blog integrado ao site, com área para você publicar, categorias e cada post otimizado para buscadores."
+        },
+        {
+          "key": "crm",
+          "title": "CRM básico",
+          "description": "Painel simples para organizar os contatos que chegam pelo site e acompanhar cada negociação até virar cliente."
+        },
+        {
+          "key": "launch",
+          "title": "Artes de lançamento",
+          "description": "Pacote de artes para anunciar o site ou o serviço novo no Instagram, no WhatsApp e nas outras redes."
+        },
+        {
+          "key": "tracking",
+          "title": "Rastreamento de conversões",
+          "description": "Google Tag Manager configurado com as conversões que importam: cliques no WhatsApp, envios de formulário, Google Ads e Meta Pixel."
+        }
+      ]
     }
   },
-  "process": {
-    "eyebrow": "Como funciona",
-    "headline": "Do primeiro contato ao site no ar",
-    "steps": [
-      {
-        "title": "Conversa inicial",
-        "description": "Entendo o que você precisa, para quem é o site e o que ele precisa fazer. Sem essa conversa, nenhum orçamento é confiável."
-      },
-      {
-        "title": "Proposta e prazo",
-        "description": "Você recebe escopo, prazo e valor fechados por escrito, antes de qualquer linha de código."
-      },
-      {
-        "title": "Desenvolvimento",
-        "description": "Acompanhamento em etapas, com pontos de revisão no caminho, não só uma entrega surpresa no fim."
-      },
-      {
-        "title": "Lançamento e suporte",
-        "description": "Site no ar, domínio e hospedagem configurados, com um período de suporte incluso para ajustes finos."
-      }
-    ]
+  "instagram": {
+    "headline": "Conteúdo que ajuda a decidir melhor",
+    "subline": "No Instagram, eu compartilho conteúdos educativos sobre websites, sistemas, presença digital e muito mais, explicados sem jargão.",
+    "topics": [
+      "Websites",
+      "Sistemas",
+      "Presença digital",
+      "IA na prática"
+    ],
+    "cta": "Seguir no Instagram"
   },
   "proof": {
-    "eyebrow": "Projetos reais",
-    "headline": "Alguns sites que já coloquei no ar",
+    "headline": "Sites que já estão no ar",
+    "subline": "Projetos reais, com clientes reais. Clique e navegue neles.",
     "items": [
       {
+        "key": "yane",
         "title": "Yane Leitão",
-        "description": "Site institucional com agendamento e catálogo de serviços para uma nutricionista."
+        "kind": "Site institucional",
+        "description": "Site para uma personal chef de alimentação funcional, com galeria, serviços detalhados e formulário de anamnese para qualificar contatos.",
+        "url": "https://yaneleitao.com.br"
       },
       {
+        "key": "golaser",
         "title": "GoLaser Barão Geraldo",
-        "description": "Site de clínica de estética, com jornada de conversão e integração com WhatsApp."
+        "kind": "Site institucional",
+        "description": "Site para clínica de estética com mais de 17 protocolos organizados em abas e rastreamento de conversões.",
+        "url": "https://golaserbaraogeraldo.com.br"
       },
       {
+        "key": "gota",
         "title": "Gota de Cura",
-        "description": "Site institucional com blog e catálogo de produtos para uma farmácia de manipulação."
+        "kind": "Web app",
+        "description": "Projeto voluntário: catálogo, sistema de pedidos e painel de gestão para uma iniciativa de aromaterapia sem fins lucrativos.",
+        "url": "https://www.gotadecura.com.br"
       }
     ],
+    "visit": "Visitar site",
+    "screenshotAlt": "Página inicial do site {title}",
     "cta": "Ver o portfolio completo"
   },
   "contact": {
-    "eyebrow": "Contato",
-    "headline": "Vamos conversar sobre o seu projeto",
-    "subline": "Preencha o formulário ou chame direto no WhatsApp. Respondo pessoalmente.",
+    "headline": "Vamos colocar o seu projeto no ar?",
+    "headlineNamed": "Vamos colocar {name} no ar?",
+    "subline": "Preencha o formulário ou me chame no WhatsApp. Respondo pessoalmente.",
     "form": {
       "name": "Nome",
       "email": "E-mail",
@@ -116,15 +442,18 @@
       "submit": "Enviar mensagem",
       "submitting": "Enviando...",
       "success": "Mensagem enviada! Retorno em breve.",
-      "error": "Não foi possível enviar agora. Tenta de novo ou chama no WhatsApp."
+      "error": "Não foi possível enviar agora. Tente de novo ou me chame no WhatsApp.",
+      "addons": "Adicionais (opcional)"
     },
-    "whatsappPrompt": "Prefere conversar direto? Me chama.",
+    "whatsappPrompt": "Prefere conversar direto?",
     "whatsapp": "Chamar no WhatsApp",
-    "whatsappMessage": "Olá! Vim pelo site e quero um orçamento para {package}."
+    "whatsappMessage": "Olá! Vim pelo site e quero um orçamento para {package}.",
+    "whatsappAddons": " Também tenho interesse em: {addons}.",
+    "whatsappMessageGeneric": "Olá! Vim pelo site e quero um orçamento."
   },
   "footer": {
     "tagline": "Sites e sistemas sob medida, entregues por quem também é engenheiro de software.",
     "rights": "Todos os direitos reservados.",
-    "portfolio": "Ver portfolio pessoal"
+    "portfolio": "Portfolio pessoal"
   }
 }

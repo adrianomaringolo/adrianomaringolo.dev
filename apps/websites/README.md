@@ -6,7 +6,7 @@ Landing page comercial de oferta de serviços de criação de sites (Next.js, bi
 
 Estes itens estão como placeholder e precisam de valor real antes do lançamento:
 
-1. **Preços dos pacotes** — `src/locales/pt-BR.json` e `src/locales/en-US.json`, chave `packages.*.price`. Os valores atuais (`a partir de R$ 1.997`, etc.) são só referência.
+1. **Preços dos pacotes** — `src/locales/pt-BR.json` e `src/locales/en-US.json`, chave `packages.*.price`. Os valores atuais (`a partir de R$ 1.597`, etc.) são só referência.
 2. **Número de WhatsApp** — variável de ambiente `NEXT_PUBLIC_WHATSAPP_NUMBER` (ver `.env.example`). Sem ela, o botão "Chamar no WhatsApp" abre um link quebrado.
 3. **Webhook do formulário de contato** — variável `CONTACT_WEBHOOK_URL`. Pode reaproveitar o mesmo endpoint (Google Apps Script) já usado em `apps/portfolio`, ou apontar para um novo. O payload enviado inclui `"source": "websites-landing"` para diferenciar a origem do lead.
 4. **Prova social** (`proof.items` nos dois locales) — hoje lista 3 projetos reais do portfolio (Yane Leitão, GoLaser Barão Geraldo, Gota de Cura). Trocar/ampliar conforme o que fizer mais sentido destacar aqui.

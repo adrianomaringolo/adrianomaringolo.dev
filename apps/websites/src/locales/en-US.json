@@ -1,35 +1,285 @@
 {
   "common": {
-    "changeLanguage": "Change language"
+    "changeLanguage": "Change language",
+    "skipToContent": "Skip to content"
+  },
+  "meta": {
+    "title": "Custom websites and web systems · Adriano Maringolo",
+    "description": "Business websites, landing pages and custom web systems, with a fixed deadline and price. Responsive, with SEO, AEO, GEO and optimized performance, hosting and maintenance included.",
+    "ogDescription": "Business websites, landing pages and custom web systems, with a fixed deadline and price.",
+    "ogAlt": "Adriano Maringolo · Custom websites and systems, with a fixed deadline and price",
+    "siteName": "Adriano Maringolo · Websites",
+    "jobTitle": "Senior software engineer"
   },
   "nav": {
     "packages": "Packages",
     "process": "How it works",
     "work": "Work",
     "contact": "Contact",
-    "cta": "Get a quote"
+    "cta": "Get a quote",
+    "faq": "FAQ"
   },
   "hero": {
-    "eyebrow": "Custom website development",
-    "headline": "A professional website, live on a fixed timeline and price",
-    "subline": "Business websites, landing pages, and custom web apps, built by a senior software engineer with 15+ years of experience. No middleman, no runaround.",
+    "availability": "Booking new projects",
+    "headline": "Custom websites and systems, with a fixed deadline and price.",
+    "subline": "Built directly by a senior software engineer with over 15 years of experience. No agency in between, no surprises at the end.",
+    "builderLabel": "What's your business called?",
+    "builderPlaceholder": "E.g. {example}",
+    "builderHint": "Pick an industry, type the name and scroll. The site gets built right here, in front of you.",
+    "segmentLabel": "Industry",
     "ctaPrimary": "Get a quote",
-    "ctaSecondary": "See packages",
-    "availability": "Open for new projects"
+    "ctaSecondary": "See packages and pricing"
+  },
+  "stage": {
+    "headline": "From first chat to live site",
+    "steps": [
+      {
+        "title": "Conversation",
+        "description": "I learn what your business does, who the site is for and what it needs to solve. Without that conversation, no quote is reliable."
+      },
+      {
+        "title": "Written proposal",
+        "description": "Scope, deadline and price fixed in writing, before a single line of code."
+      },
+      {
+        "title": "Development",
+        "description": "Built in stages, with review points along the way. You follow along instead of getting a surprise at the end."
+      },
+      {
+        "title": "Live",
+        "description": "Domain and HTTPS configured and the site published. After launch, I stay on through the monthly hosting and maintenance package."
+      }
+    ],
+    "brief": {
+      "title": "Notes from our chat",
+      "business": "Business",
+      "audience": "Serves",
+      "goal": "The site needs to"
+    },
+    "proposal": {
+      "title": "Proposal",
+      "scope": "Scope",
+      "deadline": "Deadline",
+      "value": "Price",
+      "valueText": "Fixed in writing",
+      "approved": "Approved",
+      "care": "Hosting and maintenance",
+      "careText": "Monthly package"
+    },
+    "code": "Code",
+    "launched": "Published",
+    "launchedDetail": "Hosting, domain and HTTPS configured",
+    "demoLabel": "Demo",
+    "closing": "This is just a small example. Yours will be one of a kind, made to look like you.",
+    "closingCta": "Get a quote"
+  },
+  "why": {
+    "headline": "Why have a website of your own?",
+    "center": "Your site",
+    "nodes": [
+      "Google",
+      "Instagram",
+      "WhatsApp",
+      "Reviews",
+      "AI agents",
+      "Referrals",
+      "Email"
+    ],
+    "reasons": [
+      {
+        "title": "Every channel leads somewhere",
+        "description": "Google, Instagram, WhatsApp, reviews, AI agents, referrals, email. Each one brings someone looking for you. The question is: where do they land?"
+      },
+      {
+        "title": "A profile is rented. A site is yours.",
+        "description": "Instagram and WhatsApp follow another company's rules, which can change tomorrow. Your site is the only address you own, telling your story your way."
+      },
+      {
+        "title": "The site is what converts",
+        "description": "Every channel brings people to the site. The site is what turns them into customers: it shows what you do, answers questions and leads to contact."
+      }
+    ],
+    "diagramLabel": "Diagram: the site at the center, connected to Google, Instagram, WhatsApp, reviews, AI agents, referrals and email."
+  },
+  "faq": {
+    "headline": "Frequently asked questions",
+    "more": "Didn't find your question?",
+    "moreCta": "Talk to me",
+    "replay": "Play again",
+    "items": [
+      {
+        "key": "why",
+        "question": "Why have a website of your own?"
+      },
+      {
+        "key": "included",
+        "question": "What's included in every package?",
+        "answer": "Every site ships responsive, with SEO, AEO, GEO and optimized performance, and is published with domain and HTTPS configured. After launch, hosting and maintenance are covered by the monthly package."
+      },
+      {
+        "key": "maintenance",
+        "question": "What is the monthly maintenance package?",
+        "answer": "It's what keeps your site online and working after launch: hosting plus fixes for bugs and one-off problems. If something stops working, I fix it. New development, such as pages, features or layout changes, is not part of the package and is quoted separately. It costs R$\u00a035/month for landing pages and R$\u00a045/month for business websites. For web apps, it is defined together with the scope."
+      },
+      {
+        "key": "domain",
+        "question": "Is the domain included?",
+        "answer": "Domain and HTTPS setup, yes. Buying and renewing the domain are not included in the price, but if you prefer, I can buy and set it up for you, as long as you cover the cost of the domain."
+      },
+      {
+        "key": "time",
+        "question": "How long until the site is ready?",
+        "answer": "A landing page takes 1 to 2 weeks, and a business website 2 to 3 weeks. For web apps and systems, the timeline is set after scoping. In every case, it comes in writing in the proposal."
+      },
+      {
+        "key": "price",
+        "question": "Can the price change mid-project?",
+        "answer": "Not without you knowing. Scope, deadline and price are fixed in writing before a single line of code. If the project needs to change, we talk first."
+      },
+      {
+        "key": "seo",
+        "question": "What are SEO, AEO and GEO?",
+        "answer": "SEO is what gets your site found on Google. AEO prepares your content for direct answers and voice search. GEO makes your site easy for AIs like ChatGPT and Gemini to understand and cite."
+      },
+      {
+        "key": "addons",
+        "question": "Can I add a blog, CRM or conversion tracking later?",
+        "answer": "Yes. Add-on services work with any package, now or after the site is live, and are quoted separately."
+      },
+      {
+        "key": "who",
+        "question": "Who will build my site?",
+        "answer": "Me, directly. I'm a senior software engineer with over 15 years of experience, and I handle the project from the first chat to the live site, with no agency in between."
+      }
+    ]
+  },
+  "segments": [
+    {
+      "key": "saude",
+      "label": "Health",
+      "defaultName": "Aurora Clinic",
+      "headline": "Care that starts at the first visit",
+      "sub": "Nutrition, physiotherapy and wellbeing in one place.",
+      "cta": "Book a visit",
+      "nav": [
+        "Home",
+        "Services",
+        "Team",
+        "Contact"
+      ],
+      "services": [
+        "Consultations",
+        "Meal plans",
+        "Online follow-ups"
+      ],
+      "audience": "Local patients",
+      "goal": "Show the services and lead to a booking",
+      "package": "site"
+    },
+    {
+      "key": "alimentacao",
+      "label": "Food",
+      "defaultName": "Star Bakery",
+      "headline": "Fresh bread out of the oven every day at 6am",
+      "sub": "Sourdough, special orders and breakfast.",
+      "cta": "Place an order",
+      "nav": [
+        "Home",
+        "Menu",
+        "Orders",
+        "Find us"
+      ],
+      "services": [
+        "Today's menu",
+        "Special orders",
+        "Breakfast"
+      ],
+      "audience": "The neighborhood and order customers",
+      "goal": "Keep the menu current and take orders on WhatsApp",
+      "package": "site"
+    },
+    {
+      "key": "comercio",
+      "label": "Retail",
+      "defaultName": "Fleur de Lis",
+      "headline": "Fresh flowers, delivered the same day",
+      "sub": "Bouquets, arrangements and gifts for any occasion.",
+      "cta": "Build a bouquet",
+      "nav": [
+        "Home",
+        "Bouquets",
+        "Events",
+        "Contact"
+      ],
+      "services": [
+        "Bouquets",
+        "Events",
+        "Monthly subscription"
+      ],
+      "audience": "People buying a gift",
+      "goal": "A beautiful catalog and orders straight to WhatsApp",
+      "package": "site"
+    },
+    {
+      "key": "startup",
+      "label": "Startup",
+      "defaultName": "ShiftEasy",
+      "headline": "Your team's schedule, without spreadsheets",
+      "sub": "Organize shifts, days off and swaps in minutes.",
+      "cta": "Get started",
+      "nav": [
+        "Product",
+        "Pricing",
+        "Customers",
+        "Sign in"
+      ],
+      "services": [
+        "Schedules",
+        "Mobile app",
+        "Reports"
+      ],
+      "audience": "Managers of shift-based teams",
+      "goal": "Turn visits into sign-ups",
+      "package": "landing"
+    }
+  ],
+  "audience": {
+    "headline": "From the bakery's website to the startup's system",
+    "local": {
+      "title": "For your business",
+      "body": "Clinics, shops, restaurants and independent professionals who need a site that looks good, loads fast and brings in customers through Google and WhatsApp.",
+      "points": [
+        "Business website or landing page",
+        "Delivered in 1 to 3 weeks",
+        "Contact form and WhatsApp built in"
+      ],
+      "cta": "See packages",
+      "imageAlt": "Grocery store owner opening the shop door in the morning"
+    },
+    "company": {
+      "title": "For companies and startups",
+      "body": "Products with logins, data and their own business rules, designed with the architecture of someone who has been writing software for over 15 years.",
+      "points": [
+        "Requirements and architecture before code",
+        "Tested, documented code",
+        "Support after launch"
+      ],
+      "cta": "Talk about a system",
+      "imageAlt": "Two people planning software screens on a whiteboard"
+    }
   },
   "packages": {
-    "eyebrow": "Packages",
-    "headline": "Pick your starting point",
-    "subline": "Each package starts from a fixed scope. If your project looks different, we adjust it in the conversation.",
-    "disclaimer": "* Reference pricing, subject to confirmation based on project scope.",
+    "headline": "Reference pricing on the table, from the start",
+    "subline": "Each package starts from a fixed scope. After launch, hosting and maintenance are covered by a monthly package. If your project is different, we adjust it in conversation.",
+    "disclaimer": "* Reference values, subject to confirmation based on project scope.",
     "site": {
       "name": "Business website",
-      "tagline": "For companies and professionals who need to look credible",
-      "price": "starting at $400*",
+      "tagline": "For companies and professionals to present themselves with credibility",
+      "price": "from R$ 1,597*",
+      "maintenance": "+ R$\u00a045/month maintenance",
       "features": [
         "Up to 5 pages (home, about, services, contact + 1)",
-        "Responsive design, built around your content",
-        "Technical SEO out of the box",
+        "Design built around your content",
         "Integrated contact form",
         "Delivery: 2 to 3 weeks"
       ],
@@ -37,12 +287,13 @@
     },
     "landing": {
       "name": "Landing page",
-      "tagline": "For converting traffic from a specific campaign or product",
-      "price": "starting at $300*",
+      "tagline": "To convert traffic from a specific campaign or product",
+      "price": "from R$ 987*",
+      "maintenance": "+ R$\u00a035/month maintenance",
       "features": [
-        "Single page, built around one conversion goal",
-        "Copy and structure designed to convert",
-        "WhatsApp, form, or checkout integration",
+        "Single page, focused on one conversion",
+        "Copy and structure built for conversion",
+        "WhatsApp, form or checkout integration",
         "Analytics set up from day one",
         "Delivery: 1 to 2 weeks"
       ],
@@ -50,81 +301,159 @@
     },
     "webapp": {
       "name": "Web app / custom system",
-      "tagline": "For products with logins, data, and their own business rules",
+      "tagline": "For products with login, data and their own business rules",
       "price": "custom quote*",
+      "maintenance": "+ monthly maintenance to be defined",
       "features": [
-        "Requirements and architecture worked out before any code",
+        "Requirements and architecture before writing code",
         "Authentication, admin panel, integrations",
-        "Code that's tested and documented, not just delivered",
-        "Post-launch follow-up and support",
-        "Timeline set once the scope is defined"
+        "Tested and documented code, not just delivered",
+        "Timeline defined after scoping"
       ],
       "cta": "I want to talk about a system"
+    },
+    "deadlineShort": {
+      "site": "2 to 3 weeks",
+      "landing": "1 to 2 weeks",
+      "webapp": "Defined after scoping"
+    },
+    "scopeShort": {
+      "site": "Business website, up to 5 pages",
+      "landing": "Conversion-focused landing page",
+      "webapp": "Custom web app"
+    },
+    "included": {
+      "title": "Included in every package",
+      "items": [
+        {
+          "key": "responsive",
+          "title": "Responsive",
+          "description": "Flawless on phone, tablet and desktop"
+        },
+        {
+          "key": "seo",
+          "title": "SEO",
+          "description": "Structured to be found on Google"
+        },
+        {
+          "key": "aeo",
+          "title": "AEO",
+          "description": "Ready for direct answers and voice search"
+        },
+        {
+          "key": "geo",
+          "title": "GEO",
+          "description": "Easy for AIs like ChatGPT and Gemini to understand and cite"
+        },
+        {
+          "key": "performance",
+          "title": "Performance",
+          "description": "Fast loading, genuinely optimized"
+        },
+        {
+          "key": "hosting",
+          "title": "Launch",
+          "description": "Site live, with domain** and HTTPS configured"
+        }
+      ]
+    },
+    "domainNote": "** Domain purchase and renewal are not included in the price.",
+    "addons": {
+      "title": "Add-on services",
+      "subline": "Add them to any package, now or after the site is live.",
+      "price": "Custom quote",
+      "cta": "I'm interested",
+      "added": "Added to contact",
+      "items": [
+        {
+          "key": "blog",
+          "title": "Blog system",
+          "description": "A blog built into the site, with an area for you to publish, categories and every post optimized for search."
+        },
+        {
+          "key": "crm",
+          "title": "Basic CRM",
+          "description": "A simple dashboard to organize the leads that come through the site and track each deal until it closes."
+        },
+        {
+          "key": "launch",
+          "title": "Launch artwork",
+          "description": "A set of graphics to announce your new site or service on Instagram, WhatsApp and other social networks."
+        },
+        {
+          "key": "tracking",
+          "title": "Conversion tracking",
+          "description": "Google Tag Manager set up with the conversions that matter: WhatsApp clicks, form submissions, Google Ads and Meta Pixel."
+        }
+      ]
     }
   },
-  "process": {
-    "eyebrow": "How it works",
-    "headline": "From first message to site live",
-    "steps": [
-      {
-        "title": "Initial conversation",
-        "description": "I need to understand what you need, who the site is for, and what it has to do. No quote is trustworthy without this."
-      },
-      {
-        "title": "Proposal and timeline",
-        "description": "You get scope, timeline, and price in writing, before a single line of code gets written."
-      },
-      {
-        "title": "Development",
-        "description": "Staged progress with review points along the way, not one surprise delivery at the end."
-      },
-      {
-        "title": "Launch and support",
-        "description": "Site goes live, domain and hosting configured, with a support window included for fine-tuning."
-      }
-    ]
+  "instagram": {
+    "headline": "Content that helps you decide better",
+    "subline": "On Instagram, I share educational content about websites, systems, digital presence and much more, explained without jargon.",
+    "topics": [
+      "Websites",
+      "Systems",
+      "Digital presence",
+      "AI in practice"
+    ],
+    "cta": "Follow on Instagram"
   },
   "proof": {
-    "eyebrow": "Real projects",
-    "headline": "A few sites I've shipped",
+    "headline": "Sites that are already live",
+    "subline": "Real projects, real clients. Click through and browse them.",
     "items": [
       {
+        "key": "yane",
         "title": "Yane Leitão",
-        "description": "Business website with booking and a service catalog for a nutritionist."
+        "kind": "Business website",
+        "description": "Site for a personal chef specialized in functional food, with a gallery, detailed services and an intake form that qualifies leads.",
+        "url": "https://yaneleitao.com.br"
       },
       {
+        "key": "golaser",
         "title": "GoLaser Barão Geraldo",
-        "description": "Aesthetic clinic website with a conversion-focused journey and WhatsApp integration."
+        "kind": "Business website",
+        "description": "Site for an aesthetics clinic with over 17 treatment protocols organized in tabs and conversion tracking.",
+        "url": "https://golaserbaraogeraldo.com.br"
       },
       {
+        "key": "gota",
         "title": "Gota de Cura",
-        "description": "Business website with a blog and product catalog for a compounding pharmacy."
+        "kind": "Web app",
+        "description": "Volunteer project: catalog, ordering system and management panel for a non-profit aromatherapy initiative.",
+        "url": "https://www.gotadecura.com.br"
       }
     ],
+    "visit": "Visit site",
+    "screenshotAlt": "Home page of the {title} website",
     "cta": "See the full portfolio"
   },
   "contact": {
-    "eyebrow": "Contact",
-    "headline": "Let's talk about your project",
-    "subline": "Fill out the form or message me directly on WhatsApp. I answer personally.",
+    "headline": "Shall we get your project live?",
+    "headlineNamed": "Shall we get {name} live?",
+    "subline": "Fill in the form or message me on WhatsApp. I reply personally.",
     "form": {
       "name": "Name",
       "email": "Email",
-      "package": "Package you're interested in",
+      "package": "Package of interest",
       "packagePlaceholder": "Select a package",
       "message": "Tell me a bit about the project",
       "submit": "Send message",
       "submitting": "Sending...",
       "success": "Message sent! I'll get back to you soon.",
-      "error": "Couldn't send it right now. Try again or message me on WhatsApp."
+      "error": "Couldn't send right now. Try again or message me on WhatsApp.",
+      "addons": "Add-ons (optional)"
     },
-    "whatsappPrompt": "Prefer to talk directly? Message me.",
+    "whatsappPrompt": "Rather talk directly?",
     "whatsapp": "Message on WhatsApp",
-    "whatsappMessage": "Hi! I found you through the site and I'd like a quote for {package}."
+    "whatsappMessage": "Hi! I found your site and I'd like a quote for {package}.",
+    "whatsappAddons": " I'm also interested in: {addons}.",
+    "whatsappMessageGeneric": "Hi! I found your site and I'd like a quote."
   },
   "footer": {
-    "tagline": "Custom websites and systems, delivered by someone who's also a software engineer.",
+    "tagline": "Custom websites and systems, delivered by someone who is also a software engineer.",
     "rights": "All rights reserved.",
-    "portfolio": "See personal portfolio"
+    "portfolio": "Personal portfolio"
   }
 }

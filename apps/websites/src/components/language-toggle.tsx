@@ -1,27 +1,46 @@
 'use client'
 
 import { useLocale } from '@/hooks/use-locale'
-import { Languages } from 'lucide-react'
+import { localePaths } from '@/lib/seo'
+import { cn } from '@/lib/utils'
 
-export function LanguageToggle() {
-  const { locale, setLocale, t, isLoading } = useLocale()
+export function LanguageToggle({ dark = false }: { dark?: boolean }) {
+  const { locale, setLocale, t } = useLocale()
+  const other = locale === 'pt-BR' ? 'en-US' : 'pt-BR'
 
-  if (isLoading) {
-    return (
-      <button disabled className="flex items-center gap-1.5 text-sm text-muted-foreground/50">
-        <Languages className="h-4 w-4 animate-pulse" />
-      </button>
-    )
-  }
-
+  // A real link to the other language's URL (crawlable, hreflang-tagged);
+  // the click handler also remembers the choice for later visits.
   return (
-    <button
-      onClick={() => setLocale(locale === 'pt-BR' ? 'en-US' : 'pt-BR')}
+    <a
+      href={localePaths[other]}
+      hrefLang={other}
+      onClick={(e) => {
+        e.preventDefault()
+        setLocale(other)
+      }}
       aria-label={t('common.changeLanguage')}
-      className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
+      className={cn(
+        'flex h-8 items-center rounded-full border px-1 font-mono text-[11px] tracking-wide transition-colors',
+        dark ? 'border-stage-line' : 'border-line-strong',
+      )}
     >
-      <Languages className="h-4 w-4" />
-      {locale === 'pt-BR' ? 'PT' : 'EN'}
-    </button>
+      {(['pt-BR', 'en-US'] as const).map((l) => (
+        <span
+          key={l}
+          className={cn(
+            'rounded-full px-2 py-0.5 transition-colors',
+            locale === l
+              ? dark
+                ? 'bg-stage-ink text-stage'
+                : 'bg-ink text-paper'
+              : dark
+                ? 'text-stage-soft'
+                : 'text-ink-soft',
+          )}
+        >
+          {l === 'pt-BR' ? 'PT' : 'EN'}
+        </span>
+      ))}
+    </a>
   )
 }

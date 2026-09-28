@@ -1,61 +1,155 @@
 @import 'tailwindcss';
-@custom-variant dark (&:is(.dark *));
 
+/*
+ * One light page with an ink "stage" where the demo site gets built.
+ * Volt is reserved for things that are live or actionable; it is never text
+ * on the light ground (fails contrast), only a fill under ink text.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #475569;
-  --primary: #0891b2;
-  --primary-foreground: #ffffff;
-  --secondary: #6366f1;
-  --secondary-foreground: #ffffff;
-  --border: #e2e8f0;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-}
+  --paper: oklch(0.975 0.003 250);
+  --surface: oklch(1 0 0);
+  --ink: oklch(0.18 0.012 265);
+  --ink-soft: oklch(0.45 0.014 265);
+  --line: oklch(0.9 0.006 265);
+  --line-strong: oklch(0.82 0.008 265);
 
-.dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --muted: #18181b;
-  --muted-foreground: #a1a1aa;
-  --primary: #06b6d4;
-  --primary-foreground: #09090b;
-  --secondary: #818cf8;
-  --secondary-foreground: #09090b;
-  --border: #27272a;
-  --card: #111113;
-  --card-foreground: #fafafa;
+  --stage: oklch(0.155 0.01 265);
+  --stage-raised: oklch(0.21 0.012 265);
+  --stage-ink: oklch(0.95 0.004 265);
+  --stage-soft: oklch(0.7 0.012 265);
+  --stage-line: oklch(0.3 0.012 265);
+
+  --volt: oklch(0.91 0.2 122);
+  --volt-deep: oklch(0.8 0.2 125);
+  --volt-ink: var(--ink);
+
+  --danger: oklch(0.55 0.2 27);
+  --ok: oklch(0.5 0.13 150);
 }
 
 @theme inline {
-  --font-sans: var(--font-manrope), system-ui, sans-serif;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-border: var(--border);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-stage: var(--stage);
+  --color-stage-raised: var(--stage-raised);
+  --color-stage-ink: var(--stage-ink);
+  --color-stage-soft: var(--stage-soft);
+  --color-stage-line: var(--stage-line);
+  --color-volt: var(--volt);
+  --color-volt-deep: var(--volt-deep);
+  --color-danger: var(--danger);
+  --color-ok: var(--ok);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--ink);
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+::selection {
+  background: var(--volt);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.on-stage :focus-visible {
+  outline-color: var(--volt);
+}
+
+a {
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+input,
+textarea,
+select {
+  caret-color: var(--ink);
+}
+
+html {
+  scrollbar-color: var(--line-strong) var(--paper);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: caret-blink 1.1s steps(1) infinite;
+}
+
+@keyframes live-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Dots travel along each channel line toward the site (lines use pathLength=1). */
+@keyframes flow-dots {
+  from {
+    stroke-dashoffset: 0.111;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flow-dots {
+  animation: flow-dots 1.6s linear infinite;
+}
+
+.live-ping {
+  animation: live-ping 1.8s var(--ease-out-expo) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
