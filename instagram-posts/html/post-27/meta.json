@@ -1,0 +1,27 @@
+{
+  "title": "Site lento não ganha segunda chance",
+  "date": "2026-09-28",
+  "type": "single",
+  "template": "elemento-central",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Post único",
+      "description": "Tema claro. Ampulheta low-poly de madeira com areia caindo. Frase: \"Site lento não ganha segunda chance.\""
+    }
+  ],
+  "caption": "⏳ Quem clica no seu site não espera. Se a página demora, a pessoa volta e clica no próximo resultado. Sem aviso e sem segunda visita.\n\nOs culpados mais comuns:\n→ 🖼️ Imagens enormes, direto da câmera\n→ 🧩 Plugins e scripts que ninguém usa mais\n→ 🐢 Hospedagem barata demais para o que o site precisa\n\n⚡ Teste agora: abra o PageSpeed Insights (do Google), cole o endereço do seu site e veja a nota no celular.\n\nVelocidade não é detalhe técnico. É a primeira impressão do seu negócio.\n\n💬 Fez o teste? Conta a nota aqui.\n\n#site #performance #velocidade #pagespeed #experienciadousuario #pequenosnegocios #sitesprofissionais #desenvolvimentoweb #presencadigital #webdesign",
+  "hashtags": [
+    "site",
+    "performance",
+    "velocidade",
+    "pagespeed",
+    "experienciadousuario",
+    "pequenosnegocios",
+    "sitesprofissionais",
+    "desenvolvimentoweb",
+    "presencadigital",
+    "webdesign"
+  ]
+}

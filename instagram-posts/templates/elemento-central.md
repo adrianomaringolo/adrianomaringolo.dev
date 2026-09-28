@@ -12,6 +12,8 @@ feed: a imagem segura o olhar, a frase entrega a ideia em 2 segundos, o resto mo
 <tr><td align="center"><b>Variante A</b><br><sub>ícone, tema claro</sub></td><td align="center"><b>Variante B</b><br><sub>ícone, tema escuro</sub></td><td align="center"><b>Variante C</b><br><sub>objeto recortado</sub></td></tr>
 </table>
 
+Variante D (low-poly): veja `output/post-25` a `output/post-33`.
+
 Conteúdo placeholder. O HTML que gera estas imagens está em `previews/elemento-central/` — edite e rode
 `node scripts/export-templates.mjs elemento-central` para regerar.
 
@@ -106,6 +108,30 @@ a sombra do próprio objeto faz o papel de palco.
   filter: drop-shadow(0 40px 50px rgba(99,102,241,0.28)); }
 ```
 
+### Variante D — ilustração low-poly
+
+O elemento é uma ilustração low-poly em SVG (polígonos facetados, cores naturais do objeto),
+no mesmo estilo das ilhas do `post-14`. **Sem palco circular**: a ilustração já tem cor e
+volume de sobra. No lugar dele, um halo radial suave atrás e uma sombra elíptica no chão.
+
+```css
+.halo { position: absolute; left: 50%; top: 540px; width: 900px; height: 900px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 65%); } /* escuro: rgba(99,102,241,0.20) */
+.art { position: absolute; left: 50%; top: 150px; width: 720px; height: 720px;
+  transform: translateX(-50%); z-index: 10; }  /* <svg viewBox="0 0 640 640"> */
+.phrase { top: 930px; }
+```
+
+Como construir a ilustração:
+- Cada peça é um polígono dividido em triângulos a partir do centro, com o tom escolhido
+  pela direção da face em relação a uma **luz vinda do alto à esquerda** (paleta de 5–8
+  tons do mesmo matiz, do escuro ao claro).
+- Volume: cópias deslocadas da silhueta (≈ 10px para a direita, 16px para baixo) num tom
+  bem escuro do mesmo matiz, empilhadas atrás da peça.
+- Cores naturais do objeto (madeira, ouro, vidro, verde), com indigo/cyan quando o objeto
+  não tem cor própria. O gradiente da marca continua só na frase.
+
 ---
 
 ## Slides internos
@@ -125,6 +151,7 @@ CTA vive na legenda.
 
 - Variantes A e B: **nenhuma** — o elemento é um ícone Lucide, path copiado da biblioteca
   (`lucide-react` já está no `node_modules` do monorepo, ou lucide.dev → Copy SVG).
+- Variante D: nenhuma imagem externa. A ilustração é SVG inline dentro do HTML do post.
 - Variante C: `objeto.png` na pasta do post, **fundo transparente**, mínimo 1200×1200,
   objeto centralizado com margem. Um objeto só, sem cenário. Foto de banco com fundo
   não recortado não serve.
@@ -145,7 +172,7 @@ grita é o elemento.
 
 ## Variações permitidas
 
-- Tema claro ou escuro; ícone ou objeto recortado.
+- Tema claro ou escuro; ícone, ilustração low-poly ou objeto recortado.
 - Forma do palco: círculo (padrão) ou quadrado arredondado (`border-radius: 120px`).
 - Tamanho do ícone de 260px a 340px, conforme a densidade do desenho (ícone com muito
   detalhe fica menor).
@@ -160,8 +187,9 @@ grita é o elemento.
 - **Um elemento principal.** Dois objetos disputando o centro viram diagrama: é outro template.
 - **Frase com no máximo 10 palavras**, sem eyebrow e sem subtítulo. Se precisa explicar,
   a explicação vai para a legenda. Menos conteúdo é o propósito do template.
-- **Ícone sempre da Lucide**, path copiado sem edição, `stroke-width` entre 1 e 1.5.
+- **Ícone de traço sempre da Lucide**, path copiado sem edição, `stroke-width` entre 1 e 1.5.
   Ícone improvisado é o que mais denuncia post amador num formato em que ele está sozinho.
+  Desenho próprio só na variante low-poly, que é ilustração facetada e não imita ícone.
 - Handle sempre presente; `accent-left` + `accent-top` sempre.
 - Sem emoji no slide. Slide escuro: `background` declarado no `body`.
 
@@ -169,4 +197,7 @@ grita é o elemento.
 
 ## Posts de referência
 
-Nenhum ainda. O primeiro post deste template vira a referência.
+Série de 2026-09-28, toda na variante D (low-poly): `post-25` (chave, domínio) ·
+`post-26` (casa, aluguel) · `post-27` (ampulheta, velocidade) · `post-28` (cadeado, HTTPS) ·
+`post-29` (lupa, Google) · `post-30` (balão, WhatsApp) · `post-31` (celular) ·
+`post-32` (cristal, IA) · `post-33` (chave inglesa, manutenção).

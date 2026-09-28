@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-09-22 (post-24)
+> Última atualização: 2026-09-28 (post-25 a post-33, série `elemento-central` low-poly)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -37,8 +37,17 @@ registrado também no `meta.json` do post.
 | post-22 | Metade já usa IA no trabalho. 13% todo dia | 2026-09-20 | Único | `dado-visual` | 1 | 🟢 | Dado (pilar 1/5) — funil de frequência entre trabalhadores. Série "nível de uso da IA", 3 de 4 |
 | post-23 | 88% das empresas usam IA. 6% lucram com ela | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1, persona B) — abismo entre adotar e capturar valor. Série "nível de uso da IA", 4 de 4 |
 | post-24 | Gota de Cura — o catálogo que sustenta uma causa | 2026-09-22 | Carrossel | `case-showcase` | 7 | 🔵 | Case de projeto (pilar 2) — plataforma voluntária de aromaterapia; fio condutor é a causa, com laudos de cromatografia como decisão de produto |
+| post-25 | O domínio do seu site está no seu nome? | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Domínio no nome do dono (pilar 1) — tema claro, chave low-poly dourada com etiqueta "seunome.com.br" |
+| post-26 | Site é casa própria. Rede social é aluguel | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Site próprio vs. rede social, reforço do post-14 (pilar 1) — tema escuro, casa low-poly nova, iluminada, numa ilha flutuante; ao fundo, prédios apagados com placas de ALUGA-SE |
+| post-27 | Site lento não ganha segunda chance | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Velocidade do site (pilar 1) — tema claro, ampulheta low-poly de madeira com areia caindo |
+| post-28 | Sem cadeado, o navegador avisa seu cliente | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | HTTPS / cadeado (pilar 1) — tema escuro, cadeado low-poly dourado com haste prateada |
+| post-29 | Seu cliente te procurou. Ele te achou? | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Ser encontrado no Google (pilar 1) — tema claro, lupa low-poly com um pin de mapa vermelho dentro da lente |
+| post-30 | Um botão de WhatsApp vale mais que dez animações | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Botão de WhatsApp antes de efeito visual (pilar 1) — tema claro, balão de conversa low-poly verde com três pontos |
+| post-31 | Seu cliente vai te ver primeiro no celular | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Site pensado para o celular (pilar 1) — tema escuro, celular low-poly prateado inclinado com um site simples na tela |
+| post-32 | A IA constrói. Quem decide é você | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | IA constrói, gente decide (pilar 4/5) — tema escuro, cristal low-poly em forma de brilho (sparkle) em tons de indigo e ciano |
+| post-33 | Site bom também precisa de manutenção | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Manutenção inclusa (pilar 3) — tema claro, chave inglesa low-poly laranja sobre uma engrenagem indigo |
 
-> post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-24: em revisão.
+> post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-33: em revisão.
 
 ---
 
@@ -152,6 +161,60 @@ registrado também no `meta.json` do post.
 - **Screenshots:** reaproveitados de `public/projects/gota-de-cura/` (01-hero, 02-catalogo, 03-laudos, 08-hero-mobile).
 - **Números:** 5 anos no ar, 1500+ pedidos, 17 prateleiras, 100% da renda para a causa. Confirmados pelo Adriano em 2026-09-22.
 - **Hashtags:** case, desenvolvimentoweb, nextjs, react, typescript, aromaterapia, oleosessenciais, projetosocial, voluntariado, tecnologia, webdesign, campinas
+
+### post-25 — O domínio do seu site está no seu nome?
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-25/` · **PNGs:** `output/post-25/`
+- Tema claro. Chave low-poly dourada com etiqueta "seunome.com.br". Frase: "O domínio do seu site está no seu nome?"
+- **Hashtags:** dominio, site, presencadigital, pequenosnegocios, empreendedorismo, registrobr, sitesprofissionais, negociodigital, desenvolvimentoweb, dicasdenegocio
+
+### post-26 — Site é casa própria. Rede social é aluguel
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-26/` · **PNGs:** `output/post-26/`
+- Tema escuro. Casa low-poly nova, iluminada, numa ilha flutuante; ao fundo, prédios apagados com placas de ALUGA-SE. Frase: "Site é casa própria. Rede social é aluguel."
+- **Hashtags:** site, presencadigital, redessociais, marketingdigital, pequenosnegocios, empreendedorismo, sitesprofissionais, negociodigital, instagrammarketing, desenvolvimentoweb
+
+### post-27 — Site lento não ganha segunda chance
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-27/` · **PNGs:** `output/post-27/`
+- Tema claro. Ampulheta low-poly de madeira com areia caindo. Frase: "Site lento não ganha segunda chance."
+- **Hashtags:** site, performance, velocidade, pagespeed, experienciadousuario, pequenosnegocios, sitesprofissionais, desenvolvimentoweb, presencadigital, webdesign
+
+### post-28 — Sem cadeado, o navegador avisa seu cliente
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-28/` · **PNGs:** `output/post-28/`
+- Tema escuro. Cadeado low-poly dourado com haste prateada. Frase: "Sem cadeado, o navegador avisa seu cliente."
+- **Hashtags:** https, seguranca, site, sitesprofissionais, pequenosnegocios, presencadigital, desenvolvimentoweb, empreendedorismo, confianca, negociodigital
+
+### post-29 — Seu cliente te procurou. Ele te achou?
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-29/` · **PNGs:** `output/post-29/`
+- Tema claro. Lupa low-poly com um pin de mapa vermelho dentro da lente. Frase: "Seu cliente te procurou. Ele te achou?"
+- **Hashtags:** seo, google, negociolocal, site, presencadigital, pequenosnegocios, googlemeunegocio, marketingdigital, sitesprofissionais, empreendedorismo
+
+### post-30 — Um botão de WhatsApp vale mais que dez animações
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-30/` · **PNGs:** `output/post-30/`
+- Tema claro. Balão de conversa low-poly verde com três pontos. Frase: "Um botão de WhatsApp vale mais que dez animações."
+- **Hashtags:** whatsapp, site, conversao, pequenosnegocios, sitesprofissionais, experienciadousuario, presencadigital, empreendedorismo, webdesign, negociodigital
+
+### post-31 — Seu cliente vai te ver primeiro no celular
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-31/` · **PNGs:** `output/post-31/`
+- Tema escuro. Celular low-poly prateado inclinado com um site simples na tela. Frase: "Seu cliente vai te ver primeiro no celular."
+- **Hashtags:** responsivo, mobile, site, sitesprofissionais, pequenosnegocios, experienciadousuario, presencadigital, desenvolvimentoweb, webdesign, empreendedorismo
+
+### post-32 — A IA constrói. Quem decide é você
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-32/` · **PNGs:** `output/post-32/`
+- Tema escuro. Cristal low-poly em forma de brilho (sparkle) em tons de indigo e ciano. Frase: "A IA constrói. Quem decide é você."
+- **Hashtags:** inteligenciaartificial, ia, site, pequenosnegocios, empreendedorismo, sitesprofissionais, presencadigital, desenvolvimentoweb, tecnologia, negociodigital
+
+### post-33 — Site bom também precisa de manutenção
+- **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-33/` · **PNGs:** `output/post-33/`
+- Tema claro. Chave inglesa low-poly laranja sobre uma engrenagem indigo. Frase: "Site bom também precisa de manutenção."
+- **Hashtags:** manutencao, site, sitesprofissionais, pequenosnegocios, presencadigital, seguranca, desenvolvimentoweb, empreendedorismo, negociodigital, webdesign
 
 ### post-13 — Quanto custa um site? A tabela honesta
 - **Data:** 2026-09-07 · **Tipo:** carrossel (1080×1350) · **Slides:** 8

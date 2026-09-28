@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #0f172a; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(241,245,249,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .halo { position: absolute; left: 50%; top: 540px; width: 900px; height: 900px; transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(99,102,241,0.20) 0%, transparent 65%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+
+  .art { position: absolute; left: 50%; top: 150px; width: 720px; height: 720px; transform: translateX(-50%); z-index: 10; }
+  .art svg { width: 100%; height: 100%; display: block; }
+
+  .phrase { position: absolute; left: 110px; right: 110px; top: 930px; z-index: 10;
+    text-align: center; font-size: 60px; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; text-wrap: balance;
+    color: #f1f5f9; }
+  .phrase em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .handle { position: absolute; bottom: 64px; left: 0; right: 0; text-align: center; font-size: 24px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="halo"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="art">
+    <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ground"><stop offset="0" stop-color="#020617" stop-opacity="0.7"/><stop offset="1" stop-color="#020617" stop-opacity="0"/></radialGradient></defs>
+      <defs><radialGradient id="glow"><stop offset="0" stop-color="#6366f1" stop-opacity="0.35"/><stop offset="1" stop-color="#6366f1" stop-opacity="0"/></radialGradient></defs>
+      <circle cx="320" cy="320" r="260" fill="url(#glow)"/>
+      <ellipse cx="330" cy="612" rx="170" ry="18" fill="url(#ground)" opacity="0.9"/><g transform="translate(320,320)"><polygon points="10,-216 54,-30 186,14 54,58 10,244 -34,58 -166,14 -34,-30" fill="#1e1b4b"/><polygon points="8.3,-218.3 52.3,-32.3 184.3,11.7 52.3,55.7 8.3,241.7 -35.7,55.7 -167.7,11.7 -35.7,-32.3" fill="#1e1b4b"/><polygon points="6.7,-220.7 50.7,-34.7 182.7,9.3 50.7,53.3 6.7,239.3 -37.3,53.3 -169.3,9.3 -37.3,-34.7" fill="#1e1b4b"/><polygon points="5,-223 49,-37 181,7 49,51 5,237 -39,51 -171,7 -39,-37" fill="#1e1b4b"/><polygon points="3.3,-225.3 47.3,-39.3 179.3,4.7 47.3,48.7 3.3,234.7 -40.7,48.7 -172.7,4.7 -40.7,-39.3" fill="#1e1b4b"/><polygon points="1.7,-227.7 45.7,-41.7 177.7,2.3 45.7,46.3 1.7,232.3 -42.3,46.3 -174.3,2.3 -42.3,-41.7" fill="#1e1b4b"/><polygon points="0,0 0,-230 19,-135.1" fill="#cffafe"/><polygon points="0,0 19,-135.1 44,-44" fill="#22d3ee"/><polygon points="0,0 44,-44 109.7,-22.9" fill="#6366f1"/><polygon points="0,0 109.7,-22.9 176,0" fill="#4f46e5"/><polygon points="0,0 176,0 111.2,19.6" fill="#3730a3"/><polygon points="0,0 111.2,19.6 44,44" fill="#312e81"/><polygon points="0,0 44,44 19.6,134" fill="#312e81"/><polygon points="0,0 19.6,134 0,230" fill="#312e81"/><polygon points="0,0 0,230 -22.2,135.3" fill="#312e81"/><polygon points="0,0 -22.2,135.3 -44,44" fill="#4f46e5"/><polygon points="0,0 -44,44 -112.4,24.5" fill="#818cf8"/><polygon points="0,0 -112.4,24.5 -176,0" fill="#67e8f9"/><polygon points="0,0 -176,0 -109.8,-23.3" fill="#67e8f9"/><polygon points="0,0 -109.8,-23.3 -44,-44" fill="#cffafe"/><polygon points="0,0 -44,-44 -24.6,-138" fill="#cffafe"/><polygon points="0,0 -24.6,-138 0,-230" fill="#67e8f9"/><polygon points="190,-170 190,-239 197.3,-211.8" fill="#67e8f9"/><polygon points="190,-170 197.3,-211.8 203.2,-183.2" fill="#67e8f9"/><polygon points="190,-170 203.2,-183.2 222.1,-174" fill="#6366f1"/><polygon points="190,-170 222.1,-174 242.8,-170" fill="#4f46e5"/><polygon points="190,-170 242.8,-170 221,-163.4" fill="#4f46e5"/><polygon points="190,-170 221,-163.4 203.2,-156.8" fill="#3730a3"/><polygon points="190,-170 203.2,-156.8 199,-131.3" fill="#312e81"/><polygon points="190,-170 199,-131.3 190,-101" fill="#3730a3"/><polygon points="190,-170 190,-101 185.9,-128" fill="#312e81"/><polygon points="190,-170 185.9,-128 176.8,-156.8" fill="#4f46e5"/><polygon points="190,-170 176.8,-156.8 159.4,-160.6" fill="#818cf8"/><polygon points="190,-170 159.4,-160.6 137.2,-170" fill="#22d3ee"/><polygon points="190,-170 137.2,-170 154.7,-179.4" fill="#67e8f9"/><polygon points="190,-170 154.7,-179.4 176.8,-183.2" fill="#cffafe"/><polygon points="190,-170 176.8,-183.2 181.8,-210.3" fill="#cffafe"/><polygon points="190,-170 181.8,-210.3 190,-239" fill="#67e8f9"/><polygon points="-180,170 -180,124 -174.9,141.6" fill="#67e8f9"/><polygon points="-180,170 -174.9,141.6 -171.2,161.2" fill="#67e8f9"/><polygon points="-180,170 -171.2,161.2 -158.1,163.4" fill="#6366f1"/><polygon points="-180,170 -158.1,163.4 -144.8,170" fill="#4f46e5"/><polygon points="-180,170 -144.8,170 -160.8,174.4" fill="#3730a3"/><polygon points="-180,170 -160.8,174.4 -171.2,178.8" fill="#312e81"/><polygon points="-180,170 -171.2,178.8 -176.9,197.1" fill="#312e81"/><polygon points="-180,170 -176.9,197.1 -180,216" fill="#312e81"/><polygon points="-180,170 -180,216 -187.4,198.2" fill="#3730a3"/><polygon points="-180,170 -187.4,198.2 -188.8,178.8" fill="#4f46e5"/><polygon points="-180,170 -188.8,178.8 -203.9,172.9" fill="#818cf8"/><polygon points="-180,170 -203.9,172.9 -215.2,170" fill="#22d3ee"/><polygon points="-180,170 -215.2,170 -199.1,167.2" fill="#67e8f9"/><polygon points="-180,170 -199.1,167.2 -188.8,161.2" fill="#cffafe"/><polygon points="-180,170 -188.8,161.2 -186.3,144.9" fill="#cffafe"/><polygon points="-180,170 -186.3,144.9 -180,124" fill="#cffafe"/></g></svg>
+  </div>
+
+  <p class="phrase">A IA constrói.<br><em>Quem decide é você.</em></p>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

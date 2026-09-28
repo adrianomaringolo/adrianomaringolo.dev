@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #0f172a; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(241,245,249,0.05) 1.5px, transparent 1.5px);
+    background-size: 40px 40px; }
+  .halo { position: absolute; left: 50%; top: 540px; width: 900px; height: 900px; transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(99,102,241,0.20) 0%, transparent 65%); }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+
+  .art { position: absolute; left: 50%; top: 150px; width: 720px; height: 720px; transform: translateX(-50%); z-index: 10; }
+  .art svg { width: 100%; height: 100%; display: block; }
+
+  .phrase { position: absolute; left: 110px; right: 110px; top: 930px; z-index: 10;
+    text-align: center; font-size: 60px; font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; text-wrap: balance;
+    color: #f1f5f9; }
+  .phrase em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .handle { position: absolute; bottom: 64px; left: 0; right: 0; text-align: center; font-size: 24px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div>
+  <div class="halo"></div>
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="art">
+    <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ground"><stop offset="0" stop-color="#020617" stop-opacity="0.7"/><stop offset="1" stop-color="#020617" stop-opacity="0"/></radialGradient></defs><ellipse cx="330" cy="612" rx="180" ry="20" fill="url(#ground)" opacity="0.9"/><g transform="translate(320,318) rotate(-12) scale(0.98)"><polygon points="-93.6,-243.9 110.4,-243.9 146.4,-207.9 146.4,244.1 110.4,280.1 -93.6,280.1 -129.6,244.1 -129.6,-207.9" fill="#020617"/><polygon points="-95,-246.9 109,-246.9 145,-210.9 145,241.1 109,277.1 -95,277.1 -131,241.1 -131,-210.9" fill="#020617"/><polygon points="-96.4,-249.9 107.6,-249.9 143.6,-213.9 143.6,238.1 107.6,274.1 -96.4,274.1 -132.4,238.1 -132.4,-213.9" fill="#020617"/><polygon points="-97.8,-252.9 106.2,-252.9 142.2,-216.9 142.2,235.1 106.2,271.1 -97.8,271.1 -133.8,235.1 -133.8,-216.9" fill="#020617"/><polygon points="-99.2,-256 104.8,-256 140.8,-220 140.8,232 104.8,268 -99.2,268 -135.2,232 -135.2,-220" fill="#020617"/><polygon points="-100.6,-259 103.4,-259 139.4,-223 139.4,229 103.4,265 -100.6,265 -136.6,229 -136.6,-223" fill="#020617"/><polygon points="0,0 -102,-262 -3,-263.6" fill="#f1f5f9"/><polygon points="0,0 -3,-263.6 102,-262" fill="#f1f5f9"/><polygon points="0,0 102,-262 117.3,-242.7" fill="#f1f5f9"/><polygon points="0,0 117.3,-242.7 138,-226" fill="#e2e8f0"/><polygon points="0,0 138,-226 138.3,2.3" fill="#cbd5e1"/><polygon points="0,0 138.3,2.3 138,226" fill="#94a3b8"/><polygon points="0,0 138,226 117.8,244.5" fill="#94a3b8"/><polygon points="0,0 117.8,244.5 102,262" fill="#64748b"/><polygon points="0,0 102,262 -0.5,259.8" fill="#64748b"/><polygon points="0,0 -0.5,259.8 -102,262" fill="#64748b"/><polygon points="0,0 -102,262 -122.4,245.1" fill="#64748b"/><polygon points="0,0 -122.4,245.1 -138,226" fill="#cbd5e1"/><polygon points="0,0 -138,226 -138.7,2.7" fill="#cbd5e1"/><polygon points="0,0 -138.7,2.7 -138,-226" fill="#e2e8f0"/><polygon points="0,0 -138,-226 -122.6,-241.5" fill="#f1f5f9"/><polygon points="0,0 -122.6,-241.5 -102,-262" fill="#f1f5f9"/><polygon points="-116,-226 -38.7,-226 -38.7,-113" fill="#ffffff"/><polygon points="-116,-226 -38.7,-113 -116,-113" fill="#ffffff"/><polygon points="-116,-113 -38.7,-113 -38.7,0" fill="#ffffff"/><polygon points="-116,-113 -38.7,0 -116,0" fill="#f1f5f9"/><polygon points="-116,0 -38.7,0 -38.7,113" fill="#ffffff"/><polygon points="-116,0 -38.7,113 -116,113" fill="#f1f5f9"/><polygon points="-116,113 -38.7,113 -38.7,226" fill="#f8fafc"/><polygon points="-116,113 -38.7,226 -116,226" fill="#e2e8f0"/><polygon points="-38.7,-226 38.7,-226 38.7,-113" fill="#f8fafc"/><polygon points="-38.7,-226 38.7,-113 -38.7,-113" fill="#ffffff"/><polygon points="-38.7,-113 38.7,-113 38.7,0" fill="#f8fafc"/><polygon points="-38.7,-113 38.7,0 -38.7,0" fill="#f1f5f9"/><polygon points="-38.7,0 38.7,0 38.7,113" fill="#f8fafc"/><polygon points="-38.7,0 38.7,113 -38.7,113" fill="#e2e8f0"/><polygon points="-38.7,113 38.7,113 38.7,226" fill="#e2e8f0"/><polygon points="-38.7,113 38.7,226 -38.7,226" fill="#e2e8f0"/><polygon points="38.7,-226 116,-226 116,-113" fill="#ffffff"/><polygon points="38.7,-226 116,-113 38.7,-113" fill="#f1f5f9"/><polygon points="38.7,-113 116,-113 116,0" fill="#f8fafc"/><polygon points="38.7,-113 116,0 38.7,0" fill="#e2e8f0"/><polygon points="38.7,0 116,0 116,113" fill="#f1f5f9"/><polygon points="38.7,0 116,113 38.7,113" fill="#e2e8f0"/><polygon points="38.7,113 116,113 116,226" fill="#e2e8f0"/><polygon points="38.7,113 116,226 38.7,226" fill="#e2e8f0"/><polygon points="-30,-246 30,-246 30,-238 -30,-238" fill="#475569"/><polygon points="-96,-200 -32,-200 -32,-176" fill="#0891b2"/><polygon points="-96,-200 -32,-176 -96,-176" fill="#0891b2"/><polygon points="-32,-200 32,-200 32,-176" fill="#0891b2"/><polygon points="-32,-200 32,-176 -32,-176" fill="#0e7490"/><polygon points="32,-200 96,-200 96,-176" fill="#0891b2"/><polygon points="32,-200 96,-176 32,-176" fill="#0e7490"/><polygon points="-96,-150 60,-150 60,-128 -96,-128" fill="#0f172a"/><polygon points="-96,-118 20,-118 20,-96 -96,-96" fill="#0f172a"/><polygon points="-96,-80 80,-80 80,-70 -96,-70" fill="#94a3b8"/><polygon points="-96,-60 50,-60 50,-50 -96,-50" fill="#94a3b8"/><polygon points="-10,40 -96,-30 1.7,-30.5" fill="#67e8f9"/><polygon points="-10,40 1.7,-30.5 96,-30" fill="#818cf8"/><polygon points="-10,40 96,-30 96.1,30.3" fill="#6366f1"/><polygon points="-10,40 96.1,30.3 96,90" fill="#4338ca"/><polygon points="-10,40 96,90 0.1,90.2" fill="#4338ca"/><polygon points="-10,40 0.1,90.2 -96,90" fill="#6366f1"/><polygon points="-10,40 -96,90 -99,32.4" fill="#67e8f9"/><polygon points="-10,40 -99,32.4 -96,-30" fill="#67e8f9"/><polygon points="-96,112 -33,112 -33,150" fill="#6366f1"/><polygon points="-96,112 -33,150 -96,150" fill="#4338ca"/><polygon points="-33,112 30,112 30,150" fill="#4338ca"/><polygon points="-33,112 30,150 -33,150" fill="#4338ca"/><polygon points="-96,170 96,170 96,180 -96,180" fill="#cbd5e1"/><polygon points="-96,192 40,192 40,202 -96,202" fill="#cbd5e1"/></g></svg>
+  </div>
+
+  <p class="phrase">Seu cliente vai te ver <em>primeiro no celular</em>.</p>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
