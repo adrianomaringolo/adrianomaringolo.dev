@@ -1,34 +1,34 @@
 ---
 name: project-writer
-description: "Documenta um projeto no portfolio de adrianomaringolo.dev a partir de um repositório local. Analisa o repo, pergunta ao usuário só o que não dá pra extrair do código, tira screenshots das áreas confirmadas com o usuário (via plugin do Claude no Chrome ou Puppeteer) e gera o arquivo bilíngue em src/data/projects/<slug>.ts, registrando no index.ts. Uso: /project-writer <caminho-do-repo-local>. Exemplos: '/project-writer ~/Projects/clientes/padaria-do-ze', '/project-writer ../meu-saas'."
+description: "Documenta um projeto no portfolio de adrianomaringolo.dev a partir de um repositório local. Analisa o repo, pergunta ao usuário só o que não dá pra extrair do código, tira screenshots das áreas confirmadas com o usuário (via plugin do Claude no Chrome ou Puppeteer) e gera o arquivo bilíngue em apps/portfolio/src/data/projects/<slug>.ts, registrando no index.ts. Uso: /project-writer <caminho-do-repo-local>. Exemplos: '/project-writer ~/Projects/clientes/padaria-do-ze', '/project-writer ../meu-saas'."
 ---
 
 # Escritor de Projetos do Portfolio — adrianomaringolo.dev
 
 Esta skill transforma um repositório local em uma página de projeto (case study) no formato usado
-em `src/data/projects/`, seguindo a estrutura, o nível de detalhe e a voz dos projetos já publicados
+em `apps/portfolio/src/data/projects/`, seguindo a estrutura, o nível de detalhe e a voz dos projetos já publicados
 — não um resumo genérico de README.
 
 O resultado final é:
 
-1. `public/projects/<slug>/` com os screenshots (`01-hero.jpg`, `01-hero-mobile.png`, `02-...`, etc.);
-2. `src/data/projects/<slug>.ts` completo, bilíngue pt-BR + en-US, tipado com a interface `Project`;
-3. o projeto adicionado a `src/data/projects/index.ts`;
+1. `apps/portfolio/public/projects/<slug>/` com os screenshots (`01-hero.jpg`, `01-hero-mobile.png`, `02-...`, etc.);
+2. `apps/portfolio/src/data/projects/<slug>.ts` completo, bilíngue pt-BR + en-US, tipado com a interface `Project`;
+3. o projeto adicionado a `apps/portfolio/src/data/projects/index.ts`;
 4. instrução pra revisar em `/projects/<slug>`.
 
 ## Contexto de referência (leia antes de começar)
 
-- **Interface e campos**: `src/types/project.ts` — é o contrato. Todo campo obrigatório precisa existir.
-- **O que realmente renderiza na página de detalhe**: `src/app/projects/[slug]/page.tsx` e os componentes
-  em `src/app/projects/_components/` (`project-hero`, `project-story-section`, `project-features`,
+- **Interface e campos**: `apps/portfolio/src/types/project.ts` — é o contrato. Todo campo obrigatório precisa existir.
+- **O que realmente renderiza na página de detalhe**: `apps/portfolio/src/app/projects/[slug]/page.tsx` e os componentes
+  em `apps/portfolio/src/app/projects/_components/` (`project-hero`, `project-story-section`, `project-features`,
   `project-screenshots`, `project-technologies`, `project-testimonials`, `project-cta`).
-- **Guia da estrutura**: `docs/PROJECTS_STRUCTURE.md` e `src/data/projects/README.md`.
+- **Guia da estrutura**: `apps/portfolio/docs/PROJECTS_STRUCTURE.md` e `apps/portfolio/src/data/projects/README.md`.
 - **Exemplos por tipo de projeto** (releia pelo menos um do mesmo tipo do projeto atual):
-  - `web` (site institucional / landing): `src/data/projects/yane-leitao.ts`, `golaser-barao-geraldo.ts`,
+  - `web` (site institucional / landing): `apps/portfolio/src/data/projects/yane-leitao.ts`, `golaser-barao-geraldo.ts`,
     `sympro-landing.ts`, `asm-marketing-digital.ts`
-  - `webapp` (produto / sistema): `src/data/projects/portal-da-morada.ts`, `gota-de-cura.ts`
-  - `library` (open source / npm): `src/data/projects/react-html-content-editor.ts`, `buildgrid-ui.ts`
-- **Case study em prosa** (exemplo de profundidade de descoberta): `docs/ASM_PROJECT_CASE_STUDY.md`.
+  - `webapp` (produto / sistema): `apps/portfolio/src/data/projects/portal-da-morada.ts`, `gota-de-cura.ts`
+  - `library` (open source / npm): `apps/portfolio/src/data/projects/react-html-content-editor.ts`, `buildgrid-ui.ts`
+- **Case study em prosa** (exemplo de profundidade de descoberta): `apps/portfolio/docs/ASM_PROJECT_CASE_STUDY.md`.
 
 ## Passo 1 — Receber o repositório e extrair o máximo automaticamente
 
@@ -170,7 +170,7 @@ Fluxo por captura:
 4. Role até a seção (`computer` com scroll, ou `javascript_tool`/`find` para dar `scrollIntoView` num seletor).
    Espere as animações de entrada (Framer Motion) assentarem antes do print.
 5. `computer` action `screenshot` para capturar o viewport.
-6. Salve o arquivo em `public/projects/<slug>/<NN-slug>.<ext>` com o nome definido no Passo 3.
+6. Salve o arquivo em `apps/portfolio/public/projects/<slug>/<NN-slug>.<ext>` com o nome definido no Passo 3.
 7. Para o `thumbnail`/hero, capture uma faixa larga do topo (o componente usa `object-cover`, proporção
    ~2:1 funciona bem).
 
@@ -188,7 +188,7 @@ Formato do config (veja `scripts/config.example.json`):
 ```json
 {
   "baseUrl": "http://localhost:3000",
-  "outDir": "public/projects/<slug>",
+  "outDir": "apps/portfolio/public/projects/<slug>",
   "desktop": { "width": 1440, "height": 900, "deviceScaleFactor": 2 },
   "mobile":  { "width": 390,  "height": 844, "deviceScaleFactor": 3 },
   "defaultQuality": 82,
@@ -213,7 +213,7 @@ Depois de capturar, garanta que cada arquivo tem no máximo ~2000px de largura e
 (as imagens existentes ficam entre ~80 KB e ~450 KB):
 
 ```bash
-sips -Z 2000 public/projects/<slug>/*.jpg
+sips -Z 2000 apps/portfolio/public/projects/<slug>/*.jpg
 # PNGs de UI podem passar por pngquant/oxipng se o peso estourar
 ```
 
@@ -225,12 +225,12 @@ npx lighthouse <liveUrl> --only-categories=performance,accessibility,best-practi
 
 Use os scores reais nas `metrics` (formato `'100 / 100'`, como em `golaser-barao-geraldo.ts`).
 
-## Passo 5 — Gerar `src/data/projects/<slug>.ts`
+## Passo 5 — Gerar `apps/portfolio/src/data/projects/<slug>.ts`
 
 Escreva o arquivo seguindo **exatamente** o padrão dos exemplos do mesmo tipo. Regras:
 
-- **`slug`**: kebab-case, único, igual ao nome da pasta em `public/projects/`. `id`: próximo número livre
-  (veja os `id` existentes em `src/data/projects/*.ts`).
+- **`slug`**: kebab-case, único, igual ao nome da pasta em `apps/portfolio/public/projects/`. `id`: próximo número livre
+  (veja os `id` existentes em `apps/portfolio/src/data/projects/*.ts`).
 - **Bilíngue de verdade**: `pt-BR` é o original; `en-US` é reescrita natural, mesma estrutura, não tradução
   literal. Todos os campos com shape `{ 'pt-BR', 'en-US' }` precisam dos dois.
 - **`tags`**: `{ 'pt-BR': string[], 'en-US': string[] }`, 8–13 tags, mesma ordem nos dois idiomas.
@@ -250,7 +250,7 @@ Escreva o arquivo seguindo **exatamente** o padrão dos exemplos do mesmo tipo. 
   travessão livremente (títulos, incisos) — siga o estilo do arquivo de exemplo do mesmo tipo, não a regra
   do blog.
 - **Formatação**: Prettier do repo (`semi: false`, `singleQuote: true`, `printWidth: 90`). Rode
-  `npx prettier --write src/data/projects/<slug>.ts` no final.
+  `npx prettier --write apps/portfolio/src/data/projects/<slug>.ts` no final.
 
 Estrutura mínima do arquivo:
 
@@ -288,10 +288,10 @@ export const <camelCaseSlug>: Project = {
 
 ## Passo 6 — Registrar e fechar o ciclo
 
-1. Em `src/data/projects/index.ts`: adicione o `import`, inclua no array `projects` e no bloco
+1. Em `apps/portfolio/src/data/projects/index.ts`: adicione o `import`, inclua no array `projects` e no bloco
    `export { ... }` (mantendo a ordem alfabética já usada nos exports).
 2. Rode `npx tsc --noEmit` (ou o typecheck do repo) e o Prettier pra garantir que compila e está formatado.
-3. Confira que todos os arquivos de imagem referenciados existem em `public/projects/<slug>/`.
+3. Confira que todos os arquivos de imagem referenciados existem em `apps/portfolio/public/projects/<slug>/`.
 4. Sugira ao usuário: `pnpm dev` e abrir `/projects/<slug>` (pt-BR e en-US, via seletor de idioma) pra
    revisão visual — não afirme que está pronto sem visualização. Verifique especialmente o recorte do
    hero (`thumbnail`) e a ordem da galeria.
