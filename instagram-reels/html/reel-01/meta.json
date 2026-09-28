@@ -1,6 +1,7 @@
 {
   "title": "3 erros comuns ao usar useEffect no React",
   "date": "2026-06-15",
+  "status": "aprovado",
   "hook": "useEffect errado = bug garantido. Conhece esses 3 erros?",
   "scenes": [
     {

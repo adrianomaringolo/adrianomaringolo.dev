@@ -26,6 +26,7 @@ handle, regras de export — está em [`../design-system.md`](../design-system.m
 | `explicador-tecnico` | [Explicador técnico](explicador-tecnico.md) | Explicar um mecanismo (como a IA funciona, como um sistema decide). Precisa de diagrama ou interface simulada. | Carrossel 6–9 ou único | Não — diagrama/UI em HTML |
 | `frase-unica` | [Frase única](frase-unica.md) | Uma ideia forte, provocação ou princípio. Ritmo e reforço de posicionamento. | Único (1 slide) | Opcional — foto de fundo |
 | `foto-protagonista` | [Foto protagonista](foto-protagonista.md) | A imagem é o conteúdo. Bastidor, retrato, projeto no mundo real. Só um título no topo. | Único ou carrossel 3–7 | **Sim** — foto própria |
+| `elemento-central` | [Elemento central](elemento-central.md) | Post mínimo: um símbolo no centro + frase de até 10 palavras. Respiro entre carrosséis. | Único (1 slide) | Não — ícone Lucide ou objeto recortado |
 
 ---
 
@@ -59,12 +60,12 @@ Cada template tem imagens de exemplo com conteúdo placeholder em
 </tr>
 <tr>
 <td width="32%"><img src="previews/foto-protagonista/slide-01.png" alt="foto-protagonista"></td>
-<td width="32%"></td>
+<td width="32%"><img src="previews/elemento-central/slide-01.png" alt="elemento-central"></td>
 <td width="32%"></td>
 </tr>
 <tr>
 <td align="center"><b><code>foto-protagonista</code></b></td>
-<td></td>
+<td align="center"><b><code>elemento-central</code></b></td>
 <td></td>
 </tr>
 </table>
@@ -101,6 +102,7 @@ a documentação visual do template.
 | "%", "pesquisa", "estudo", "X em cada Y", número no tema | `dado-visual` |
 | "como funciona", "por dentro", "explicando", IA/arquitetura | `explicador-tecnico` |
 | "post único", "frase", "provocação", "princípio" | `frase-unica` |
+| "post simples", "minimalista", "pouco texto", "um ícone", ideia com símbolo óbvio (cadeado, chave, lupa) | `elemento-central` |
 | "foto", "bastidor", "rotina", "retrato", "ensaio", nome de lugar ou evento | `foto-protagonista` |
 | Tema pessoal que precisa ser desenvolvido em vários slides | `foto-editorial` |
 | Lista, comparativo, "N razões", "quanto custa", conceito abstrato | `tipografico` |

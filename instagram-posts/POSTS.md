@@ -17,24 +17,24 @@ registrado também no `meta.json` do post.
 | post-02 | Sênior não é quem nunca erra | 2026-06-15 | Único | `frase-unica` | 1 | 🟢 | Frase — senioridade e documentação |
 | post-03 | 5 razões para ter um site profissional e atrair mais clientes | 2026-06-15 | Carrossel | `foto-editorial` | 7 | 🟢 | Captação — prestadores de serviço |
 | post-04 | IA para humanos: LLMs, agentes e usos práticos | 2026-06-17 | Carrossel | `foto-editorial` | 9 | 🟢 | Educativo — conceitos de IA para leigos |
-| post-05 | IA Generativa: a IA que "cria", não só processa | 2026-06-17 | Carrossel | `foto-editorial` | 8 | 🟢 | Educativo — IA generativa, foco dev |
-| post-06 | GoLaser Barão Geraldo — Site Completo | 2026-06-22 | Carrossel | `case-showcase` | 6 | 🟡 | Case de projeto — clínica de estética |
+| post-05 | IA Generativa: a IA que "cria", não só processa | 2026-06-17 | Carrossel | `foto-editorial` | 8 | 🟡 | Educativo — IA generativa, foco dev |
+| post-06 | GoLaser Barão Geraldo — Site Completo | 2026-06-22 | Carrossel | `case-showcase` | 6 | 🟢 | Case de projeto — clínica de estética |
 | post-07 | BuildGrid UI — Biblioteca de Componentes React | 2026-06-23 | Carrossel | `case-showcase` | 8 | 🟡 | Case / lançamento open source |
 | post-08 | 84% dos devs já usam IA | 2026-07-30 | Único | `dado-visual` | 1 | 🟢 | Dado — Stack Overflow Developer Survey 2025 |
 | post-09 | Todo mundo usa IA. Ninguém usa direito. | 2026-08-02 | Carrossel | `tipografico` | 7 | 🟡 | Humor / memes sobre uso de IA |
-| post-10 | Que tipo de site o seu negócio precisa? | 2026-08-26 | Carrossel | `tipografico` | 8 | 🟡 | Educativo — os 6 tipos de site, com sketches vetoriais de cada um |
+| post-10 | Que tipo de site o seu negócio precisa? | 2026-08-26 | Carrossel | `tipografico` | 8 | 🟢 | Educativo — os 6 tipos de site, com sketches vetoriais de cada um |
 | post-11 | Ser educado com o ChatGPT custa milhões | 2026-08-31 | Único | `dado-visual` | 1 | 🟡 | Curiosidade (dark) — dizer "por favor"/"obrigado" à IA e o custo de compute (fala do Sam Altman) |
-| post-12 | A IA adivinha uma palavra por vez | 2026-08-31 | Único | `explicador-tecnico` | 1 | 🟡 | Curiosidade (dark) — como a IA gera texto no dia a dia (previsão da próxima palavra) |
-| post-13 | Quanto custa um site? A tabela honesta | 2026-09-07 | Carrossel | `tipografico` | 8 | 🔵 | Educativo — o preço vem do escopo: 5 fatores que definem quanto custa um site (sem valores em R$) |
-| post-14 | Seu site é uma casa. A rede social é aluguel | 2026-09-07 | Carrossel | `tipografico` | 9 | 🔵 | Analogia — site = casa própria no terreno; rede social = apartamento alugado no condomínio. Ilustrações low-poly (ilhas flutuantes), casa colorida |
-| post-15 | Se a IA cria sites sozinha, por que contratar alguém? | 2026-09-07 | Carrossel | `foto-editorial` | 9 | 🔵 | Educativo — IA é ferramenta, não substitui o julgamento sobre o negócio. Capa e slide final com fotos do Pexels |
-| post-16 | Yane Leitão Personal Chef — Website Institucional | 2026-09-10 | Carrossel | `case-showcase` | 6 | 🔵 | Case de projeto — personal chef / alimentação funcional. Mesmo modelo do post-06 |
-| post-17 | Presença digital não é SÓ ter perfil no Instagram | 2026-09-13 | Único | `frase-unica` | 1 | 🔵 | Frase (pilar 5/1, banco de `estrategia-conteudo.md` §9.7) — endereço próprio que também é encontrado, fundo azul duotone + composição tipográfica |
-| post-18 | O que é presença digital? | 2026-09-15 | Carrossel | `foto-editorial` | 7 | 🔵 | Educativo — cenários do dia a dia (hotel/restaurante no Google) + define presença digital, os 4 pilares, o mito de "só Instagram basta" e um diagrama de rede (site no centro) |
+| post-12 | A IA adivinha uma palavra por vez | 2026-08-31 | Único | `explicador-tecnico` | 1 | 🟢 | Curiosidade (dark) — como a IA gera texto no dia a dia (previsão da próxima palavra) |
+| post-13 | Quanto custa um site? A tabela honesta | 2026-09-07 | Carrossel | `tipografico` | 8 | 🟡 | Educativo — o preço vem do escopo: 5 fatores que definem quanto custa um site (sem valores em R$) |
+| post-14 | Seu site é uma casa. A rede social é aluguel | 2026-09-07 | Carrossel | `tipografico` | 9 | 🟢 | Analogia — site = casa própria no terreno; rede social = apartamento alugado no condomínio. Ilustrações low-poly (ilhas flutuantes), casa colorida |
+| post-15 | Se a IA cria sites sozinha, por que contratar alguém? | 2026-09-07 | Carrossel | `foto-editorial` | 9 | 🟡 | Educativo — IA é ferramenta, não substitui o julgamento sobre o negócio. Capa e slide final com fotos do Pexels |
+| post-16 | Yane Leitão Personal Chef — Website Institucional | 2026-09-10 | Carrossel | `case-showcase` | 6 | 🟢 | Case de projeto — personal chef / alimentação funcional. Mesmo modelo do post-06 |
+| post-17 | Presença digital não é SÓ ter perfil no Instagram | 2026-09-13 | Único | `frase-unica` | 1 | 🟢 | Frase (pilar 5/1, banco de `estrategia-conteudo.md` §9.7) — endereço próprio que também é encontrado, fundo azul duotone + composição tipográfica |
+| post-18 | O que é presença digital? | 2026-09-15 | Carrossel | `foto-editorial` | 7 | 🟢 | Educativo — cenários do dia a dia (hotel/restaurante no Google) + define presença digital, os 4 pilares, o mito de "só Instagram basta" e um diagrama de rede (site no centro) |
 | post-19 | Trabalho numa consultoria internacional. E ainda faço sites para pequenos negócios | 2026-09-16 | Carrossel | `foto-editorial` | 7 | 🔵 | Pessoal (pilar 5) — o rigor de projeto grande aplicado ao site de pequeno negócio; timeline de 17 anos de carreira e foto real na capa |
 | post-20 | Todo mundo fala de IA. 1 em cada 5 usa | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1, persona A) — uso de IA por porte de empresa. Série "nível de uso da IA", 1 de 4 |
-| post-21 | 84% dos devs usam IA. 3% confiam nela | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 4, persona C) — adoção alta, confiança baixa. Série "nível de uso da IA", 2 de 4 |
-| post-22 | Metade já usa IA no trabalho. 13% todo dia | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1/5) — funil de frequência entre trabalhadores. Série "nível de uso da IA", 3 de 4 |
+| post-21 | 84% dos devs usam IA. 3% confiam nela | 2026-09-20 | Único | `dado-visual` | 1 | 🟡 | Dado (pilar 4, persona C) — adoção alta, confiança baixa. Série "nível de uso da IA", 2 de 4 |
+| post-22 | Metade já usa IA no trabalho. 13% todo dia | 2026-09-20 | Único | `dado-visual` | 1 | 🟢 | Dado (pilar 1/5) — funil de frequência entre trabalhadores. Série "nível de uso da IA", 3 de 4 |
 | post-23 | 88% das empresas usam IA. 6% lucram com ela | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1, persona B) — abismo entre adotar e capturar valor. Série "nível de uso da IA", 4 de 4 |
 | post-24 | Gota de Cura — o catálogo que sustenta uma causa | 2026-09-22 | Carrossel | `case-showcase` | 7 | 🔵 | Case de projeto (pilar 2) — plataforma voluntária de aromaterapia; fio condutor é a causa, com laudos de cromatografia como decisão de produto |
 

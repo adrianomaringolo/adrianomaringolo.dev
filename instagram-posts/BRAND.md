@@ -35,6 +35,7 @@ seguir**. O detalhamento técnico completo de cores, componentes e CSS está em
 | `explicador-tecnico` | Explicar um mecanismo com diagrama |
 | `frase-unica` | Post único, uma ideia forte |
 | `foto-protagonista` | A imagem é o conteúdo, só um título no topo |
+| `elemento-central` | Post mínimo: um elemento no centro + frase curta |
 
 Cada template tem seu `.md` em `templates/` com capa, slides internos, fecho, uso de
 imagem, escala tipográfica, variações permitidas e travas — e abre com um **preview
