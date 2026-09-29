@@ -37,15 +37,15 @@ registrado também no `meta.json` do post.
 | post-22 | Metade já usa IA no trabalho. 13% todo dia | 2026-09-20 | Único | `dado-visual` | 1 | 🟢 | Dado (pilar 1/5) — funil de frequência entre trabalhadores. Série "nível de uso da IA", 3 de 4 |
 | post-23 | 88% das empresas usam IA. 6% lucram com ela | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1, persona B) — abismo entre adotar e capturar valor. Série "nível de uso da IA", 4 de 4 |
 | post-24 | Gota de Cura — o catálogo que sustenta uma causa | 2026-09-22 | Carrossel | `case-showcase` | 7 | 🔵 | Case de projeto (pilar 2) — plataforma voluntária de aromaterapia; fio condutor é a causa, com laudos de cromatografia como decisão de produto |
-| post-25 | O domínio do seu site está no seu nome? | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Domínio no nome do dono (pilar 1) — tema claro, chave low-poly dourada com etiqueta "seunome.com.br" |
-| post-26 | Site é casa própria. Rede social é aluguel | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Site próprio vs. rede social, reforço do post-14 (pilar 1) — tema escuro, casa low-poly nova, iluminada, numa ilha flutuante; ao fundo, prédios apagados com placas de ALUGA-SE |
+| post-25 | O domínio do seu site está no seu nome? | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Domínio no nome do dono (pilar 1) — tema claro, chave low-poly dourada com etiqueta "seunome.com.br" |
+| post-26 | Site é casa própria. Rede social é aluguel | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Site próprio vs. rede social, reforço do post-14 (pilar 1) — tema escuro, casa low-poly nova, iluminada, numa ilha flutuante; ao fundo, prédios apagados com placas de ALUGA-SE |
 | post-27 | Site lento não ganha segunda chance | 2026-09-28 | Único | `elemento-central` | 1 | 🟢 | Velocidade do site (pilar 1) — tema claro, ampulheta low-poly de madeira com areia caindo |
-| post-28 | Sem cadeado, o navegador avisa seu cliente | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | HTTPS / cadeado (pilar 1) — tema escuro, cadeado low-poly dourado com haste prateada |
-| post-29 | Seu cliente te procurou. Ele te achou? | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Ser encontrado no Google (pilar 1) — tema claro, lupa low-poly com um pin de mapa vermelho dentro da lente |
-| post-30 | Um botão de WhatsApp vale mais que dez animações | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Botão de WhatsApp antes de efeito visual (pilar 1) — tema claro, balão de conversa low-poly verde com três pontos |
-| post-31 | Seu cliente vai te ver primeiro no celular | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Site pensado para o celular (pilar 1) — tema escuro, celular low-poly prateado inclinado com um site simples na tela |
-| post-32 | A IA constrói. Quem decide é você | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | IA constrói, gente decide (pilar 4/5) — tema escuro, cristal low-poly em forma de brilho (sparkle) em tons de indigo e ciano |
-| post-33 | Site bom também precisa de manutenção | 2026-09-28 | Único | `elemento-central` | 1 | 🔵 | Manutenção inclusa (pilar 3) — tema claro, chave inglesa low-poly laranja sobre uma engrenagem indigo |
+| post-28 | Sem cadeado, o navegador avisa seu cliente | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | HTTPS / cadeado (pilar 1) — tema escuro, cadeado low-poly dourado com haste prateada |
+| post-29 | Seu cliente te procurou. Ele te achou? | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Ser encontrado no Google (pilar 1) — tema claro, lupa low-poly com um pin de mapa vermelho dentro da lente |
+| post-30 | Um botão de WhatsApp vale mais que dez animações | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Botão de WhatsApp antes de efeito visual (pilar 1) — tema claro, balão de conversa low-poly verde com três pontos |
+| post-31 | Seu cliente vai te ver primeiro no celular | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Site pensado para o celular (pilar 1) — tema escuro, celular low-poly prateado inclinado com um site simples na tela |
+| post-32 | A IA constrói. Quem decide é você | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | IA constrói, gente decide (pilar 4/5) — tema escuro, cristal low-poly em forma de brilho (sparkle) em tons de indigo e ciano |
+| post-33 | Site bom também precisa de manutenção | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Manutenção inclusa (pilar 3) — tema claro, chave inglesa low-poly laranja sobre uma engrenagem indigo |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-33: em revisão.
 
