@@ -1,0 +1,62 @@
+{
+  "title": "Por que o Google mostra o concorrente e não você?",
+  "date": "2026-10-02",
+  "type": "carousel",
+  "template": "foto-editorial",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Foto Pexels (mulher no celular em frente a uma loja, Joaquin Carfagna) + gancho 'Por que o Google mostra o concorrente e não você?'"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Como o Google pensa",
+      "description": "Não escolhe o melhor negócio, escolhe a melhor resposta. A diferença está em 4 coisas"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Diferença 01 — Mapa",
+      "description": "Você x concorrente: Perfil da Empresa verificado com avaliações"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Diferença 02 — O que faz e onde",
+      "description": "Texto genérico x serviço + cidade"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Diferença 03 — Rápido no celular",
+      "description": "Vídeo pesado x site leve com WhatsApp à mão"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Diferença 04 — Outros sites falam dele",
+      "description": "Sem links x guia do bairro, parceiro, matéria local"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "A boa notícia",
+      "description": "Nada disso é segredo: 4 tarefas + aviso honesto sobre prazo de SEO"
+    },
+    {
+      "file": "slide-08.html",
+      "title": "CTA",
+      "description": "Seu cliente está pesquisando agora. Teste: serviço + cidade. adrianomaringolo.dev"
+    }
+  ],
+  "caption": "🤔 Por que o Google mostra o concorrente e não você?\n\nSpoiler: o Google não escolhe o melhor negócio. Ele escolhe a página que responde melhor ao que a pessoa digitou.\n\nSeu serviço pode ser melhor. Mas, se a página do concorrente explica melhor, ele aparece antes. Quase sempre a diferença está em 4 coisas 👇\n\n---\n\n📍 01. Ele está no mapa\nPerfil da Empresa no Google verificado, com fotos, horário e avaliações. Em busca local, o mapa vem antes dos sites.\n\n📝 02. O site dele diz o que faz e onde\n\"Encanador 24h em Campinas\" ganha de \"Soluções com excelência e qualidade\". O Google cruza o texto com a busca.\n\n⚡ 03. O site dele abre rápido no celular\nSem vídeo pesado, letra legível, botão de WhatsApp à mão.\n\n🔗 04. Outros sites falam dele\nGuia do bairro, parceiro, matéria local. Cada link de fora conta como recomendação.\n\n---\n\n✅ A boa notícia: nada disso é segredo. São tarefas conhecidas, e dá para fazer uma de cada vez.\n\n⏳ E um aviso honesto: SEO leva semanas. Quem promete primeiro lugar em poucos dias está vendendo outra coisa.\n\n🔎 Teste agora: pesquise o seu serviço + a sua cidade e veja o que o primeiro colocado tem que você não tem.\n\n💬 Me conta nos comentários o que você encontrou.\n\n#seo #google #seolocal #googlemeunegocio #presencadigital #pequenosnegocios #empreendedorismo #marketingdigital #site #desenvolvimentoweb",
+  "hashtags": [
+    "seo",
+    "google",
+    "seolocal",
+    "googlemeunegocio",
+    "presencadigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "marketingdigital",
+    "site",
+    "desenvolvimentoweb"
+  ]
+}

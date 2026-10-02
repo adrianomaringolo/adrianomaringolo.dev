@@ -1,0 +1,57 @@
+{
+  "title": "Você está na página 2 do Google?",
+  "date": "2026-10-02",
+  "type": "carousel",
+  "template": "explicador-tecnico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Gancho 'Você está na página 2 do Google?' + página de resultados simulada com 3 concorrentes e o seu site na página 2"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Mito x realidade",
+      "description": "Não é quem paga nem o site mais bonito. Orgânico se conquista em 3 etapas"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Etapa 1 — Rastrear",
+      "description": "Robô segue links; Search Console. Site sem link é casa numa rua sem nome"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Etapa 2 — Indexar",
+      "description": "Catálogo; só entra o que ele consegue ler"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Etapa 3 — Ranquear",
+      "description": "Relevância, experiência e confiança"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Na prática",
+      "description": "Uma tarefa por etapa + ressalva: ninguém garante primeiro lugar"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA",
+      "description": "Seu site trava em qual etapa? Teste site:dominio. adrianomaringolo.dev"
+    }
+  ],
+  "caption": "📄 Você está na página 2 do Google?\n\nA página 2 é onde quase ninguém chega. E a ordem dos resultados não é sorteio, nem leilão: anúncio vem marcado como \"Patrocinado\". O resultado orgânico se conquista em 3 etapas 👇\n\n---\n\n🤖 1. Rastrear\nUm robô do Google visita páginas seguindo links. Site sem nenhum link e sem cadastro no Search Console demora para ser visitado, ou nem é.\n\n📚 2. Indexar\nO Google lê a página e guarda num catálogo. Texto dentro de imagem e página sem título ficam de fora ou mal catalogados.\n\n🏆 3. Ranquear\nEle compara você com os concorrentes: a página responde à busca? Abre rápido no celular? Links e avaliações falam a seu favor?\n\n---\n\n🛠️ Uma tarefa para cada etapa:\n→ Cadastre o site no Search Console e envie o sitemap.\n→ Escreva serviço e cidade em texto, não em imagem.\n→ Cuide da velocidade, das avaliações e dos links.\n\n⚠️ Ressalva honesta: ninguém garante primeiro lugar. Quem promete isso está chutando.\n\n🔎 Teste rápido: pesquise site:seudominio.com.br. Se não aparecer nada, seu site está travado na etapa 1.\n\n💬 Em qual etapa você acha que o seu trava?\n\n#seo #google #comofuncionaogoogle #sitenogoogle #presencadigital #pequenosnegocios #empreendedorismo #marketingdigital #desenvolvimentoweb #site",
+  "hashtags": [
+    "seo",
+    "google",
+    "comofuncionaogoogle",
+    "sitenogoogle",
+    "presencadigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "marketingdigital",
+    "desenvolvimentoweb",
+    "site"
+  ]
+}

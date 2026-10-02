@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-09-28 (post-25 a post-33, série `elemento-central` low-poly)
+> Última atualização: 2026-10-02 (post-34 a post-36, trio sobre ranqueamento no Google)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -46,8 +46,11 @@ registrado também no `meta.json` do post.
 | post-31 | Seu cliente vai te ver primeiro no celular | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Site pensado para o celular (pilar 1) — tema escuro, celular low-poly prateado inclinado com um site simples na tela |
 | post-32 | A IA constrói. Quem decide é você | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | IA constrói, gente decide (pilar 4/5) — tema escuro, cristal low-poly em forma de brilho (sparkle) em tons de indigo e ciano |
 | post-33 | Site bom também precisa de manutenção | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Manutenção inclusa (pilar 3) — tema claro, chave inglesa low-poly laranja sobre uma engrenagem indigo |
+| post-34 | Seu site existe. O Google sabe disso? | 2026-10-02 | Carrossel | `tipografico` | 8 | 🔵 | SEO (pilar 1) — os 5 motivos mais comuns para o site não aparecer no Google. Trio de ganchos sobre ranqueamento, 1 de 3 |
+| post-35 | Por que o Google mostra o concorrente e não você? | 2026-10-02 | Carrossel | `foto-editorial` | 8 | 🔵 | SEO local (pilar 1) — 4 diferenças "você × concorrente". Foto Pexels na capa. Trio sobre ranqueamento, 2 de 3 |
+| post-36 | Você está na página 2 do Google? | 2026-10-02 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Como o Google decide (pilar 1/4) — rastrear, indexar, ranquear, com página de resultados simulada na capa. Trio sobre ranqueamento, 3 de 3 |
 
-> post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-33: em revisão.
+> post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
 ---
 
@@ -209,6 +212,24 @@ registrado também no `meta.json` do post.
 - **HTML:** `html/post-32/` · **PNGs:** `output/post-32/`
 - Tema escuro. Cristal low-poly em forma de brilho (sparkle) em tons de indigo e ciano. Frase: "A IA constrói. Quem decide é você."
 - **Hashtags:** inteligenciaartificial, ia, site, pequenosnegocios, empreendedorismo, sitesprofissionais, presencadigital, desenvolvimentoweb, tecnologia, negociodigital
+
+### post-34 — Seu site existe. O Google sabe disso?
+- **Data:** 2026-10-02 · **Tipo:** carrossel (1080×1350) · **Template:** `tipografico` · **Slides:** 8
+- **HTML:** `html/post-34/` · **PNGs:** `output/post-34/`
+- Capa (rabisco de página de busca com a vaga do seu site tracejada e um "?" em gradiente) → Antes dos motivos (encontrar, entender, confiar) → 5 motivos, 1 por slide (01 não indexado · 02 não fala o que o cliente pesquisa · 03 lento ou ruim no celular · 04 ninguém fala dele · 05 sem Perfil da Empresa) → CTA dark (site bom é site encontrado, SEO incluso)
+- **Hashtags:** seo, google, sitenogoogle, presencadigital, pequenosnegocios, empreendedorismo, marketingdigital, desenvolvimentoweb, googlemeunegocio, site
+
+### post-35 — Por que o Google mostra o concorrente e não você?
+- **Data:** 2026-10-02 · **Tipo:** carrossel (1080×1350) · **Template:** `foto-editorial` · **Slides:** 8
+- **HTML:** `html/post-35/` · **PNGs:** `output/post-35/`
+- Capa (foto Pexels 17976204, Joaquin Carfagna: mulher no celular em frente a uma loja) → O Google escolhe a melhor resposta, não o melhor negócio → 4 diferenças "você × concorrente" (mapa · o que faz e onde · rápido no celular · outros sites falam dele) → A boa notícia (4 tarefas + aviso de prazo) → CTA dark (pesquise seu serviço + cidade)
+- **Hashtags:** seo, google, seolocal, googlemeunegocio, presencadigital, pequenosnegocios, empreendedorismo, marketingdigital, site, desenvolvimentoweb
+
+### post-36 — Você está na página 2 do Google?
+- **Data:** 2026-10-02 · **Tipo:** carrossel (1080×1350) · **Template:** `explicador-tecnico` · **Slides:** 7
+- **HTML:** `html/post-36/` · **PNGs:** `output/post-36/`
+- Capa dark (página de resultados simulada: 3 concorrentes na página 1, "seusite.com.br" na 2) → Mito × realidade (não é quem paga nem o mais bonito) → Etapa 1 rastrear → Etapa 2 indexar → Etapa 3 ranquear (relevância, experiência, confiança) → Na prática (uma tarefa por etapa + ressalva honesta) → CTA dark (teste site:dominio)
+- **Hashtags:** seo, google, comofuncionaogoogle, sitenogoogle, presencadigital, pequenosnegocios, empreendedorismo, marketingdigital, desenvolvimentoweb, site
 
 ### post-33 — Site bom também precisa de manutenção
 - **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1

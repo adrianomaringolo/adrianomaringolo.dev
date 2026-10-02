@@ -1,0 +1,62 @@
+{
+  "title": "Seu site existe. O Google sabe disso?",
+  "date": "2026-10-02",
+  "type": "carousel",
+  "template": "tipografico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Gancho 'Seu site existe. O Google sabe disso?' + rabisco de uma página de busca com a vaga do seu site tracejada e um '?' em gradiente"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Antes dos motivos",
+      "description": "Publicar é só o começo: o Google precisa encontrar, entender e confiar. Se uma falha, você some"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Motivo 01 — Não indexado",
+      "description": "Sem links, sem Search Console, às vezes com noindex. Sinal: site:dominio vazio"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Motivo 02 — Não fala o que o cliente pesquisa",
+      "description": "Comparativo 'o cliente digita' x 'o site diz'. Serviço + cidade em texto de verdade"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Motivo 03 — Lento ou ruim no celular",
+      "description": "Avaliação mobile-first. PageSpeed Insights"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Motivo 04 — Ninguém fala dele",
+      "description": "Link de outro site como indicação: diretórios, parceiros, imprensa local"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "Motivo 05 — Sem Perfil da Empresa",
+      "description": "Mapa antes dos sites na busca local; perfil verificado e avaliações"
+    },
+    {
+      "file": "slide-08.html",
+      "title": "CTA",
+      "description": "Site bom é site encontrado. SEO incluso em todo site + duas ações + adrianomaringolo.dev"
+    }
+  ],
+  "caption": "🔍 Seu site existe. Mas o Google sabe disso?\n\nPublicar o site é só o começo. O Google não sai procurando o seu negócio: ele precisa encontrar a página, entender do que ela fala e confiar que ela é a melhor resposta.\n\nQuando uma dessas três coisas falha, o site some da busca. Os 5 motivos mais comuns 👇\n\n---\n\n👻 01. O Google nem sabe que ele existe\nSite novo, sem links e sem cadastro no Search Console. Pesquise site:seudominio.com.br. Se não aparecer nada, comece por aí.\n\n🔤 02. Ele não fala o que o cliente pesquisa\nO cliente digita \"dentista em Campinas\" e o site diz \"Bem-vindo\". Escreva o serviço e a cidade com as palavras do cliente.\n\n📱 03. Ele é lento ou ruim no celular\nO Google olha a versão de celular. Meça no PageSpeed Insights e corrija o que estiver no vermelho.\n\n🔗 04. Ninguém fala dele na internet\nLink de outro site funciona como indicação. Diretórios, parceiros e imprensa local contam.\n\n📍 05. Falta o Perfil da Empresa no Google\nNa busca local, o mapa vem antes dos sites. Crie, verifique e peça avaliações a clientes reais.\n\n---\n\n⏳ Um aviso honesto: SEO leva semanas para mostrar resultado. Quem promete primeiro lugar em poucos dias está chutando.\n\n💾 Salve para fazer o check-up do seu site.\n💬 Qual desses motivos você acha que é o do seu site?\n\n#seo #google #sitenogoogle #presencadigital #pequenosnegocios #empreendedorismo #marketingdigital #desenvolvimentoweb #googlemeunegocio #site",
+  "hashtags": [
+    "seo",
+    "google",
+    "sitenogoogle",
+    "presencadigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "marketingdigital",
+    "desenvolvimentoweb",
+    "googlemeunegocio",
+    "site"
+  ]
+}
