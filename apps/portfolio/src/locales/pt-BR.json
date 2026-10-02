@@ -4,7 +4,8 @@
     "about": "Sobre",
     "projects": "Projetos",
     "blog": "Blog",
-    "contact": "Contato"
+    "contact": "Contato",
+    "bookmarks": "Bookmarks"
   },
   "home": {
     "hero": {
@@ -336,7 +337,9 @@
     "resumeTitle": "Currículo | Adriano Maringolo",
     "blogTitle": "Blog | Adriano Maringolo",
     "defaultDescription": "Desenvolvedor web especializado na criação de sites e aplicações de alta performance com React, Next.js e TailwindCSS.",
-    "keywords": "Adriano Maringolo, desenvolvedor web, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, desenvolvimento de sites, aplicações web"
+    "keywords": "Adriano Maringolo, desenvolvedor web, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, desenvolvimento de sites, aplicações web",
+    "bookmarksTitle": "Bookmarks | Adriano Maringolo",
+    "bookmarksDescription": "Ferramentas, bibliotecas, artigos e referências que eu uso e recomendo, organizados por tags e com busca."
   },
   "underConstruction": {
     "title": "Em Construção",
@@ -389,6 +392,34 @@
       "quality": "Qualidade garantida",
       "delivery": "Entrega no prazo",
       "support": "Suporte contínuo"
+    }
+  },
+  "bookmarks": {
+    "eyebrow": "Curadoria",
+    "title": "Bookmarks",
+    "subtitle": "Ferramentas, bibliotecas, artigos e referências que uso ou recomendo, cada um com uma nota sobre por que vale a pena.",
+    "searchLabel": "Buscar nos bookmarks",
+    "searchPlaceholder": "Buscar por nome, assunto ou site",
+    "all": "Todos",
+    "favorite": "Favorito",
+    "favoritesOnly": "Só favoritos",
+    "results": "{count} de {total}",
+    "empty": "Nenhum bookmark encontrado com esses filtros.",
+    "clear": "Limpar filtros",
+    "typeLabel": "Tipo",
+    "tagsLabel": "Tags",
+    "types": {
+      "tool": "Ferramentas",
+      "library": "Bibliotecas",
+      "article": "Artigos",
+      "video": "Vídeos",
+      "course": "Cursos",
+      "reference": "Referências"
+    },
+    "language": {
+      "pt": "em português",
+      "en": "em inglês",
+      "other": ""
     }
   }
 }

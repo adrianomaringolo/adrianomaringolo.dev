@@ -19,8 +19,8 @@ O resultado final é:
 ## Contexto de referência (leia antes de começar)
 
 - **Interface e campos**: `apps/portfolio/src/types/project.ts` — é o contrato. Todo campo obrigatório precisa existir.
-- **O que realmente renderiza na página de detalhe**: `apps/portfolio/src/app/projects/[slug]/page.tsx` e os componentes
-  em `apps/portfolio/src/app/projects/_components/` (`project-hero`, `project-story-section`, `project-features`,
+- **O que realmente renderiza na página de detalhe**: `apps/portfolio/src/app/(site)/projects/[slug]/page.tsx` e os componentes
+  em `apps/portfolio/src/app/(site)/projects/_components/` (`project-hero`, `project-story-section`, `project-features`,
   `project-screenshots`, `project-technologies`, `project-testimonials`, `project-cta`).
 - **Guia da estrutura**: `apps/portfolio/docs/PROJECTS_STRUCTURE.md` e `apps/portfolio/src/data/projects/README.md`.
 - **Exemplos por tipo de projeto** (releia pelo menos um do mesmo tipo do projeto atual):

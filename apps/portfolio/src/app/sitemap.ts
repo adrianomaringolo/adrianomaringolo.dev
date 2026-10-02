@@ -9,7 +9,7 @@ const staticPagesLastModified = new Date('2026-07-14')
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://adrianomaringolo.dev'
-  const pages = ['', '/about', '/projects', '/blog', '/contact', '/resume']
+  const pages = ['', '/about', '/projects', '/blog', '/bookmarks', '/contact', '/resume']
   const blogPosts = getBlogPosts()
 
   // Static pages
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
                 ? 0.5
                 : 0.6
     const changeFrequency =
-      page === '/projects' || page === '/blog' ? 'weekly' : 'monthly'
+      page === '/projects' || page === '/blog' || page === '/bookmarks' ? 'weekly' : 'monthly'
 
     // No `alternates.languages`: pt-BR/en-US share this URL (locale switches
     // client-side), so there's no distinct URL per language to declare.

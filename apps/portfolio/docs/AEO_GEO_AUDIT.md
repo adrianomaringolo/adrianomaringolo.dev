@@ -151,7 +151,7 @@ Essa era a lacuna de maior impacto pra AEO especificamente: motores de resposta
 são otimizados pra extrair pares pergunta→resposta diretos, e sem esse formato
 eles têm que inferir a resposta a partir de parágrafos de marketing.
 
-**O que foi feito:** novo componente `src/app/about/_components/about-faq.tsx`,
+**O que foi feito:** novo componente `src/app/(site)/about/_components/about-faq.tsx`,
 adicionado ao final de `/about`, com 6 perguntas (chaves `about.faq.q1`–`q6`/
 `a1`–`a6` nos dois locales):
 
@@ -269,7 +269,7 @@ Dois pontos, mas GEO pesa recência como sinal de confiança:
   seja, toda vez que o site era (re)buildado, **todas** as páginas apareciam
   como "modificadas agora", mesmo sem mudança real. Isso dilui o sinal de
   atualidade em vez de ajudar.
-- O `BlogPosting` JSON-LD (`src/app/blog/[slug]/page.tsx`) só tem
+- O `BlogPosting` JSON-LD (`src/app/(site)/blog/[slug]/page.tsx`) só tem
   `datePublished`, sem `dateModified`.
 
 **O que foi feito:** `sitemap.ts` agora usa uma constante fixa

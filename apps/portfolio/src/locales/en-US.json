@@ -4,7 +4,8 @@
     "about": "About",
     "projects": "Projects",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "bookmarks": "Bookmarks"
   },
   "home": {
     "hero": {
@@ -336,7 +337,9 @@
     "resumeTitle": "Resume | Adriano Maringolo",
     "blogTitle": "Blog | Adriano Maringolo",
     "defaultDescription": "Web developer specialized in creating high-performance websites and applications with React, Next.js and TailwindCSS.",
-    "keywords": "Adriano Maringolo, web developer, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, website development, web applications"
+    "keywords": "Adriano Maringolo, web developer, portfolio, React, Next.js, TailwindCSS, JavaScript, TypeScript, website development, web applications",
+    "bookmarksTitle": "Bookmarks | Adriano Maringolo",
+    "bookmarksDescription": "Tools, libraries, articles and references I use and recommend, organized by tags and searchable."
   },
   "underConstruction": {
     "title": "Under Construction",
@@ -389,6 +392,34 @@
       "quality": "Quality guaranteed",
       "delivery": "On-time delivery",
       "support": "Continuous support"
+    }
+  },
+  "bookmarks": {
+    "eyebrow": "Curated",
+    "title": "Bookmarks",
+    "subtitle": "Tools, libraries, articles and references I use or recommend, each with a note on why it's worth your time.",
+    "searchLabel": "Search bookmarks",
+    "searchPlaceholder": "Search by name, topic or site",
+    "all": "All",
+    "favorite": "Favorite",
+    "favoritesOnly": "Favorites only",
+    "results": "{count} of {total}",
+    "empty": "No bookmarks match these filters.",
+    "clear": "Clear filters",
+    "typeLabel": "Type",
+    "tagsLabel": "Tags",
+    "types": {
+      "tool": "Tools",
+      "library": "Libraries",
+      "article": "Articles",
+      "video": "Videos",
+      "course": "Courses",
+      "reference": "References"
+    },
+    "language": {
+      "pt": "in Portuguese",
+      "en": "in English",
+      "other": ""
     }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "title": "Lucide",
+  "url": "https://lucide.dev",
+  "type": "library",
+  "tags": ["icones", "react"],
+  "notePt": "Biblioteca de ícones com traço consistente, que uso em quase todos os projetos.",
+  "noteEn": "Icon library with a consistent stroke that I use in almost every project.",
+  "language": "en",
+  "favorite": false,
+  "addedAt": "2026-10-02"
+}

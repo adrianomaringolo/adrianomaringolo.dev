@@ -1,0 +1,11 @@
+{
+  "title": "Motion",
+  "url": "https://motion.dev",
+  "type": "library",
+  "tags": ["react", "animacao"],
+  "notePt": "A lib de animação que uso neste portfolio. Animações de entrada, gestos e layout com uma API declarativa.",
+  "noteEn": "The animation library behind this portfolio. Entrance animations, gestures and layout with a declarative API.",
+  "language": "en",
+  "favorite": true,
+  "addedAt": "2026-10-02"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Keystatic",
+  "url": "https://keystatic.com",
+  "type": "tool",
+  "tags": ["cms", "nextjs"],
+  "notePt": "CMS que salva o conteúdo como arquivos no próprio repositório. É ele que alimenta esta página de bookmarks.",
+  "noteEn": "A CMS that stores content as files in the repository itself. It powers this bookmarks page.",
+  "language": "en",
+  "favorite": false,
+  "addedAt": "2026-10-02"
+}

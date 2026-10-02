@@ -18,7 +18,7 @@ Posts são MDX bilíngues em `src/content/blog/`. A voz de referência é a dos 
 - **`docs/BLOG_POST_IDEAS.md`** — banco de ideias mapeado a partir da carreira real do Adriano.
   Se o tema pedido bater com uma sugestão de lá, use o ângulo já pensado e, ao final,
   marque o item como publicado (ver "Fechar o ciclo").
-- **`src/data/career.ts`** e **`src/app/about/*`** — para ancorar o post em experiência real
+- **`src/data/career.ts`** e **`src/app/(site)/about/*`** — para ancorar o post em experiência real
   (Codurance, Dextra/CI&T, Avenue Code, Sedna, Venturus, freelance) em vez de generalidades.
 
 ---
@@ -131,13 +131,13 @@ tldr:
   de posts relacionados, e entra no JSON-LD como `isPartOf`.
 - **`tags`**: minúsculas, em português, hífen quando compostas (`clean-code`). 3-5 tags.
 - **`image`**: precisa ser raster (`.jpg`/`.png`), nunca `.svg` diretamente — é usada em
-  Open Graph/Twitter cards (`src/app/blog/[slug]/page.tsx`) e a maioria das redes não renderiza
+  Open Graph/Twitter cards (`src/app/(site)/blog/[slug]/page.tsx`) e a maioria das redes não renderiza
   SVG em preview de link. Se o hero for um diagrama SVG, gere também uma versão PNG exportada
   (como `hero-solid-overview-og.png` vs `hero-solid-overview.svg`).
 - **`featured`**: só marque `true` se o Adriano confirmar — afeta o destaque na home/listagem.
 - **`tldr`**: 3-6 bullets, cada um uma frase autocontida (não fragmentos), cobrindo as ideias
   centrais. Renderizado como caixa de resumo no topo do artigo
-  (`src/app/blog/[slug]/blog-post-client.tsx`). Sempre preencha; se ficar vazio a página cai
+  (`src/app/(site)/blog/[slug]/blog-post-client.tsx`). Sempre preencha; se ficar vazio a página cai
   de volta pro `excerpt` como prosa, que é mais fraco. Escreva por último, depois do corpo
   pronto, resumindo o que o post realmente diz — não o que você planejava dizer.
 

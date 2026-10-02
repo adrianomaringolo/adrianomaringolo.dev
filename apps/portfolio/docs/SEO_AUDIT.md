@@ -189,15 +189,15 @@ mecanismo de `layout.tsx` aninhado do App Router — um Server Component por rot
 que só declara `metadata`/`generateMetadata` e repassa `{children}` — sem tocar
 nas páginas client existentes:
 
-- `src/app/about/layout.tsx`, `src/app/projects/layout.tsx`,
-  `src/app/contact/layout.tsx`, `src/app/resume/layout.tsx`,
-  `src/app/blog/layout.tsx`: cada um chama `generatePageMetadata({ locale: 'pt-BR', page: '<rota>' })`,
+- `src/app/(site)/about/layout.tsx`, `src/app/(site)/projects/layout.tsx`,
+  `src/app/(site)/contact/layout.tsx`, `src/app/(site)/resume/layout.tsx`,
+  `src/app/(site)/blog/layout.tsx`: cada um chama `generatePageMetadata({ locale: 'pt-BR', page: '<rota>' })`,
   que agora resolve `title`/`description` a partir de `t.pages.<rota>Title`/
   `<rota>Description` (chaves `resumeTitle`/`resumeDescription`/`blogTitle`/
   `blogDescription` foram adicionadas aos dois arquivos de locale, que ainda não
   existiam) e calcula `canonical`/`openGraph.url` a partir da própria rota, em vez
   de sempre apontar pra Home.
-- `src/app/projects/[slug]/layout.tsx`: `generateMetadata` dinâmico (mesmo padrão
+- `src/app/(site)/projects/[slug]/layout.tsx`: `generateMetadata` dinâmico (mesmo padrão
   de `/blog/[slug]/page.tsx`) que lê `getProjectBySlug(slug)` e usa
   `project.title`, `project.shortDescription`, `project.tags` e
   `project.thumbnail` (já bilíngues, já existiam no objeto `Project`) para gerar
@@ -291,7 +291,7 @@ anunciar.
 
 O blog já resolvia isso corretamente com `?lang=en-US`:
 ```ts
-// src/app/blog/[slug]/page.tsx
+// src/app/(site)/blog/[slug]/page.tsx
 alternates: {
   canonical: `/blog/${post.slug}`,
   languages: {
@@ -395,7 +395,7 @@ de projeto usam `project.thumbnail`.
 **Sugestão restante (opcional):** se quiser uma imagem OG gerada (com título/logo
 compostos, como o `opengraph-image.tsx` atual da Home) em vez de usar a screenshot
 crua do projeto como imagem de compartilhamento, dá pra criar
-`src/app/projects/[slug]/opengraph-image.tsx` usando
+`src/app/(site)/projects/[slug]/opengraph-image.tsx` usando
 [OG Image dinâmica por rota](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image),
 compondo o `thumbnail`/título do projeto sobre o mesmo template visual do
 `opengraph-image.tsx` atual. Não é necessário — o `thumbnail` puro já resolve o
@@ -418,10 +418,10 @@ recomendado pelo próprio Next.js), e adicionei três schemas:
 - **`Person`** — em `src/app/layout.tsx` (renderizado em toda página): nome,
   `jobTitle`, `image` (foto de perfil já usada em `/about`), e `sameAs` com
   GitHub/LinkedIn/Instagram (os mesmos links já usados em `/contact`).
-- **`BlogPosting`** — em `src/app/blog/[slug]/page.tsx`: `headline`,
+- **`BlogPosting`** — em `src/app/(site)/blog/[slug]/page.tsx`: `headline`,
   `description`, `datePublished`, `keywords` (a partir de `post.tags`), `image` e
   `author`, usando os dados que o `generateMetadata` daquela rota já carrega.
-- **`CreativeWork`/`SoftwareSourceCode`** — em `src/app/projects/[slug]/layout.tsx`:
+- **`CreativeWork`/`SoftwareSourceCode`** — em `src/app/(site)/projects/[slug]/layout.tsx`:
   `SoftwareSourceCode` (com `codeRepository` e `programmingLanguage`) para
   projetos `category: 'library'`, `CreativeWork` para os demais (`web`/`webapp`).
   Reaproveita os mesmos dados (`title`, `shortDescription`, `thumbnail`,
@@ -441,7 +441,7 @@ corretos no HTML — `Person` em `/`, `/projects/react-html-content-editor` com
 
 > ✅ **Corrigido em 2026-07-14.**
 
-`src/app/blog/[slug]/blog-post-client.tsx` mapeava `# heading` do Markdown para um
+`src/app/(site)/blog/[slug]/blog-post-client.tsx` mapeava `# heading` do Markdown para um
 `<h1>` dentro do corpo do post, além do `<h1>` do próprio título da página. Os
 posts publicados hoje já evitavam isso começando as seções com `##`, mas os
 rascunhos com prefixo `_` (`_nextjs-15-whats-new`,

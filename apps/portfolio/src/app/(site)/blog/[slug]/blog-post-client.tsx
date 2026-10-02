@@ -1,8 +1,8 @@
 'use client'
 
-import { BlogCard } from '@/app/blog/_components/blog-card'
-import { GiscusComments } from '@/app/blog/_components/giscus-comments'
-import { ShareModal } from '@/app/blog/_components/share-modal'
+import { BlogCard } from '@/app/(site)/blog/_components/blog-card'
+import { GiscusComments } from '@/app/(site)/blog/_components/giscus-comments'
+import { ShareModal } from '@/app/(site)/blog/_components/share-modal'
 import { ReadingProgressBar } from '@/components/reading-progress-bar'
 import { parseLocalDate } from '@/lib/formatters'
 import { createTranslator, type Locale } from '@/lib/i18n'
