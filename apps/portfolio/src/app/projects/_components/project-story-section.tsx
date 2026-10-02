@@ -3,6 +3,7 @@
 import { useLocale } from '@/hooks/use-locale'
 import type { Project } from '@/types/project'
 import { motion } from 'framer-motion'
+import { LighthouseGauges, splitLighthouseMetrics } from './lighthouse-gauges'
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -12,8 +13,13 @@ interface ProjectStorySectionProps {
   locale: 'pt-BR' | 'en-US'
 }
 
-export function ProjectStorySection({ story, metrics, locale }: ProjectStorySectionProps) {
+export function ProjectStorySection({
+  story,
+  metrics,
+  locale,
+}: ProjectStorySectionProps) {
   const { t } = useLocale()
+  const lighthouse = splitLighthouseMetrics(metrics ?? [], locale)
 
   const items = [
     { label: t('projects.challenge'), content: story.problem[locale] },
@@ -57,25 +63,34 @@ export function ProjectStorySection({ story, metrics, locale }: ProjectStorySect
           ))}
         </div>
 
-        {/* Metrics — inline below results, no cards */}
+        {/* Metrics — inline below results, no cards; Lighthouse scores as gauges */}
         {metrics && metrics.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.3, ease }}
             viewport={{ once: true, amount: 0.1 }}
-            className="flex flex-wrap gap-10 pt-10 mt-4 border-t border-border/40"
+            className="pt-10 mt-4 border-t border-border/40 space-y-12"
           >
-            {metrics.map((metric, i) => (
-              <div key={i}>
-                <p className="text-3xl font-bold tracking-tight text-foreground tabular-nums">
-                  {typeof metric.value === 'string' ? metric.value : metric.value[locale]}
-                </p>
-                <p className="text-xs text-muted-foreground/60 mt-1 leading-snug max-w-[140px]">
-                  {metric.label[locale]}
-                </p>
+            {lighthouse.scores.length > 0 && (
+              <LighthouseGauges scores={lighthouse.scores} />
+            )}
+            {lighthouse.rest.length > 0 && (
+              <div className="flex flex-wrap gap-10">
+                {lighthouse.rest.map((metric, i) => (
+                  <div key={i}>
+                    <p className="text-3xl font-bold tracking-tight text-foreground tabular-nums">
+                      {typeof metric.value === 'string'
+                        ? metric.value
+                        : metric.value[locale]}
+                    </p>
+                    <p className="text-xs text-muted-foreground/60 mt-1 leading-snug max-w-[140px]">
+                      {metric.label[locale]}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </motion.div>
         )}
       </div>

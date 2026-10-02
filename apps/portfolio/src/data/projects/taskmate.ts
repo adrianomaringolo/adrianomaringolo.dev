@@ -258,14 +258,31 @@ export const taskmate: Project = {
   metrics: [
     {
       label: {
-        'pt-BR': 'Lighthouse (página do produto)',
-        'en-US': 'Lighthouse (product page)',
+        'pt-BR': 'Performance (Lighthouse, página do produto)',
+        'en-US': 'Performance (Lighthouse, product page)',
       },
-      value: { 'pt-BR': '100 / 96 / 100 / 92', 'en-US': '100 / 96 / 100 / 92' },
-      improvement: {
-        'pt-BR': 'performance / acessibilidade / boas práticas / SEO',
-        'en-US': 'performance / accessibility / best practices / SEO',
+      value: { 'pt-BR': '100 / 100', 'en-US': '100 / 100' },
+    },
+    {
+      label: {
+        'pt-BR': 'Acessibilidade (Lighthouse, página do produto)',
+        'en-US': 'Accessibility (Lighthouse, product page)',
       },
+      value: { 'pt-BR': '96 / 100', 'en-US': '96 / 100' },
+    },
+    {
+      label: {
+        'pt-BR': 'Boas Práticas (Lighthouse, página do produto)',
+        'en-US': 'Best Practices (Lighthouse, product page)',
+      },
+      value: { 'pt-BR': '100 / 100', 'en-US': '100 / 100' },
+    },
+    {
+      label: {
+        'pt-BR': 'SEO (Lighthouse, página do produto)',
+        'en-US': 'SEO (Lighthouse, product page)',
+      },
+      value: { 'pt-BR': '92 / 100', 'en-US': '92 / 100' },
     },
     {
       label: {

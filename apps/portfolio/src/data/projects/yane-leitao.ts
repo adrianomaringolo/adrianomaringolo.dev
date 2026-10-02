@@ -234,7 +234,7 @@ export const yaneLeitao: Project = {
   ],
   metrics: [
     {
-      label: { 'pt-BR': 'Accessibility (Lighthouse)', 'en-US': 'Accessibility (Lighthouse)' },
+      label: { 'pt-BR': 'Acessibilidade (Lighthouse)', 'en-US': 'Accessibility (Lighthouse)' },
       value: { 'pt-BR': '100 / 100', 'en-US': '100 / 100' },
     },
     {
