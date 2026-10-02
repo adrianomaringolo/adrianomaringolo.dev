@@ -63,7 +63,22 @@ const themes: Record<SegmentKey, DemoTheme> = {
     serif: false,
     image: '/images/demo-startup.webp',
   },
+  portfolio: {
+    bg: '#f3f1ec',
+    ink: '#1b1a17',
+    soft: '#6a655c',
+    accent: '#1b1a17',
+    accentInk: '#f3f1ec',
+    tile: '#e6e2d9',
+    serif: true,
+    image: '/images/demo-portfolio.webp',
+  },
 }
+
+/** Each industry's photo, also shown faded behind the hero. */
+export const segmentImages = Object.fromEntries(
+  Object.entries(themes).map(([key, theme]) => [key, theme.image]),
+) as Record<SegmentKey, string>
 
 const wireInk = '#c9cdd6'
 const wireFill = '#e6e8ee'

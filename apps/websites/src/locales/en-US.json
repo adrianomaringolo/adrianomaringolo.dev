@@ -24,8 +24,8 @@
     "headline": "Custom websites and systems, with a fixed deadline and price.",
     "subline": "Built directly by a senior software engineer with over 15 years of experience. No agency in between, no surprises at the end.",
     "builderLabel": "What's your business called?",
-    "builderPlaceholder": "E.g. {example}",
-    "builderHint": "Pick an industry, type the name and scroll. The site gets built right here, in front of you.",
+    "namePrefix": "Next site going live:",
+    "scrollHint": "Scroll and watch it get built",
     "segmentLabel": "Industry",
     "ctaPrimary": "Get a quote",
     "ctaSecondary": "See packages and pricing"
@@ -241,6 +241,28 @@
       "audience": "Managers of shift-based teams",
       "goal": "Turn visits into sign-ups",
       "package": "landing"
+    },
+    {
+      "key": "portfolio",
+      "label": "Portfolio",
+      "defaultName": "Marina Costa",
+      "headline": "Photographing people, brands and stories",
+      "sub": "Portraits, events and campaigns, wherever the story is.",
+      "cta": "See the work",
+      "nav": [
+        "Work",
+        "About",
+        "Services",
+        "Contact"
+      ],
+      "services": [
+        "Portraits",
+        "Events",
+        "Campaigns"
+      ],
+      "audience": "Brands and people looking for a photographer",
+      "goal": "Show the best work and bring in quote requests",
+      "package": "site"
     }
   ],
   "audience": {

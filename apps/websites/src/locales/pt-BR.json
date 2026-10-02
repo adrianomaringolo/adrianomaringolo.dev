@@ -24,8 +24,8 @@
     "headline": "Sites e sistemas sob medida, com prazo e preço fechados.",
     "subline": "Feitos direto por um engenheiro de software sênior, com mais de 15 anos de experiência. Sem agência no meio, sem surpresa no fim.",
     "builderLabel": "Qual é o nome do seu negócio?",
-    "builderPlaceholder": "Ex.: {example}",
-    "builderHint": "Escolha o ramo, digite o nome e role a página. O site é montado aqui, na sua frente.",
+    "namePrefix": "O próximo site no ar:",
+    "scrollHint": "Role e veja ele ser montado",
     "segmentLabel": "Ramo do negócio",
     "ctaPrimary": "Pedir orçamento",
     "ctaSecondary": "Ver pacotes e preços"
@@ -241,6 +241,28 @@
       "audience": "Gestores de equipes por turno",
       "goal": "Transformar visita em cadastro",
       "package": "landing"
+    },
+    {
+      "key": "portfolio",
+      "label": "Portfolio",
+      "defaultName": "Marina Costa",
+      "headline": "Fotografia de pessoas, marcas e histórias",
+      "sub": "Ensaios, eventos e campanhas, onde a história estiver.",
+      "cta": "Ver trabalhos",
+      "nav": [
+        "Trabalhos",
+        "Sobre",
+        "Serviços",
+        "Contato"
+      ],
+      "services": [
+        "Ensaios",
+        "Eventos",
+        "Campanhas"
+      ],
+      "audience": "Marcas e pessoas procurando um fotógrafo",
+      "goal": "Mostrar os melhores trabalhos e gerar pedidos de orçamento",
+      "package": "site"
     }
   ],
   "audience": {

@@ -141,6 +141,25 @@ html {
   animation: live-ping 1.8s var(--ease-out-expo) infinite;
 }
 
+/* Hero: blocks rise into place once on load, staggered by inline animation-delay. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 0.9s var(--ease-out-expo) both;
+}
+
+/* Hero photo: fades out toward the text (left) and into the stage (bottom). */
+.hero-photo {
+  mask-image: linear-gradient(to left, #000 25%, transparent 95%), linear-gradient(to top, transparent 5%, #000 65%);
+  mask-composite: intersect;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

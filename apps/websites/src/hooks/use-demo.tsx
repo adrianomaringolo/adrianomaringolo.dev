@@ -3,7 +3,7 @@
 import { useLocale } from '@/hooks/use-locale'
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 
-export const segmentKeys = ['saude', 'alimentacao', 'comercio', 'startup'] as const
+export const segmentKeys = ['saude', 'alimentacao', 'comercio', 'startup', 'portfolio'] as const
 export type SegmentKey = (typeof segmentKeys)[number]
 export type PackageKey = 'site' | 'landing' | 'webapp'
 
