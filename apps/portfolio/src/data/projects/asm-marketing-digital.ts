@@ -9,81 +9,152 @@ export const asmMarketingDigital: Project = {
   },
   shortDescription: {
     'pt-BR':
-      'Website institucional moderno para consultoria de marketing digital, focado em conversão e autoridade da marca.',
+      'Website institucional de uma consultoria de marketing digital, redesenhado em 2026 sobre o manual de marca da ASM, com diagnóstico digital gratuito e SEO preparado para buscadores e IAs.',
     'en-US':
-      'Modern corporate website for digital marketing consultancy, focused on conversion and brand authority.',
+      "Corporate website for a digital marketing consultancy, redesigned in 2026 on ASM's brand guidelines, with a free digital diagnosis and SEO built for search engines and AI assistants.",
   },
   fullDescription: {
     'pt-BR':
-      'Desenvolvimento completo de website institucional para a ASM Marketing Digital, consultoria especializada em posicionamento de marcas e gestão de redes sociais. O projeto incluiu arquitetura da informação estratégica, design responsivo e integração com ferramentas de captação de leads.',
+      'Website institucional da ASM Marketing Digital, consultoria de posicionamento de marca e gestão de redes sociais liderada por Anelita Scaliza Massucate. Lançado em 2025, o site evoluiu junto com o negócio: ganhou ferramentas interativas e o feed do Instagram, depois uma página de diagnóstico digital gratuito que leva o lead até o WhatsApp, e em setembro de 2026 foi redesenhado sobre o manual de identidade visual da marca, com terracota, café e areia, Cormorant Garamond e Manrope, o monograma ASM como padrão gráfico, uma seção de perguntas frequentes e dados estruturados para Google, ChatGPT e Gemini.',
     'en-US':
-      'Complete development of corporate website for ASM Digital Marketing, a consultancy specialized in brand positioning and social media management. The project included strategic information architecture, responsive design and integration with lead capture tools.',
+      "Corporate website for ASM Digital Marketing, a brand positioning and social media consultancy led by Anelita Scaliza Massucate. Launched in 2025, the site grew with the business: it gained interactive tools and the Instagram feed, then a free digital diagnosis page that takes the lead straight to WhatsApp, and in September 2026 it was redesigned on the brand's visual identity guidelines, with terracotta, coffee and sand, Cormorant Garamond and Manrope, the ASM monogram as a graphic pattern, an FAQ section and structured data for Google, ChatGPT and Gemini.",
   },
   category: 'web',
   tags: {
     'pt-BR': [
       'Website Institucional',
       'Marketing Digital',
-      'Conversão',
+      'Redesign',
+      'Identidade Visual',
       'Branding',
       'Consultoria',
       'Redes Sociais',
-      'Landing Page',
+      'Captação de Leads',
       'SEO',
+      'AEO / GEO',
+      'Dados Estruturados',
     ],
     'en-US': [
       'Corporate Website',
       'Digital Marketing',
-      'Conversion',
+      'Redesign',
+      'Visual Identity',
       'Branding',
       'Consultancy',
       'Social Media',
-      'Landing Page',
+      'Lead Generation',
       'SEO',
+      'AEO / GEO',
+      'Structured Data',
     ],
   },
-  technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'shadcn/ui', 'Vercel'],
-  thumbnail: '/projects/asm-marketing/hero.jpeg',
-  images: ['/projects/asm-marketing/hero.jpeg', '/projects/asm-marketing/thumbnail.svg'],
+  technologies: [
+    'Next.js 16',
+    'React 19',
+    'TypeScript',
+    'Tailwind CSS 4',
+    'Framer Motion',
+    'Lucide',
+    'JSON-LD (Schema.org)',
+    'Google Apps Script',
+    'Vercel',
+  ],
+  thumbnail: '/projects/asm-marketing-digital/01-hero.jpg',
+  images: [
+    '/projects/asm-marketing-digital/01-hero.jpg',
+    '/projects/asm-marketing-digital/02-servicos.jpg',
+    '/projects/asm-marketing-digital/03-quem-sou-eu.jpg',
+  ],
   screenshots: [
     {
       id: '1',
-      url: '/projects/asm-marketing/hero.jpeg',
-      alt: 'Homepage da ASM Marketing Digital',
+      url: '/projects/asm-marketing-digital/01-hero.jpg',
+      alt: 'Hero da ASM Marketing Digital com o logotipo, a pergunta em Cormorant Garamond com "presença no digital" em terracota e o retrato da Anelita sobre um painel café com o padrão do monograma',
       caption: {
         'pt-BR':
-          'Homepage com proposta de valor clara e CTAs estratégicos para conversão',
+          'Hero redesenhado: a pergunta que abre a conversa, o CTA do diagnóstico gratuito e o retrato da fundadora sobre o padrão do monograma ASM',
         'en-US':
-          'Homepage with clear value proposition and strategic CTAs for conversion',
+          "Redesigned hero: the question that opens the conversation, the free diagnosis CTA and the founder's portrait over the ASM monogram pattern",
+      },
+    },
+    {
+      id: '1m',
+      url: '/projects/asm-marketing-digital/01-hero-mobile.jpg',
+      alt: 'Hero da ASM no celular, com logotipo, título em serifa e o botão "Faça o diagnóstico digital gratuito" ocupando a largura da tela',
+      caption: {
+        'pt-BR': 'No celular, o CTA do diagnóstico aparece já na primeira tela',
+        'en-US': 'On mobile, the diagnosis CTA shows up on the first screen',
       },
     },
     {
       id: '2',
-      url: '/projects/asm-marketing/services.jpeg',
-      alt: 'Seção de serviços',
+      url: '/projects/asm-marketing-digital/02-servicos.jpg',
+      alt: 'Seção "Como posso te ajudar?" em fundo café profundo, com os seis serviços em lista editorial de duas colunas, números de clientes e designs em dourado e o bloco de consultoria gratuita',
       caption: {
-        'pt-BR': 'Apresentação visual dos serviços com design limpo e moderno',
-        'en-US': 'Visual presentation of services with clean and modern design',
+        'pt-BR':
+          'Os seis serviços como lista editorial sobre café profundo, no lugar dos cards com efeito de vidro',
+        'en-US':
+          'The six services as an editorial list on deep coffee, replacing the glass-effect cards',
       },
     },
     {
       id: '3',
-      url: '/projects/asm-marketing/about.jpeg',
-      alt: 'Seção Quem sou eu',
+      url: '/projects/asm-marketing-digital/03-quem-sou-eu.jpg',
+      alt: 'Seção "Quem sou eu?" com retrato da Anelita, números de experiência, formação, experiência profissional, especialidades e a citação em itálico',
       caption: {
         'pt-BR':
-          'Seção "Quem sou eu" envolvente que reforça o branding pessoal da fundadora',
+          '"Quem sou eu?" reorganizada como bio editorial: números, formação, trajetória e o propósito da fundadora',
         'en-US':
-          'Engaging "About me" section that reinforces the founder\'s personal branding',
+          '"Who am I?" reorganized as an editorial bio: numbers, education, career and the founder\'s purpose',
+      },
+    },
+    {
+      id: '4',
+      url: '/projects/asm-marketing-digital/04-diagnostico.jpg',
+      alt: 'Faixa areia "Descubra como está sua presença digital" com o botão "Fazer meu diagnóstico grátis"',
+      caption: {
+        'pt-BR':
+          'Chamada para o diagnóstico digital gratuito, a principal porta de entrada de leads',
+        'en-US': 'Call to the free digital diagnosis, the main entry point for leads',
+      },
+    },
+    {
+      id: '5',
+      url: '/projects/asm-marketing-digital/05-faq.jpg',
+      alt: 'Seção "Perguntas frequentes" com sete perguntas em acordeão sobre a ASM, os serviços, o diagnóstico e a fundadora',
+      caption: {
+        'pt-BR':
+          'FAQ nova, que compartilha o conteúdo com o schema FAQPage lido por buscadores e IAs',
+        'en-US':
+          'New FAQ, sharing its content with the FAQPage schema read by search engines and AI',
+      },
+    },
+    {
+      id: '6',
+      url: '/projects/asm-marketing-digital/06-conteudos.jpg',
+      alt: 'Seção "Conteúdos Gratuitos" em café com o monograma ASM em marca d\'água e o card do e-book "5 Prompts de IA para Criar Conteúdo"',
+      caption: {
+        'pt-BR': "E-book gratuito sobre o monograma da marca em marca d'água",
+        'en-US': "Free e-book over the brand's monogram as a watermark",
+      },
+    },
+    {
+      id: '7',
+      url: '/projects/asm-marketing-digital/07-rodape.jpg',
+      alt: 'Rodapé com faixa do padrão de logotipos ASM em areia e o logo dourado sobre café',
+      caption: {
+        'pt-BR': 'Rodapé com a faixa do padrão de logotipos tirada do manual de marca',
+        'en-US': 'Footer with the logotype pattern band taken from the brand guidelines',
       },
     },
   ],
   liveUrl: 'https://asmmktdigital.com.br',
   githubUrl: 'https://github.com/adrianomaringolo/asm-website',
   status: 'completed',
+  myRole: 'freelancer',
   featured: false,
   startDate: '2025-04-09',
-  endDate: '2025-05-15',
+  endDate: '2026-09-30',
   client: {
     name: { 'pt-BR': 'ASM Marketing Digital', 'en-US': 'ASM Marketing Digital' },
     industry: { 'pt-BR': 'Marketing Digital', 'en-US': 'Digital Marketing' },
@@ -92,63 +163,89 @@ export const asmMarketingDigital: Project = {
   challenges: [
     {
       title: {
-        'pt-BR': 'Diferenciação no Mercado Saturado',
-        'en-US': 'Differentiation in Saturated Market',
+        'pt-BR': 'Levar o manual de marca para a web',
+        'en-US': 'Bringing the brand guidelines to the web',
       },
       description: {
         'pt-BR':
-          'O mercado de marketing digital está saturado de landing pages genéricas. Era preciso criar algo único que refletisse a personalidade e abordagem humana da Anelita.',
+          'A ASM ganhou um documento de identidade visual com paleta, tipografia e padrões gráficos pensados para peças estáticas. O site, montado antes disso, usava tons dourados genéricos, blobs flutuantes, vidro e brilhos que não conversavam com a marca.',
         'en-US':
-          "The digital marketing market is saturated with generic landing pages. It was necessary to create something unique that reflected Anelita's personality and human approach.",
+          'ASM got a visual identity document with a palette, typography and graphic patterns designed for static pieces. The site, built before that, used generic gold tones, floating blobs, glass and shine effects that had nothing to do with the brand.',
       },
       solution: {
         'pt-BR':
-          'Desenvolvemos uma identidade visual única, focando no storytelling pessoal e na apresentação estratégica dos serviços com design diferenciado.',
+          'Transformei o manual em um DESIGN.md com tokens de cor, escala tipográfica e componentes, e reconstruí todas as seções sobre ele: cores chapadas, Cormorant Garamond nos títulos e Manrope no texto, o monograma e o padrão de logotipos extraídos do documento como assets, e ícones lucide no lugar de emojis.',
         'en-US':
-          'We developed a unique visual identity, focusing on personal storytelling and strategic presentation of services with differentiated design.',
+          'I turned the guidelines into a DESIGN.md with color tokens, a type scale and components, and rebuilt every section on top of it: flat colors, Cormorant Garamond for headings and Manrope for body text, the monogram and logotype pattern extracted from the document as assets, and lucide icons instead of emojis.',
       },
     },
     {
       title: {
-        'pt-BR': 'Conversão e Captação de Leads',
-        'en-US': 'Conversion and Lead Generation',
+        'pt-BR': 'Ser encontrada por buscadores e por IAs',
+        'en-US': 'Being found by search engines and AI assistants',
       },
       description: {
         'pt-BR':
-          'Era necessário criar um site que não apenas informasse, mas que efetivamente convertesse visitantes em leads qualificados.',
+          'Cada vez mais gente pergunta ao ChatGPT ou ao Gemini por indicação de social media. O site tinha uma imagem de compartilhamento vazia, uma verificação falsa no metadata, breadcrumbs baseados em âncoras e páginas duplicadas do diagnóstico.',
         'en-US':
-          'It was necessary to create a website that not only informed, but effectively converted visitors into qualified leads.',
+          'More and more people ask ChatGPT or Gemini to recommend a social media consultant. The site had an empty share image, a fake verification tag in its metadata, anchor-based breadcrumbs and duplicate diagnosis pages.',
       },
       solution: {
         'pt-BR':
-          'Implementamos CTAs estratégicos, formulários integrados ao Google Forms e uma jornada do usuário otimizada para conversão.',
+          'Montei um único grafo JSON-LD com ProfessionalService, Person, WebSite, WebPage e FAQPage, com os seis serviços que de fato estão na página e atendimento 100% online, uma seção de FAQ que compartilha o conteúdo com o schema, um llms.txt para motores generativos, imagem de Open Graph com a marca, sitemap só com URLs reais e redirecionamento permanente da URL antiga do diagnóstico.',
         'en-US':
-          'We implemented strategic CTAs, forms integrated with Google Forms and a user journey optimized for conversion.',
+          'I built a single JSON-LD graph with ProfessionalService, Person, WebSite, WebPage and FAQPage, listing the six services actually on the page and a 100% online service area, an FAQ section that shares its content with the schema, an llms.txt for generative engines, a branded Open Graph image, a sitemap with real URLs only and a permanent redirect from the old diagnosis URL.',
+      },
+    },
+    {
+      title: {
+        'pt-BR': 'Transformar visita em conversa',
+        'en-US': 'Turning visits into conversations',
+      },
+      description: {
+        'pt-BR':
+          'Um site institucional bonito não basta para uma consultoria que vive de agenda. Era preciso dar ao visitante um motivo concreto para deixar o contato antes de sair.',
+        'en-US':
+          "A good-looking corporate site isn't enough for a consultancy that lives off its calendar. Visitors needed a concrete reason to leave their contact before leaving.",
+      },
+      solution: {
+        'pt-BR':
+          'Criei a página de diagnóstico digital gratuito: um questionário rápido que gera uma análise da presença online do negócio e termina num bloco de WhatsApp, com o resultado enviado por e-mail via Google Apps Script. No redesign, o diagnóstico virou o CTA principal do hero e ganhou uma faixa própria na home.',
+        'en-US':
+          "I built the free digital diagnosis page: a short questionnaire that produces an analysis of the business's online presence and ends in a WhatsApp block, with the result emailed through Google Apps Script. In the redesign, the diagnosis became the hero's main CTA and got its own band on the home page.",
       },
     },
   ],
   metrics: [
     {
-      label: { 'pt-BR': 'Tempo de Desenvolvimento', 'en-US': 'Development Time' },
-      value: { 'pt-BR': '1 semana', 'en-US': '1 week' },
-      improvement: { 'pt-BR': 'Entrega no prazo', 'en-US': 'On-time delivery' },
+      label: { 'pt-BR': 'Performance (Lighthouse)', 'en-US': 'Performance (Lighthouse)' },
+      value: { 'pt-BR': '100 / 100', 'en-US': '100 / 100' },
+      improvement: { 'pt-BR': '94 no celular', 'en-US': '94 on mobile' },
     },
     {
-      label: { 'pt-BR': 'SEO', 'en-US': 'SEO' },
-      value: { 'pt-BR': '100/100', 'en-US': '100/100' },
-      improvement: { 'pt-BR': 'Lighthouse', 'en-US': 'Lighthouse' },
+      label: {
+        'pt-BR': 'Acessibilidade (Lighthouse)',
+        'en-US': 'Accessibility (Lighthouse)',
+      },
+      value: { 'pt-BR': '100 / 100', 'en-US': '100 / 100' },
     },
     {
-      label: { 'pt-BR': 'Conversão de Leads', 'en-US': 'Lead Conversion' },
-      value: { 'pt-BR': '+150%', 'en-US': '+150%' },
-      improvement: { 'pt-BR': 'vs. período anterior', 'en-US': 'vs. previous period' },
+      label: {
+        'pt-BR': 'Boas Práticas (Lighthouse)',
+        'en-US': 'Best Practices (Lighthouse)',
+      },
+      value: { 'pt-BR': '100 / 100', 'en-US': '100 / 100' },
+    },
+    {
+      label: { 'pt-BR': 'SEO (Lighthouse)', 'en-US': 'SEO (Lighthouse)' },
+      value: { 'pt-BR': '100 / 100', 'en-US': '100 / 100' },
     },
   ],
   testimonial: {
     author: 'Anelita Scaliza Massucate',
     role: { 'pt-BR': 'Fundadora', 'en-US': 'Founder' },
     company: 'ASM Marketing Digital',
-    avatar: '/projects/asm-marketing/client-thumb.jpg',
+    avatar: '/projects/asm-marketing-digital/client-thumb.jpg',
     content: {
       'pt-BR':
         'Ter o Adriano como parceiro é ter certeza de qualidade e profissionalismo.\n Ele entrega sites bonitos, funcionais e feitos com muito cuidado, sempre pensando na melhor experiência de quem vai usar.\n Excelente profissional.',
@@ -160,68 +257,68 @@ export const asmMarketingDigital: Project = {
   story: {
     problem: {
       'pt-BR':
-        'A ASM Marketing Digital, liderada por Anelita Scaliza Massucate, é uma agência focada em posicionamento de marcas e estratégias de social media. Com o crescimento da empresa, surgiu a necessidade de ter um site profissional que refletisse a identidade da marca, comunicasse seus serviços de forma estratégica e reforçasse a autoridade da fundadora no mercado digital. O desafio principal era criar uma presença online moderna, inspiradora e conversiva, que traduzisse o estilo humano e estratégico do trabalho da Anelita — sem parecer uma landing page genérica de marketing digital.',
+        'A ASM Marketing Digital, liderada por Anelita Scaliza Massucate, trabalha com posicionamento de marca e social media para empresas e profissionais autônomos. Em 2025 ela precisava de um site que reforçasse sua autoridade e apresentasse os serviços sem cara de landing page genérica de marketing. Um ano e meio depois, o problema era outro: a marca ganhou um manual de identidade visual, e o site, que tinha crescido por acréscimos (ferramentas interativas, feed do Instagram, diagnóstico), ainda usava efeitos de template como blobs, vidro, partículas e emojis, que destoavam da elegância da marca e da própria Anelita.',
       'en-US':
-        "ASM Digital Marketing, led by Anelita Scaliza Massucate, is an agency focused on brand positioning and social media strategies. With the company's growth, the need arose for a professional website that reflected the brand identity, communicated its services strategically and reinforced the founder's authority in the digital market. The main challenge was to create a modern, inspiring and conversion-focused online presence that translated Anelita's human and strategic work style — without looking like a generic digital marketing landing page.",
+        'ASM Digital Marketing, led by Anelita Scaliza Massucate, works on brand positioning and social media for companies and self-employed professionals. In 2025 she needed a site that reinforced her authority and presented the services without looking like a generic marketing landing page. A year and a half later the problem had changed: the brand got a visual identity guide, and the site, which had grown by additions (interactive tools, Instagram feed, diagnosis), still relied on template effects such as blobs, glass, particles and emojis that clashed with the elegance of the brand and of Anelita herself.',
     },
     solution: {
       'pt-BR':
-        'Iniciei o projeto com uma etapa de descoberta, conversando com a cliente para entender o público-alvo e o tom de comunicação da marca — uma combinação entre profissionalismo, empatia e propósito. A partir desse diagnóstico, defini a arquitetura da informação com foco em: clareza da proposta de valor logo no primeiro scroll, apresentação dos serviços de forma visual e direta, construção de credibilidade através da história e experiência da fundadora, e inclusão de CTAs estratégicos para agendamento de consultoria gratuita.',
+        'A primeira versão partiu de uma conversa de descoberta sobre público e tom de voz e definiu a arquitetura da home: proposta de valor no primeiro scroll, serviços, a história da fundadora e CTAs para consultoria gratuita. No redesign, o manual de marca virou a fonte de verdade: o hero traz a pergunta que abre a conversa, com o retrato da Anelita sobre um painel café com o monograma; os serviços viraram uma lista editorial sobre café profundo; a bio foi reorganizada em números, formação e trajetória; e o rodapé ganhou a faixa com o padrão de logotipos. O diagnóstico gratuito passou a ser o CTA principal, e uma seção de FAQ alimenta também os dados estruturados.',
       'en-US':
-        "I started the project with a discovery phase, talking with the client to understand the target audience and the brand's communication tone — a combination of professionalism, empathy and purpose. From this diagnosis, I defined the information architecture focusing on: clarity of value proposition right from the first scroll, visual and direct presentation of services, building credibility through the founder's story and experience, and inclusion of strategic CTAs for free consultation scheduling.",
+        "The first version came out of a discovery conversation about audience and tone of voice and set the home page architecture: value proposition in the first scroll, services, the founder's story and CTAs for a free consultation. In the redesign, the brand guide became the source of truth: the hero asks the question that opens the conversation, with Anelita's portrait on a coffee panel with the monogram; the services became an editorial list on deep coffee; the bio was reorganized into numbers, education and career; and the footer got the logotype pattern band. The free diagnosis became the main CTA, and an FAQ section also feeds the structured data.",
     },
     process: {
       'pt-BR':
-        'O design foi pensado para valorizar o conteúdo visual e criar uma experiência fluida tanto no desktop quanto no mobile. Utilizei Next.js com App Router para performance e SEO otimizados, TypeScript para confiabilidade no desenvolvimento, TailwindCSS para design responsivo consistente, shadcn/ui para componentes acessíveis, e Vercel para deploy contínuo. O desenvolvimento foi iterativo, com feedback constante da cliente para garantir alinhamento com a visão da marca.',
+        'O projeto foi tocado em fases ao longo de um ano e meio. Em abril de 2025, o lançamento em Next.js com e-book gratuito. Entre outubro e novembro, ferramentas interativas (calculadoras de engajamento e ROI, gerador de hashtags e de paletas) e o feed do Instagram. Entre maio e junho de 2026, a página de diagnóstico digital com envio por Google Apps Script e CTA de WhatsApp. Em setembro de 2026, o redesign: primeiro um DESIGN.md escrito a partir do documento de identidade, depois o favicon refeito com o monograma, a reconstrução das seções com Tailwind CSS 4 e, por fim, a revisão de SEO, AEO e GEO com JSON-LD, FAQ, llms.txt e imagem de compartilhamento.',
       'en-US':
-        'The design was conceived to enhance visual content and create a fluid experience on both desktop and mobile. I used Next.js with App Router for optimized performance and SEO, TypeScript for development reliability, TailwindCSS for consistent responsive design, shadcn/ui for accessible components, and Vercel for continuous deployment. Development was iterative, with constant client feedback to ensure alignment with the brand vision.',
+        'The project ran in phases over a year and a half. In April 2025, the Next.js launch with a free e-book. Between October and November, interactive tools (engagement and ROI calculators, hashtag and palette generators) and the Instagram feed. Between May and June 2026, the digital diagnosis page with Google Apps Script delivery and a WhatsApp CTA. In September 2026, the redesign: first a DESIGN.md written from the identity document, then the favicon rebuilt from the monogram, the sections rebuilt with Tailwind CSS 4 and, finally, an SEO, AEO and GEO pass with JSON-LD, FAQ, llms.txt and a share image.',
     },
     results: {
       'pt-BR':
-        'O resultado foi um site moderno, otimizado e estratégico, que apresenta os serviços da ASM com clareza e design limpo, reforça o branding pessoal da Anelita com uma seção "Quem sou eu" envolvente, inclui formulários integrados ao Google Forms para captação de leads, e contém links integrados ao Instagram e e-books gratuitos para fortalecer a presença digital. O novo site elevou a percepção profissional da marca, consolidando a ASM como uma consultoria de marketing sólida e acessível.',
+        'O site agora parece a marca: as mesmas cores, fontes e padrões do material impresso e do Instagram da ASM, sem nenhum efeito de template. O código encolheu no redesign (cerca de 330 linhas a menos, com o menu lateral flutuante e os efeitos removidos), o diagnóstico gratuito ficou a um clique do primeiro scroll, e a página tira 100 nas quatro categorias do Lighthouse no desktop, com dados estruturados que descrevem a ASM, a fundadora, os serviços e as perguntas frequentes para buscadores e assistentes de IA.',
       'en-US':
-        "The result was a modern, optimized and strategic website that presents ASM's services with clarity and clean design, reinforces Anelita's personal branding with an engaging \"About me\" section, includes forms integrated with Google Forms for lead capture, and contains integrated links to Instagram and free e-books to strengthen digital presence. The new website elevated the brand's professional perception, consolidating ASM as a solid and accessible marketing consultancy.",
+        "The site now looks like the brand: the same colors, fonts and patterns as ASM's printed material and Instagram, with no template effects left. The code got smaller in the redesign (about 330 fewer lines, with the floating side menu and effects removed), the free diagnosis sits one click away from the first scroll, and the page scores 100 in all four Lighthouse categories on desktop, with structured data describing ASM, its founder, services and FAQ for search engines and AI assistants.",
     },
   },
   features: [
     {
       title: {
-        'pt-BR': 'Design Responsivo',
-        'en-US': 'Responsive Design',
+        'pt-BR': 'Sistema de Marca',
+        'en-US': 'Brand System',
       },
       description: {
         'pt-BR':
-          'Layout adaptável que funciona perfeitamente em todos os dispositivos, garantindo uma experiência consistente.',
+          'Paleta terracota, café e areia, Cormorant Garamond com Manrope e os padrões de monograma e logotipo aplicados em todas as seções.',
         'en-US':
-          'Adaptive layout that works perfectly on all devices, ensuring a consistent experience.',
+          'Terracotta, coffee and sand palette, Cormorant Garamond with Manrope, and the monogram and logotype patterns applied across every section.',
       },
-      icon: '📱',
+      icon: '🎨',
     },
     {
       title: {
-        'pt-BR': 'SEO Otimizado',
-        'en-US': 'SEO Optimized',
+        'pt-BR': 'Diagnóstico Digital Gratuito',
+        'en-US': 'Free Digital Diagnosis',
       },
       description: {
         'pt-BR':
-          'Estrutura otimizada para mecanismos de busca com meta tags, schema markup e performance de carregamento.',
+          'Questionário rápido que analisa a presença online do negócio e leva o lead direto ao WhatsApp, com o resultado enviado por e-mail.',
         'en-US':
-          'Structure optimized for search engines with meta tags, schema markup and loading performance.',
-      },
-      icon: '🔍',
-    },
-    {
-      title: {
-        'pt-BR': 'Captação de Leads',
-        'en-US': 'Lead Generation',
-      },
-      description: {
-        'pt-BR':
-          'Formulários estratégicos integrados ao Google Forms para conversão eficiente de visitantes em leads.',
-        'en-US':
-          'Strategic forms integrated with Google Forms for efficient conversion of visitors into leads.',
+          "A short questionnaire that analyzes the business's online presence and takes the lead straight to WhatsApp, with the result sent by email.",
       },
       icon: '🎯',
+    },
+    {
+      title: {
+        'pt-BR': 'SEO, AEO e GEO',
+        'en-US': 'SEO, AEO and GEO',
+      },
+      description: {
+        'pt-BR':
+          'Grafo JSON-LD com serviço, pessoa, site e FAQ, llms.txt e imagem de compartilhamento para aparecer em buscadores e respostas de IA.',
+        'en-US':
+          'JSON-LD graph with service, person, website and FAQ, llms.txt and a share image to show up in search results and AI answers.',
+      },
+      icon: '🔍',
     },
     {
       title: {
@@ -230,9 +327,9 @@ export const asmMarketingDigital: Project = {
       },
       description: {
         'pt-BR':
-          'Seção dedicada ao storytelling pessoal da fundadora, reforçando autoridade e conexão emocional.',
+          'Bio editorial com números, formação, trajetória e o propósito da fundadora, reforçando autoridade e conexão.',
         'en-US':
-          "Section dedicated to the founder's personal storytelling, reinforcing authority and emotional connection.",
+          "Editorial bio with numbers, education, career and the founder's purpose, reinforcing authority and connection.",
       },
       icon: '👤',
     },
