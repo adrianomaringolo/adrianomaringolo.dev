@@ -8,3 +8,6 @@ posts/
 /export-partial.mjs
 /quem-sou-eu.html
 /quem-sou-eu.png
+
+# artefatos gerados (PNGs, legendas exportadas)
+output/
