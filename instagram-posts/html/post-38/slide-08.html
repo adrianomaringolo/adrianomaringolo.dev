@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #0a1226; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  em.g, .g { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .bg-photo { position: absolute; inset: 0; background: url('bg-final.jpg') center 360px / 100% auto no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 560px, #000 860px); mask-image: linear-gradient(to bottom, transparent 560px, #000 860px); }
+  .gradient-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom,
+    rgba(10,18,38,1) 0%, rgba(10,18,38,0.96) 42%, rgba(10,18,38,0.62) 62%, rgba(10,18,38,0.45) 74%, rgba(10,18,38,0.88) 90%, rgba(10,18,38,0.97) 100%); }
+  .content { position: absolute; top: 0; left: 0; right: 0; z-index: 10; padding: 110px 84px 0 88px; display: flex; flex-direction: column; gap: 26px; }
+  .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #64748b; }
+  .headline { font-size: 84px; font-weight: 900; line-height: 1.03; letter-spacing: -0.03em; color: #f1f5f9; }
+  .subtitle { font-size: 36px; font-weight: 500; color: #cbd5e1; line-height: 1.48; max-width: 860px; }
+  .cta { position: absolute; bottom: 150px; left: 88px; right: 80px; z-index: 15; }
+  .cta-label { font-size: 29px; font-weight: 600; color: #cbd5e1; margin-bottom: 12px; }
+  .cta-site { font-size: 66px; font-weight: 900; letter-spacing: -0.03em; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .handle { color: #f1f5f9; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-photo"></div><div class="gradient-overlay"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+  <div class="content">
+    <div class="eyebrow">Do outro lado</div>
+    <h1 class="headline">Site que <span class="g">acolhe</span><br>vira cliente.</h1>
+    <p class="subtitle">Contato à mão, carregamento rápido e um próximo passo claro. Mande este post para quem precisa ver isso.</p>
+  </div>
+  <div class="cta">
+    <div class="cta-label">Quer uma segunda opinião sobre o seu?</div>
+    <div class="cta-site">adrianomaringolo.dev</div>
+  </div>
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #0a1226; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  em.g, .g { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .bg-grid { position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px);
+    background-size: 54px 54px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%); mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%); }
+  .bg-glow { position: absolute; top: -200px; right: -160px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%); }
+  .bg-glow-low { position: absolute; bottom: -220px; left: -180px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%); }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 92px 84px 150px; display: flex; flex-direction: column; }
+  .eyebrow { font-size: 21px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #64748b; margin-bottom: 26px; }
+  .headline { font-size: 96px; font-weight: 900; line-height: 1.03; letter-spacing: -0.035em; color: #f1f5f9; margin-bottom: 44px; }
+  .panel { background: #0c1730; border: 1px solid rgba(6,182,212,0.24); border-radius: 22px; box-shadow: 0 34px 80px -22px rgba(0,0,0,0.62), inset 0 1px 0 rgba(255,255,255,0.05); padding: 32px 36px 30px; }
+  .footnote { margin-top: 30px; font-size: 30px; font-weight: 500; color: #94a3b8; line-height: 1.45; }
+  .footnote b { color: #e2e8f0; font-weight: 700; }
+  .tag { font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #06b6d4; background: rgba(6,182,212,0.14); border-radius: 100px; padding: 7px 14px; white-space: nowrap; }
+  .line { height: 10px; border-radius: 5px; background: rgba(148,163,184,0.18); }
+  .duo { display: flex; flex-direction: column; gap: 0; }
+  .box { border-radius: 22px; padding: 30px 34px; }
+  .box.pt { background: rgba(255,255,255,0.05); border: 1px solid rgba(148,163,184,0.25); }
+  .box.code { background: #0c1730; border: 1px solid rgba(6,182,212,0.3); box-shadow: 0 34px 80px -22px rgba(0,0,0,0.6); }
+  .lbl { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #94a3b8; margin-bottom: 16px; }
+  .box.code .lbl { color: #06b6d4; }
+  .pt-text { font-size: 36px; font-weight: 700; color: #f1f5f9; line-height: 1.4; }
+  .pt-text b { color: #67e8f9; font-weight: 800; }
+  .src { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 31px; line-height: 1.6; color: #e2e8f0; white-space: pre; }
+  .src .k { color: #c4b5fd; } .src .n { color: #fca5a5; } .src .h { color: #67e8f9; }
+  .down { display: flex; justify-content: center; color: #06b6d4; padding: 14px 0; }
+  .handle { color: #94a3b8; }
+  .content { justify-content: center; padding-top: 60px; }
+  .headline { font-size: 104px !important; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-grid"></div><div class="bg-glow"></div><div class="bg-glow-low"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+  <div class="content">
+    <div class="eyebrow">Software para quem não é dev · 3 de 3</div>
+    <h1 class="headline">O que é <span class="g">código</span>?</h1>
+    <div class="duo">
+      <div class="box pt"><div class="lbl">Em português</div><div class="pt-text">Se o pedido passar de <b>R$ 200</b>, o frete é grátis. Se não, o frete custa <b>R$ 15</b>.</div></div>
+      <div class="down"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></div>
+      <div class="box code"><div class="lbl"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>Em código</div><div class="src"><span class="k">if</span> (pedido.total <span class="h">&gt;</span> <span class="n">200</span>) {
+  frete = <span class="n">0</span>
+} <span class="k">else</span> {
+  frete = <span class="n">15</span>
+}</div></div>
+    </div>
+    <p class="footnote">Código é uma regra do seu negócio escrita para o computador seguir <b>sempre igual, sem interpretar</b>.</p>
+  </div>
+  
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

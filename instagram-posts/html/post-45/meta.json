@@ -1,0 +1,52 @@
+{
+  "title": "Mito ou verdade: 3 frases sobre sites",
+  "date": "2026-10-03",
+  "type": "carousel",
+  "template": "tipografico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Dois carimbos rabiscados: MITO e VERDADE"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Frase 1",
+      "description": "Site bonito converte mais."
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Frase 2",
+      "description": "Site lento perde cliente."
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Frase 3",
+      "description": "SEO é coisa de agência."
+    },
+    {
+      "file": "slide-05.html",
+      "title": "O que fica",
+      "description": "Resumo das 3 frases"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "CTA (fecho-desfechos)",
+      "description": "Dois desfechos: comente outro mito / site sem mito"
+    }
+  ],
+  "caption": "🧐 Mito ou verdade? Vote antes de arrastar.\n\n1️⃣ “Site bonito converte mais.”\n❌ Mito. Bonito ajuda a confiar, mas quem converte é clareza.\n\n2️⃣ “Site lento perde cliente.”\n✅ Verdade. No celular, cada segundo de espera é gente desistindo.\n\n3️⃣ “SEO é coisa de agência.”\n❌ Mito. O básico nasce na construção e deveria vir em todo site.\n\nQuantas você acertou? 👇\n\n💬 E qual outro mito sobre sites você já ouviu? Os melhores viram o próximo post.",
+  "hashtags": [
+    "mitoouverdade",
+    "sitesprofissionais",
+    "seo",
+    "webdesign",
+    "performance",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "presencadigital",
+    "marketingdigital",
+    "dicasdesite"
+  ]
+}

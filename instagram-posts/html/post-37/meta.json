@@ -1,0 +1,57 @@
+{
+  "title": "O ChatGPT recomenda o seu negócio?",
+  "date": "2026-10-03",
+  "type": "carousel",
+  "template": "explicador-tecnico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Chat simulado: a IA responde citando concorrentes, seu site aparece como não citado"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "A ideia errada",
+      "description": "Mito riscado: a IA inventa a resposta. Realidade: ela lê e cita fontes"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Etapa 1: encontrar",
+      "description": "Fluxo de 3 etapas com Encontrar ativo; o que atrapalha e o que ajuda"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Etapa 2: entender",
+      "description": "Fluxo com Entender ativo; texto vago × frase objetiva"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Etapa 3: citar",
+      "description": "Fluxo com Citar ativo; FAQ, dados estruturados e consistência"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Na prática",
+      "description": "Três ajustes + definição curta de AEO e GEO"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA (fecho-desfechos)",
+      "description": "Dois desfechos: site novo já nasce preparado; site existente ganha diagnóstico"
+    }
+  ],
+  "caption": "🤖 Você já perguntou ao ChatGPT sobre o seu ramo, na sua cidade?\n\nCada vez mais gente faz isso antes de abrir o Google. E a resposta vem com nomes: os negócios que a IA encontrou, entendeu e achou confiável o bastante para citar.\n\nA IA não adivinha. Ela lê. Funciona em 3 etapas:\n\n🔍 Encontrar: o site precisa aparecer em buscador e não bloquear robôs\n📖 Entender: textos objetivos dizendo o que você faz, onde e como contratar\n💬 Citar: perguntas frequentes respondidas, dados estruturados e informações iguais em todo lugar\n\nIsso tem nome:\n→ AEO: aparecer em respostas diretas\n→ GEO: ser citado por IAs como ChatGPT e Gemini\n\nTodo site que eu entrego já sai preparado para os dois. Não é extra.\n\nFaça o teste hoje e me conte nos comentários: a IA citou você ou o concorrente? 👇",
+  "hashtags": [
+    "geo",
+    "aeo",
+    "seo",
+    "chatgpt",
+    "inteligenciaartificial",
+    "marketingdigital",
+    "presencadigital",
+    "sitesprofissionais",
+    "pequenosnegocios",
+    "empreendedorismo"
+  ]
+}

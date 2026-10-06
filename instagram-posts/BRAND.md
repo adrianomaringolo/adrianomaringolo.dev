@@ -159,6 +159,44 @@ Não há logo — a marca é o gradiente + o handle + a fonte.
 
 ---
 
+## Slide de fechamento (CTA) — varie o formato
+
+O último slide do carrossel **nunca** é só título + espaço vazio + URL. Ele precisa ter um
+conteúdo visual próprio, ligado ao tema do post. Existem 4 formatos; **alterne entre eles**
+e não repita o mesmo formato em dois carrosséis seguidos (confira o fecho dos últimos posts
+no `POSTS.md` antes de escolher).
+
+| ID | Formato | O que tem no slide | Quando funciona melhor |
+|---|---|---|---|
+| `fecho-grafico` | Gráfico claro | Fundo claro, título com `<em>` em gradiente, **ilustração rabiscada que resume a escolha ou a ideia do post** (traço `#1e293b`, um único elemento em gradiente), linha `#e2e8f0` e URL em gradiente 66px | Post que compara caminhos ou explica um conceito que dá para desenhar |
+| `fecho-desfechos` | Escuro com desfechos | Fundo escuro, título em 1ª pessoa e **2 cards de "se… então…"** (um neutro, outro destacado em gradiente) mostrando o que acontece quando a pessoa chama | Post de decisão, objeção ou oferta: deixa claro o que esperar da conversa |
+| `fecho-foto` | Fotográfico | Segunda foto (`bg-final.jpg`) na metade de baixo, com fade e scrim; título e frase no topo, URL sobre faixa escurecida | Post com pessoa ou ambiente real, quando existe uma segunda foto boa |
+| `fecho-recap` | Escuro com recapitulação | Fundo escuro, título-conclusão e **3 linhas numeradas** retomando os pontos do post (pergunta pequena + resposta grande) | Lista ou checklist, quando a recapitulação acrescenta. Evite se o penúltimo slide já resume |
+
+Referência visual de cada formato (feitos para o `post-41`):
+[`templates/previews/fechos/`](templates/previews/fechos/) — `fecho-A.png` (gráfico) ·
+`fecho-B.png` (desfechos) · `fecho-C.png` (foto) · `fecho-D.png` (recap).
+Para regerar: `node scripts/export-templates.mjs fechos`.
+
+**Compatibilidade com os templates** (as travas do template continuam valendo):
+
+| Template | Formatos de fecho permitidos |
+|---|---|
+| `foto-editorial` | todos |
+| `tipografico` | `fecho-desfechos`, `fecho-recap` (fecho sempre escuro e sem foto) |
+| `explicador-tecnico` | `fecho-desfechos`, `fecho-recap` (escuro, sem foto) |
+| `case-showcase`, `dado-visual` | `fecho-desfechos`, `fecho-recap` |
+| `frase-unica`, `elemento-central` | não têm fecho (post único) |
+
+Para usar `fecho-grafico` ou `fecho-foto` num template que hoje trava o fecho escuro, rode
+`/instagram-post refinar-template <id>` antes.
+
+Em todos os formatos: URL `adrianomaringolo.dev` em gradiente, `cta-label` curto convidando
+para o próximo passo, progress dots e handle. Registre o formato usado no bloco do post em
+`POSTS.md` (ex.: "Fecho: `fecho-grafico`").
+
+---
+
 ## Ícones
 
 **Lucide** (https://lucide.dev) por padrão. Sempre o path real da biblioteca, copiado —

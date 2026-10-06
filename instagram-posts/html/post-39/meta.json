@@ -1,0 +1,62 @@
+{
+  "title": "12 perguntas antes de contratar quem vai fazer o seu site",
+  "date": "2026-10-03",
+  "type": "carousel",
+  "template": "tipografico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Prancheta rabiscada com checklist; 12 perguntas antes de contratar"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Contexto",
+      "description": "Site ruim começa numa conversa rasa"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Bloco 1",
+      "description": "Escopo e prazo"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Bloco 2",
+      "description": "Custo"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Bloco 3",
+      "description": "Propriedade"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Bloco 4",
+      "description": "Depois do lançamento"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "Sinais de alerta",
+      "description": "Respostas que merecem desconfiança"
+    },
+    {
+      "file": "slide-08.html",
+      "title": "CTA (fecho-recap)",
+      "description": "Recapitula os 4 blocos de perguntas"
+    }
+  ],
+  "caption": "📋 Site ruim quase sempre começa numa conversa rasa.\n\nAntes de fechar com qualquer profissional (inclusive comigo), faça estas 12 perguntas:\n\n🗓️ Escopo e prazo\n→ O que está incluso e o que fica de fora?\n→ Qual é o prazo e o que pode atrasar?\n→ Quantas rodadas de ajuste estão previstas?\n\n💰 Custo\n→ O preço é fechado ou por hora?\n→ Existe custo mensal depois do lançamento?\n→ Quanto custa mudar algo depois?\n\n🔑 Propriedade\n→ O domínio fica no meu nome?\n→ Terei acesso ao código e à hospedagem?\n→ Consigo editar os textos sozinho?\n\n🛟 Depois do lançamento\n→ O site já sai preparado para o Google?\n→ Quem resolve se o site sair do ar?\n→ Posso ver sites que você já entregou?\n\n⚠️ Desconfie de “isso a gente vê depois”.\n\nSalve este post e mande para quem está prestes a contratar um site 👇",
+  "hashtags": [
+    "sitesprofissionais",
+    "criacaodesites",
+    "checklist",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "presencadigital",
+    "dicasdenegocio",
+    "webdesign",
+    "autonomos",
+    "contratacao"
+  ]
+}

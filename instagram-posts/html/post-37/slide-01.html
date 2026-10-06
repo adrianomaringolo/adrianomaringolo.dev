@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #0a1226; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  em.g, .g { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .bg-grid { position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px);
+    background-size: 54px 54px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%); mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%); }
+  .bg-glow { position: absolute; top: -200px; right: -160px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%); }
+  .bg-glow-low { position: absolute; bottom: -220px; left: -180px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%); }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 92px 84px 150px; display: flex; flex-direction: column; }
+  .eyebrow { font-size: 21px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #64748b; margin-bottom: 26px; }
+  .headline { font-size: 86px; font-weight: 900; line-height: 1.03; letter-spacing: -0.035em; color: #f1f5f9; margin-bottom: 44px; }
+  .panel { background: #0c1730; border: 1px solid rgba(6,182,212,0.24); border-radius: 22px; box-shadow: 0 34px 80px -22px rgba(0,0,0,0.62), inset 0 1px 0 rgba(255,255,255,0.05); padding: 32px 36px 30px; }
+  .footnote { margin-top: 30px; font-size: 30px; font-weight: 500; color: #94a3b8; line-height: 1.45; }
+  .footnote b { color: #e2e8f0; font-weight: 700; }
+  .tag { font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #06b6d4; background: rgba(6,182,212,0.14); border-radius: 100px; padding: 7px 14px; white-space: nowrap; }
+  .line { height: 10px; border-radius: 5px; background: rgba(148,163,184,0.18); }
+  .q { align-self: flex-end; max-width: 78%; margin-left: auto; background: rgba(148,163,184,0.14); border-radius: 22px 22px 6px 22px; padding: 18px 24px; font-size: 28px; font-weight: 600; color: #e2e8f0; line-height: 1.38; margin-bottom: 22px; }
+  .a { display: flex; gap: 18px; }
+  .ai { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; background: linear-gradient(135deg, #06b6d4, #6366f1); color: #fff; display: flex; align-items: center; justify-content: center; }
+  .a-body { flex: 1; display: flex; flex-direction: column; gap: 12px; padding-top: 6px; }
+  .src-label { margin-top: 14px; font-size: 17px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #64748b; }
+  .srcs { display: flex; flex-wrap: wrap; gap: 12px; }
+  .src { font-size: 23px; font-weight: 700; color: #cbd5e1; border: 1px solid rgba(148,163,184,0.28); border-radius: 100px; padding: 9px 18px; }
+  .you { margin-top: 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px dashed rgba(6,182,212,0.6); border-radius: 14px; padding: 16px 20px; background: rgba(6,182,212,0.06); }
+  .you span:first-child { font-size: 26px; font-weight: 700; color: #f1f5f9; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-grid"></div><div class="bg-glow"></div><div class="bg-glow-low"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+  <div class="content">
+    <div class="eyebrow">AEO e GEO sem mistério</div>
+    <h1 class="headline">O ChatGPT <span class="g">recomenda</span><br>o seu negócio?</h1>
+    <div class="panel">
+      <div class="q">Qual nutricionista atende online em Campinas?</div>
+      <div class="a"><div class="ai"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg></div>
+        <div class="a-body"><div class="line" style="width:94%"></div><div class="line" style="width:82%"></div><div class="line" style="width:88%"></div><div class="line" style="width:56%"></div>
+          <div class="src-label">Fontes</div>
+          <div class="srcs"><span class="src">concorrente-a.com.br</span><span class="src">concorrente-b.com.br</span></div>
+        </div>
+      </div>
+      <div class="you"><span>seusite.com.br</span><span class="tag">Não citado</span></div>
+    </div>
+    <p class="footnote">Cada vez mais gente pergunta para a IA antes de abrir o Google. <b>Veja o que faz um site ser citado.</b></p>
+  </div>
+  <div class="progress"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

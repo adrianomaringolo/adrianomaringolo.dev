@@ -1,0 +1,25 @@
+{
+  "title": "Enquete: seu negócio tem site hoje?",
+  "date": "2026-10-03",
+  "type": "single",
+  "template": "elemento-central",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Slide único",
+      "description": "Card de enquete branco no centro com 4 opções (A a D) e frase pedindo a letra nos comentários"
+    }
+  ],
+  "caption": "🗳️ Enquete rápida, sem julgamento: o seu negócio tem site hoje?\n\nA → Tenho e gosto\nB → Tenho, mas tenho vergonha\nC → Só tenho Instagram\nD → Ainda não tenho\n\nComente só a letra 👇\n\nVou ler todas e responder com uma dica para cada caso. E se for a B, me conte o que te incomoda no seu: aposto que tem solução mais simples do que parece.",
+  "hashtags": [
+    "enquete",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "presencadigital",
+    "sitesprofissionais",
+    "autonomos",
+    "marketingdigital",
+    "negocioslocais"
+  ]
+}

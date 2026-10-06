@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.12); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+  em.g, .g { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(15,23,42,0.05) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .blob-1 { position: absolute; width: 820px; height: 820px; top: -300px; right: -280px; background: radial-gradient(circle, rgba(8,145,178,0.10) 0%, transparent 70%); }
+  .blob-2 { position: absolute; width: 820px; height: 820px; bottom: -320px; left: -300px; background: radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%); }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 72px 84px 230px 84px; display: flex; flex-direction: column; justify-content: center; }
+  .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #94a3b8; margin-bottom: 30px; }
+  .headline { font-size: 92px; font-weight: 900; line-height: 1.03; letter-spacing: -0.038em; color: #0f172a; }
+  .subtitle { margin-top: 32px; font-size: 37px; font-weight: 500; color: #64748b; line-height: 1.44; max-width: 900px; }
+  .art { margin-top: 40px; }
+  .art svg { width: 100%; height: auto; display: block; }
+  .footer-row { position: absolute; bottom: 150px; left: 88px; right: 88px; display: flex; align-items: center; gap: 20px; z-index: 15; }
+  .swipe { font-size: 30px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; }
+  .arrow { color: #0891b2; display: flex; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-dots"></div><div class="blob-1"></div><div class="blob-2"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+  <div class="content">
+    <div class="eyebrow">Mito ou verdade</div>
+    <h1 class="headline">3 frases sobre sites que <em class="g">todo mundo repete</em></h1>
+    <p class="subtitle">Vote antes de arrastar: mito ou verdade?</p>
+    <div class="art"><svg viewBox="0 0 912 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0891b2"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+        <filter id="sk" x="-8%" y="-8%" width="116%" height="116%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="9" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/>
+        </filter>
+      </defs>
+      <g filter="url(#sk)" fill="none" stroke="#1e293b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="150" y="70" width="290" height="150" rx="24" fill="#ffffff" transform="rotate(-6 295 145)"/>
+        <rect x="472" y="90" width="290" height="150" rx="24" fill="url(#g)" stroke="none" transform="rotate(5 617 165)"/>
+        <rect x="472" y="90" width="290" height="150" rx="24" transform="rotate(5 617 165)"/>
+      </g>
+      <g font-family="Manrope, sans-serif" font-weight="900" font-size="54" text-anchor="middle" letter-spacing="4">
+        <text x="295" y="164" fill="#0f172a" transform="rotate(-6 295 145)">MITO</text>
+        <text x="617" y="184" fill="#ffffff" transform="rotate(5 617 165)">VERDADE</text>
+      </g>
+    </svg></div>
+  </div>
+  <div class="footer-row"><div class="swipe">Arraste para conferir</div><div class="arrow"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div></div>
+  <div class="progress"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "title": "O que é desenvolvimento de software?",
+  "date": "2026-10-04",
+  "type": "carousel",
+  "template": "tipografico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Rabisco: planta tracejada do problema → tela da solução no ar"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Contexto",
+      "description": "Software é uma solução, não um programa"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Etapa 1",
+      "description": "Entender"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Etapa 2",
+      "description": "Projetar"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Etapa 3",
+      "description": "Construir"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Etapa 4",
+      "description": "Manter"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA",
+      "description": "fecho-desfechos: próximo da série / tem um problema"
+    }
+  ],
+  "caption": "🏗️ Desenvolvimento de software, explicado como uma obra.\n\nSoftware não é “um programa”. É a solução para um problema do seu negócio, escrita em regras que o computador segue sempre do mesmo jeito.\n\nE, como numa obra, tem etapas:\n\n📋 Entender: o arquiteto entende como a família vive. No software, quem vai usar e o que não pode dar errado.\n📐 Projetar: planta antes do tijolo. Telas, dados e regras antes do código.\n🔨 Construir: parede por parede, com vistoria. Código em partes pequenas, testado.\n🔧 Manter: casa precisa de reparo. Software precisa de atualização enquanto o negócio muda.\n\nCódigo é só uma dessas etapas. O resto é o que faz a obra ficar de pé.\n\nEste é o 1º post da série “Software para quem não é dev”. No próximo: como a gente cria software, por dentro. Siga para não perder 🔔",
+  "hashtags": [
+    "desenvolvimentodesoftware",
+    "software",
+    "tecnologia",
+    "semjargao",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "transformacaodigital",
+    "sistemas",
+    "programacao",
+    "devbr"
+  ]
+}

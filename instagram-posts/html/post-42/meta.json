@@ -1,0 +1,57 @@
+{
+  "title": "Landing page ou site institucional?",
+  "date": "2026-10-03",
+  "type": "carousel",
+  "template": "explicador-tecnico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Wireframes lado a lado: landing de 1 página × site com menu"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "A ideia errada",
+      "description": "Landing não é site mais barato"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Como a landing funciona",
+      "description": "Fluxo anúncio → landing → ação"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Como o institucional funciona",
+      "description": "Fluxo Google → home → páginas"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Lado a lado",
+      "description": "Tabela comparativa"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Na prática",
+      "description": "Qual escolher em cada caso"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA (fecho-desfechos)",
+      "description": "Dois desfechos: já sabe o formato / decide junto pelo objetivo"
+    }
+  ],
+  "caption": "🧭 Landing page ou site institucional? Não é uma questão de tamanho, é de trabalho.\n\n🎯 Landing page\n→ uma página, um objetivo: levar a pessoa a uma ação\n→ sem menu, sem distração\n→ ideal para anúncio, lançamento ou campanha\n\n🏢 Site institucional\n→ várias páginas: sobre, serviços, contato\n→ apresenta o negócio e gera confiança\n→ aparece no Google para vários temas e dura anos\n\nE se você precisa das duas coisas? Site institucional, com uma landing para cada campanha.\n\nComece pelo objetivo, não pelo formato. Me conte o que você quer que o visitante faça 👇",
+  "hashtags": [
+    "landingpage",
+    "siteinstitucional",
+    "criacaodesites",
+    "sitesprofissionais",
+    "marketingdigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "conversao",
+    "presencadigital",
+    "webdesign"
+  ]
+}

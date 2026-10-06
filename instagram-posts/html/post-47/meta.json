@@ -1,0 +1,57 @@
+{
+  "title": "Clean Code: 5 regras que eu aplico todo dia",
+  "date": "2026-10-03",
+  "type": "carousel",
+  "template": "explicador-tecnico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Editor com função calc(d, t) cheia de dúvidas marcadas"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Regra 1",
+      "description": "Nomes que dizem o que fazem"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Regra 2",
+      "description": "Uma função, uma responsabilidade"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Regra 3",
+      "description": "Saia cedo, aninhe menos"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Regra 4",
+      "description": "Sem números mágicos"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Regra 5",
+      "description": "Comente o porquê , não o quê"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA (fecho-recap)",
+      "description": "Recapitula as 5 regras em lista compacta"
+    }
+  ],
+  "caption": "🧹 Código limpo não é código bonito. É código que o próximo dev entende.\n\n5 regras que eu aplico todo dia:\n\n1️⃣ Nomes que dizem o que fazem\n→ se o nome precisa de comentário, o nome está errado\n\n2️⃣ Uma função, uma responsabilidade\n→ função que faz quatro coisas quebra por quatro motivos\n\n3️⃣ Saia cedo, aninhe menos\n→ cláusulas de guarda deixam o caminho principal reto\n\n4️⃣ Sem números mágicos\n→ número solto no código é regra de negócio sem nome\n\n5️⃣ Comente o porquê, não o quê\n→ o código já diz o que faz; o comentário guarda o motivo\n\nCódigo é lido muito mais do que é escrito. Escreva para quem vai manter, que provavelmente vai ser você daqui a seis meses.\n\n💬 Qual regra você acrescentaria? Salve para revisar no próximo code review 🔖",
+  "hashtags": [
+    "cleancode",
+    "codigolimpo",
+    "programacao",
+    "desenvolvimentodesoftware",
+    "typescript",
+    "javascript",
+    "boaspraticas",
+    "devs",
+    "softwarecraftsmanship",
+    "codereview"
+  ]
+}

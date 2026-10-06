@@ -11,6 +11,8 @@ faixa escura do topo.
 <table>
 <tr><td width="32%"><img src="previews/foto-editorial/slide-01.png" alt="Capa"></td><td width="32%"><img src="previews/foto-editorial/slide-02.png" alt="Interno"></td><td width="32%"><img src="previews/foto-editorial/slide-03.png" alt="Fecho"></td></tr>
 <tr><td align="center"><b>Capa</b><br><sub>foto + overlay, texto no topo</sub></td><td align="center"><b>Interno</b><br><sub>card + highlight + note</sub></td><td align="center"><b>Fecho</b><br><sub>CTA escuro</sub></td></tr>
+<tr><td width="32%"><img src="previews/foto-editorial/slide-04.png" alt="Fecho claro"></td><td></td><td></td></tr>
+<tr><td align="center"><b>Fecho claro</b><br><sub>variante gráfica, rabisco temático</sub></td><td></td><td></td></tr>
 </table>
 
 Conteúdo placeholder. O HTML que gera estas imagens está em `previews/foto-editorial/` — edite e rode
@@ -36,7 +38,7 @@ tema — nesse caso `tipografico` entrega mais.
 | 01 | Capa com foto + headline | Escuro `#0a1226` |
 | 02 | Contexto / problema | Claro `#f5f7fa` |
 | 03 a N-1 | Desenvolvimento — um conceito por slide | Claro |
-| N | CTA com URL | Escuro `#0f172a` |
+| N | CTA com URL | Escuro `#0f172a` (ou claro, na variante "fecho gráfico claro") |
 
 Faixa: **5 a 9 slides**. Abaixo de 5 a ideia fica rasa; acima de 9 o carrossel perde retenção.
 
@@ -126,6 +128,21 @@ Slide CTA escuro `#0f172a` com `label` em pílula, headline com `<em>` em gradie
 Variante: se o post tiver uma segunda foto forte, o fecho pode repetir a estrutura da capa
 com outra imagem (`bg-final.jpg`) — ver `post-15`.
 
+### Variante "fecho gráfico claro"
+
+Fundo claro `#f5f7fa` (blobs + `bg-dots`), sem foto. Serve quando o post é didático e o
+fecho ganha mais com um desenho que resume o tema do que com mais um bloco de texto escuro.
+Ver `post-05`.
+
+- `eyebrow` em cyan `#0891b2` + headline 84px `#0f172a` com `<em>` em gradiente.
+- Abaixo, uma **ilustração rabiscada** que resume o tema do post: traço `#1e293b`, formas
+  brancas, mesmo filtro `feTurbulence` + `feDisplacementMap` do `tipografico`. Um único
+  elemento recebe o gradiente (o "ponto" do desenho).
+- Rótulos e textos dentro do desenho ficam **fora do filtro**, para continuarem legíveis.
+- No rodapé, separado por uma linha `#e2e8f0`: `cta-label` `#64748b` + `adrianomaringolo.dev`
+  em gradiente 66px.
+- Ícone dentro do desenho (ex.: seta do botão) é path Lucide, nunca desenhado à mão.
+
 ---
 
 ## Imagens
@@ -160,7 +177,8 @@ com outra imagem (`bg-final.jpg`) — ver `post-15`.
 - `headline-kicker` pode ser omitido quando o título já é longo.
 - Ponto de parada do gradiente pode ser ajustado para caber mais ou menos foto.
 - Quantidade de slides internos livre dentro da faixa 3–7.
-- Fecho pode ser tipográfico (padrão) ou fotográfico (variante).
+- Fecho pode ser tipográfico escuro (padrão), fotográfico (variante) ou gráfico claro
+  com ilustração rabiscada do tema (variante).
 - Bloco "quem fala" entra ou não conforme o post ser pessoal.
 - Blobs internos podem mudar de posição por slide para não repetir a mesma mancha.
 
@@ -168,7 +186,8 @@ com outra imagem (`bg-final.jpg`) — ver `post-15`.
 
 - Capa **sempre** escura, **sempre** com foto, texto **sempre** na metade superior.
 - Overlay gradiente nunca menos opaco que `0.90` na faixa onde há texto.
-- Slides internos **sempre** claros; fecho **sempre** escuro.
+- Slides internos **sempre** claros. Fecho escuro, a não ser na variante "fecho gráfico
+  claro", que **sempre** leva a ilustração rabiscada (fecho claro só com texto não vale).
 - `accent-left` + `accent-top` em todos os slides.
 - `background` do slide escuro declarado no `body` (senão o screenshot sai branco).
 - Progress dots com a contagem correta, handle em todos os slides.
@@ -178,4 +197,5 @@ com outra imagem (`bg-final.jpg`) — ver `post-15`.
 ## Posts de referência
 
 `post-03` (5 razões para ter um site) · `post-15` (IA cria sites sozinha) ·
+`post-05` (IA generativa, fecho gráfico claro) ·
 `post-18` (o que é presença digital) · `post-19` (consultoria internacional).

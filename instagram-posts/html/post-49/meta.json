@@ -1,0 +1,57 @@
+{
+  "title": "Como a gente cria software, por dentro",
+  "date": "2026-10-04",
+  "type": "carousel",
+  "template": "explicador-tecnico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Ciclo de 6 etapas em volta de \"a cada volta, um produto melhor\""
+    },
+    {
+      "file": "slide-02.html",
+      "title": "A ideia errada",
+      "description": "Software não fica pronto de vez"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Fase 1",
+      "description": "Planejar"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Fase 2",
+      "description": "Construir"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Fase 3",
+      "description": "Entregar"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Na prática",
+      "description": "O que muda para quem contrata"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA",
+      "description": "fecho-recap: as 3 fases"
+    }
+  ],
+  "caption": "🔄 Software não é escrito uma vez e fica pronto. Ele nasce pequeno e melhora em ciclos.\n\nPor dentro, cada volta do ciclo tem 3 fases:\n\n🧭 Planejar\n→ entender o problema com quem vai usar\n→ desenhar telas e fluxos antes do código\n\n🛠️ Construir\n→ uma funcionalidade por vez, a mais importante primeiro\n→ testes automáticos garantindo que nada quebrou\n\n🚀 Entregar\n→ publicar cedo, com o essencial funcionando\n→ medir o uso e decidir a próxima melhoria\n\nPara quem contrata, isso significa ver o sistema funcionando cedo, pagar menos por mudança de ideia e ter um orçamento com etapas claras.\n\n2º post da série “Software para quem não é dev”. No próximo: o que é código, afinal? 🔔",
+  "hashtags": [
+    "desenvolvimentodesoftware",
+    "software",
+    "processo",
+    "agil",
+    "bastidores",
+    "tecnologia",
+    "semjargao",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "devbr"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "title": "Quanto tempo leva um site?",
+  "date": "2026-10-03",
+  "type": "carousel",
+  "template": "tipografico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Calendário rabiscado com 3 semanas, a última em gradiente"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Contexto",
+      "description": "O prazo depende mais de você"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Antes de começar",
+      "description": "Conversa e proposta"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Semana 1",
+      "description": "Estrutura e design"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Semana 2",
+      "description": "Construção"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Semana 3",
+      "description": "Ajustes e lançamento"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA (fecho-recap)",
+      "description": "Recapitula as 3 semanas do cronograma"
+    }
+  ],
+  "caption": "⏳ “Quanto tempo leva um site?” A resposta honesta: depende mais de você do que do código.\n\nO cronograma real de um site institucional de até 5 páginas:\n\n💬 Antes de começar: conversa e proposta com escopo, prazo e valor fechados\n✏️ Semana 1: estrutura das páginas e layout da página inicial\n💻 Semana 2: construção, com formulário, WhatsApp e SEO técnico\n🚀 Semana 3: ajustes finais, domínio, HTTPS e publicação\n\n📌 Landing page sai em 1 a 2 semanas. Sistema sob medida tem prazo definido depois do escopo.\n\nO que mais atrasa um projeto? Esperar textos e fotos. Separe tudo antes e o prazo anda.\n\nQuer saber o prazo do seu? Me chame pelo link na bio 👇",
+  "hashtags": [
+    "criacaodesites",
+    "sitesprofissionais",
+    "prazo",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "presencadigital",
+    "webdesign",
+    "processo",
+    "autonomos",
+    "bastidores"
+  ]
+}

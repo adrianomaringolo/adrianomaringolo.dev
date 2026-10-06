@@ -37,6 +37,77 @@ Banco de frases e conceitos para posts futuros.
 - **Seu site é uma casa. A rede social é aluguel.** — analogia: site = casa própria no terreno; rede social = apartamento alugado num condomínio (mais movimento, mas segue regras e pode ser despejado). Ilustrações low-poly. _Compartilhamento + salvamento._ **→ feito (post-14)**
 - **Se a IA cria sites sozinha, por que contratar alguém?** — a IA constrói, não decide; o que continua humano (entender o cliente, estratégia, julgar tech, responder pelo resultado); você não quer virar especialista em domínio/hospedagem/DNS/SEO/GEO/deploy/LGPD; profissional COM IA, não contra. Fotos Pexels na capa e no final. _Compartilhamento (rebate objeção comum)._ **→ feito (post-15, 9 slides)**
 
+### Lista de sugestões de 2026-10-02
+> Sugestões montadas a partir das lacunas do feed: pilar 3 (oferta) quase vazio e cases recentes ainda sem post.
+
+**Serviços e oferta (pilar 3)**
+1. **3 formas de trabalhar comigo: site, landing page e web app** — `tipografico`, reaproveita a peça 16:9 de categorias (`html/divulgacao-categorias`).
+2. **O que vem incluso em qualquer pacote** — responsivo, SEO/AEO/GEO, performance, hospedagem e manutenção.
+3. **Como é o meu processo, do briefing à entrega** — 7 etapas.
+
+**Prova e bastidores (pilar 2)**
+4. **Case ASM Marketing Digital** — antes/depois do redesign com os gauges do Lighthouse.
+5. **Case Sympro** — landing page que capta lead antes do produto existir.
+6. **3 decisões de UX invisíveis que fazem o site converter.**
+
+**Educação para o cliente (pilar 1)**
+7. **O ChatGPT recomenda o seu negócio?** — AEO/GEO para leigos. **→ post-37**
+8. **Coisas que seu site faz que espantam cliente.** **→ post-38**
+9. **12 perguntas antes de contratar quem vai fazer seu site.** **→ post-39**
+10. **Glossário: o que o dev fala e o que ele quer dizer.** **→ post-40**
+11. **Wix ou site sob medida? Como decidir sem se arrepender.** **→ post-41**
+12. **Landing page ou site institucional? Quando usar cada um.** **→ post-42**
+13. **Quanto tempo leva um site? O cronograma real.** **→ post-43**
+
+**Engajamento**
+14. **Enquete no feed: seu negócio tem site hoje?** **→ post-44**
+15. **Mito ou verdade** — site bonito converte mais · quanto mais páginas, melhor · SEO é coisa de agência. **→ post-45**
+
+**Autoridade e frase (pilares 4 e 5)**
+16. **Frase: "Feito sob medida não é luxo. É não pagar de novo daqui a um ano."** **→ post-46**
+17. **Clean Code: 5 regras que eu aplico todo dia.** **→ post-47**
+
+### Lista de ideias de 2026-10-04
+> Ideias do Adriano, com ângulo, template sugerido e o cuidado para não repetir posts já feitos.
+> Os temas 2, 3 e 4 formam uma série natural ("Software para quem não é dev") e funcionam
+> em sequência, como o trio de ranqueamento (post-34 a 36).
+
+1. **Como a IA afeta a sua vida (mesmo sem você abrir o ChatGPT).** **→ post-51** Pilar 1/5, persona A.
+   - Ângulo: a IA que você já usa sem perceber, um momento do dia por slide: o filtro de spam
+     do e-mail, a rota do GPS, a recomendação do streaming, o alerta de fraude do banco, o
+     corretor do teclado. Fecha com "o que muda para o seu negócio".
+   - Template: `foto-editorial` (rotina, pessoa real) ou `tipografico` com linha do tempo de um dia.
+   - Cuidado: não repetir o post-04 (conceitos de LLM e agentes) nem o post-05 (IA generativa).
+     Aqui o foco é o cotidiano, não o conceito. Nenhum número sem fonte.
+2. **O que é desenvolvimento de software (para quem não é dev).** **→ post-48** Pilar 1, persona A/B.
+   - Ângulo: software é resolver um problema de negócio com regras que o computador segue;
+     escrever código é a menor parte. Analogia da obra: arquiteto, planta, construção,
+     vistoria e manutenção.
+   - Template: `explicador-tecnico` (diagrama das etapas) ou `tipografico` com ilustração rabiscada.
+   - Série "Software para quem não é dev", 1 de 3.
+3. **Como a gente cria software, por dentro.** **→ post-49** Pilar 2/4, persona A/B.
+   - Ângulo: o processo real, do problema ao produto no ar: entender o problema → desenhar a
+     solução → construir em partes pequenas → testar → publicar → medir e ajustar. Mostra
+     que é um ciclo, não uma linha reta.
+   - Template: `explicador-tecnico` (fluxo em ciclo), com bastidor real de um projeto entregue.
+   - Série "Software para quem não é dev", 2 de 3. Conversa com o
+     "Como é o meu processo" (sugestão 3 da lista de 2026-10-02).
+4. **O que é código?** **→ post-50** Pilar 1/4, persona A.
+   - Ângulo: código é uma receita escrita para o computador, com instruções exatas e sem
+     margem para interpretação. Mostra uma regra de negócio em português ao lado da mesma
+     regra em código (ex.: "frete grátis acima de R$ 200").
+   - Template: `explicador-tecnico`, painel com a regra lado a lado. Cabe em post único,
+     como o post-12.
+   - Série "Software para quem não é dev", 3 de 3.
+5. **Ainda vale estudar programação na era da IA?** **→ post-52** Pilar 4/5, persona C (e quem pensa em
+   mudar de carreira).
+   - Ângulo: opinião com experiência. A IA escreve código, mas não sabe que problema
+     resolver, não responde pelo resultado e erra com confiança. O que perde valor (decorar
+     sintaxe) × o que ganha valor (fundamentos, entender o negócio, revisar e decidir).
+   - Template: `foto-editorial` com foto real (a primeira pessoa pesa aqui) ou `tipografico`.
+   - Cuidado: o post-32 já diz "a IA constrói, quem decide é você". Este aprofunda para a
+     carreira, sem repetir a frase. Bom candidato a reel de opinião para a câmera também.
+
 ### Outras
 - *(mover aqui ideias já listadas em `estrategia-conteudo.md` §9.1 conforme forem amadurecendo)*
 

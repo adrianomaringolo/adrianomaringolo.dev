@@ -1,0 +1,62 @@
+{
+  "title": "Glossário: o que o dev fala e o que ele quer dizer",
+  "date": "2026-10-03",
+  "type": "carousel",
+  "template": "tipografico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Dois balões: frase em jargão e a tradução"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Termo 1",
+      "description": "Domínio"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Termo 2",
+      "description": "Hospedagem"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Termo 3",
+      "description": "Responsivo"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Termo 4",
+      "description": "SEO"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Termo 5",
+      "description": "CMS"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "Termo 6",
+      "description": "Deploy"
+    },
+    {
+      "file": "slide-08.html",
+      "title": "CTA (fecho-desfechos)",
+      "description": "Dois desfechos: pergunte o termo / projeto explicado sem jargão"
+    }
+  ],
+  "caption": "🗣️ “Fiz o deploy do CMS.” Traduzindo: o site novo está no ar e você já pode editar.\n\nSeis termos que aparecem em todo orçamento de site, em linguagem de gente:\n\n🌐 Domínio: o endereço do site. Precisa estar no SEU nome\n🖥️ Hospedagem: o computador onde o site mora, ligado o tempo todo\n📱 Responsivo: o site se ajusta ao celular, ao tablet e ao computador\n🔎 SEO: deixar o site fácil de achar e de entender pelo Google\n✏️ CMS: o painel para você trocar textos e fotos sozinho\n🚀 Deploy: publicar a versão nova\n\nSe alguém te explicou um orçamento só com jargão, pergunte de novo. Profissional bom traduz.\n\n💬 Qual palavra de dev ainda te confunde? Comente que eu explico.\n\nSalve para consultar na próxima conversa 🔖",
+  "hashtags": [
+    "glossario",
+    "sitesprofissionais",
+    "criacaodesites",
+    "seo",
+    "dominio",
+    "hospedagem",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "presencadigital",
+    "semjargao"
+  ]
+}

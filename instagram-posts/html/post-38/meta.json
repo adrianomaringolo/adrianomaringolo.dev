@@ -1,0 +1,62 @@
+{
+  "title": "5 coisas que o seu site faz que espantam cliente",
+  "date": "2026-10-03",
+  "type": "carousel",
+  "template": "foto-editorial",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Foto de mulher irritada olhando o celular; headline sobre os 5 erros"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Contexto",
+      "description": "O cliente não avisa que desistiu"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Erro 1",
+      "description": "Esconder o contato"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Erro 2",
+      "description": "Demorar para abrir"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Erro 3",
+      "description": "Não explicar como contratar"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Erro 4",
+      "description": "Parecer abandonado"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "Erro 5",
+      "description": "Foto de banco genérica"
+    },
+    {
+      "file": "slide-08.html",
+      "title": "CTA (fecho-foto)",
+      "description": "Segunda foto (cliente sorrindo ao celular) com título e URL"
+    }
+  ],
+  "caption": "😬 O cliente não avisa que desistiu. Ele só fecha a aba.\n\n5 erros silenciosos que afastam quem já estava quase te chamando:\n\n📵 Esconder o contato: WhatsApp só no rodapé, formulário enorme\n🐢 Demorar para abrir: tela branca no celular é cliente indo embora\n❓ Não explicar como contratar: se ele precisa adivinhar, não pergunta\n🗓️ Parecer abandonado: “© 2019” no rodapé e promoção vencida\n🖼️ Foto de banco genérica: sorriso de catálogo no lugar do seu trabalho real\n\nA boa notícia: todos têm solução simples. Está em cada slide.\n\nMande este post para alguém que tem site e precisa ver isso 👇\nE se quiser uma segunda opinião sobre o seu, é só me chamar. Link na bio.",
+  "hashtags": [
+    "sitesprofissionais",
+    "webdesign",
+    "experienciadousuario",
+    "presencadigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "marketingdigital",
+    "dicasdesite",
+    "conversao",
+    "ux"
+  ]
+}

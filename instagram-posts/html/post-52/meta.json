@@ -1,0 +1,57 @@
+{
+  "title": "Ainda vale estudar programação na era da IA?",
+  "date": "2026-10-04",
+  "type": "carousel",
+  "template": "foto-editorial",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Foto Pexels: jovem concentrado no notebook"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "O fato",
+      "description": "A IA escreve código"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "O que perde valor",
+      "description": "Lista do que a IA já faz"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "O que ganha valor",
+      "description": "Lista do que continua humano"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Por que a IA não basta",
+      "description": "Ela erra com confiança"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Se eu começasse hoje",
+      "description": "Três conselhos"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA",
+      "description": "fecho-desfechos: começando / já programa"
+    }
+  ],
+  "caption": "👨‍💻 “Ainda vale estudar programação, agora que a IA escreve código?”\n\nMinha resposta, depois de 17 anos programando: vale. Mas o que vale estudar mudou.\n\nA IA escreve código, e bem. Fingir que não é perder tempo. A pergunta certa é o que continua precisando de gente.\n\n❌ Perde valor\n→ decorar sintaxe e comandos\n→ escrever código repetitivo na mão\n→ copiar receita pronta sem entender\n\n✅ Ganha valor\n→ fundamentos: lógica, dados, arquitetura\n→ entender o problema antes de codar\n→ ler, revisar e decidir o que vai para o ar\n\n⚠️ A IA erra com confiança. Código que parece certo e quebra com o cliente. Só percebe quem entende o que está lendo.\n\nSe eu começasse hoje: fundamentos primeiro, IA como tutora desde o primeiro dia e projetos reais.\n\n💬 E você, está estudando ou pensando em começar? Me conte nos comentários.",
+  "hashtags": [
+    "programacao",
+    "carreiradev",
+    "inteligenciaartificial",
+    "aprendaprogramar",
+    "desenvolvimentodesoftware",
+    "devbr",
+    "tecnologia",
+    "carreira",
+    "ia",
+    "softwarecraftsmanship"
+  ]
+}

@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-10-02 (post-34 a post-36, trio sobre ranqueamento no Google)
+> Última atualização: 2026-10-04 (post-48 a post-52: série "Software para quem não é dev", IA no dia a dia e estudar programação na era da IA · fechos dos posts 37 a 47 refeitos no rodízio do `BRAND.md`)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -17,7 +17,7 @@ registrado também no `meta.json` do post.
 | post-02 | Sênior não é quem nunca erra | 2026-06-15 | Único | `frase-unica` | 1 | 🟢 | Frase — senioridade e documentação |
 | post-03 | 5 razões para ter um site profissional e atrair mais clientes | 2026-06-15 | Carrossel | `foto-editorial` | 7 | 🟢 | Captação — prestadores de serviço |
 | post-04 | IA para humanos: LLMs, agentes e usos práticos | 2026-06-17 | Carrossel | `foto-editorial` | 9 | 🟢 | Educativo — conceitos de IA para leigos |
-| post-05 | IA Generativa: a IA que "cria", não só processa | 2026-06-17 | Carrossel | `foto-editorial` | 8 | 🟡 | Educativo — IA generativa, foco dev |
+| post-05 | IA generativa: a IA que cria coisas novas | 2026-06-17 | Carrossel | `foto-editorial` | 6 | 🟢 | Educativo — IA generativa para leigos (revisado em 2026-10-02: 8 → 6 slides, sem foco dev, fecho gráfico claro) |
 | post-06 | GoLaser Barão Geraldo — Site Completo | 2026-06-22 | Carrossel | `case-showcase` | 6 | 🟢 | Case de projeto — clínica de estética |
 | post-07 | BuildGrid UI — Biblioteca de Componentes React | 2026-06-23 | Carrossel | `case-showcase` | 8 | 🟡 | Case / lançamento open source |
 | post-08 | 84% dos devs já usam IA | 2026-07-30 | Único | `dado-visual` | 1 | 🟢 | Dado — Stack Overflow Developer Survey 2025 |
@@ -46,9 +46,25 @@ registrado também no `meta.json` do post.
 | post-31 | Seu cliente vai te ver primeiro no celular | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Site pensado para o celular (pilar 1) — tema escuro, celular low-poly prateado inclinado com um site simples na tela |
 | post-32 | A IA constrói. Quem decide é você | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | IA constrói, gente decide (pilar 4/5) — tema escuro, cristal low-poly em forma de brilho (sparkle) em tons de indigo e ciano |
 | post-33 | Site bom também precisa de manutenção | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Manutenção inclusa (pilar 3) — tema claro, chave inglesa low-poly laranja sobre uma engrenagem indigo |
-| post-34 | Seu site existe. O Google sabe disso? | 2026-10-02 | Carrossel | `tipografico` | 8 | 🔵 | SEO (pilar 1) — os 5 motivos mais comuns para o site não aparecer no Google. Trio de ganchos sobre ranqueamento, 1 de 3 |
-| post-35 | Por que o Google mostra o concorrente e não você? | 2026-10-02 | Carrossel | `foto-editorial` | 8 | 🔵 | SEO local (pilar 1) — 4 diferenças "você × concorrente". Foto Pexels na capa. Trio sobre ranqueamento, 2 de 3 |
-| post-36 | Você está na página 2 do Google? | 2026-10-02 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Como o Google decide (pilar 1/4) — rastrear, indexar, ranquear, com página de resultados simulada na capa. Trio sobre ranqueamento, 3 de 3 |
+| post-34 | Seu site existe. O Google sabe disso? | 2026-10-02 | Carrossel | `tipografico` | 8 | 🟡 | SEO (pilar 1) — os 5 motivos mais comuns para o site não aparecer no Google. Trio de ganchos sobre ranqueamento, 1 de 3 |
+| post-35 | Por que o Google mostra o concorrente e não você? | 2026-10-02 | Carrossel | `foto-editorial` | 8 | 🟡 | SEO local (pilar 1) — 4 diferenças "você × concorrente". Foto Pexels na capa. Trio sobre ranqueamento, 2 de 3 |
+| post-36 | Você está na página 2 do Google? | 2026-10-02 | Carrossel | `explicador-tecnico` | 7 | 🟡 | Como o Google decide (pilar 1/4) — rastrear, indexar, ranquear, com página de resultados simulada na capa. Trio sobre ranqueamento, 3 de 3 |
+| post-37 | O ChatGPT recomenda o seu negócio? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | AEO/GEO (pilar 1): como a IA encontra, entende e cita um site; chat simulado na capa |
+| post-38 | 5 coisas que o seu site faz que espantam cliente | 2026-10-03 | Carrossel | `foto-editorial` | 8 | 🔵 | 5 erros silenciosos que afastam cliente (pilar 1); foto Pexels na capa |
+| post-39 | 12 perguntas antes de contratar quem vai fazer o seu site | 2026-10-03 | Carrossel | `tipografico` | 8 | 🔵 | 12 perguntas antes de contratar quem vai fazer o site (pilar 1), em 4 blocos + sinais de alerta |
+| post-40 | Glossário: o que o dev fala e o que ele quer dizer | 2026-10-03 | Carrossel | `tipografico` | 8 | 🔵 | Glossário dev → dono de negócio (pilar 1): domínio, hospedagem, responsivo, SEO, CMS, deploy |
+| post-41 | Wix ou site sob medida? | 2026-10-03 | Carrossel | `foto-editorial` | 7 | 🔵 | Construtor pronto × sob medida (pilar 1): quando cada um faz sentido; foto Pexels na capa |
+| post-42 | Landing page ou site institucional? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Landing page × site institucional (pilar 1): wireframes na capa, fluxos e tabela |
+| post-43 | Quanto tempo leva um site? | 2026-10-03 | Carrossel | `tipografico` | 7 | 🔵 | Cronograma real de um site institucional, semana a semana (pilar 1/3) |
+| post-44 | Enquete: seu negócio tem site hoje? | 2026-10-03 | Único | `elemento-central` | 1 | 🔵 | Enquete (engajamento): seu negócio tem site? Resposta A–D nos comentários |
+| post-45 | Mito ou verdade: 3 frases sobre sites | 2026-10-03 | Carrossel | `tipografico` | 6 | 🔵 | Mito ou verdade (engajamento): site bonito converte · site lento perde cliente · SEO é coisa de agência |
+| post-46 | Sob medida não é luxo | 2026-10-03 | Único | `frase-unica` | 1 | 🔵 | Frase (pilar 5): sob medida não é luxo, é não pagar por outro site daqui a um ano |
+| post-47 | Clean Code: 5 regras que eu aplico todo dia | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Clean Code (pilar 4, persona C): 5 regras com antes/depois em código |
+| post-48 | O que é desenvolvimento de software? | 2026-10-04 | Carrossel | `tipografico` | 7 | 🔵 | Série "Software para quem não é dev" 1/3 (pilar 1): desenvolvimento de software comparado a uma obra |
+| post-49 | Como a gente cria software, por dentro | 2026-10-04 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Série "Software para quem não é dev" 2/3 (pilar 2/4): o ciclo de criação de software, com exemplo de agenda de clínica |
+| post-50 | O que é código? | 2026-10-04 | Único | `explicador-tecnico` | 1 | 🔵 | Série "Software para quem não é dev" 3/3 (pilar 1/4): a mesma regra de frete em português e em código |
+| post-51 | A IA já está no seu dia | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | IA no dia a dia (pilar 1/5): um momento do dia por slide; fecho liga ao GEO (post-37) |
+| post-52 | Ainda vale estudar programação na era da IA? | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | Ainda vale estudar programação na era da IA? (pilar 4/5, persona C): opinião em 1ª pessoa |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
@@ -80,11 +96,11 @@ registrado também no `meta.json` do post.
 - Capa → 6 conceitos (IA, LLM, Agente, Prompt, Token, Alucinação) → usos práticos → CTA
 - **Hashtags:** inteligenciaartificial, ia, llm, chatgpt, claude, tecnologia, devbrasil, aprendizado, produtividade, inovacao, futuro, digitalizacao
 
-### post-05 — IA Generativa: a IA que "cria", não só processa
-- **Data:** 2026-06-17 · **Tipo:** carrossel (1080×1350) · **Slides:** 8
+### post-05 — IA generativa: a IA que cria coisas novas
+- **Data:** 2026-06-17 (revisado em 2026-10-02) · **Tipo:** carrossel (1080×1350) · **Template:** `foto-editorial` · **Slides:** 6
 - **HTML:** `html/post-05/` · **PNGs:** `output/post-05/`
-- Capa → tradicional vs. generativa → como funciona → o que gera → modelos → foco dev → limites → CTA
-- **Hashtags:** iagerativa, inteligenciaartificial, ia, machinelearning, chatgpt, claude, devbrasil, programacao, desenvolvedor, tecnologia, futuro, github
+- Capa (foto do coral, overlay do template) → a diferença (separava × cria) → como aprende (analogia da receita) → onde você já usa (texto, imagem, voz e música, vídeo) → dois cuidados → fecho gráfico claro (rabisco de um pedido virando texto, imagem e som)
+- **Hashtags:** iagenerativa, inteligenciaartificial, ia, chatgpt, tecnologia, iaparatodos, dicasdetecnologia, produtividade, empreendedorismo, inovacao
 
 ### post-06 — GoLaser Barão Geraldo — Site Completo
 - **Data:** 2026-06-22 · **Tipo:** carrossel (1080×1350) · **Slides:** 6
@@ -231,6 +247,122 @@ registrado também no `meta.json` do post.
 - Capa dark (página de resultados simulada: 3 concorrentes na página 1, "seusite.com.br" na 2) → Mito × realidade (não é quem paga nem o mais bonito) → Etapa 1 rastrear → Etapa 2 indexar → Etapa 3 ranquear (relevância, experiência, confiança) → Na prática (uma tarefa por etapa + ressalva honesta) → CTA dark (teste site:dominio)
 - **Hashtags:** seo, google, comofuncionaogoogle, sitenogoogle, presencadigital, pequenosnegocios, empreendedorismo, marketingdigital, desenvolvimentoweb, site
 
+### post-48 — O que é desenvolvimento de software?
+- **Data:** 2026-10-04 · **Tipo:** carrossel (1080×1350) · **Template:** `tipografico` · **Slides:** 7
+- **HTML:** `html/post-48/` · **PNGs:** `output/post-48/`
+- Capa → Contexto → Etapa 1 → Etapa 2 → Etapa 3 → Etapa 4 → CTA
+- Fecho: `fecho-desfechos`.
+- **Hashtags:** desenvolvimentodesoftware, software, tecnologia, semjargao, pequenosnegocios, empreendedorismo, transformacaodigital, sistemas, programacao, devbr
+
+### post-49 — Como a gente cria software, por dentro
+- **Data:** 2026-10-04 · **Tipo:** carrossel (1080×1350) · **Template:** `explicador-tecnico` · **Slides:** 7
+- **HTML:** `html/post-49/` · **PNGs:** `output/post-49/`
+- Capa → A ideia errada → Fase 1 → Fase 2 → Fase 3 → Na prática → CTA
+- Fecho: `fecho-recap` (as 3 fases).
+- **Hashtags:** desenvolvimentodesoftware, software, processo, agil, bastidores, tecnologia, semjargao, pequenosnegocios, empreendedorismo, devbr
+
+### post-50 — O que é código?
+- **Data:** 2026-10-04 · **Tipo:** post único (1080×1350) · **Template:** `explicador-tecnico` · **Slides:** 1
+- **HTML:** `html/post-50/` · **PNGs:** `output/post-50/`
+- Regra de frete em português, seta, a mesma regra em código
+- Fecho: sem fecho (post único).
+- **Hashtags:** codigo, programacao, oqueecodigo, software, semjargao, tecnologia, pequenosnegocios, empreendedorismo, devbr, aprendaprogramar
+
+### post-51 — A IA já está no seu dia
+- **Data:** 2026-10-04 · **Tipo:** carrossel (1080×1350) · **Template:** `foto-editorial` · **Slides:** 7
+- **HTML:** `html/post-51/` · **PNGs:** `output/post-51/`
+- Capa → Contexto → 07:30 → 08:10 → 12:40 → 21:00 → CTA
+- Foto Pexels: capa `bg-cover.jpg` (ID 4101861, mulher com celular e café na cozinha).
+- Fecho: `fecho-grafico` (celular perguntando à IA, "seu negócio?" entre os resultados).
+- **Hashtags:** inteligenciaartificial, ia, tecnologia, diaadia, curiosidades, semjargao, pequenosnegocios, empreendedorismo, presencadigital, geo
+
+### post-52 — Ainda vale estudar programação na era da IA?
+- **Data:** 2026-10-04 · **Tipo:** carrossel (1080×1350) · **Template:** `foto-editorial` · **Slides:** 7
+- **HTML:** `html/post-52/` · **PNGs:** `output/post-52/`
+- Capa → O fato → O que perde valor → O que ganha valor → Por que a IA não basta → Se eu começasse hoje → CTA
+- Foto Pexels: capa `bg-cover.jpg` (ID 4623545, jovem concentrado no notebook). Evitada a pose de mão no queixo para não repetir a capa do post-41.
+- Fecho: `fecho-desfechos`.
+- **Hashtags:** programacao, carreiradev, inteligenciaartificial, aprendaprogramar, desenvolvimentodesoftware, devbr, tecnologia, carreira, ia, softwarecraftsmanship
+
+### post-37 — O ChatGPT recomenda o seu negócio?
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `explicador-tecnico` · **Slides:** 7
+- **HTML:** `html/post-37/` · **PNGs:** `output/post-37/`
+- Capa → A ideia errada → Etapa 1: encontrar → Etapa 2: entender → Etapa 3: citar → Na prática → CTA
+- Fecho: `fecho-desfechos`. Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
+- **Hashtags:** geo, aeo, seo, chatgpt, inteligenciaartificial, marketingdigital, presencadigital, sitesprofissionais, pequenosnegocios, empreendedorismo
+
+### post-38 — 5 coisas que o seu site faz que espantam cliente
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `foto-editorial` · **Slides:** 8
+- **HTML:** `html/post-38/` · **PNGs:** `output/post-38/`
+- Capa → Contexto → Erro 1 → Erro 2 → Erro 3 → Erro 4 → Erro 5 → CTA
+- Foto Pexels: capa `bg-cover.jpg` (ID 5240083, mulher irritada com o celular).
+- Fecho: `fecho-foto` (segunda foto Pexels `bg-final.jpg`, ID 16459054, mulher sorrindo ao celular). Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
+- **Hashtags:** sitesprofissionais, webdesign, experienciadousuario, presencadigital, pequenosnegocios, empreendedorismo, marketingdigital, dicasdesite, conversao, ux
+
+### post-39 — 12 perguntas antes de contratar quem vai fazer o seu site
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `tipografico` · **Slides:** 8
+- **HTML:** `html/post-39/` · **PNGs:** `output/post-39/`
+- Capa → Contexto → Bloco 1 → Bloco 2 → Bloco 3 → Bloco 4 → Sinais de alerta → CTA
+- Fecho: `fecho-recap` (os 4 blocos). Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
+- **Hashtags:** sitesprofissionais, criacaodesites, checklist, pequenosnegocios, empreendedorismo, presencadigital, dicasdenegocio, webdesign, autonomos, contratacao
+
+### post-40 — Glossário: o que o dev fala e o que ele quer dizer
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `tipografico` · **Slides:** 8
+- **HTML:** `html/post-40/` · **PNGs:** `output/post-40/`
+- Capa → Termo 1 → Termo 2 → Termo 3 → Termo 4 → Termo 5 → Termo 6 → CTA
+- Fecho: `fecho-desfechos`. Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
+- **Hashtags:** glossario, sitesprofissionais, criacaodesites, seo, dominio, hospedagem, pequenosnegocios, empreendedorismo, presencadigital, semjargao
+
+### post-41 — Wix ou site sob medida?
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `foto-editorial` · **Slides:** 7
+- **HTML:** `html/post-41/` · **PNGs:** `output/post-41/`
+- Capa → Contexto → Quando o construtor faz sentido → Quando o sob medida se paga → Custo que não aparece → Três perguntas para decidir → CTA
+- Foto Pexels: capa `bg-cover.jpg` (ID 15545299, homem pensativo de camisa vermelha diante do notebook), trocada em 2026-10-03 no lugar da 7552715, que ficou escura e desfocada. Foto deslocada para baixo com fade abaixo do título.
+- Fecho: `fecho-grafico` (placa rabiscada com os dois caminhos), escolhido entre 4 propostas que viraram os formatos de fecho do `BRAND.md`.
+- **Hashtags:** wix, sitesobmedida, criacaodesites, sitesprofissionais, pequenosnegocios, empreendedorismo, presencadigital, webdesign, dicasdenegocio, autonomos
+
+### post-42 — Landing page ou site institucional?
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `explicador-tecnico` · **Slides:** 7
+- **HTML:** `html/post-42/` · **PNGs:** `output/post-42/`
+- Capa → A ideia errada → Como a landing funciona → Como o institucional funciona → Lado a lado → Na prática → CTA
+- Fecho: `fecho-desfechos`. Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
+- **Hashtags:** landingpage, siteinstitucional, criacaodesites, sitesprofissionais, marketingdigital, pequenosnegocios, empreendedorismo, conversao, presencadigital, webdesign
+
+### post-43 — Quanto tempo leva um site?
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `tipografico` · **Slides:** 7
+- **HTML:** `html/post-43/` · **PNGs:** `output/post-43/`
+- Capa → Contexto → Antes de começar → Semana 1 → Semana 2 → Semana 3 → CTA
+- Fecho: `fecho-recap` (as 3 semanas). Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
+- **Hashtags:** criacaodesites, sitesprofissionais, prazo, pequenosnegocios, empreendedorismo, presencadigital, webdesign, processo, autonomos, bastidores
+
+### post-44 — Enquete: seu negócio tem site hoje?
+- **Data:** 2026-10-03 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` · **Slides:** 1
+- **HTML:** `html/post-44/` · **PNGs:** `output/post-44/`
+- Slide único (Card de enquete branco no centro com 4 opções (A a D) e frase pedindo a letra nos comentários)
+- Desvio consciente do template: o "elemento" é um card de enquete (4 opções) em vez de ícone, porque a enquete precisa das alternativas visíveis. Frase com 6 palavras.
+- **Hashtags:** enquete, pequenosnegocios, empreendedorismo, presencadigital, sitesprofissionais, autonomos, marketingdigital, negocioslocais
+
+### post-45 — Mito ou verdade: 3 frases sobre sites
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `tipografico` · **Slides:** 6
+- **HTML:** `html/post-45/` · **PNGs:** `output/post-45/`
+- Capa → Frase 1 → Frase 2 → Frase 3 → O que fica → CTA
+- Fecho: `fecho-desfechos`. Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
+- **Hashtags:** mitoouverdade, sitesprofissionais, seo, webdesign, performance, pequenosnegocios, empreendedorismo, presencadigital, marketingdigital, dicasdesite
+
+### post-46 — Sob medida não é luxo
+- **Data:** 2026-10-03 · **Tipo:** post único (1080×1350) · **Template:** `frase-unica` · **Slides:** 1
+- **HTML:** `html/post-46/` · **PNGs:** `output/post-46/`
+- Slide único (Frase escura: Sob medida não é luxo. É não pagar por outro site daqui a um ano.)
+- **Hashtags:** sitesobmedida, criacaodesites, sitesprofissionais, pequenosnegocios, empreendedorismo, presencadigital, opiniao, webdesign
+
+### post-47 — Clean Code: 5 regras que eu aplico todo dia
+- **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `explicador-tecnico` · **Slides:** 7
+- **HTML:** `html/post-47/` · **PNGs:** `output/post-47/`
+- Capa → Regra 1 → Regra 2 → Regra 3 → Regra 4 → Regra 5 → CTA
+- Código em fonte monoespaçada do sistema (Menlo/SF Mono) nos blocos antes/depois; Manrope no resto.
+- Fecho: `fecho-recap` (as 5 regras, lista compacta). Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
+- **Hashtags:** cleancode, codigolimpo, programacao, desenvolvimentodesoftware, typescript, javascript, boaspraticas, devs, softwarecraftsmanship, codereview
+
 ### post-33 — Site bom também precisa de manutenção
 - **Data:** 2026-09-28 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
 - **HTML:** `html/post-33/` · **PNGs:** `output/post-33/`
@@ -316,4 +448,5 @@ Fontes da verdade para cada post: `html/post-NN/meta.json` (título, data, tipo,
 - `content-plan.md` — planejamento editorial (carrosséis, posts de frase, apresentação de projetos)
 - `ideas.md` — banco de frases para posts de slide único
 - `design-system.md` — tokens visuais dos slides
+- `html/divulgacao-categorias/` — peça 16:9 (1920×1080) de divulgação com as três categorias de serviço; PNG em `output/divulgacao-categorias/`
 - `../instagram-reels/` — reels (formato separado)

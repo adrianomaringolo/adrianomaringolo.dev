@@ -1,0 +1,27 @@
+{
+  "title": "O que é código?",
+  "date": "2026-10-04",
+  "type": "single",
+  "template": "explicador-tecnico",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Slide único",
+      "description": "Regra de frete em português, seta, a mesma regra em código"
+    }
+  ],
+  "caption": "💻 O que é código, afinal?\n\nÉ uma regra do seu negócio escrita de um jeito que o computador consegue seguir.\n\nEm português: “se o pedido passar de R$ 200, o frete é grátis. Se não, custa R$ 15.”\nEm código: if (pedido.total > 200) { frete = 0 } else { frete = 15 }\n\nÉ a mesma regra. A diferença é que o computador não interpreta, não tem bom senso e não pergunta. Ele faz exatamente o que está escrito, sempre igual, milhões de vezes.\n\nPor isso o trabalho difícil não é digitar o código. É entender a regra certa antes:\n→ R$ 200 com ou sem desconto?\n→ Vale para todas as regiões?\n→ E se o cliente devolver um item?\n\nÚltimo post da série “Software para quem não é dev”. Qual tema você quer na próxima? 💬",
+  "hashtags": [
+    "codigo",
+    "programacao",
+    "oqueecodigo",
+    "software",
+    "semjargao",
+    "tecnologia",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "devbr",
+    "aprendaprogramar"
+  ]
+}

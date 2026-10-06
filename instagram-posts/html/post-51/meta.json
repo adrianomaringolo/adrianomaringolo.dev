@@ -1,0 +1,57 @@
+{
+  "title": "A IA já está no seu dia",
+  "date": "2026-10-04",
+  "type": "carousel",
+  "template": "foto-editorial",
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Foto Pexels: mulher com celular e café de manhã"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Contexto",
+      "description": "Você usa IA todo dia"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "07:30",
+      "description": "Você abre o e-mail"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "08:10",
+      "description": "Você sai de casa"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "12:40",
+      "description": "Você recebe um alerta"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "21:00",
+      "description": "Você escolhe uma série"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA",
+      "description": "fecho-grafico: celular perguntando à IA, resultados com \"seu negócio?\""
+    }
+  ],
+  "caption": "🤖 Você usa inteligência artificial todo dia. Mesmo sem abrir o ChatGPT.\n\nUm dia comum:\n\n📧 07:30 · O golpe do “pacote retido” nem chegou na sua caixa de entrada. O filtro de spam aprendeu a separar.\n🗺️ 08:10 · O GPS mudou a rota antes do trânsito. Ele prevê pelo movimento de outros celulares.\n💳 12:40 · O banco bloqueou uma compra estranha. O sistema conhece o seu padrão de gasto.\n📺 21:00 · A série recomendada parecia feita para você. Veio do que gente com gosto parecido assistiu.\n\nIA não é só chatbot. É qualquer sistema que aprende padrões com dados para decidir ou sugerir algo.\n\nE o seu cliente também já pergunta para a IA qual negócio escolher. O seu aparece na resposta? 👇\n\n(Falei sobre como ser citado pela IA no post sobre AEO e GEO.)",
+  "hashtags": [
+    "inteligenciaartificial",
+    "ia",
+    "tecnologia",
+    "diaadia",
+    "curiosidades",
+    "semjargao",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "presencadigital",
+    "geo"
+  ]
+}
