@@ -3,6 +3,7 @@
   "date": "2026-10-03",
   "type": "single",
   "template": "frase-unica",
+  "tags": ["humano", "contratar site"],
   "format": "1080x1350",
   "slides": [
     {

@@ -3,6 +3,7 @@
   "date": "2026-09-22",
   "type": "carousel",
   "template": "case-showcase",
+  "tags": ["prova", "case"],
   "format": "1080x1350",
   "slides": [
     {

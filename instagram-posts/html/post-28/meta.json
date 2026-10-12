@@ -1,9 +1,14 @@
 {
   "title": "Sem cadeado, o navegador avisa seu cliente",
   "date": "2026-09-28",
+  "plannedAt": "2026-10-16",
   "status": "aprovado",
   "type": "single",
   "template": "elemento-central",
+  "tags": [
+    "educação",
+    "site na prática"
+  ],
   "format": "1080x1350",
   "slides": [
     {

@@ -3,12 +3,17 @@
   "date": "2026-10-04",
   "type": "carousel",
   "template": "foto-editorial",
+  "tags": [
+    "autoridade",
+    "IA",
+    "carreira"
+  ],
   "format": "1080x1350",
   "slides": [
     {
       "file": "slide-01.html",
       "title": "Capa",
-      "description": "Foto Pexels: jovem concentrado no notebook"
+      "description": "Foto Pexels: mãos digitando no notebook, com o código em foco na tela"
     },
     {
       "file": "slide-02.html",
@@ -53,5 +58,16 @@
     "carreira",
     "ia",
     "softwarecraftsmanship"
-  ]
+  ],
+  "revisions": [
+    {
+      "note": "Não gostei dessa imagem, gostaria de uma imagem que mostre uma pessoa programando, com um foco no código.",
+      "requestedAt": "2026-10-07T11:33",
+      "requestedBy": "admin",
+      "resolvedAt": "2026-10-07T14:59",
+      "resolvedTo": "pendente"
+    }
+  ],
+  "revisionCount": 1,
+  "revisedAt": "2026-10-07T14:59"
 }

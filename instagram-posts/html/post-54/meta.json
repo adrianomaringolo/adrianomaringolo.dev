@@ -1,0 +1,62 @@
+{
+  "title": "Onde o cliente escapa: 4 momentos sem site",
+  "date": "2026-10-07",
+  "type": "carousel",
+  "template": "foto-editorial",
+  "tags": [
+    "educação",
+    "presença digital",
+    "série: perder cliente sem site"
+  ],
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Foto: mulher no celular à noite (Pexels 8036686). Onde o cliente escapa"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Contexto",
+      "description": "O Instagram mostra. O site responde."
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Momento 01",
+      "description": "Na busca do Google"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Momento 02",
+      "description": "Na pergunta para a IA"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Momento 03",
+      "description": "Às 23h, fora do horário"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Momento 04",
+      "description": "Na comparação com outro"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA (fecho-grafico)",
+      "description": "Loja low-poly à noite com vitrine acesa e placa ABERTO em gradiente"
+    }
+  ],
+  "caption": "🌙 São 23h. Alguém está procurando exatamente o que você faz. E aí?\n\nSem site, o cliente escapa em momentos que você nem vê:\n\n🔍 Na busca do Google: quem tem página com serviços e região ganha o clique.\n🤖 Na pergunta para a IA: ela recomenda quem consegue ler na internet.\n🌙 Fora do horário: ninguém responde a mensagem, o site responde.\n⚖️ Na comparação: entre dois nomes, a gente escolhe quem parece mais estabelecido.\n\nInstagram ajuda, e muito. Mas ele mostra o seu trabalho para quem já te segue. O site responde quem está pesquisando agora. ✅\n\n💬 Em qual desses momentos você acha que mais perde cliente? 👇\n🔗 Link na bio para conversar sobre o seu.",
+  "hashtags": [
+    "presencadigital",
+    "sitesprofissionais",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "seo",
+    "seolocal",
+    "inteligenciaartificial",
+    "marketingdigital",
+    "autonomos",
+    "criacaodesites"
+  ]
+}

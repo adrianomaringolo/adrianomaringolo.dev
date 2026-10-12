@@ -3,6 +3,7 @@
   "date": "2026-09-07",
   "status": "aprovado",
   "type": "carousel",
+  "tags": ["educação", "IA", "contratar site"],
   "format": "1080x1350",
   "slides": [
     { "file": "slide-01.html", "title": "Capa", "description": "Foto Pexels (mãos com wireframe ao lado do laptop) + a pergunta: se a IA cria sites sozinha, por que contratar alguém?" },

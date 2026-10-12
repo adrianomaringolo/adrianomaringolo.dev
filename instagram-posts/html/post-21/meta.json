@@ -4,6 +4,7 @@
   "status": "aprovado",
   "type": "single",
   "template": "dado-visual",
+  "tags": ["autoridade", "IA", "dados", "série: nível de uso da IA"],
   "format": "1080x1350",
   "slides": [
     {

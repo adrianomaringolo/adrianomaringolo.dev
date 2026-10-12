@@ -1,0 +1,62 @@
+{
+  "title": "Posso perder um cliente por não ter um site?",
+  "date": "2026-10-07",
+  "type": "carousel",
+  "template": "tipografico",
+  "tags": [
+    "educação",
+    "presença digital",
+    "série: perder cliente sem site"
+  ],
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Pergunta + rabisco do caminho: indicação, pesquisa, dúvida, fechou com o outro"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Contexto",
+      "description": "O cliente que você perde não avisa"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Passo 01",
+      "description": "Alguém indica você"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Passo 02",
+      "description": "Ele pesquisa o seu nome e encontra pouco ou nada"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Passo 03",
+      "description": "Ele fica com dúvida: 3 perguntas sem resposta"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Passo 04",
+      "description": "Ele fecha com quem respondeu: você × concorrente"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA (fecho-recap)",
+      "description": "Sim, e a perda é silenciosa: 3 linhas de recapitulação"
+    }
+  ],
+  "caption": "🤔 Posso perder um cliente por não ter um site?\n\nPode. E o pior: você nem fica sabendo.\n\nO caminho é quase sempre esse:\n→ 🙌 Alguém indica você.\n→ 🔍 A pessoa pesquisa o seu nome no Google ou pergunta para a IA.\n→ ❓ Encontra um perfil parado, um telefone que ninguém atende ou nada.\n→ 🚪 Fecha com o concorrente que tinha as respostas à mão.\n\nNinguém liga para avisar que escolheu outro. Por isso essa perda não aparece no caixa nem na agenda.\n\nUm site não faz milagre. Ele só garante que, quando alguém procurar você, encontre o que precisa para decidir. ✅\n\n💬 Você já pesquisou o seu próprio nome no Google? Conta aqui o que apareceu 👇",
+  "hashtags": [
+    "presencadigital",
+    "sitesprofissionais",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "autonomos",
+    "indicacao",
+    "clientes",
+    "marketingdigital",
+    "seo",
+    "criacaodesites"
+  ]
+}

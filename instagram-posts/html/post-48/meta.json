@@ -1,8 +1,15 @@
 {
   "title": "O que é desenvolvimento de software?",
   "date": "2026-10-04",
+  "postedAt": "2026-10-06",
+  "status": "postado",
   "type": "carousel",
   "template": "tipografico",
+  "tags": [
+    "educação",
+    "software",
+    "série: software para quem não é dev"
+  ],
   "format": "1080x1350",
   "slides": [
     {

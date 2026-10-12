@@ -4,6 +4,7 @@
   "postedAt": "2026-09-07",
   "status": "postado",
   "type": "carousel",
+  "tags": ["educação", "presença digital"],
   "format": "1080x1350",
   "slides": [
     { "file": "slide-01.html", "title": "Capa", "description": "Hook da analogia + ilustração low-poly de uma casa num terreno" },

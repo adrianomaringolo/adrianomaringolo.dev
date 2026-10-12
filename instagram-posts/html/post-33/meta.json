@@ -1,9 +1,14 @@
 {
   "title": "Site bom também precisa de manutenção",
   "date": "2026-09-28",
+  "plannedAt": "2026-10-15",
   "status": "aprovado",
   "type": "single",
   "template": "elemento-central",
+  "tags": [
+    "serviços",
+    "site na prática"
+  ],
   "format": "1080x1350",
   "slides": [
     {

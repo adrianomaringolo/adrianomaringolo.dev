@@ -15,12 +15,51 @@ seguir**. O detalhamento técnico completo de cores, componentes e CSS está em
 ## Conta e marca
 
 - **Handle**: `@adrianomaringolo.dev`
-- **Quem é**: Adriano Maringolo, desenvolvedor de software. Trabalha numa consultoria
-  internacional e faz sites para pequenos negócios e profissionais autônomos.
-- **Públicos**: (A) dono de negócio / autônomo — primário; (B) founder / PM / CTO de
-  empresa pequena; (C) comunidade dev — apoio, não compra.
-- **Posicionamento**: honestidade técnica em linguagem de negócio. Explica decisões de
-  tecnologia para quem não é técnico, sem vender fumaça.
+
+> As seções **Sobre o negócio**, **Público-alvo**, **Voz da marca**, **Temas e restrições**,
+> **Contato e CTA** e **Datas e frequência** têm trechos marcados com `<!-- definicao:… -->`:
+> eles são editados pelo cliente na aba Configurações da galeria e voltam para cá com
+> `galeria-cloud.mjs sincronizar`. Edite o texto entre os marcadores, nunca os marcadores.
+
+## Sobre o negócio
+
+<!-- definicao:negocio -->
+Adriano Maringolo, engenheiro de software sênior com 17 anos de carreira. Trabalha numa
+consultoria internacional e faz sites e sistemas sob medida para pequenos negócios e
+profissionais autônomos, direto com o cliente, sem agência no meio.
+
+**O que oferece**
+- Site institucional: para empresas e profissionais se apresentarem com credibilidade.
+- Landing page: para converter o tráfego de uma campanha ou de um produto.
+- Web app / sistema sob medida: para produtos com login, dados e regras de negócio próprias.
+- Serviços adicionais: sistema de blog, CRM básico e outros, sob orçamento.
+
+**Incluso em todo projeto**: responsivo, SEO, AEO e GEO, performance, publicação com domínio e
+HTTPS, hospedagem e manutenção mensal (a compra e a renovação do domínio ficam por conta do
+cliente).
+
+**Diferenciais**: prazo e preço fechados desde o começo; honestidade técnica em linguagem de
+negócio, explicando decisões de tecnologia para quem não é técnico, sem vender fumaça.
+
+**Atendimento**: remoto.
+<!-- /definicao:negocio -->
+
+## Público-alvo
+
+<!-- definicao:publico -->
+**Principal: dono de negócio ou profissional autônomo.** Clínicas, personal chefs,
+prestadores de serviço, pequenas marcas e organizações.
+- Dor: o cliente procura no Google e acha o concorrente; site amador ou inexistente;
+  dependência de indicação; não sabe o que pedir nem quanto custa.
+- Procura: site institucional, landing page, portfólio, e-commerce simples.
+- Fala de: resultado, credibilidade, ser encontrado, tempo e custo.
+
+**Secundário: founder, PM ou CTO de empresa pequena** que precisa de um parceiro técnico
+confiável para produto web (web app, dashboard, consultoria de arquitetura e performance).
+
+**Apoio: comunidade dev.** Não compra, mas sustenta credibilidade e indicações. Não deve
+dominar o feed.
+<!-- /definicao:publico -->
 
 ---
 
@@ -60,10 +99,25 @@ Para mexer no conjunto de templates, use os comandos da skill em vez de editar n
 
 Regra: a cada 10 conteúdos, no máximo 2 de venda direta (pilar 3).
 
+### Tags (campo `"tags"` do `meta.json`)
+
+Viram os filtros (pills) da galeria. Use só este vocabulário, com esta grafia (minúsculas,
+exceto siglas). Todo post leva **1 tag de pilar + 1 ou 2 de tema**, e a de série quando fizer
+parte de uma.
+
+| Grupo | Tags |
+|---|---|
+| Pilar (exatamente 1) | `educação` · `prova` · `serviços` · `autoridade` · `humano` · `engajamento` (enquete, mito ou verdade) |
+| Tema | `IA` · `SEO` (inclui Google, AEO/GEO) · `presença digital` · `contratar site` (tipo, custo, prazo, como escolher) · `site na prática` (velocidade, HTTPS, celular, WhatsApp, domínio, manutenção) · `case` · `carreira` · `software` · `dados` (post de estatística) |
+| Série | `série: <nome>` — ex.: `série: nível de uso da IA`, `série: ranqueamento no Google`, `série: software para quem não é dev`, `série: perder cliente sem site` |
+
+Tema novo só quando nenhum dos atuais couber; ao criar, registre aqui.
+
 ---
 
 ## Voz da marca
 
+<!-- definicao:voz -->
 **Adjetivos**: direta, honesta, didática, sem hype, com opinião.
 
 **Nunca**:
@@ -72,6 +126,7 @@ Regra: a cada 10 conteúdos, no máximo 2 de venda direta (pilar 3).
 - Jargão técnico sem tradução para linguagem de negócio.
 - Número, métrica ou pesquisa sem fonte.
 - Tom de guru / coach de LinkedIn.
+<!-- /definicao:voz -->
 
 **Regras de linguagem inegociáveis**:
 - **Português do Brasil revisado**: acentuação, concordância verbal e nominal, ponto final
@@ -89,6 +144,49 @@ Regra: a cada 10 conteúdos, no máximo 2 de venda direta (pilar 3).
   `Não perca` (não `Não perde`).
   Consistência: o post inteiro mantém a mesma pessoa.
 - Sem abreviação que prejudique a leitura.
+
+---
+
+## Temas e restrições
+
+<!-- definicao:temas -->
+**Queremos falar de**: tipos de site, custo e prazo, SEO, AEO e GEO; cases e bastidores de
+projetos; como é trabalhar junto; código limpo e IA no trabalho; rotina e carreira.
+
+**Evitar**: venda direta em excesso (no máximo 2 a cada 10 posts); conteúdo só para devs
+dominando o feed.
+
+**Preço**: posts sobre custo de site explicam os fatores que definem o preço, sem valores em R$.
+
+**Oferta**: hospedagem e manutenção fazem parte de todo pacote. Nunca tratar como extra nem
+falar em "período de suporte" limitado.
+
+**Termos**: AEO (Answer Engine Optimization) e GEO (Generative Engine Optimization), sempre
+com a tradução para linguagem de negócio.
+<!-- /definicao:temas -->
+
+## Contato e CTA
+
+<!-- definicao:contato -->
+- **Destino principal**: o site adrianomaringolo.dev (formulário de orçamento), via link na bio.
+- **CTAs que usamos**: "Peça um orçamento", "Me chame", "Comente que eu respondo",
+  "Salve este post".
+- **Oferta atual**: agenda aberta para novos projetos.
+- **Hashtags de base**: #sitesprofissionais #presencadigital #pequenosnegocios #empreendedorismo
+<!-- /definicao:contato -->
+
+## Datas e frequência
+
+<!-- definicao:datas -->
+**Datas importantes** (uma por linha, "- dd/mm — evento"; sem ano, repete todo ano):
+- (nenhuma cadastrada ainda)
+
+**Frequência**: 4 posts por semana no feed (2 reels, 1 carrossel e 1 post de frase); no mínimo 3
+nas semanas corridas. Stories de 5 a 7 dias por semana.
+
+**Melhores horários** (ajustar com os Insights): terça a quinta, 12h–13h e 19h–21h para reels;
+fim de semana de manhã para frases e cases.
+<!-- /definicao:datas -->
 
 ---
 

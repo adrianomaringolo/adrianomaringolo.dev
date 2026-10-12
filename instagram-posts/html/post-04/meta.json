@@ -4,6 +4,7 @@
   "postedAt": "2026-07-13",
   "status": "postado",
   "type": "carousel",
+  "tags": ["educação", "IA"],
   "format": "1080x1350",
   "slides": [
     { "file": "slide-01.html", "title": "Capa — IA para humanos", "description": "Capa com foto de fundo (robô simpático azul/branco), degradê escuro sobre a imagem, headline 'IA para humanos.' em duas linhas" },

@@ -1,8 +1,12 @@
 {
-  "title": "Quanto tempo leva um site?",
+  "title": "Quanto tempo leva para construir um site?",
   "date": "2026-10-03",
   "type": "carousel",
   "template": "tipografico",
+  "tags": [
+    "educação",
+    "contratar site"
+  ],
   "format": "1080x1350",
   "slides": [
     {
@@ -41,7 +45,7 @@
       "description": "Recapitula as 3 semanas do cronograma"
     }
   ],
-  "caption": "⏳ “Quanto tempo leva um site?” A resposta honesta: depende mais de você do que do código.\n\nO cronograma real de um site institucional de até 5 páginas:\n\n💬 Antes de começar: conversa e proposta com escopo, prazo e valor fechados\n✏️ Semana 1: estrutura das páginas e layout da página inicial\n💻 Semana 2: construção, com formulário, WhatsApp e SEO técnico\n🚀 Semana 3: ajustes finais, domínio, HTTPS e publicação\n\n📌 Landing page sai em 1 a 2 semanas. Sistema sob medida tem prazo definido depois do escopo.\n\nO que mais atrasa um projeto? Esperar textos e fotos. Separe tudo antes e o prazo anda.\n\nQuer saber o prazo do seu? Me chame pelo link na bio 👇",
+  "caption": "⏳ “Quanto tempo leva para construir um site?” A resposta honesta: depende mais de você do que do código.\n\nO cronograma real de um site institucional de até 5 páginas:\n\n💬 Antes de começar: conversa e proposta com escopo, prazo e valor fechados\n✏️ Semana 1: estrutura das páginas e layout da página inicial\n💻 Semana 2: construção, com formulário, WhatsApp e SEO técnico\n🚀 Semana 3: ajustes finais, domínio, HTTPS e publicação\n\n📌 Landing page sai em 1 a 2 semanas. Sistema sob medida tem prazo definido depois do escopo.\n\nO que mais atrasa um projeto? Esperar textos e fotos. Separe tudo antes e o prazo anda.\n\nQuer saber o prazo do seu? Me chame pelo link na bio 👇",
   "hashtags": [
     "criacaodesites",
     "sitesprofissionais",
@@ -53,5 +57,16 @@
     "processo",
     "autonomos",
     "bastidores"
-  ]
+  ],
+  "revisions": [
+    {
+      "note": "mudar o titulo para \"quanto tempo leva para construir um site?\"",
+      "requestedAt": "2026-10-07T17:54",
+      "requestedBy": "admin",
+      "resolvedAt": "2026-10-12T16:15",
+      "resolvedTo": "pendente"
+    }
+  ],
+  "revisionCount": 1,
+  "revisedAt": "2026-10-12T16:15"
 }

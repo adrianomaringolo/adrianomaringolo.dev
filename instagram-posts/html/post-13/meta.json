@@ -3,6 +3,7 @@
   "date": "2026-09-07",
   "status": "aprovado",
   "type": "carousel",
+  "tags": ["educação", "contratar site"],
   "format": "1080x1350",
   "slides": [
     { "file": "slide-01.html", "title": "Capa", "description": "Hook 'Quanto custa fazer um site?' + sketch de uma folha de orçamento com itens marcados e total em aberto ('?')" },

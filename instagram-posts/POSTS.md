@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-10-04 (post-48 a post-52: série "Software para quem não é dev", IA no dia a dia e estudar programação na era da IA · fechos dos posts 37 a 47 refeitos no rodízio do `BRAND.md`)
+> Última atualização: 2026-10-12 (post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -55,16 +55,21 @@ registrado também no `meta.json` do post.
 | post-40 | Glossário: o que o dev fala e o que ele quer dizer | 2026-10-03 | Carrossel | `tipografico` | 8 | 🔵 | Glossário dev → dono de negócio (pilar 1): domínio, hospedagem, responsivo, SEO, CMS, deploy |
 | post-41 | Wix ou site sob medida? | 2026-10-03 | Carrossel | `foto-editorial` | 7 | 🔵 | Construtor pronto × sob medida (pilar 1): quando cada um faz sentido; foto Pexels na capa |
 | post-42 | Landing page ou site institucional? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Landing page × site institucional (pilar 1): wireframes na capa, fluxos e tabela |
-| post-43 | Quanto tempo leva um site? | 2026-10-03 | Carrossel | `tipografico` | 7 | 🔵 | Cronograma real de um site institucional, semana a semana (pilar 1/3) |
+| post-43 | Quanto tempo leva para construir um site? | 2026-10-03 | Carrossel | `tipografico` | 7 | 🔵 | Cronograma real de um site institucional, semana a semana (pilar 1/3) |
 | post-44 | Enquete: seu negócio tem site hoje? | 2026-10-03 | Único | `elemento-central` | 1 | 🔵 | Enquete (engajamento): seu negócio tem site? Resposta A–D nos comentários |
 | post-45 | Mito ou verdade: 3 frases sobre sites | 2026-10-03 | Carrossel | `tipografico` | 6 | 🔵 | Mito ou verdade (engajamento): site bonito converte · site lento perde cliente · SEO é coisa de agência |
 | post-46 | Sob medida não é luxo | 2026-10-03 | Único | `frase-unica` | 1 | 🔵 | Frase (pilar 5): sob medida não é luxo, é não pagar por outro site daqui a um ano |
 | post-47 | Clean Code: 5 regras que eu aplico todo dia | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Clean Code (pilar 4, persona C): 5 regras com antes/depois em código |
-| post-48 | O que é desenvolvimento de software? | 2026-10-04 | Carrossel | `tipografico` | 7 | 🔵 | Série "Software para quem não é dev" 1/3 (pilar 1): desenvolvimento de software comparado a uma obra |
-| post-49 | Como a gente cria software, por dentro | 2026-10-04 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Série "Software para quem não é dev" 2/3 (pilar 2/4): o ciclo de criação de software, com exemplo de agenda de clínica |
-| post-50 | O que é código? | 2026-10-04 | Único | `explicador-tecnico` | 1 | 🔵 | Série "Software para quem não é dev" 3/3 (pilar 1/4): a mesma regra de frete em português e em código |
+| post-48 | O que é desenvolvimento de software? | 2026-10-04 | Carrossel | `tipografico` | 7 | 🟢 | Série "Software para quem não é dev" 1/3 (pilar 1): desenvolvimento de software comparado a uma obra |
+| post-49 | Como a gente cria software, por dentro | 2026-10-04 | Carrossel | `explicador-tecnico` | 7 | 🟢 | Série "Software para quem não é dev" 2/3 (pilar 2/4): o ciclo de criação de software, com exemplo de agenda de clínica |
+| post-50 | O que é código? | 2026-10-04 | Único | `explicador-tecnico` | 1 | 🟡 | Série "Software para quem não é dev" 3/3 (pilar 1/4): a mesma regra de frete em português e em código |
 | post-51 | A IA já está no seu dia | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | IA no dia a dia (pilar 1/5): um momento do dia por slide; fecho liga ao GEO (post-37) |
 | post-52 | Ainda vale estudar programação na era da IA? | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | Ainda vale estudar programação na era da IA? (pilar 4/5, persona C): opinião em 1ª pessoa |
+| post-53 | Posso perder um cliente por não ter um site? | 2026-10-07 | Carrossel | `tipografico` | 7 | 🔵 | Jornada do cliente perdido (pilar 1): indicação → pesquisa → dúvida → decisão. Trio "perder cliente sem site", 1 de 3 |
+| post-54 | Onde o cliente escapa: 4 momentos sem site | 2026-10-07 | Carrossel | `foto-editorial` | 7 | 🔵 | 4 momentos de perda (pilar 1): Google, IA, fora do horário, comparação; foto Pexels na capa. Trio, 2 de 3 |
+| post-55 | Dá para viver sem site. Até alguém pesquisar seu nome. | 2026-10-07 | Único | `frase-unica` | 1 | 🔵 | Resposta honesta (pilar 1/5): quando dá para viver sem site e quando não; nuance na legenda. Trio, 3 de 3 |
+| post-56 | Instagram é vitrine. Seu site é a loja. | 2026-10-07 | Único | `elemento-central` | 1 | 🔵 | Rede social × site (pilar 1) — tema claro, loja low-poly com vitrine mostrando um feed 3×3 e porta aberta com luz quente. Mesmo estilo do post-27 |
+| post-57 | Feliz Dia das Crianças | 2026-10-12 | Único | `foto-protagonista` | 1 | 🟢 | Data comemorativa (pilar 5) — "Todo dev adora brincar de construir", menino montando torre de blocos |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
@@ -280,9 +285,47 @@ registrado também no `meta.json` do post.
 - **Data:** 2026-10-04 · **Tipo:** carrossel (1080×1350) · **Template:** `foto-editorial` · **Slides:** 7
 - **HTML:** `html/post-52/` · **PNGs:** `output/post-52/`
 - Capa → O fato → O que perde valor → O que ganha valor → Por que a IA não basta → Se eu começasse hoje → CTA
-- Foto Pexels: capa `bg-cover.jpg` (ID 4623545, jovem concentrado no notebook). Evitada a pose de mão no queixo para não repetir a capa do post-41.
+- Foto Pexels: capa `bg-cover.jpg` (ID 7988086, mãos digitando no notebook com o código em foco), trocada em 2026-10-07 no lugar da 4623545 (jovem concentrado no notebook), a pedido da revisão: pessoa programando, com foco no código.
 - Fecho: `fecho-desfechos`.
 - **Hashtags:** programacao, carreiradev, inteligenciaartificial, aprendaprogramar, desenvolvimentodesoftware, devbr, tecnologia, carreira, ia, softwarecraftsmanship
+
+### post-53 — Posso perder um cliente por não ter um site?
+- **Data:** 2026-10-07 · **Tipo:** carrossel (1080×1350) · **Template:** `tipografico` · **Slides:** 7
+- **HTML:** `html/post-53/` · **PNGs:** `output/post-53/`
+- Capa (rabisco do caminho) → O cliente que você perde não avisa → Passo 1 indicação → Passo 2 pesquisa → Passo 3 dúvida → Passo 4 decisão (você × concorrente) → CTA
+- Tracker de 4 passos (`.steps`) no topo dos slides 3–6.
+- Fecho: `fecho-recap` (antes de ligar / o que encontra / o que o site faz).
+- **Hashtags:** presencadigital, sitesprofissionais, pequenosnegocios, empreendedorismo, autonomos, indicacao, clientes, marketingdigital, seo, criacaodesites
+
+### post-54 — Onde o cliente escapa: 4 momentos sem site
+- **Data:** 2026-10-07 · **Tipo:** carrossel (1080×1350) · **Template:** `foto-editorial` · **Slides:** 7
+- **HTML:** `html/post-54/` · **PNGs:** `output/post-54/`
+- Capa → O Instagram mostra, o site responde → Google → IA → 23h → Comparação → CTA
+- Foto Pexels: capa `bg-cover.jpg` (ID 8036686, mulher no celular à noite na cama).
+- Fecho: `fecho-grafico` com ilustração low-poly no lugar do rabisco: loja à noite com toldo listrado, vitrine acesa, placa ABERTO em gradiente, lua crescente e estrelas.
+- **Hashtags:** presencadigital, sitesprofissionais, pequenosnegocios, empreendedorismo, seo, seolocal, inteligenciaartificial, marketingdigital, autonomos, criacaodesites
+
+### post-55 — Dá para viver sem site. Até alguém pesquisar seu nome.
+- **Data:** 2026-10-07 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante A, tema claro) · **Slides:** 1
+- **HTML:** `html/post-55/` · **PNGs:** `output/post-55/`
+- A nuance (quando dá para viver sem site, quando não) mora na legenda.
+- Fecho: sem fecho (post único).
+- **Hashtags:** presencadigital, sitesprofissionais, pequenosnegocios, empreendedorismo, indicacao, autonomos, marketingdigital, negocioslocais, criacaodesites
+
+### post-57 — Feliz Dia das Crianças
+- **Data:** 2026-10-12 · **Tipo:** post único (1080×1350) · **Template:** `foto-protagonista` · **Slides:** 1
+- **HTML:** `html/post-57/` · **PNGs:** `output/post-57/`
+- Recriação em IA da foto do Adriano, como personagem de filme infantil (v3: sala com céu azul, foto 150px mais acima, véu claro no topo): menino sorridente de óculos montando uma torre de blocos coloridos. Eyebrow "Todo dev adora brincar de construir." e título "Feliz Dia das Crianças!" (100px, navy, "Crianças!" em gradiente índigo escuro).
+- Fecho: sem fecho (post único). Sem progress dots.
+- **Desvios conscientes do template:** (1) a foto é uma recriação em IA da foto do Adriano (estilo filme infantil), não a foto original; (2) o eyebrow virou uma frase em 30px, sentence case; (3) o scrim de topo é um véu claro (branco 86% → 0%, 42% da altura), não o escuro do template, então o texto é navy (não branco) e o handle ganhou pílula branca por cima dos blocos.
+- **Hashtags:** diadascriancas, curiosidade, imaginacao, dev, devbr, programacao, desenvolvimentoweb, carreiradev, tecnologia
+
+### post-56 — Instagram é vitrine. Seu site é a loja.
+- **Data:** 2026-10-07 · **Tipo:** post único (1080×1350) · **Template:** `elemento-central` (low-poly) · **Slides:** 1
+- **HTML:** `html/post-56/` · **PNGs:** `output/post-56/`
+- Tema claro, no estilo do post-27. Loja low-poly: cornija indigo, toldo ciano e branco, vitrine com grade 3×3 de "posts" coloridos, porta aberta com interior aceso e tapete na entrada.
+- Fecho: sem fecho (post único).
+- **Hashtags:** instagram, presencadigital, sitesprofissionais, pequenosnegocios, empreendedorismo, marketingdigital, redessociais, lojavirtual, negocioslocais, criacaodesites
 
 ### post-37 — O ChatGPT recomenda o seu negócio?
 - **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `explicador-tecnico` · **Slides:** 7
@@ -328,7 +371,7 @@ registrado também no `meta.json` do post.
 - Fecho: `fecho-desfechos`. Refeito em 2026-10-03 seguindo o rodízio de fechos do `BRAND.md`.
 - **Hashtags:** landingpage, siteinstitucional, criacaodesites, sitesprofissionais, marketingdigital, pequenosnegocios, empreendedorismo, conversao, presencadigital, webdesign
 
-### post-43 — Quanto tempo leva um site?
+### post-43 — Quanto tempo leva para construir um site?
 - **Data:** 2026-10-03 · **Tipo:** carrossel (1080×1350) · **Template:** `tipografico` · **Slides:** 7
 - **HTML:** `html/post-43/` · **PNGs:** `output/post-43/`
 - Capa → Contexto → Antes de começar → Semana 1 → Semana 2 → Semana 3 → CTA

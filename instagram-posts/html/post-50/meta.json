@@ -1,8 +1,15 @@
 {
   "title": "O que é código?",
   "date": "2026-10-04",
+  "plannedAt": "2026-10-13",
+  "status": "aprovado",
   "type": "single",
   "template": "explicador-tecnico",
+  "tags": [
+    "educação",
+    "software",
+    "série: software para quem não é dev"
+  ],
   "format": "1080x1350",
   "slides": [
     {

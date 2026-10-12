@@ -3,6 +3,10 @@
   "date": "2026-10-03",
   "type": "carousel",
   "template": "explicador-tecnico",
+  "tags": [
+    "autoridade",
+    "software"
+  ],
   "format": "1080x1350",
   "slides": [
     {
@@ -53,5 +57,16 @@
     "devs",
     "softwarecraftsmanship",
     "codereview"
-  ]
+  ],
+  "revisions": [
+    {
+      "note": "a capa está com muito espaço em branco, os elementos precisam ser melhor distribuídos.",
+      "requestedAt": "2026-10-07T14:37",
+      "requestedBy": "admin",
+      "resolvedAt": "2026-10-07T14:58",
+      "resolvedTo": "pendente"
+    }
+  ],
+  "revisionCount": 1,
+  "revisedAt": "2026-10-07T14:58"
 }

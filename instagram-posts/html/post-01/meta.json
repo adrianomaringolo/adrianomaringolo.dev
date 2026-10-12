@@ -4,6 +4,7 @@
   "postedAt": "2026-06-15",
   "status": "postado",
   "type": "carousel",
+  "tags": ["humano", "carreira"],
   "format": "1080x1350",
   "slides": [
     { "file": "slide-01.html", "title": "Capa", "description": "Foto, nome e título" },

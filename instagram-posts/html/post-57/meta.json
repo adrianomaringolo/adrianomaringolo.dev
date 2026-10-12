@@ -1,6 +1,9 @@
 {
   "title": "Feliz Dia das Crianças",
   "date": "2026-10-12",
+  "plannedAt": "2026-10-12",
+  "postedAt": "2026-10-12",
+  "status": "postado",
   "type": "single",
   "template": "foto-protagonista",
   "tags": [

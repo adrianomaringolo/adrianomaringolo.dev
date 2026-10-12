@@ -3,6 +3,10 @@
   "date": "2026-10-03",
   "type": "carousel",
   "template": "explicador-tecnico",
+  "tags": [
+    "educação",
+    "contratar site"
+  ],
   "format": "1080x1350",
   "slides": [
     {
@@ -53,5 +57,16 @@
     "conversao",
     "presencadigital",
     "webdesign"
-  ]
+  ],
+  "revisions": [
+    {
+      "note": "a imagem não está muito clara, não está fácil identificar os elementos. Além disso, precisam ser melhor distribuídos verticalmente",
+      "requestedAt": "2026-10-07T14:40",
+      "requestedBy": "admin",
+      "resolvedAt": "2026-10-07T14:58",
+      "resolvedTo": "pendente"
+    }
+  ],
+  "revisionCount": 1,
+  "revisedAt": "2026-10-07T14:58"
 }

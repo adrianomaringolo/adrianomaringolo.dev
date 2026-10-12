@@ -4,6 +4,7 @@
   "postedAt": "2026-08-26",
   "status": "postado",
   "type": "carousel",
+  "tags": ["educação", "contratar site"],
   "format": "1080x1350",
   "slides": [
     { "file": "slide-01.html", "title": "Capa", "description": "Hook 'Que tipo de site o seu negócio precisa?' + collage sketch com os 6 formatos em mini browsers rotulados" },
