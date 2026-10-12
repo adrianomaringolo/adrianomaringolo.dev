@@ -1,0 +1,31 @@
+{
+  "title": "Feliz Dia das Crianças",
+  "date": "2026-10-12",
+  "type": "single",
+  "template": "foto-protagonista",
+  "tags": [
+    "humano",
+    "carreira"
+  ],
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Post único",
+      "description": "Recriação em IA da foto do Adriano, como personagem de filme infantil: menino sorridente de óculos montando uma torre de blocos coloridos, sala com céu azul, véu claro no topo; texto navy. Eyebrow: \"Todo dev adora brincar de construir.\" Título: \"Feliz Dia das Crianças!\"."
+    }
+  ],
+  "caption": "🧱 Feliz Dia das Crianças!\n\nTodo dev adora brincar de construir. No fundo, a gente continua fazendo o que fazia no tapete da sala: pega uma peça, encaixa outra, derruba, tenta de novo e se diverte quando a coisa fica de pé. 😄\n\nQue você não perca a sua curiosidade, a sua vontade de construir e deixe a sua imaginação voar. 🚀\n\n💬 Qual foi o seu brinquedo favorito de criança? Conta aqui 👇",
+  "hashtags": [
+    "diadascriancas",
+    
+    "curiosidade",
+    "imaginacao",
+    "dev",
+    "devbr",
+    "programacao",
+    "desenvolvimentoweb",
+    "carreiradev",
+    "tecnologia"
+  ]
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #0a1226; }
+
+  /* foto em tela cheia, sem scrim: o céu da imagem é a área limpa do título */
+  .bg-photo { position: absolute; inset: 0;
+    background: #779ed1 url('foto-01.jpg') center -150px / 1080px auto no-repeat; }
+
+  /* véu claro no topo: segura o texto navy sobre a estante e some antes do rosto */
+  .scrim-top { position: absolute; top: 0; left: 0; right: 0; height: 42%;
+    background: linear-gradient(to bottom,
+      rgba(255,255,255,0.86)  0%,
+      rgba(255,255,255,0.72) 40%,
+      rgba(255,255,255,0.38) 72%,
+      rgba(255,255,255,0.00) 100%); }
+
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+
+  .content { position: absolute; top: 0; left: 0; right: 0; z-index: 10; padding: 84px 84px 0; }
+
+  .eyebrow { font-size: 30px; font-weight: 700; letter-spacing: -0.01em;
+    color: #0a1226; margin-bottom: 20px; }
+
+  .title { font-size: 100px; font-weight: 900; line-height: 1.0; letter-spacing: -0.04em;
+    color: #0a1226; }
+  .title em { font-style: normal; background: linear-gradient(90deg, #4338ca, #1e1b8f);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 24px; font-weight: 700; color: #0a1226; z-index: 30;
+    background: rgba(255,255,255,0.88); padding: 8px 18px; border-radius: 999px; }
+  .handle em { font-style: normal; color: #4338ca; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-photo"></div>
+
+  <div class="scrim-top"></div>
+
+  <div class="accent-left"></div>
+  <div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Todo dev adora brincar de construir.</div>
+    <h1 class="title">Feliz Dia<br>das <em>Crianças!</em></h1>
+  </div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
