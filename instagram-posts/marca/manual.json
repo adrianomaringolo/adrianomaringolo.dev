@@ -1,0 +1,58 @@
+{
+  "titulo": "Identidade visual — Adriano Maringolo",
+  "status": "aprovado",
+  "versao": 1,
+  "data": "2026-10-12",
+  "html": "manual.html",
+  "pdf": "identidade-visual-adriano-maringolo.pdf",
+  "paginas": [
+    {
+      "file": "pagina-01.png",
+      "titulo": "Capa"
+    },
+    {
+      "file": "pagina-02.png",
+      "titulo": "Essência"
+    },
+    {
+      "file": "pagina-03.png",
+      "titulo": "Tom de voz"
+    },
+    {
+      "file": "pagina-04.png",
+      "titulo": "Logotipo"
+    },
+    {
+      "file": "pagina-05.png",
+      "titulo": "Combinações aprovadas"
+    },
+    {
+      "file": "pagina-06.png",
+      "titulo": "Espaço e tamanho"
+    },
+    {
+      "file": "pagina-07.png",
+      "titulo": "Usos incorretos"
+    },
+    {
+      "file": "pagina-08.png",
+      "titulo": "Paleta principal"
+    },
+    {
+      "file": "pagina-09.png",
+      "titulo": "Cores de apoio"
+    },
+    {
+      "file": "pagina-10.png",
+      "titulo": "Tipografia"
+    },
+    {
+      "file": "pagina-11.png",
+      "titulo": "Redes sociais"
+    },
+    {
+      "file": "pagina-12.png",
+      "titulo": "Aplicação"
+    }
+  ]
+}

@@ -192,6 +192,16 @@ fim de semana de manhã para frases e cases.
 
 ## Paleta
 
+Fonte: `marca/MARCA.md` (manual da marca). Para mudar uma cor, mude lá e rode `/manual-marca manual`.
+
+### Marca (logotipo, assinatura, materiais fora dos slides)
+| Papel | Hex |
+|---|---|
+| Marinho (cor da marca, logotipo) | `#1e3969` |
+| Marinho profundo (tom sobre tom) | `#172b52` |
+
+O marinho **não** é fundo nem cor de texto dos slides; ele vive no logotipo e nos materiais da marca.
+
 ### Claro (slides internos — padrão)
 | Papel | Hex |
 |---|---|
@@ -253,7 +263,11 @@ destaque. Nunca como fundo de área grande.
 - **Fundo escuro**: grid de linhas indigo 54px ou `.bg-dots` claro + glows radiais.
 - **CTA**: `cta-box` com borda cyan translúcida e `adrianomaringolo.dev` em gradiente 50px.
 
-Não há logo — a marca é o gradiente + o handle + a fonte.
+- **Logo**: `assets/logos/logo-horizontal.svg` (claro) e `logo-horizontal-negativo.svg` (escuro).
+  **Não entra nos slides dos posts** (decisão do dono da marca); vale para e-mail, site, cartão e capas fora do feed.
+- **Símbolo**: `assets/logos/simbolo.svg` e `avatar.svg` (foto de perfil das redes). Também fora dos slides.
+
+Nos slides, a marca é o gradiente + o handle + a fonte.
 
 ---
 
