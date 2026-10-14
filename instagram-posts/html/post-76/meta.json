@@ -1,0 +1,61 @@
+{
+  "title": "ASM Marketing Digital: autoridade que vira conversa",
+  "date": "2026-10-14",
+  "type": "carousel",
+  "template": "case-showcase",
+  "tags": [
+    "prova",
+    "case"
+  ],
+  "format": "1080x1350",
+  "caption": "💼 Case: ASM Marketing Digital\n\nA ASM, da Anelita Scaliza Massucate, é uma consultoria de posicionamento de marca e redes sociais para empresas e profissionais autônomos. O site precisava fazer duas coisas: mostrar a autoridade dela e transformar a visita em conversa.\n\nO que o site tem:\n→ 📋 diagnóstico digital gratuito: oito perguntas sobre o Instagram do negócio, com o contato indo direto para o WhatsApp\n→ 📱 pensado para o celular, com o diagnóstico já na primeira tela\n→ 📸 feed do Instagram e e-book gratuito para baixar\n→ ❓ perguntas frequentes que também ajudam o Google e as IAs a entender quem é a ASM\n→ ⚡ nota 100 nas quatro categorias do Lighthouse no computador\n\n👉 Arraste para ver o site por dentro.\n💬 Quer um site que apresente o seu negócio assim? Me chame no direct ou acesse o link da bio.",
+  "hashtags": [
+    "sitesprofissionais",
+    "siteinstitucional",
+    "webdesign",
+    "presencadigital",
+    "pequenosnegocios",
+    "marketingdigital",
+    "sitesobmedida",
+    "casedesucesso",
+    "criacaodesites",
+    "consultoria"
+  ],
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Cliente, headline e o hero do site num mockup de navegador"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Desktop",
+      "description": "A página inteira em dois painéis: do hero às perguntas frequentes"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Mobile",
+      "description": "Três telas no celular: hero, serviços e perguntas frequentes"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Diagnóstico gratuito",
+      "description": "Página do diagnóstico no navegador e a chamada no celular"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Funcionalidades e Lighthouse",
+      "description": "Seis funcionalidades e as notas do Lighthouse"
+    },
+    {
+      "file": "slide-06.html",
+      "title": "Depoimento",
+      "description": "Depoimento da Anelita, fundadora da ASM"
+    },
+    {
+      "file": "slide-07.html",
+      "title": "CTA",
+      "description": "Posso construir para o seu negócio"
+    }
+  ]
+}

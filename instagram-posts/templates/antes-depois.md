@@ -118,4 +118,4 @@ hachuradas com rótulo.
 
 ## Posts de referência
 
-Nenhum ainda. Candidato imediato: o case ASM Marketing Digital (antes e depois do redesign), hoje pautado como `case-showcase`.
+`post-77` (ASM Marketing Digital, redesign do site: capa dividida e 3 mudanças em variação horizontal).

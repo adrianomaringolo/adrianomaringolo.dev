@@ -1,0 +1,52 @@
+{
+  "title": "ASM Marketing Digital: antes e depois do redesign",
+  "date": "2026-10-14",
+  "type": "carousel",
+  "template": "antes-depois",
+  "tags": [
+    "prova",
+    "case",
+    "antes e depois"
+  ],
+  "format": "1080x1350",
+  "caption": "🔄 Antes e depois: o redesign do site da ASM Marketing Digital\n\nNo antes, o site como foi lançado em 2025. No depois, como ele está hoje, redesenhado sobre o manual de identidade visual da ASM, com cores, fontes e um monograma próprios.\n\nO que mudou:\n→ 🎨 primeira tela com as cores, as fontes e o monograma da marca\n→ ☕ serviços sobre o café da paleta, em lista fácil de ler\n→ 👩 a história da fundadora organizada em retrato, números e trajetória\n\nO conteúdo é praticamente o mesmo. O que mudou é que agora o site parece a marca.\n\n👉 Arraste para ver cada mudança.\n💬 A sua marca mudou e o site ainda não? Me chame no direct.",
+  "hashtags": [
+    "antesedepois",
+    "redesign",
+    "identidadevisual",
+    "webdesign",
+    "sitesprofissionais",
+    "presencadigital",
+    "pequenosnegocios",
+    "marketingdigital",
+    "sitesobmedida",
+    "criacaodesites"
+  ],
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Tela dividida: metade esquerda do hero antigo, metade direita do hero novo"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Mudança 1: Primeira tela",
+      "description": "Primeira tela: antes em cima, depois embaixo, e por que importa"
+    },
+    {
+      "file": "slide-03.html",
+      "title": "Mudança 2: Serviços",
+      "description": "Serviços: antes em cima, depois embaixo, e por que importa"
+    },
+    {
+      "file": "slide-04.html",
+      "title": "Mudança 3: Quem sou eu",
+      "description": "Quem sou eu: antes em cima, depois embaixo, e por que importa"
+    },
+    {
+      "file": "slide-05.html",
+      "title": "Fecho",
+      "description": "Síntese do depois e convite"
+    }
+  ]
+}

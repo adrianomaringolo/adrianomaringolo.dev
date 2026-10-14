@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-10-14 (post-74 e post-75: tech humor, coisas digitais que nos controlam e o "algo simples" do cliente · post-73: tech humor, se a vida tivesse uma barra de busca · post-72: primeira arte pronta importada · revisões do post-37, post-38 e post-63 · post-71: versão única e clara da capa do post-37 · post-64 a post-70: lado humano da série ilustrada com as ilustrações novas (fotografia, cozinha, videogame, palestra, call com cliente, blocos, pôr do sol) · post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
+> Última atualização: 2026-10-14 (post-76 e post-77: case ASM Marketing Digital (apresentação e antes e depois) · post-74 e post-75: tech humor, coisas digitais que nos controlam e o "algo simples" do cliente · post-73: tech humor, se a vida tivesse uma barra de busca · post-72: primeira arte pronta importada · revisões do post-37, post-38 e post-63 · post-71: versão única e clara da capa do post-37 · post-64 a post-70: lado humano da série ilustrada com as ilustrações novas (fotografia, cozinha, videogame, palestra, call com cliente, blocos, pôr do sol) · post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -64,7 +64,7 @@ registrado também no `meta.json` do post.
 | post-49 | Como a gente cria software, por dentro | 2026-10-04 | Carrossel | `explicador-tecnico` | 7 | 🟢 | Série "Software para quem não é dev" 2/3 (pilar 2/4): o ciclo de criação de software, com exemplo de agenda de clínica |
 | post-50 | O que é código? | 2026-10-04 | Único | `explicador-tecnico` | 1 | 🟡 | Série "Software para quem não é dev" 3/3 (pilar 1/4): a mesma regra de frete em português e em código |
 | post-51 | A IA já está no seu dia | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | IA no dia a dia (pilar 1/5): um momento do dia por slide; fecho liga ao GEO (post-37) |
-| post-52 | Ainda vale estudar programação na era da IA? | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | Ainda vale estudar programação na era da IA? (pilar 4/5, persona C): opinião em 1ª pessoa |
+| post-52 | Ainda vale estudar programação na era da IA? | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🟡 | Ainda vale estudar programação na era da IA? (pilar 4/5, persona C): opinião em 1ª pessoa |
 | post-53 | Posso perder um cliente por não ter um site? | 2026-10-07 | Carrossel | `tipografico` | 7 | 🟡 | Jornada do cliente perdido (pilar 1): indicação → pesquisa → dúvida → decisão. Trio "perder cliente sem site", 1 de 3 |
 | post-54 | Onde o cliente escapa: 4 momentos sem site | 2026-10-07 | Carrossel | `foto-editorial` | 7 | 🟡 | 4 momentos de perda (pilar 1): Google, IA, fora do horário, comparação; foto Pexels na capa. Trio, 2 de 3 |
 | post-55 | Dá para viver sem site. Até alguém pesquisar seu nome. | 2026-10-07 | Único | `frase-unica` | 1 | 🟡 | Resposta honesta (pilar 1/5): quando dá para viver sem site e quando não; nuance na legenda. Trio, 3 de 3 |
@@ -85,9 +85,11 @@ registrado também no `meta.json` do post.
 | post-70 | Depois de 17 anos, o código muda. O cuidado, não | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/carreira (pilar 5): 17 anos de código, o que não muda. Série ilustrada |
 | post-71 | O ChatGPT recomenda o seu negócio? (versão única) | 2026-10-14 | Único | `explicador-tecnico` | 1 | 🟡 | Variante clara e simplificada da capa do post-37, para usar como slide único (AEO/GEO, pilar 1) |
 | post-72 | Muitas abas abertas no cérebro | 2026-10-14 | Único | importado | 1 | 🟡 | Humano (pilar 5): muitas abas abertas no cérebro, humor de rotina. Série tech humor 1, arte pronta importada (sem HTML) |
-| post-73 | Se a vida tivesse uma barra de busca | 2026-10-14 | Único | importado | 1 | 🔵 | Humano (pilar 5): as buscas que a gente faria na vida. Série tech humor 2, arte pronta importada (sem HTML) |
-| post-74 | Coisas digitais que nos controlam | 2026-10-14 | Único | importado | 1 | 🔵 | Humano (pilar 5): os apps que puxam as cordinhas da rotina. Série tech humor 3, arte pronta importada (sem HTML) |
-| post-75 | Quando o cliente pede algo simples | 2026-10-14 | Único | importado | 1 | 🔵 | Humano/dev (pilar 5/4): o "só um formulário" e tudo o que mora atrás dele. Série tech humor 4, arte pronta importada (sem HTML) |
+| post-73 | Se a vida tivesse uma barra de busca | 2026-10-14 | Único | importado | 1 | 🟡 | Humano (pilar 5): as buscas que a gente faria na vida. Série tech humor 2, arte pronta importada (sem HTML) |
+| post-74 | Coisas digitais que nos controlam | 2026-10-14 | Único | importado | 1 | 🟡 | Humano (pilar 5): os apps que puxam as cordinhas da rotina. Série tech humor 3, arte pronta importada (sem HTML) |
+| post-75 | Quando o cliente pede algo simples | 2026-10-14 | Único | importado | 1 | 🟡 | Humano/dev (pilar 5/4): o "só um formulário" e tudo o que mora atrás dele. Série tech humor 4, arte pronta importada (sem HTML) |
+| post-76 | ASM Marketing Digital: autoridade que vira conversa | 2026-10-14 | Carrossel | `case-showcase` | 7 | 🔵 | Case de projeto (pilar 2): apresentação do site, desktop, mobile, diagnóstico gratuito, funcionalidades + Lighthouse, depoimento da Anelita. Pauta p805a94 |
+| post-77 | ASM Marketing Digital: antes e depois do redesign | 2026-10-14 | Carrossel | `antes-depois` | 5 | 🔵 | Prova (pilar 2): site de lançamento (2025) × site atual em 3 mudanças (primeira tela, serviços, quem sou eu). 1º post no antes-depois |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
@@ -600,6 +602,18 @@ registrado também no `meta.json` do post.
 - **Arte:** `html/post-75/slide-01.png` (original, versionado) · **PNGs:** `output/post-75/` (cópia do export)
 - ⚠️ Texto da arte com erro: "Processamento assincrono" (card Fila; o certo é "assíncrono"). Corrigir na origem e reimportar antes de publicar. Piada de dev (persona C) e sobre cliente: legenda carinhosa, sem deboche.
 - **Hashtags:** techhumor, humor, memesdev, programacao, desenvolvedor, vidadedev, devlife, tecnologia, freelancer
+### post-76 — ASM Marketing Digital: autoridade que vira conversa (carrossel)
+- **Data:** 2026-10-14 · **Tipo:** carrossel (1080×1350) · **Template:** `case-showcase` · **Slides:** 7
+- **HTML:** `html/post-76/` · **PNGs:** `output/post-76/`
+- Mesmo formato dos cases post-06/post-16: capa com o hero; site completo no desktop em dois painéis; três telas no celular; diagnóstico gratuito (navegador + celular); funcionalidades + Lighthouse (100 nas quatro no desktop, 94 de performance no celular, dados do portfolio); depoimento da Anelita; CTA. Prints do site no ar (asmmktdigital.com.br) em 14/10/2026.
+- **Hashtags:** sitesprofissionais, siteinstitucional, webdesign, presencadigital, pequenosnegocios, marketingdigital, sitesobmedida, casedesucesso, criacaodesites, consultoria
+
+### post-77 — ASM Marketing Digital: antes e depois do redesign (carrossel)
+- **Data:** 2026-10-14 · **Tipo:** carrossel (1080×1350) · **Template:** `antes-depois` · **Slides:** 5
+- **HTML:** `html/post-77/` · **PNGs:** `output/post-77/`
+- Capa com tela dividida (hero antigo × hero novo, antes mantido em cores a pedido); 3 mudanças com antes em cima e depois embaixo (variação horizontal do template, porque as telas são largas); fecho com os dois desfechos e o CTA.
+- "Antes": prints originais do portfolio no histórico deste repositório (`apps/portfolio/public/projects/asm-marketing/{hero,services,about}.jpeg`, commit `2c7e5b3`, out/2025; removidos em `e1246e8`). "Depois": site no ar em 14/10/2026, recortado na mesma proporção de cada print antigo.
+- **Hashtags:** antesedepois, redesign, identidadevisual, webdesign, sitesprofissionais, presencadigital, pequenosnegocios, marketingdigital, sitesobmedida, criacaodesites
 
 ## Como manter este arquivo
 
