@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-10-14 (revisões do post-37, post-38 e post-63 · post-71: versão única e clara da capa do post-37 · post-64 a post-70: lado humano da série ilustrada com as ilustrações novas (fotografia, cozinha, videogame, palestra, call com cliente, blocos, pôr do sol) · post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
+> Última atualização: 2026-10-14 (post-72: primeira arte pronta importada · revisões do post-37, post-38 e post-63 · post-71: versão única e clara da capa do post-37 · post-64 a post-70: lado humano da série ilustrada com as ilustrações novas (fotografia, cozinha, videogame, palestra, call com cliente, blocos, pôr do sol) · post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -75,7 +75,7 @@ registrado também no `meta.json` do post.
 | post-60 | Não basta escrever o código | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Serviços (pilar 3): entender o negócio e propor a melhor solução. Exemplo com ilustração em círculo grande |
 | post-61 | Antes do código, a pergunta certa | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Educação (pilar 1): o projeto começa pelo negócio. Exemplo com card da ilustração + balão |
 | post-62 | Prazer, eu sou o Adriano | 2026-10-14 | Carrossel | `frase-unica` | 2 | 🟡 | Serviços (pilar 3): apresentação em capa + fecho com CTA. Exemplo com ilustrações |
-| post-63 | A IA não precisa descansar. Você, sim | 2026-10-14 | Único | `frase-unica` | 1 | 🔵 | Humano (pilar 5): post de sexta com a ilustração do cachorro |
+| post-63 | A IA não precisa descansar. Você, sim | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): post de sexta com a ilustração do cachorro |
 | post-64 | Fotografar me ensinou a enquadrar | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): fotografia como hobby; enquadrar é escolher o que fica fora. Série ilustrada |
 | post-65 | Receita boa é processo | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5/1): cozinhar e construir site são processo. Série ilustrada |
 | post-66 | Sexta à noite, o controle é outro | 2026-10-14 | Único | `frase-unica` | 1 | 🔵 | Humano (pilar 5): post de sexta, videogame e descanso. Série ilustrada |
@@ -83,7 +83,8 @@ registrado também no `meta.json` do post.
 | post-68 | Na primeira conversa, eu mais escuto do que falo | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/bastidor (pilar 5/3, sem CTA de orçamento): a primeira conversa é ouvir. Série ilustrada |
 | post-69 | Tudo que é sólido se constrói peça por peça | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): em casa com as crianças, blocos; base antes dos detalhes. Série ilustrada |
 | post-70 | Depois de 17 anos, o código muda. O cuidado, não | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/carreira (pilar 5): 17 anos de código, o que não muda. Série ilustrada |
-| post-71 | O ChatGPT recomenda o seu negócio? (versão única) | 2026-10-14 | Único | `explicador-tecnico` | 1 | 🔵 | Variante clara e simplificada da capa do post-37, para usar como slide único (AEO/GEO, pilar 1) |
+| post-71 | O ChatGPT recomenda o seu negócio? (versão única) | 2026-10-14 | Único | `explicador-tecnico` | 1 | 🟡 | Variante clara e simplificada da capa do post-37, para usar como slide único (AEO/GEO, pilar 1) |
+| post-72 | Muitas abas abertas no cérebro | 2026-10-14 | Único | importado | 1 | 🔵 | Humano (pilar 5): muitas abas abertas no cérebro, humor de rotina. Série tech humor 1, arte pronta importada (sem HTML) |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
@@ -576,6 +577,11 @@ registrado também no `meta.json` do post.
 - **HTML:** `html/post-71/` · **PNGs:** `output/post-71/`
 - Pedido na revisão do post-37: só a capa, em fundo claro, mais simples e visual. Chat com a pergunta em balão gradiente, fontes dos concorrentes e "seusite.com.br — Não citado".
 - **Hashtags:** geo, aeo, seo, chatgpt, inteligenciaartificial, marketingdigital, presencadigital, sitesprofissionais, pequenosnegocios, empreendedorismo
+### post-72 — Muitas abas abertas no cérebro (único, importado)
+- **Data:** 2026-10-14 · **Tipo:** único (arte pronta, 1122×1402) · **Template:** nenhum (`"imported": true`) · **Slides:** 1
+- **Arte:** `html/post-72/slide-01.png` (original, versionado) · **PNGs:** `output/post-72/` (cópia do export)
+- ⚠️ Título da arte com erro: "do no seu cérebro?" (o certo é "no seu cérebro?"). Corrigir na origem e reimportar antes de publicar.
+- **Hashtags:** techhumor, humor, memes, rotina, produtividade, vidaadulta, homeoffice, empreendedorismo, desenvolvedor
 
 ## Como manter este arquivo
 

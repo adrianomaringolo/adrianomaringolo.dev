@@ -5,6 +5,9 @@
  * Usage:
  *   node scripts/export.mjs post-01
  *   node scripts/export.mjs post-01 --slides 1,3
+ *
+ * Slides whose "file" is an image (post importado, arte pronta: slide-01.png/.jpg/.webp)
+ * are copied from html/<post>/ to output/<post>/ as PNG instead of being rendered.
  */
 
 import puppeteer from 'puppeteer';
@@ -53,7 +56,8 @@ fs.mkdirSync(outputDir, { recursive: true });
 
 console.log(`\n📸  "${meta.title}"  ·  ${postId}  ·  ${format}\n`);
 
-// Export PNGs
+const isHtml = slide => slide.file.endsWith('.html');
+
 const CHROME_CANDIDATES = [
   process.env.CHROME_PATH,
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
@@ -72,7 +76,30 @@ const browser = await puppeteer.launch({
   args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security', '--allow-file-access-from-files'],
 });
 
-for (const slide of toExport) {
+// Imported slides (ready-made art): PNG is copied as is; JPG/WebP is converted to PNG
+for (const slide of toExport.filter(s => !isHtml(s))) {
+  const src = path.join(htmlDir, slide.file);
+  if (!fs.existsSync(src)) {
+    console.error(`  ❌  ${slide.file} not found in html/${postId}`);
+    process.exit(1);
+  }
+  const pngName = slide.file.replace(/\.[^.]+$/, '.png');
+  const pngPath = path.join(outputDir, pngName);
+  if (/\.png$/i.test(slide.file)) {
+    fs.copyFileSync(src, pngPath);
+  } else {
+    const page = await browser.newPage();
+    await page.setViewport({ width, height, deviceScaleFactor: 2 });
+    await page.setContent(`<body style="margin:0"><img src="file://${src}" style="width:${width}px;height:${height}px;object-fit:cover;display:block"></body>`, { waitUntil: 'networkidle0' });
+    await page.screenshot({ path: pngPath, type: 'png', clip: { x: 0, y: 0, width, height } });
+    await page.close();
+  }
+  console.log(`  📥  ${pngName}  —  ${slide.title} (imagem importada)`);
+}
+
+// Export PNGs
+const htmlSlides = toExport.filter(isHtml);
+for (const slide of htmlSlides) {
   const htmlPath = path.join(htmlDir, slide.file);
   const pngName = slide.file.replace('.html', '.png');
   const pngPath = path.join(outputDir, pngName);
@@ -94,7 +121,7 @@ await browser.close();
 const hashtags = (meta.hashtags || []).map(t => `#${t}`).join(' ');
 const captionMd = `# ${meta.title}
 
-> Post gerado em ${meta.date} · ${meta.type} · ${format}
+> Post ${meta.imported ? 'importado' : 'gerado'} em ${meta.date} · ${meta.type} · ${format}
 
 ---
 

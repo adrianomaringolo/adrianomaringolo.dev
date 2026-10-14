@@ -92,6 +92,35 @@ Primeiros: `post-60` a `post-63`.
 cada quadro, gera a versão `3x/` e lista os arquivos; depois renomeie com o momento
 (`10-reuniao.png`) e registre no `ASSETS.md`.
 
+### 4.2 Série tech humor (arte pronta, eventual)
+
+Posts de humor sobre a vida com tecnologia: abas demais abertas, Wi-Fi que cai na hora errada,
+"funciona na minha máquina", senha esquecida. A **arte chega pronta** (o Adriano entrega a imagem);
+não há HTML nem template. Tag `série: tech humor` no `meta.json`. Primeiro: `post-72` (muitas abas
+abertas no cérebro).
+
+- **Papel no feed:** respiro e compartilhamento. Humor que o seguidor reconhece no próprio dia gera
+  envio para amigos e alcance fora dos seguidores. Não ensina nem vende: aproxima.
+- **Frequência:** eventual. **No máximo 1 a cada 2 semanas**, nunca dois seguidos e nunca na mesma
+  semana de um post de oferta (pilar 3) nem como abertura de série educativa. Ocupa o slot de
+  frase (Seg ou Sáb, seção 6), preferindo sábado de manhã ou sexta à tarde.
+- **Pilar:** 5 (humano e opinião). Não conta como venda direta.
+- **Criatividade:** fora do catálogo de templates. No mix, conta como **nível 2 (Expressivo)**, junto
+  com a série ilustrada: as duas somadas respeitam o limite de 3 Expressivos a cada 10 posts.
+- **Público:** a piada é do dia a dia de quem usa tecnologia (persona A), não piada interna de dev.
+  Humor de dev puro (persona C) entra com moderação, igual ao pilar 4.
+- **Tom:** leve, autoirônico, sem deboche de cliente, de concorrente ou de quem "não entende de
+  tecnologia". Se a piada precisa explicar, não é para o feed.
+- **Legenda:** descontraída, curta (2 a 4 linhas), no tom de quem conversa com o seguidor, com
+  emoji à vontade. Brinca com a situação, não explica a piada e **não precisa ligar ao serviço de
+  sites**: o objetivo é rir junto e gerar identificação, não educar nem vender. Fecha com pergunta
+  leve para comentar ou "marque quem vive assim". Sem CTA de orçamento, sem lista de benefícios.
+- **Produção:** a arte vem pronta e entra com `/instagram-post importar <imagem>`, que cria o post,
+  a legenda e manda para a galeria. Revise o texto da arte antes de importar (acentos, concordância):
+  erro na imagem só se corrige na origem.
+- **Pautas:** linhas com "Série tech humor" na descrição do `PAUTAS.md`, quando houver ideia
+  combinada antes da arte.
+
 ---
 
 ## 5. Frequência recomendada

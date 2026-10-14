@@ -1,6 +1,7 @@
 {
   "title": "A IA não precisa descansar. Você, sim",
   "date": "2026-10-14",
+  "status": "aprovado",
   "type": "single",
   "template": "frase-unica",
   "tags": [
@@ -37,6 +38,5 @@
       "resolvedTo": "pendente"
     }
   ],
-  "revisionCount": 1,
-  "revisedAt": "2026-10-14T15:16"
+  "revisionCount": 1
 }
