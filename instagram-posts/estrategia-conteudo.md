@@ -69,6 +69,29 @@ Outros devs, tech leads, recrutadores.
 
 **Prioridade de esforço:** Reels e Stories primeiro (alcance + conversão). Carrossel para autoridade. Post de frase é o "preenchimento" barato que mantém a consistência.
 
+### 4.1 Série ilustrada (posts leves com o Adriano em cartoon)
+
+Posts únicos (ou capa + fecho, no máximo 2 slides) com uma das ilustrações de
+`assets/images-perfil/` em destaque e uma frase curta. Tag `série: ilustrado` no `meta.json`.
+Primeiros: `post-60` a `post-63`.
+
+- **Papel no feed:** o post de frase da semana (Seg ou Sáb, seção 6). Põe rosto na marca sem
+  exigir foto nem vídeo e reforça que quem atende é uma pessoa, não uma agência.
+- **Frequência:** no máximo 1 por semana. A série é nível 2 (Expressivo) no mix de criatividade;
+  conte-a nos 3 de nível 2 a cada 10 posts.
+- **Pilares:** 5 (humano), 3 (serviços, conta como venda direta quando tiver CTA de orçamento) e
+  1 (educação em dose curta).
+- **Ilustração:** cada uma combina com um tipo de mensagem (tabela em `assets/ASSETS.md`). Não
+  repita a mesma ilustração em menos de 6 semanas; quando o estoque acabar, adicione novas.
+- **Visual:** ilustração grande (círculo, arco ou card de 620–900px, versão `3x/`), frase em
+  Manrope 80–100px, fundo claro ou escuro alternando. Nunca em tela cheia.
+- **Pautas:** linhas com "Série ilustrada" na descrição do `PAUTAS.md`.
+
+**Imagens novas:** coloque a folha (grade com bordas brancas) em `assets/images-perfil/` e rode
+`python3 scripts/recortar-ilustracoes.py "assets/images-perfil/<arquivo>.png"`. O script recorta
+cada quadro, gera a versão `3x/` e lista os arquivos; depois renomeie com o momento
+(`10-reuniao.png`) e registre no `ASSETS.md`.
+
 ---
 
 ## 5. Frequência recomendada

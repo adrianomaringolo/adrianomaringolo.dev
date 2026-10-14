@@ -1,6 +1,7 @@
 {
   "title": "Enquete: seu negócio tem site hoje?",
   "date": "2026-10-03",
+  "status": "aprovado",
   "type": "single",
   "template": "elemento-central",
   "tags": ["engajamento", "presença digital"],
