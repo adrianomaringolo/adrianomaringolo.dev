@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-10-14 (post-72: primeira arte pronta importada · revisões do post-37, post-38 e post-63 · post-71: versão única e clara da capa do post-37 · post-64 a post-70: lado humano da série ilustrada com as ilustrações novas (fotografia, cozinha, videogame, palestra, call com cliente, blocos, pôr do sol) · post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
+> Última atualização: 2026-10-14 (post-74 e post-75: tech humor, coisas digitais que nos controlam e o "algo simples" do cliente · post-73: tech humor, se a vida tivesse uma barra de busca · post-72: primeira arte pronta importada · revisões do post-37, post-38 e post-63 · post-71: versão única e clara da capa do post-37 · post-64 a post-70: lado humano da série ilustrada com as ilustrações novas (fotografia, cozinha, videogame, palestra, call com cliente, blocos, pôr do sol) · post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -49,7 +49,7 @@ registrado também no `meta.json` do post.
 | post-34 | Seu site existe. O Google sabe disso? | 2026-10-02 | Carrossel | `tipografico` | 8 | 🟡 | SEO (pilar 1) — os 5 motivos mais comuns para o site não aparecer no Google. Trio de ganchos sobre ranqueamento, 1 de 3 |
 | post-35 | Por que o Google mostra o concorrente e não você? | 2026-10-02 | Carrossel | `foto-editorial` | 8 | 🟡 | SEO local (pilar 1) — 4 diferenças "você × concorrente". Foto Pexels na capa. Trio sobre ranqueamento, 2 de 3 |
 | post-36 | Você está na página 2 do Google? | 2026-10-02 | Carrossel | `explicador-tecnico` | 7 | 🟡 | Como o Google decide (pilar 1/4) — rastrear, indexar, ranquear, com página de resultados simulada na capa. Trio sobre ranqueamento, 3 de 3 |
-| post-37 | O ChatGPT recomenda o seu negócio? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | AEO/GEO (pilar 1): como a IA encontra, entende e cita um site; chat simulado na capa |
+| post-37 | O ChatGPT recomenda o seu negócio? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🟡 | AEO/GEO (pilar 1): como a IA encontra, entende e cita um site; chat simulado na capa |
 | post-38 | 5 coisas que o seu site faz que espantam cliente | 2026-10-03 | Carrossel | `foto-editorial` | 8 | 🔵 | 5 erros silenciosos que afastam cliente (pilar 1); foto Pexels na capa |
 | post-39 | 12 perguntas antes de contratar quem vai fazer o seu site | 2026-10-03 | Carrossel | `tipografico` | 8 | 🔵 | 12 perguntas antes de contratar quem vai fazer o site (pilar 1), em 4 blocos + sinais de alerta |
 | post-40 | Glossário: o que o dev fala e o que ele quer dizer | 2026-10-03 | Carrossel | `tipografico` | 8 | 🔵 | Glossário dev → dono de negócio (pilar 1): domínio, hospedagem, responsivo, SEO, CMS, deploy |
@@ -58,7 +58,7 @@ registrado também no `meta.json` do post.
 | post-43 | Quanto tempo leva para construir um site? | 2026-10-03 | Carrossel | `tipografico` | 7 | 🔵 | Cronograma real de um site institucional, semana a semana (pilar 1/3) |
 | post-44 | Enquete: seu negócio tem site hoje? | 2026-10-03 | Único | `elemento-central` | 1 | 🟡 | Enquete (engajamento): seu negócio tem site? Resposta A–D nos comentários |
 | post-45 | Mito ou verdade: 3 frases sobre sites | 2026-10-03 | Carrossel | `tipografico` | 6 | 🔵 | Mito ou verdade (engajamento): site bonito converte · site lento perde cliente · SEO é coisa de agência |
-| post-46 | Sob medida não é luxo | 2026-10-03 | Único | `frase-unica` | 1 | 🔵 | Frase (pilar 5): sob medida não é luxo, é não pagar por outro site daqui a um ano |
+| post-46 | Sob medida não é luxo | 2026-10-03 | Único | `frase-unica` | 1 | 🟡 | Frase (pilar 5): sob medida não é luxo, é não pagar por outro site daqui a um ano |
 | post-47 | Clean Code: 5 regras que eu aplico todo dia | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Clean Code (pilar 4, persona C): 5 regras com antes/depois em código |
 | post-48 | O que é desenvolvimento de software? | 2026-10-04 | Carrossel | `tipografico` | 7 | 🟢 | Série "Software para quem não é dev" 1/3 (pilar 1): desenvolvimento de software comparado a uma obra |
 | post-49 | Como a gente cria software, por dentro | 2026-10-04 | Carrossel | `explicador-tecnico` | 7 | 🟢 | Série "Software para quem não é dev" 2/3 (pilar 2/4): o ciclo de criação de software, com exemplo de agenda de clínica |
@@ -78,13 +78,16 @@ registrado também no `meta.json` do post.
 | post-63 | A IA não precisa descansar. Você, sim | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): post de sexta com a ilustração do cachorro |
 | post-64 | Fotografar me ensinou a enquadrar | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): fotografia como hobby; enquadrar é escolher o que fica fora. Série ilustrada |
 | post-65 | Receita boa é processo | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5/1): cozinhar e construir site são processo. Série ilustrada |
-| post-66 | Sexta à noite, o controle é outro | 2026-10-14 | Único | `frase-unica` | 1 | 🔵 | Humano (pilar 5): post de sexta, videogame e descanso. Série ilustrada |
+| post-66 | Sexta à noite, o controle é outro | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): post de sexta, videogame e descanso. Série ilustrada |
 | post-67 | O que eu aprendo, eu divido | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/autoridade (pilar 5/4): já palestrei, divido o que aprendo. Série ilustrada |
 | post-68 | Na primeira conversa, eu mais escuto do que falo | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/bastidor (pilar 5/3, sem CTA de orçamento): a primeira conversa é ouvir. Série ilustrada |
 | post-69 | Tudo que é sólido se constrói peça por peça | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): em casa com as crianças, blocos; base antes dos detalhes. Série ilustrada |
 | post-70 | Depois de 17 anos, o código muda. O cuidado, não | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/carreira (pilar 5): 17 anos de código, o que não muda. Série ilustrada |
 | post-71 | O ChatGPT recomenda o seu negócio? (versão única) | 2026-10-14 | Único | `explicador-tecnico` | 1 | 🟡 | Variante clara e simplificada da capa do post-37, para usar como slide único (AEO/GEO, pilar 1) |
-| post-72 | Muitas abas abertas no cérebro | 2026-10-14 | Único | importado | 1 | 🔵 | Humano (pilar 5): muitas abas abertas no cérebro, humor de rotina. Série tech humor 1, arte pronta importada (sem HTML) |
+| post-72 | Muitas abas abertas no cérebro | 2026-10-14 | Único | importado | 1 | 🟡 | Humano (pilar 5): muitas abas abertas no cérebro, humor de rotina. Série tech humor 1, arte pronta importada (sem HTML) |
+| post-73 | Se a vida tivesse uma barra de busca | 2026-10-14 | Único | importado | 1 | 🔵 | Humano (pilar 5): as buscas que a gente faria na vida. Série tech humor 2, arte pronta importada (sem HTML) |
+| post-74 | Coisas digitais que nos controlam | 2026-10-14 | Único | importado | 1 | 🔵 | Humano (pilar 5): os apps que puxam as cordinhas da rotina. Série tech humor 3, arte pronta importada (sem HTML) |
+| post-75 | Quando o cliente pede algo simples | 2026-10-14 | Único | importado | 1 | 🔵 | Humano/dev (pilar 5/4): o "só um formulário" e tudo o que mora atrás dele. Série tech humor 4, arte pronta importada (sem HTML) |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
@@ -582,6 +585,21 @@ registrado também no `meta.json` do post.
 - **Arte:** `html/post-72/slide-01.png` (original, versionado) · **PNGs:** `output/post-72/` (cópia do export)
 - ⚠️ Título da arte com erro: "do no seu cérebro?" (o certo é "no seu cérebro?"). Corrigir na origem e reimportar antes de publicar.
 - **Hashtags:** techhumor, humor, memes, rotina, produtividade, vidaadulta, homeoffice, empreendedorismo, desenvolvedor
+### post-73 — Se a vida tivesse uma barra de busca (único, importado)
+- **Data:** 2026-10-14 · **Tipo:** único (arte pronta, 1122×1402) · **Template:** nenhum (`"imported": true`) · **Slides:** 1
+- **Arte:** `html/post-73/slide-01.png` (original, versionado) · **PNGs:** `output/post-73/` (cópia do export)
+- Texto da arte revisado: sem erros.
+- **Hashtags:** techhumor, humor, memes, rotina, vidaadulta, produtividade, bemestar, desenvolvedor, empreendedorismo
+### post-74 — Coisas digitais que nos controlam (único, importado)
+- **Data:** 2026-10-14 · **Tipo:** único (arte pronta, 1122×1402) · **Template:** nenhum (`"imported": true`) · **Slides:** 1
+- **Arte:** `html/post-74/slide-01.png` (original, versionado) · **PNGs:** `output/post-74/` (cópia do export)
+- ⚠️ Texto da arte com erro: "sempre disponivel" (balão do WhatsApp; o certo é "disponível"). Corrigir na origem e reimportar antes de publicar.
+- **Hashtags:** techhumor, humor, memes, rotina, vidaadulta, redessociais, produtividade, desenvolvedor, empreendedorismo
+### post-75 — Quando o cliente pede algo simples (único, importado)
+- **Data:** 2026-10-14 · **Tipo:** único (arte pronta, 1122×1402) · **Template:** nenhum (`"imported": true`) · **Slides:** 1
+- **Arte:** `html/post-75/slide-01.png` (original, versionado) · **PNGs:** `output/post-75/` (cópia do export)
+- ⚠️ Texto da arte com erro: "Processamento assincrono" (card Fila; o certo é "assíncrono"). Corrigir na origem e reimportar antes de publicar. Piada de dev (persona C) e sobre cliente: legenda carinhosa, sem deboche.
+- **Hashtags:** techhumor, humor, memesdev, programacao, desenvolvedor, vidadedev, devlife, tecnologia, freelancer
 
 ## Como manter este arquivo
 

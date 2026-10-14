@@ -1,6 +1,7 @@
 {
   "title": "O ChatGPT recomenda o seu negócio?",
   "date": "2026-10-03",
+  "status": "aprovado",
   "type": "carousel",
   "template": "explicador-tecnico",
   "tags": [
@@ -68,6 +69,5 @@
       "resolvedTo": "pendente"
     }
   ],
-  "revisionCount": 1,
-  "revisedAt": "2026-10-14T15:17"
+  "revisionCount": 1
 }

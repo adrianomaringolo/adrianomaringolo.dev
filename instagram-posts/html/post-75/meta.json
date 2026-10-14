@@ -1,0 +1,32 @@
+{
+  "title": "Quando o cliente pede algo simples",
+  "date": "2026-10-14",
+  "type": "single",
+  "template": null,
+  "imported": true,
+  "creativity": 2,
+  "tags": [
+    "humano",
+    "série: tech humor"
+  ],
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.png",
+      "title": "Post único",
+      "description": "Arte pronta importada (1122×1402): cliente pedindo \"só um formulário\" e, atrás do dev, uma torre de autenticação, banco de dados, integrações, fila, testes, deploy e infraestrutura"
+    }
+  ],
+  "caption": "😅 “É só um formulário, coisa rápida.”\n\nO formulário: nome, e-mail e mensagem.\nO que mora atrás dele: login, banco, integração, fila, testes, deploy… e um dev respirando fundo. 🫠\n\nE a gente ama mesmo assim. ❤️\n\n👇 Dev, qual foi o seu “algo simples” mais complexo? Conte nos comentários.",
+  "hashtags": [
+    "techhumor",
+    "humor",
+    "memesdev",
+    "programacao",
+    "desenvolvedor",
+    "vidadedev",
+    "devlife",
+    "tecnologia",
+    "freelancer"
+  ]
+}
