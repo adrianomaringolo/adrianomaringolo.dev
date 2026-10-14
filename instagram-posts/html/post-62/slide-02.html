@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  em.g { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .dark em.g { background-image: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; z-index: 30; font-size: 24px; font-weight: 700; color: #94a3b8; }
+  .handle em { font-style: normal; color: #0891b2; }
+  .dark .handle { color: #f1f5f9; }
+  .dark .handle em { color: #06b6d4; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.045) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .dark .bg-dots { background-image: radial-gradient(circle, rgba(241,245,249,0.06) 1.5px, transparent 1.5px); }
+  .blob-1 { position: absolute; width: 760px; height: 760px; border-radius: 50%; top: -260px; right: -260px;
+    background: radial-gradient(circle, rgba(8,145,178,0.12), transparent 65%); }
+  .blob-2 { position: absolute; width: 820px; height: 820px; border-radius: 50%; bottom: -320px; left: -300px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12), transparent 65%); }
+  .dark .blob-1 { background: radial-gradient(circle, rgba(6,182,212,0.18), transparent 65%); }
+  .dark .blob-2 { background: radial-gradient(circle, rgba(99,102,241,0.22), transparent 65%); }
+  body, .slide { background: #0f172a; }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 100px 84px 150px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .avatar { width: 620px; height: 620px; border-radius: 50%; padding: 10px;
+    background: linear-gradient(135deg, #06b6d4, #6366f1);
+    box-shadow: 0 0 0 18px rgba(99,102,241,0.12), 0 50px 100px -30px rgba(99,102,241,0.6); }
+  .avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 45% 30%;
+    display: block; border: 8px solid #0f172a; }
+  .title { margin-top: 56px; font-size: 72px; font-weight: 900; line-height: 1.05; letter-spacing: -0.035em; color: #f1f5f9; text-wrap: balance; }
+  .cta-box { margin-top: 44px; padding: 34px 56px; border-radius: 28px; border: 2px solid rgba(6,182,212,0.35);
+    background: rgba(6,182,212,0.06); }
+  .cta-label { font-size: 22px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #cbd5e1; }
+  .url { margin-top: 10px; font-size: 62px; font-weight: 900; letter-spacing: -0.03em; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .progress span { width: 28px; height: 6px; border-radius: 3px; background: #334155; }
+  .progress span.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { right: 84px; bottom: 44px; }
+</style>
+</head>
+<body>
+<div class="slide dark">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="content">
+    <div class="avatar"><img src="../../assets/images-perfil/3x/08-joinha.png" alt=""></div>
+    <h2 class="title">Prazo e preço fechados<br><em class="g">antes de começar</em>.</h2>
+    <div class="cta-box">
+      <div class="cta-label">Peça um orçamento</div>
+      <div class="url"><em class="g">adrianomaringolo.dev</em></div>
+    </div>
+  </div>
+
+  <div class="progress"><span></span><span class="active"></span></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "title": "Prazer, eu sou o Adriano",
+  "date": "2026-10-14",
+  "type": "carousel",
+  "template": "frase-unica",
+  "tags": [
+    "serviços",
+    "presença digital",
+    "série: ilustrado"
+  ],
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Capa",
+      "description": "Ilustração com café em arco + Eu sou o Adriano"
+    },
+    {
+      "file": "slide-02.html",
+      "title": "Fecho",
+      "description": "Avatar com joinha, prazo e preço fechados, CTA e URL"
+    }
+  ],
+  "caption": "👋 Prazer, eu sou o Adriano.\n\nSou engenheiro de software há 17 anos e faço sites sob medida para pequenos negócios e profissionais autônomos. Direto com você, sem agência no meio.\n\nEm todo projeto:\n→ 📱 responsivo, rápido e pronto para o Google (e para as IAs)\n→ 🛠️ hospedagem e manutenção mensal inclusas\n→ 🤝 prazo e preço fechados antes de começar\n\nSe você ainda depende só de indicação, vamos conversar.\n\n💬 Peça um orçamento pelo link na bio.\n🔔 Siga para ver dicas de site sem jargão.",
+  "hashtags": [
+    "sitesprofissionais",
+    "presencadigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "sitesobmedida",
+    "criacaodesites",
+    "desenvolvedorweb",
+    "autonomos",
+    "negociolocal"
+  ]
+}

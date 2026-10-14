@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-10-12 (post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
+> Última atualização: 2026-10-14 (post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -56,7 +56,7 @@ registrado também no `meta.json` do post.
 | post-41 | Wix ou site sob medida? | 2026-10-03 | Carrossel | `foto-editorial` | 7 | 🔵 | Construtor pronto × sob medida (pilar 1): quando cada um faz sentido; foto Pexels na capa |
 | post-42 | Landing page ou site institucional? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Landing page × site institucional (pilar 1): wireframes na capa, fluxos e tabela |
 | post-43 | Quanto tempo leva para construir um site? | 2026-10-03 | Carrossel | `tipografico` | 7 | 🔵 | Cronograma real de um site institucional, semana a semana (pilar 1/3) |
-| post-44 | Enquete: seu negócio tem site hoje? | 2026-10-03 | Único | `elemento-central` | 1 | 🔵 | Enquete (engajamento): seu negócio tem site? Resposta A–D nos comentários |
+| post-44 | Enquete: seu negócio tem site hoje? | 2026-10-03 | Único | `elemento-central` | 1 | 🟡 | Enquete (engajamento): seu negócio tem site? Resposta A–D nos comentários |
 | post-45 | Mito ou verdade: 3 frases sobre sites | 2026-10-03 | Carrossel | `tipografico` | 6 | 🔵 | Mito ou verdade (engajamento): site bonito converte · site lento perde cliente · SEO é coisa de agência |
 | post-46 | Sob medida não é luxo | 2026-10-03 | Único | `frase-unica` | 1 | 🔵 | Frase (pilar 5): sob medida não é luxo, é não pagar por outro site daqui a um ano |
 | post-47 | Clean Code: 5 regras que eu aplico todo dia | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Clean Code (pilar 4, persona C): 5 regras com antes/depois em código |
@@ -67,9 +67,15 @@ registrado também no `meta.json` do post.
 | post-52 | Ainda vale estudar programação na era da IA? | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | Ainda vale estudar programação na era da IA? (pilar 4/5, persona C): opinião em 1ª pessoa |
 | post-53 | Posso perder um cliente por não ter um site? | 2026-10-07 | Carrossel | `tipografico` | 7 | 🔵 | Jornada do cliente perdido (pilar 1): indicação → pesquisa → dúvida → decisão. Trio "perder cliente sem site", 1 de 3 |
 | post-54 | Onde o cliente escapa: 4 momentos sem site | 2026-10-07 | Carrossel | `foto-editorial` | 7 | 🔵 | 4 momentos de perda (pilar 1): Google, IA, fora do horário, comparação; foto Pexels na capa. Trio, 2 de 3 |
-| post-55 | Dá para viver sem site. Até alguém pesquisar seu nome. | 2026-10-07 | Único | `frase-unica` | 1 | 🔵 | Resposta honesta (pilar 1/5): quando dá para viver sem site e quando não; nuance na legenda. Trio, 3 de 3 |
-| post-56 | Instagram é vitrine. Seu site é a loja. | 2026-10-07 | Único | `elemento-central` | 1 | 🔵 | Rede social × site (pilar 1) — tema claro, loja low-poly com vitrine mostrando um feed 3×3 e porta aberta com luz quente. Mesmo estilo do post-27 |
+| post-55 | Dá para viver sem site. Até alguém pesquisar seu nome. | 2026-10-07 | Único | `frase-unica` | 1 | 🟡 | Resposta honesta (pilar 1/5): quando dá para viver sem site e quando não; nuance na legenda. Trio, 3 de 3 |
+| post-56 | Instagram é vitrine. Seu site é a loja. | 2026-10-07 | Único | `elemento-central` | 1 | 🟡 | Rede social × site (pilar 1) — tema claro, loja low-poly com vitrine mostrando um feed 3×3 e porta aberta com luz quente. Mesmo estilo do post-27 |
 | post-57 | Feliz Dia das Crianças | 2026-10-12 | Único | `foto-protagonista` | 1 | 🟢 | Data comemorativa (pilar 5) — "Todo dev adora brincar de construir", menino montando torre de blocos |
+| post-58 | 5 sinais de que seu negócio precisa de um site | 2026-10-13 | Carrossel | `explicador-tecnico` | 7 | 🟡 | Diagnóstico (pilar 1): 3 sinais de dor (Instagram no lugar do site, Google, perguntas repetidas) e 2 de crescimento (só indicação, clientes maiores); cada sinal com UI simulada |
+| post-59 | Sob medida não é luxo (carrossel) | 2026-10-13 | Carrossel | `outline-impacto` | 5 | 🟡 | Educação (pilar 1): 3 motivos (feito para você, cresce com você, prazo e preço fechados). Primeiro post no `outline-impacto`; desdobra o post-46 |
+| post-60 | Não basta escrever o código | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Serviços (pilar 3): entender o negócio e propor a melhor solução. Exemplo com ilustração em círculo grande |
+| post-61 | Antes do código, a pergunta certa | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Educação (pilar 1): o projeto começa pelo negócio. Exemplo com card da ilustração + balão |
+| post-62 | Prazer, eu sou o Adriano | 2026-10-14 | Carrossel | `frase-unica` | 2 | 🟡 | Serviços (pilar 3): apresentação em capa + fecho com CTA. Exemplo com ilustrações |
+| post-63 | Desligar também é parte do trabalho | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): post de sexta com a ilustração do cachorro |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
@@ -474,6 +480,47 @@ registrado também no `meta.json` do post.
 - **Hashtags:** desenvolvimentoweb, presencadigital, pequenosnegocios, empreendedorismo, sitesprofissionais, webdesign, devbr, carreira, softwarecraftsmanship, negociodigital
 
 ---
+
+### post-58 — 5 sinais de que seu negócio precisa de um site
+- **Data:** 2026-10-13 · **Tipo:** carrossel (1080×1350) · **Template:** `explicador-tecnico` · **Slides:** 7
+- **HTML:** `html/post-58/` · **PNGs:** `output/post-58/`
+- Capa (painel "Você se reconhece?") → Instagram no lugar do site (chat) → Google (resultado simulado) → Perguntas repetidas → Só indicação (hoje × com site) → Clientes maiores (checklist) → CTA
+- Mistura 3 sinais de dor e 2 de crescimento. Diferente do post-03 (razões) e do trio post-53 a 55 (perda de cliente): aqui o leitor se reconhece em situações do dia a dia.
+- Ícones Lucide (message-circle, search, repeat, users, building-2, check, x, handshake, arrow-right). Exemplos rotulados como ilustrativos.
+- Fecho: `fecho-desfechos` (se um sinal é seu / se vários são).
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, marketingdigital, siteparaempresas, negociolocal, autonomos, empreendedorismodigital, webdesign
+
+### post-59 — Sob medida não é luxo (carrossel)
+- **Data:** 2026-10-13 · **Tipo:** carrossel (1080×1350) · **Template:** `outline-impacto` · **Slides:** 5
+- **HTML:** `html/post-59/` · **PNGs:** `output/post-59/`
+- Capa (SOB MEDIDA em contorno + NÃO É + LUXO em gradiente) → Feito para você → Cresce com você → Prazo e preço fechados → Me chame + URL
+- Primeiro post no `outline-impacto` (Anton). Desdobra o post-46 em 3 motivos.
+- Fecho: próprio do template (eco de "Me chame" + URL).
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, sitesobmedida, marketingdigital, autonomos, criacaodesites, negociolocal, webdesign
+
+### post-60 — Não basta escrever o código (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (começou em `elemento-central`; mudou porque a frase passou de 10 palavras) · **Slides:** 1
+- **HTML:** `html/post-60/` · **PNGs:** `output/post-60/`
+- Ilustração `03-codando` em círculo de 780px com anel em gradiente, headline + subtítulo abaixo (variação fora do template, em teste).
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, sitesobmedida, criacaodesites, desenvolvedorweb, autonomos, webdesign
+
+### post-61 — Antes do código, a pergunta certa (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante A, escura) · **Slides:** 1
+- **HTML:** `html/post-61/` · **PNGs:** `output/post-61/`
+- Card com a ilustração `02-ideia` e balão "O que o seu cliente procura?" acima da frase (variação fora do template, em teste).
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, marketingdigital, sitesobmedida, negociolocal, autonomos, criacaodesites
+
+### post-62 — Prazer, eu sou o Adriano (capa + fecho)
+- **Data:** 2026-10-14 · **Tipo:** carrossel de 2 (1080×1350) · **Template:** `frase-unica` esticado · **Slides:** 2
+- **HTML:** `html/post-62/` · **PNGs:** `output/post-62/`
+- Capa clara com `01-cafe` em arco → fecho escuro com `08-joinha` em avatar, "Prazo e preço fechados antes de começar" + CTA e URL. Nenhum template prevê 2 slides; formalizar com `criar-template` se aprovado.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, sitesobmedida, criacaodesites, desenvolvedorweb, autonomos, negociolocal
+
+### post-63 — Desligar também é parte do trabalho (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante A, clara) · **Slides:** 1
+- **HTML:** `html/post-63/` · **PNGs:** `output/post-63/`
+- Frase de sexta no topo, ilustração `05-cachorro` em círculo vazando no canto inferior direito.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, rotina, desenvolvedor, carreira, vidadefreela, fimdesemana
 
 ## Como manter este arquivo
 

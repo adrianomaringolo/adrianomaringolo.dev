@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #0a1226; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  em.g, .g { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .bg-grid { position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px);
+    background-size: 54px 54px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%); mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%); }
+  .bg-glow { position: absolute; top: -200px; right: -160px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%); }
+  .bg-glow-low { position: absolute; bottom: -220px; left: -180px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%); }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 92px 84px 150px; display: flex; flex-direction: column; }
+  .eyebrow { font-size: 21px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #64748b; margin-bottom: 26px; }
+  .headline { font-size: 84px; font-weight: 900; line-height: 1.03; letter-spacing: -0.035em; color: #f1f5f9; margin-bottom: 48px; }
+  .panel { background: #0c1730; border: 1px solid rgba(6,182,212,0.24); border-radius: 22px; box-shadow: 0 34px 80px -22px rgba(0,0,0,0.62), inset 0 1px 0 rgba(255,255,255,0.05); padding: 30px 34px 26px; }
+  .p-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .p-title { font-size: 20px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #94a3b8; }
+  .tag { font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #06b6d4; background: rgba(6,182,212,0.14); border-radius: 100px; padding: 7px 14px; white-space: nowrap; }
+  .item { display: flex; align-items: center; gap: 22px; padding: 18px 0; border-top: 1px solid rgba(148,163,184,0.14); }
+  .box { width: 38px; height: 38px; border-radius: 10px; border: 2.5px solid rgba(148,163,184,0.45); flex-shrink: 0; }
+  .num { font-size: 18px; font-weight: 800; color: #06b6d4; width: 30px; flex-shrink: 0; letter-spacing: .04em; }
+  .item-t { font-size: 31px; font-weight: 700; color: #e2e8f0; line-height: 1.25; }
+  .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .item { padding: 24px 0 !important; }
+  .footnote { margin-top: 34px; font-size: 32px; font-weight: 500; color: #94a3b8; line-height: 1.45; }
+  .footnote b { color: #e2e8f0; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-grid"></div><div class="bg-glow"></div><div class="bg-glow-low"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+  <div class="content">
+    <div class="eyebrow">Diagnóstico rápido</div>
+    <h1 class="headline">5 sinais de que<br>seu negócio<br><span class="g">precisa de um site</span></h1>
+    <div class="mid">
+    <div class="panel">
+      <div class="p-head"><span class="p-title">Você se reconhece?</span><span class="tag">5 sinais</span></div>
+      <div class="item"><div class="box"></div><span class="num">01</span><span class="item-t">Quando pedem o site, você manda o Instagram</span></div>
+      <div class="item"><div class="box"></div><span class="num">02</span><span class="item-t">Quem pesquisa no Google acha o concorrente</span></div>
+      <div class="item"><div class="box"></div><span class="num">03</span><span class="item-t">Você responde as mesmas perguntas todo dia</span></div>
+      <div class="item"><div class="box"></div><span class="num">04</span><span class="item-t">Seus clientes só chegam por indicação</span></div>
+      <div class="item"><div class="box"></div><span class="num">05</span><span class="item-t">Você quer atender clientes maiores</span></div>
+    </div>
+    <p class="footnote">Marque mentalmente. <b>Depois, deslize para ver cada um.</b></p>
+    </div>
+  </div>
+  <div class="progress"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

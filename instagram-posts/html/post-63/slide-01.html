@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  em.g { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .dark em.g { background-image: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; z-index: 30; font-size: 24px; font-weight: 700; color: #94a3b8; }
+  .handle em { font-style: normal; color: #0891b2; }
+  .dark .handle { color: #f1f5f9; }
+  .dark .handle em { color: #06b6d4; }
+  .bg-dots { position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,23,42,0.045) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .dark .bg-dots { background-image: radial-gradient(circle, rgba(241,245,249,0.06) 1.5px, transparent 1.5px); }
+  .blob-1 { position: absolute; width: 760px; height: 760px; border-radius: 50%; top: -260px; right: -260px;
+    background: radial-gradient(circle, rgba(8,145,178,0.12), transparent 65%); }
+  .blob-2 { position: absolute; width: 820px; height: 820px; border-radius: 50%; bottom: -320px; left: -300px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12), transparent 65%); }
+  .dark .blob-1 { background: radial-gradient(circle, rgba(6,182,212,0.18), transparent 65%); }
+  .dark .blob-2 { background: radial-gradient(circle, rgba(99,102,241,0.22), transparent 65%); }
+  body, .slide { background: #f5f7fa; }
+  .content { position: absolute; left: 84px; right: 84px; top: 0; height: 410px; z-index: 10;
+    display: flex; flex-direction: column; justify-content: flex-end; }
+  .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #64748b; margin-bottom: 26px; }
+  .headline { font-size: 94px; font-weight: 900; line-height: 1.02; letter-spacing: -0.04em; color: #0f172a; }
+  .circle { position: absolute; z-index: 5; right: -30px; bottom: -70px; width: 900px; height: 900px; border-radius: 50%;
+    padding: 12px; background: linear-gradient(135deg, #0891b2, #6366f1);
+    box-shadow: 0 50px 110px -30px rgba(99,102,241,0.5); }
+  .circle img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 55% 40%;
+    display: block; border: 10px solid #ffffff; }
+  .sub-wrap { position: absolute; left: 84px; right: 84px; top: 432px; z-index: 10; }
+  .sub-wrap p { font-size: 30px; font-weight: 500; color: #475569; line-height: 1.45; }
+  .handle { right: 84px; top: 72px; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+
+  <div class="content">
+    <div class="eyebrow">Sexta-feira</div>
+    <h1 class="headline">Desligar também<br><em class="g">é parte do trabalho</em>.</h1>
+  </div>
+  <div class="sub-wrap"><p>Bom fim de semana. Segunda a gente volta a falar de site.</p></div>
+  <div class="circle"><img src="../../assets/images-perfil/3x/05-cachorro.png" alt=""></div>
+
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
