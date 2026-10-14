@@ -2,7 +2,7 @@
 
 > Índice de todos os posts criados. **Atualize este arquivo sempre que criar, publicar ou arquivar um post.**
 >
-> Última atualização: 2026-10-14 (post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
+> Última atualização: 2026-10-14 (revisões do post-37, post-38 e post-63 · post-71: versão única e clara da capa do post-37 · post-64 a post-70: lado humano da série ilustrada com as ilustrações novas (fotografia, cozinha, videogame, palestra, call com cliente, blocos, pôr do sol) · post-60 a post-63: exemplos leves com as ilustrações cartoon de `assets/images-perfil/` · post-59: sob medida não é luxo, 1º no outline-impacto · post-58: 5 sinais de que seu negócio precisa de um site · post-57: Feliz Dia das Crianças · post-53 a post-55: trio "posso perder um cliente por não ter um site?" · post-56: Instagram é vitrine)
 
 Legenda de status: 🟢 publicado · 🟡 pronto para publicar · 🔵 em produção / revisão · ⚪️ rascunho
 
@@ -32,10 +32,10 @@ registrado também no `meta.json` do post.
 | post-17 | Presença digital não é SÓ ter perfil no Instagram | 2026-09-13 | Único | `frase-unica` | 1 | 🟢 | Frase (pilar 5/1, banco de `estrategia-conteudo.md` §9.7) — endereço próprio que também é encontrado, fundo azul duotone + composição tipográfica |
 | post-18 | O que é presença digital? | 2026-09-15 | Carrossel | `foto-editorial` | 7 | 🟢 | Educativo — cenários do dia a dia (hotel/restaurante no Google) + define presença digital, os 4 pilares, o mito de "só Instagram basta" e um diagrama de rede (site no centro) |
 | post-19 | Trabalho numa consultoria internacional. E ainda faço sites para pequenos negócios | 2026-09-16 | Carrossel | `foto-editorial` | 7 | 🔵 | Pessoal (pilar 5) — o rigor de projeto grande aplicado ao site de pequeno negócio; timeline de 17 anos de carreira e foto real na capa |
-| post-20 | Todo mundo fala de IA. 1 em cada 5 usa | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1, persona A) — uso de IA por porte de empresa. Série "nível de uso da IA", 1 de 4 |
+| post-20 | Todo mundo fala de IA. 1 em cada 5 usa | 2026-09-20 | Único | `dado-visual` | 1 | 🟡 | Dado (pilar 1, persona A) — uso de IA por porte de empresa. Série "nível de uso da IA", 1 de 4 |
 | post-21 | 84% dos devs usam IA. 3% confiam nela | 2026-09-20 | Único | `dado-visual` | 1 | 🟡 | Dado (pilar 4, persona C) — adoção alta, confiança baixa. Série "nível de uso da IA", 2 de 4 |
 | post-22 | Metade já usa IA no trabalho. 13% todo dia | 2026-09-20 | Único | `dado-visual` | 1 | 🟢 | Dado (pilar 1/5) — funil de frequência entre trabalhadores. Série "nível de uso da IA", 3 de 4 |
-| post-23 | 88% das empresas usam IA. 6% lucram com ela | 2026-09-20 | Único | `dado-visual` | 1 | 🔵 | Dado (pilar 1, persona B) — abismo entre adotar e capturar valor. Série "nível de uso da IA", 4 de 4 |
+| post-23 | 88% das empresas usam IA. 6% lucram com ela | 2026-09-20 | Único | `dado-visual` | 1 | 🟡 | Dado (pilar 1, persona B) — abismo entre adotar e capturar valor. Série "nível de uso da IA", 4 de 4 |
 | post-24 | Gota de Cura — o catálogo que sustenta uma causa | 2026-09-22 | Carrossel | `case-showcase` | 7 | 🔵 | Case de projeto (pilar 2) — plataforma voluntária de aromaterapia; fio condutor é a causa, com laudos de cromatografia como decisão de produto |
 | post-25 | O domínio do seu site está no seu nome? | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Domínio no nome do dono (pilar 1) — tema claro, chave low-poly dourada com etiqueta "seunome.com.br" |
 | post-26 | Site é casa própria. Rede social é aluguel | 2026-09-28 | Único | `elemento-central` | 1 | 🟡 | Site próprio vs. rede social, reforço do post-14 (pilar 1) — tema escuro, casa low-poly nova, iluminada, numa ilha flutuante; ao fundo, prédios apagados com placas de ALUGA-SE |
@@ -53,8 +53,8 @@ registrado também no `meta.json` do post.
 | post-38 | 5 coisas que o seu site faz que espantam cliente | 2026-10-03 | Carrossel | `foto-editorial` | 8 | 🔵 | 5 erros silenciosos que afastam cliente (pilar 1); foto Pexels na capa |
 | post-39 | 12 perguntas antes de contratar quem vai fazer o seu site | 2026-10-03 | Carrossel | `tipografico` | 8 | 🔵 | 12 perguntas antes de contratar quem vai fazer o site (pilar 1), em 4 blocos + sinais de alerta |
 | post-40 | Glossário: o que o dev fala e o que ele quer dizer | 2026-10-03 | Carrossel | `tipografico` | 8 | 🔵 | Glossário dev → dono de negócio (pilar 1): domínio, hospedagem, responsivo, SEO, CMS, deploy |
-| post-41 | Wix ou site sob medida? | 2026-10-03 | Carrossel | `foto-editorial` | 7 | 🔵 | Construtor pronto × sob medida (pilar 1): quando cada um faz sentido; foto Pexels na capa |
-| post-42 | Landing page ou site institucional? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Landing page × site institucional (pilar 1): wireframes na capa, fluxos e tabela |
+| post-41 | Wix ou site sob medida? | 2026-10-03 | Carrossel | `foto-editorial` | 7 | 🟡 | Construtor pronto × sob medida (pilar 1): quando cada um faz sentido; foto Pexels na capa |
+| post-42 | Landing page ou site institucional? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🟡 | Landing page × site institucional (pilar 1): wireframes na capa, fluxos e tabela |
 | post-43 | Quanto tempo leva para construir um site? | 2026-10-03 | Carrossel | `tipografico` | 7 | 🔵 | Cronograma real de um site institucional, semana a semana (pilar 1/3) |
 | post-44 | Enquete: seu negócio tem site hoje? | 2026-10-03 | Único | `elemento-central` | 1 | 🟡 | Enquete (engajamento): seu negócio tem site? Resposta A–D nos comentários |
 | post-45 | Mito ou verdade: 3 frases sobre sites | 2026-10-03 | Carrossel | `tipografico` | 6 | 🔵 | Mito ou verdade (engajamento): site bonito converte · site lento perde cliente · SEO é coisa de agência |
@@ -65,8 +65,8 @@ registrado também no `meta.json` do post.
 | post-50 | O que é código? | 2026-10-04 | Único | `explicador-tecnico` | 1 | 🟡 | Série "Software para quem não é dev" 3/3 (pilar 1/4): a mesma regra de frete em português e em código |
 | post-51 | A IA já está no seu dia | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | IA no dia a dia (pilar 1/5): um momento do dia por slide; fecho liga ao GEO (post-37) |
 | post-52 | Ainda vale estudar programação na era da IA? | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | Ainda vale estudar programação na era da IA? (pilar 4/5, persona C): opinião em 1ª pessoa |
-| post-53 | Posso perder um cliente por não ter um site? | 2026-10-07 | Carrossel | `tipografico` | 7 | 🔵 | Jornada do cliente perdido (pilar 1): indicação → pesquisa → dúvida → decisão. Trio "perder cliente sem site", 1 de 3 |
-| post-54 | Onde o cliente escapa: 4 momentos sem site | 2026-10-07 | Carrossel | `foto-editorial` | 7 | 🔵 | 4 momentos de perda (pilar 1): Google, IA, fora do horário, comparação; foto Pexels na capa. Trio, 2 de 3 |
+| post-53 | Posso perder um cliente por não ter um site? | 2026-10-07 | Carrossel | `tipografico` | 7 | 🟡 | Jornada do cliente perdido (pilar 1): indicação → pesquisa → dúvida → decisão. Trio "perder cliente sem site", 1 de 3 |
+| post-54 | Onde o cliente escapa: 4 momentos sem site | 2026-10-07 | Carrossel | `foto-editorial` | 7 | 🟡 | 4 momentos de perda (pilar 1): Google, IA, fora do horário, comparação; foto Pexels na capa. Trio, 2 de 3 |
 | post-55 | Dá para viver sem site. Até alguém pesquisar seu nome. | 2026-10-07 | Único | `frase-unica` | 1 | 🟡 | Resposta honesta (pilar 1/5): quando dá para viver sem site e quando não; nuance na legenda. Trio, 3 de 3 |
 | post-56 | Instagram é vitrine. Seu site é a loja. | 2026-10-07 | Único | `elemento-central` | 1 | 🟡 | Rede social × site (pilar 1) — tema claro, loja low-poly com vitrine mostrando um feed 3×3 e porta aberta com luz quente. Mesmo estilo do post-27 |
 | post-57 | Feliz Dia das Crianças | 2026-10-12 | Único | `foto-protagonista` | 1 | 🟢 | Data comemorativa (pilar 5) — "Todo dev adora brincar de construir", menino montando torre de blocos |
@@ -75,7 +75,15 @@ registrado também no `meta.json` do post.
 | post-60 | Não basta escrever o código | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Serviços (pilar 3): entender o negócio e propor a melhor solução. Exemplo com ilustração em círculo grande |
 | post-61 | Antes do código, a pergunta certa | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Educação (pilar 1): o projeto começa pelo negócio. Exemplo com card da ilustração + balão |
 | post-62 | Prazer, eu sou o Adriano | 2026-10-14 | Carrossel | `frase-unica` | 2 | 🟡 | Serviços (pilar 3): apresentação em capa + fecho com CTA. Exemplo com ilustrações |
-| post-63 | Desligar também é parte do trabalho | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): post de sexta com a ilustração do cachorro |
+| post-63 | A IA não precisa descansar. Você, sim | 2026-10-14 | Único | `frase-unica` | 1 | 🔵 | Humano (pilar 5): post de sexta com a ilustração do cachorro |
+| post-64 | Fotografar me ensinou a enquadrar | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): fotografia como hobby; enquadrar é escolher o que fica fora. Série ilustrada |
+| post-65 | Receita boa é processo | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5/1): cozinhar e construir site são processo. Série ilustrada |
+| post-66 | Sexta à noite, o controle é outro | 2026-10-14 | Único | `frase-unica` | 1 | 🔵 | Humano (pilar 5): post de sexta, videogame e descanso. Série ilustrada |
+| post-67 | O que eu aprendo, eu divido | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/autoridade (pilar 5/4): já palestrei, divido o que aprendo. Série ilustrada |
+| post-68 | Na primeira conversa, eu mais escuto do que falo | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/bastidor (pilar 5/3, sem CTA de orçamento): a primeira conversa é ouvir. Série ilustrada |
+| post-69 | Tudo que é sólido se constrói peça por peça | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano (pilar 5): em casa com as crianças, blocos; base antes dos detalhes. Série ilustrada |
+| post-70 | Depois de 17 anos, o código muda. O cuidado, não | 2026-10-14 | Único | `frase-unica` | 1 | 🟡 | Humano/carreira (pilar 5): 17 anos de código, o que não muda. Série ilustrada |
+| post-71 | O ChatGPT recomenda o seu negócio? (versão única) | 2026-10-14 | Único | `explicador-tecnico` | 1 | 🔵 | Variante clara e simplificada da capa do post-37, para usar como slide único (AEO/GEO, pilar 1) |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
@@ -516,11 +524,58 @@ registrado também no `meta.json` do post.
 - Capa clara com `01-cafe` em arco → fecho escuro com `08-joinha` em avatar, "Prazo e preço fechados antes de começar" + CTA e URL. Nenhum template prevê 2 slides; formalizar com `criar-template` se aprovado.
 - **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, sitesobmedida, criacaodesites, desenvolvedorweb, autonomos, negociolocal
 
-### post-63 — Desligar também é parte do trabalho (único)
+### post-63 — A IA não precisa descansar. Você, sim (único)
 - **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante A, clara) · **Slides:** 1
 - **HTML:** `html/post-63/` · **PNGs:** `output/post-63/`
-- Frase de sexta no topo, ilustração `05-cachorro` em círculo vazando no canto inferior direito.
+- Frase sobre descanso no topo (revisão 1: sem referência à sexta-feira), ilustração `05-cachorro` em círculo vazando no canto inferior direito.
 - **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, rotina, desenvolvedor, carreira, vidadefreela, fimdesemana
+
+### post-64 — Fotografar me ensinou a enquadrar (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante escura) · **Slides:** 1
+- **HTML:** `html/post-64/` · **PNGs:** `output/post-64/`
+- Polaroide inclinada com `14-fotografia`, frase na base.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, fotografia, rotina, desenvolvedor, webdesign, sitesobmedida
+
+### post-65 — Receita boa é processo (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante clara) · **Slides:** 1
+- **HTML:** `html/post-65/` · **PNGs:** `output/post-65/`
+- Arco centralizado com `15-cozinhando`, frase centralizada abaixo.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, cozinhar, rotina, desenvolvedor, processo, sitesobmedida
+
+### post-66 — Sexta à noite, o controle é outro (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante escura) · **Slides:** 1
+- **HTML:** `html/post-66/` · **PNGs:** `output/post-66/`
+- Círculo com `20-game-on` vazando o canto inferior esquerdo, frase no topo.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, videogame, rotina, desenvolvedor, vidadefreela, fimdesemana
+
+### post-67 — O que eu aprendo, eu divido (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante escura) · **Slides:** 1
+- **HTML:** `html/post-67/` · **PNGs:** `output/post-67/`
+- Card com `11-palestra` e balão, frase abaixo.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, palestra, comunidadedev, desenvolvedor, carreira, tecnologia
+
+### post-68 — Na primeira conversa, eu mais escuto do que falo (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante clara) · **Slides:** 1
+- **HTML:** `html/post-68/` · **PNGs:** `output/post-68/`
+- Card largo com `19-call-clientes` e selo "Primeira conversa", frase abaixo.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, bastidores, atendimentoremoto, sitesobmedida, criacaodesites, negociolocal
+
+### post-69 — Tudo que é sólido se constrói peça por peça (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante clara) · **Slides:** 1
+- **HTML:** `html/post-69/` · **PNGs:** `output/post-69/`
+- Frase no topo, `12-brincando-blocos` em círculo com anel tracejado na base.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, familia, rotina, desenvolvedor, sitesobmedida, criacaodesites
+
+### post-70 — Depois de 17 anos, o código muda. O cuidado, não (único)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `frase-unica` (variante escura) · **Slides:** 1
+- **HTML:** `html/post-70/` · **PNGs:** `output/post-70/`
+- Panorama em arco com `18-por-do-sol`, frase de três linhas abaixo.
+- **Hashtags:** sitesprofissionais, presencadigital, pequenosnegocios, empreendedorismo, carreira, desenvolvedor, experiencia, reflexao, sitesobmedida
+### post-71 — O ChatGPT recomenda o seu negócio? (versão única)
+- **Data:** 2026-10-14 · **Tipo:** único (1080×1350) · **Template:** `explicador-tecnico` (variante clara) · **Slides:** 1
+- **HTML:** `html/post-71/` · **PNGs:** `output/post-71/`
+- Pedido na revisão do post-37: só a capa, em fundo claro, mais simples e visual. Chat com a pergunta em balão gradiente, fontes dos concorrentes e "seusite.com.br — Não citado".
+- **Hashtags:** geo, aeo, seo, chatgpt, inteligenciaartificial, marketingdigital, presencadigital, sitesprofissionais, pequenosnegocios, empreendedorismo
 
 ## Como manter este arquivo
 

@@ -3,7 +3,10 @@
   "date": "2026-10-03",
   "type": "carousel",
   "template": "foto-editorial",
-  "tags": ["educação", "site na prática"],
+  "tags": [
+    "educação",
+    "site na prática"
+  ],
   "format": "1080x1350",
   "slides": [
     {
@@ -59,5 +62,16 @@
     "dicasdesite",
     "conversao",
     "ux"
-  ]
+  ],
+  "revisions": [
+    {
+      "note": "mude a imagem do fecho desse post, utilize uma das minhas imagens cartoonizadas.",
+      "requestedAt": "2026-10-14T14:48",
+      "requestedBy": "admin",
+      "resolvedAt": "2026-10-14T15:17",
+      "resolvedTo": "pendente"
+    }
+  ],
+  "revisionCount": 1,
+  "revisedAt": "2026-10-14T15:17"
 }

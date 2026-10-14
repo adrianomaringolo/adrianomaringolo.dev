@@ -16,10 +16,10 @@
   .handle em { font-style: normal; color: #06b6d4; }
   em.g, .g { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-  .bg-photo { position: absolute; inset: 0; background: url('bg-final.jpg') center 360px / 100% auto no-repeat;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 560px, #000 860px); mask-image: linear-gradient(to bottom, transparent 560px, #000 860px); }
-  .gradient-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom,
-    rgba(10,18,38,1) 0%, rgba(10,18,38,0.96) 42%, rgba(10,18,38,0.62) 62%, rgba(10,18,38,0.45) 74%, rgba(10,18,38,0.88) 90%, rgba(10,18,38,0.97) 100%); }
+  .art { position: absolute; z-index: 5; left: 88px; right: 80px; top: 600px; height: 420px; border-radius: 44px; padding: 10px;
+    background: linear-gradient(135deg, #06b6d4, #6366f1); box-shadow: 0 50px 110px -30px rgba(99,102,241,0.6); }
+  .art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;
+    border-radius: 36px; border: 8px solid #0a1226; }
   .content { position: absolute; top: 0; left: 0; right: 0; z-index: 10; padding: 110px 84px 0 88px; display: flex; flex-direction: column; gap: 26px; }
   .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: #64748b; }
   .headline { font-size: 84px; font-weight: 900; line-height: 1.03; letter-spacing: -0.03em; color: #f1f5f9; }
@@ -32,7 +32,7 @@
 </head>
 <body>
 <div class="slide">
-  <div class="bg-photo"></div><div class="gradient-overlay"></div>
+  <div class="art"><img src="../../assets/images-perfil/3x/10-design-figma.png" alt=""></div>
   <div class="accent-left"></div><div class="accent-top"></div>
   <div class="content">
     <div class="eyebrow">Do outro lado</div>

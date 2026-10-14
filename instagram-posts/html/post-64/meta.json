@@ -1,0 +1,32 @@
+{
+  "title": "Fotografar me ensinou a enquadrar",
+  "date": "2026-10-14",
+  "status": "aprovado",
+  "type": "single",
+  "template": "frase-unica",
+  "tags": [
+    "humano",
+    "carreira",
+    "série: ilustrado"
+  ],
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Post único",
+      "description": "Polaroide inclinada com a ilustração fotografando nas montanhas, frase à esquerda em fundo escuro"
+    }
+  ],
+  "caption": "📷 Fora do código, eu fotografo.\n\nE a fotografia me ensinou uma coisa que uso todo dia nos projetos: enquadrar é escolher o que fica de fora.\n\nNum site é igual:\n→ 🎯 uma mensagem principal por página, não dez\n→ 🧹 menos itens no menu, mais clareza\n→ ✅ o botão de contato onde o olho já está\n\nQuem visita o seu site decide em poucos segundos. O que não ajuda essa decisão atrapalha.\n\n👇 E você, tem um hobby que mudou o jeito como você trabalha? Conte nos comentários.",
+  "hashtags": [
+    "sitesprofissionais",
+    "presencadigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "fotografia",
+    "rotina",
+    "desenvolvedor",
+    "webdesign",
+    "sitesobmedida"
+  ]
+}

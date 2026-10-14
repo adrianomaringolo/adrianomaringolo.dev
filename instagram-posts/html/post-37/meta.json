@@ -3,7 +3,11 @@
   "date": "2026-10-03",
   "type": "carousel",
   "template": "explicador-tecnico",
-  "tags": ["educação", "SEO", "IA"],
+  "tags": [
+    "educação",
+    "SEO",
+    "IA"
+  ],
   "format": "1080x1350",
   "slides": [
     {
@@ -54,5 +58,16 @@
     "sitesprofissionais",
     "pequenosnegocios",
     "empreendedorismo"
-  ]
+  ],
+  "revisions": [
+    {
+      "note": "a parte do chat na capa precisa ficar centralizada verticalmente. Quero uma variaçao em branco desse post apenas com a capa, mais simples e visual para ser usado como slide unico",
+      "requestedAt": "2026-10-14T14:50",
+      "requestedBy": "admin",
+      "resolvedAt": "2026-10-14T15:17",
+      "resolvedTo": "pendente"
+    }
+  ],
+  "revisionCount": 1,
+  "revisedAt": "2026-10-14T15:17"
 }

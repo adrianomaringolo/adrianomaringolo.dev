@@ -1,0 +1,32 @@
+{
+  "title": "O que eu aprendo, eu divido",
+  "date": "2026-10-14",
+  "status": "aprovado",
+  "type": "single",
+  "template": "frase-unica",
+  "tags": [
+    "humano",
+    "autoridade",
+    "série: ilustrado"
+  ],
+  "format": "1080x1350",
+  "slides": [
+    {
+      "file": "slide-01.html",
+      "title": "Post único",
+      "description": "Card com a ilustração palestrando + balão \"No palco\", frase abaixo em fundo escuro"
+    }
+  ],
+  "caption": "🎤 O que eu aprendo, eu divido.\n\nJá subi em palco para falar de desenvolvimento, e é por isso que este perfil existe: explicar tecnologia sem tecniquês.\n\nDividir conhecimento me obriga a entender de verdade. Se eu não consigo explicar de um jeito simples, é sinal de que eu ainda não entendi direito.\n\nNos projetos, vale a mesma regra: você entende cada decisão do seu site, em linguagem de negócio.\n\n👇 Tem algum assunto de site ou tecnologia que você quer ver explicado por aqui? Conte nos comentários.",
+  "hashtags": [
+    "sitesprofissionais",
+    "presencadigital",
+    "pequenosnegocios",
+    "empreendedorismo",
+    "palestra",
+    "comunidadedev",
+    "desenvolvedor",
+    "carreira",
+    "tecnologia"
+  ]
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #0891b2, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891b2, #6366f1); z-index: 20; }
+  .handle { position: absolute; bottom: 64px; right: 84px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #0891b2; }
+  .g { font-style: normal; background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(99,102,241,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.07) 1px, transparent 1px);
+    background-size: 54px 54px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 62%, #000 30%, transparent 80%); mask-image: radial-gradient(ellipse 80% 70% at 50% 62%, #000 30%, transparent 80%); }
+  .bg-glow { position: absolute; top: -220px; right: -180px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(8,145,178,0.13) 0%, transparent 70%); }
+  .bg-glow-low { position: absolute; bottom: -240px; left: -200px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(99,102,241,0.13) 0%, transparent 70%); }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 96px 84px 150px; display: flex; flex-direction: column; justify-content: center; }
+  .headline { font-size: 96px; font-weight: 900; line-height: 1.02; letter-spacing: -0.04em; color: #0f172a; margin-bottom: 64px; }
+  .panel { background: #ffffff; border: 1px solid rgba(99,102,241,0.16); border-radius: 32px; padding: 40px 40px 38px;
+    box-shadow: 0 50px 100px -34px rgba(99,102,241,0.38), 0 20px 50px -24px rgba(8,145,178,0.25); }
+  .q { margin-left: auto; max-width: 82%; background: linear-gradient(135deg, #0891b2, #6366f1); color: #ffffff;
+    border-radius: 28px 28px 8px 28px; padding: 22px 30px; font-size: 32px; font-weight: 700; line-height: 1.35; margin-bottom: 32px; }
+  .a { display: flex; gap: 20px; align-items: flex-start; }
+  .ai { width: 60px; height: 60px; border-radius: 16px; flex-shrink: 0; background: #eef2ff; color: #6366f1; display: flex; align-items: center; justify-content: center; }
+  .a-body { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+  .srcs { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+  .src { font-size: 26px; font-weight: 700; color: #334155; background: #f1f5f9; border-radius: 100px; padding: 11px 22px; }
+  .you { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    border: 2px dashed rgba(8,145,178,0.55); border-radius: 18px; padding: 20px 24px; background: rgba(8,145,178,0.05); }
+  .you span:first-child { font-size: 30px; font-weight: 800; color: #0f172a; }
+  .tag { font-size: 18px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #be123c; background: #ffe4e6; border-radius: 100px; padding: 9px 16px; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-grid"></div><div class="bg-glow"></div><div class="bg-glow-low"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+  <div class="content">
+    <h1 class="headline">O ChatGPT <span class="g">recomenda</span><br>o seu negócio?</h1>
+    <div class="panel">
+      <div class="q">Qual nutricionista atende online em Campinas?</div>
+      <div class="a"><div class="ai"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg></div>
+        <div class="a-body"><div class="srcs"><span class="src">concorrente-a.com.br</span><span class="src">concorrente-b.com.br</span></div></div>
+      </div>
+      <div class="you"><span>seusite.com.br</span><span class="tag">Não citado</span></div>
+    </div>
+  </div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

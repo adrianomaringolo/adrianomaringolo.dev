@@ -1,6 +1,7 @@
 {
   "title": "Landing page ou site institucional?",
   "date": "2026-10-03",
+  "status": "aprovado",
   "type": "carousel",
   "template": "explicador-tecnico",
   "tags": [
@@ -67,6 +68,5 @@
       "resolvedTo": "pendente"
     }
   ],
-  "revisionCount": 1,
-  "revisedAt": "2026-10-07T14:58"
+  "revisionCount": 1
 }
