@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #070d1c; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #070d1c; position: relative; overflow: hidden; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 40; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.22); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 40; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  .g { background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .scan { position: absolute; inset: 0; background: repeating-linear-gradient(180deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 6px); z-index: 30; pointer-events: none; }
+  .glow { position: absolute; top: 20%; left: 50%; width: 900px; height: 900px; margin-left: -450px; background: radial-gradient(circle, rgba(6,182,212,0.14), rgba(99,102,241,0.08) 45%, transparent 70%); }
+  .wrap { position: absolute; inset: 0; padding: 92px 70px 150px; z-index: 5; display: flex; flex-direction: column; }
+  .win { flex: 1; display: flex; flex-direction: column; border: 1.5px solid rgba(6,182,212,0.4); border-radius: 22px; background: rgba(10,18,38,0.82); box-shadow: 0 0 60px -10px rgba(6,182,212,0.35), inset 0 0 40px rgba(99,102,241,0.08); overflow: hidden; }
+  .bar { display: flex; align-items: center; gap: 12px; padding: 22px 28px; border-bottom: 1.5px solid rgba(148,163,184,0.18); font-family: 'JetBrains Mono', monospace; font-size: 20px; color: #64748b; }
+  .bar i { width: 15px; height: 15px; border-radius: 50%; background: #334155; }
+  .bar i:nth-child(1) { background: #06b6d4; } .bar i:nth-child(2) { background: #6366f1; }
+  .bar span { margin-left: 16px; }
+  .term { flex: 1; padding: 44px 44px 40px; display: flex; flex-direction: column; justify-content: center; font-family: 'JetBrains Mono', monospace; }
+  .cmd { font-size: 34px; color: #94a3b8; margin-bottom: 30px; }
+  .cmd b { color: #06b6d4; font-weight: 700; } .cmd u { text-decoration: none; color: #f1f5f9; }
+  .glitch { font-weight: 800; font-size: 118px; line-height: 1.04; letter-spacing: -0.05em; color: #f1f5f9; text-shadow: -5px 0 rgba(6,182,212,0.85), 5px 0 rgba(99,102,241,0.85), 0 0 34px rgba(6,182,212,0.35); }
+  .glitch .g { text-shadow: none; }
+  .cur { display: inline-block; width: 0.5em; height: 0.9em; margin-left: 10px; vertical-align: -0.1em; background: linear-gradient(180deg, #06b6d4, #6366f1); box-shadow: 0 0 24px rgba(6,182,212,0.8); }
+  .out { margin-top: 44px; display: flex; flex-direction: column; gap: 14px; }
+  .ln { font-size: 33px; color: #cbd5e1; display: flex; gap: 16px; align-items: center; }
+  .ok { color: #06b6d4; font-weight: 800; }
+  .dim { color: #64748b; }
+  .code { font-size: 35px; line-height: 1.75; color: #cbd5e1; }
+  .no { color: #475569; user-select: none; margin-right: 26px; display: inline-block; width: 34px; text-align: right; }
+  .cm { color: #64748b; } .kw { color: #06b6d4; } .st { color: #a5b4fc; } .del { color: #64748b; text-decoration: line-through; } .add { color: #67e8f9; }
+  .row-add { background: linear-gradient(90deg, rgba(6,182,212,0.14), transparent); border-left: 4px solid #06b6d4; margin-left: -44px; padding-left: 40px; }
+  .row-del { background: rgba(148,163,184,0.06); border-left: 4px solid #475569; margin-left: -44px; padding-left: 40px; }
+  .h2 { font-weight: 800; font-size: 64px; line-height: 1.1; letter-spacing: -0.04em; color: #f1f5f9; margin-bottom: 36px; text-shadow: -3px 0 rgba(6,182,212,0.7), 3px 0 rgba(99,102,241,0.7); }
+  .url { font-weight: 800; font-size: 54px; letter-spacing: -0.05em; margin-top: 12px; }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <div class="glow"></div>
+  <div class="wrap"><div class="win"><div class="bar"><i></i><i></i><i></i><span>contato.sh</span></div><div class="term">
+    <div class="cmd"><b>$</b> <u>chame</u> adriano<span class="dim"> --orcamento</span></div>
+    <div class="glitch" style="font-size:104px">Chamada final<span class="cur"></span></div>
+    <div class="out">
+      <div class="ln"><span class="ok">[ok]</span> Prazo e preço fechados desde o começo</div>
+      <div class="ln dim">Peça um orçamento em:</div>
+      <div class="url g">adrianomaringolo.dev</div>
+    </div></div></div></div>
+  <div class="scan"></div>
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

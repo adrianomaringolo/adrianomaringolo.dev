@@ -1,5 +1,7 @@
 # Template `foto-protagonista`
 
+> **Nível de criatividade:** 2 · Expressivo. Mesma fonte da marca, mas a composição foge do padrão (elemento central, foto em destaque, comparação). Efeito leve, sem fonte nova.
+
 A imagem é o conteúdo. Um scrim escuro nasce no topo, segura um título curto, e some — o
 resto do slide é foto limpa. É o único template do projeto em que o texto serve a imagem, e
 não o contrário.

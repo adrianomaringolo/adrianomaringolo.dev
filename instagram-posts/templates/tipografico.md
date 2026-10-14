@@ -1,5 +1,7 @@
 # Template `tipografico`
 
+> **Nível de criatividade:** 1 · Base. Só Manrope, esqueleto previsível, sem efeito de texto ou de imagem. Cabe em qualquer cliente e é a base do feed.
+
 Capa **clara**, sem foto: a headline gigante é a imagem. Opcionalmente acompanhada de uma
 ilustração SVG em traço com filtro de "rabisco". É o template mais versátil e o que menos
 depende de material externo.

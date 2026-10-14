@@ -1,5 +1,7 @@
 # Template `foto-editorial`
 
+> **Nível de criatividade:** 1 · Base. Só Manrope, esqueleto previsível, sem efeito de texto ou de imagem. Cabe em qualquer cliente e é a base do feed.
+
 Capa escura com **foto real de fundo** sob um overlay gradiente, slides internos claros,
 fecho escuro. É o template mais "revista": a foto dá contexto humano e o texto vive na
 faixa escura do topo.

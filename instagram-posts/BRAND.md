@@ -75,6 +75,15 @@ dominar o feed.
 | `frase-unica` | Post único, uma ideia forte |
 | `foto-protagonista` | A imagem é o conteúdo, só um título no topo |
 | `elemento-central` | Post mínimo: um elemento no centro + frase curta |
+| `checklist-salvavel` | Lista de verificação para conferir e salvar |
+| `antes-depois` | Transformação lado a lado, com duas imagens comparáveis |
+| `fluxograma-decisao` | Guia "qual caminho é o meu?", em perguntas que levam a uma recomendação |
+| `enquete-votacao` | Pergunta com opções A–D para votar e revelação da resposta |
+| `revista-editorial` | Ensaio em serifa (Fraunces), para opinião e carreira |
+| `outline-impacto` | Poucas palavras gigantes (Anton) em contorno, sólido e gradiente |
+| `duotone-foto` | Foto em duotone da marca, com meio-tom e título em Syne |
+| `colagem-zine` | Colagem informal (Archivo Black + Caveat): dica e bastidor |
+| `terminal-neon` | Janela de terminal (JetBrains Mono) com glitch, para regra técnica |
 
 Cada template tem seu `.md` em `templates/` com capa, slides internos, fecho, uso de
 imagem, escala tipográfica, variações permitidas e travas — e abre com um **preview
@@ -84,6 +93,24 @@ renderizado** (imagens de exemplo com conteúdo placeholder em
 
 Para mexer no conjunto de templates, use os comandos da skill em vez de editar na mão:
 `/instagram-post criar-template [ideia]` e `/instagram-post refinar-template [id] [o que mudar]`.
+
+### Níveis de criatividade
+
+Todo template tem um nível (coluna "Criatividade" do `templates/TEMPLATES.md`): **1 · Base** (só Manrope,
+esqueleto previsível), **2 · Expressivo** (composição fora do padrão, efeito leve) e **3 · Ousado** (fonte de
+exibição própria e/ou efeito de texto ou de imagem).
+
+- **Teto do cliente**: definição `criatividade` (abaixo). Conservador = só nível 1, Equilibrado = níveis 1 e 2,
+  Ousado = todos. Nenhum agente propõe template acima do teto.
+- **Mix do feed**, a cada 10 posts: ao menos 5 de nível 1, no máximo 3 de nível 2, no máximo 2 de nível 3, e
+  nunca dois de nível 3 seguidos. Confira os últimos posts no `POSTS.md` antes de escolher.
+- A pauta (`PAUTAS.md`) traz a coluna **Criatividade** com o nível do template sugerido.
+
+<!-- definicao:criatividade -->
+Ousado
+
+Mix do feed: priorizar o nível 1 e usar os níveis 2 e 3 como respiro entre carrosséis.
+<!-- /definicao:criatividade -->
 
 ---
 
@@ -109,7 +136,7 @@ parte de uma.
 |---|---|
 | Pilar (exatamente 1) | `educação` · `prova` · `serviços` · `autoridade` · `humano` · `engajamento` (enquete, mito ou verdade) |
 | Tema | `IA` · `SEO` (inclui Google, AEO/GEO) · `presença digital` · `contratar site` (tipo, custo, prazo, como escolher) · `site na prática` (velocidade, HTTPS, celular, WhatsApp, domínio, manutenção) · `case` · `carreira` · `software` · `dados` (post de estatística) |
-| Série | `série: <nome>` — ex.: `série: nível de uso da IA`, `série: ranqueamento no Google`, `série: software para quem não é dev`, `série: perder cliente sem site` |
+| Série | `série: <nome>` — ex.: `série: ilustrado` (posts com as ilustrações do Adriano, ver `estrategia-conteudo.md` 4.1), `série: nível de uso da IA`, `série: ranqueamento no Google`, `série: software para quem não é dev`, `série: perder cliente sem site` |
 
 Tema novo só quando nenhum dos atuais couber; ao criar, registre aqui.
 
@@ -237,7 +264,7 @@ destaque. Nunca como fundo de área grande.
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 ```
 
-**Manrope** para tudo. Escala varia por template — ver o `.md` de cada um. Referência geral:
+**Manrope** para tudo. **Exceção:** `revista-editorial` (Fraunces), `outline-impacto` (Anton), `duotone-foto` (Syne), `colagem-zine` (Archivo Black + Caveat) e `terminal-neon` (JetBrains Mono) têm fonte de exibição própria, só nos elementos que o `.md` do template lista; handle e texto de apoio seguem em Manrope. Escala varia por template — ver o `.md` de cada um. Referência geral:
 
 | Papel | Tamanho | Peso |
 |---|---|---|
@@ -298,6 +325,8 @@ Para regerar: `node scripts/export-templates.mjs fechos`.
 | `tipografico` | `fecho-desfechos`, `fecho-recap` (fecho sempre escuro e sem foto) |
 | `explicador-tecnico` | `fecho-desfechos`, `fecho-recap` (escuro, sem foto) |
 | `case-showcase`, `dado-visual` | `fecho-desfechos`, `fecho-recap` |
+| `checklist-salvavel`, `antes-depois`, `fluxograma-decisao`, `enquete-votacao` | `fecho-desfechos`, `fecho-recap` |
+| `revista-editorial`, `outline-impacto`, `duotone-foto`, `colagem-zine`, `terminal-neon` | fecho próprio do template (escuro, com chamada e URL) |
 | `frase-unica`, `elemento-central` | não têm fecho (post único) |
 
 Para usar `fecho-grafico` ou `fecho-foto` num template que hoje trava o fecho escuro, rode

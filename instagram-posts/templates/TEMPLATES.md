@@ -17,18 +17,46 @@ handle, regras de export — está em [`../design-system.md`](../design-system.m
 
 ## Catálogo
 
-| ID | Nome | Quando usar | Formato | Imagem obrigatória? |
-|---|---|---|---|---|
-| `foto-editorial` | [Foto editorial](foto-editorial.md) | Tema com rosto, ambiente ou objeto real. Conteúdo educativo/opinativo que ganha com foto. | Carrossel 5–9 | **Sim** — foto de capa |
-| `tipografico` | [Tipográfico](tipografico.md) | Conceito, lista, comparativo, número. Quando não existe foto boa e a ideia se sustenta no texto. | Carrossel 5–9 | Não — ilustração SVG opcional |
-| `case-showcase` | [Case / showcase](case-showcase.md) | Apresentar um projeto entregue, produto ou biblioteca. Prova de trabalho. | Carrossel 6–8 | **Sim** — screenshots do projeto |
-| `dado-visual` | [Dado visual](dado-visual.md) | Uma estatística, pesquisa ou número forte é o protagonista. | Único ou carrossel 3–7 | Não — gráfico em CSS/SVG |
-| `explicador-tecnico` | [Explicador técnico](explicador-tecnico.md) | Explicar um mecanismo (como a IA funciona, como um sistema decide). Precisa de diagrama ou interface simulada. | Carrossel 6–9 ou único | Não — diagrama/UI em HTML |
-| `frase-unica` | [Frase única](frase-unica.md) | Uma ideia forte, provocação ou princípio. Ritmo e reforço de posicionamento. | Único (1 slide) | Opcional — foto de fundo |
-| `foto-protagonista` | [Foto protagonista](foto-protagonista.md) | A imagem é o conteúdo. Bastidor, retrato, projeto no mundo real. Só um título no topo. | Único ou carrossel 3–7 | **Sim** — foto própria |
-| `elemento-central` | [Elemento central](elemento-central.md) | Post mínimo: um símbolo no centro + frase de até 10 palavras. Respiro entre carrosséis. | Único (1 slide) | Não — ícone Lucide ou objeto recortado |
+| ID | Nome | Quando usar | Formato | Imagem obrigatória? | Criatividade |
+|---|---|---|---|---|---|
+| `foto-editorial` | [Foto editorial](foto-editorial.md) | Tema com rosto, ambiente ou objeto real. Conteúdo educativo/opinativo que ganha com foto. | Carrossel 5–9 | **Sim** — foto de capa | 1 · Base |
+| `tipografico` | [Tipográfico](tipografico.md) | Conceito, lista, comparativo, número. Quando não existe foto boa e a ideia se sustenta no texto. | Carrossel 5–9 | Não — ilustração SVG opcional | 1 · Base |
+| `case-showcase` | [Case / showcase](case-showcase.md) | Apresentar um projeto entregue, produto ou biblioteca. Prova de trabalho. | Carrossel 6–8 | **Sim** — screenshots do projeto | 1 · Base |
+| `dado-visual` | [Dado visual](dado-visual.md) | Uma estatística, pesquisa ou número forte é o protagonista. | Único ou carrossel 3–7 | Não — gráfico em CSS/SVG | 1 · Base |
+| `explicador-tecnico` | [Explicador técnico](explicador-tecnico.md) | Explicar um mecanismo (como a IA funciona, como um sistema decide). Precisa de diagrama ou interface simulada. | Carrossel 6–9 ou único | Não — diagrama/UI em HTML | 1 · Base |
+| `frase-unica` | [Frase única](frase-unica.md) | Uma ideia forte, provocação ou princípio. Ritmo e reforço de posicionamento. | Único (1 slide) | Opcional — foto de fundo | 2 · Expressivo |
+| `foto-protagonista` | [Foto protagonista](foto-protagonista.md) | A imagem é o conteúdo. Bastidor, retrato, projeto no mundo real. Só um título no topo. | Único ou carrossel 3–7 | **Sim** — foto própria | 2 · Expressivo |
+| `elemento-central` | [Elemento central](elemento-central.md) | Post mínimo: um símbolo no centro + frase de até 10 palavras. Respiro entre carrosséis. | Único (1 slide) | Não — ícone Lucide ou objeto recortado | 2 · Expressivo |
+| `checklist-salvavel` | [Checklist salvável](checklist-salvavel.md) | Lista de verificação para conferir item a item. Feita para salvar. | Carrossel 4–7 ou único | Não — folha de checklist em HTML | 1 · Base |
+| `antes-depois` | [Antes e depois](antes-depois.md) | Uma transformação lado a lado: redesign, erro corrigido, processo. | Carrossel 4–7 ou único | **Sim** — dois recortes comparáveis | 2 · Expressivo |
+| `fluxograma-decisao` | [Fluxograma de decisão](fluxograma-decisao.md) | Guia "qual caminho é o meu?": perguntas simples que levam a uma recomendação. | Carrossel 5–8 | Não — árvore em SVG | 1 · Base |
+| `enquete-votacao` | [Enquete / votação](enquete-votacao.md) | Pergunta com opções A–D para votar nos comentários e revelação da resposta. | Carrossel 3–5 | Não | 1 · Base |
+| `revista-editorial` | [Revista editorial](revista-editorial.md) | Ensaio de leitura lenta, em serifa: opinião, carreira, valores. | Carrossel 5–8 | Não — tipografia | 3 · Ousado |
+| `outline-impacto` | [Outline de impacto](outline-impacto.md) | Poucas palavras gigantes em contorno, sólido e gradiente. Provocação, manifesto. | Carrossel 3–6 ou único | Não — a tipografia é a imagem | 3 · Ousado |
+| `duotone-foto` | [Duotone na foto](duotone-foto.md) | Foto tratada em duotone da marca, com meio-tom e selo. Unifica fotos de qualquer origem. | Carrossel 3–6 ou único | **Sim** — foto | 3 · Ousado |
+| `colagem-zine` | [Colagem zine](colagem-zine.md) | Dica, bastidor, tom leve: título torto, polaroide, bilhetes e anotações à mão. | Carrossel 3–6 | Opcional — foto na polaroide | 3 · Ousado |
+| `terminal-neon` | [Terminal neon](terminal-neon.md) | Regra técnica em janela de terminal, com glitch e `diff`. Público dev, com moderação. | Carrossel 3–6 | Não | 3 · Ousado |
 
 ---
+
+### Níveis de criatividade
+
+Cada template tem um nível, que diz **quanto ele se afasta da identidade base da marca**. A coluna
+"Criatividade" do catálogo é a fonte de verdade (a galeria lê dela).
+
+| Nível | Nome | Critério |
+|---|---|---|
+| 1 | **Base** | Só a fonte da marca (Manrope), esqueleto previsível, sem efeito de texto ou de imagem. |
+| 2 | **Expressivo** | Mesma fonte, mas a composição foge do padrão: elemento central, foto em destaque, comparação. Efeito leve. |
+| 3 | **Ousado** | Fonte de exibição própria e/ou efeito de texto ou de imagem (contorno, glitch, duotone, colagem). Exige a exceção de tipografia. |
+
+Como o nível é usado:
+
+- **Teto do cliente** (definição `criatividade` do `BRAND.md`, editável na galeria): *Conservador* só usa
+  nível 1, *Equilibrado* usa 1 e 2, *Ousado* usa todos. O agente **nunca propõe** template acima do teto.
+- **Mix do feed** (a cada 10 posts): ao menos 5 de nível 1, no máximo 3 de nível 2 e no máximo 2 de nível 3,
+  e nunca dois de nível 3 seguidos. A `ESTRATEGIA.md` pode ajustar esses números.
+- Template novo ou refinado **declara o nível** (`/instagram-post criar-template` pergunta).
 
 ---
 
@@ -61,11 +89,41 @@ Cada template tem imagens de exemplo com conteúdo placeholder em
 <tr>
 <td width="32%"><img src="previews/foto-protagonista/slide-01.png" alt="foto-protagonista"></td>
 <td width="32%"><img src="previews/elemento-central/slide-01.png" alt="elemento-central"></td>
-<td width="32%"></td>
+<td width="32%"><img src="previews/checklist-salvavel/slide-01.png" alt="checklist-salvavel"></td>
 </tr>
 <tr>
 <td align="center"><b><code>foto-protagonista</code></b></td>
 <td align="center"><b><code>elemento-central</code></b></td>
+<td align="center"><b><code>checklist-salvavel</code></b></td>
+</tr>
+<tr>
+<td width="32%"><img src="previews/antes-depois/slide-01.png" alt="antes-depois"></td>
+<td width="32%"><img src="previews/fluxograma-decisao/slide-01.png" alt="fluxograma-decisao"></td>
+<td width="32%"><img src="previews/enquete-votacao/slide-01.png" alt="enquete-votacao"></td>
+</tr>
+<tr>
+<td align="center"><b><code>antes-depois</code></b></td>
+<td align="center"><b><code>fluxograma-decisao</code></b></td>
+<td align="center"><b><code>enquete-votacao</code></b></td>
+</tr>
+<tr>
+<td width="32%"><img src="previews/revista-editorial/slide-01.png" alt="revista-editorial"></td>
+<td width="32%"><img src="previews/outline-impacto/slide-01.png" alt="outline-impacto"></td>
+<td width="32%"><img src="previews/duotone-foto/slide-01.png" alt="duotone-foto"></td>
+</tr>
+<tr>
+<td align="center"><b><code>revista-editorial</code></b></td>
+<td align="center"><b><code>outline-impacto</code></b></td>
+<td align="center"><b><code>duotone-foto</code></b></td>
+</tr>
+<tr>
+<td width="32%"><img src="previews/colagem-zine/slide-01.png" alt="colagem-zine"></td>
+<td width="32%"><img src="previews/terminal-neon/slide-01.png" alt="terminal-neon"></td>
+<td width="32%"></td>
+</tr>
+<tr>
+<td align="center"><b><code>colagem-zine</code></b></td>
+<td align="center"><b><code>terminal-neon</code></b></td>
 <td></td>
 </tr>
 </table>
@@ -105,6 +163,15 @@ a documentação visual do template.
 | "post simples", "minimalista", "pouco texto", "um ícone", ideia com símbolo óbvio (cadeado, chave, lupa) | `elemento-central` |
 | "foto", "bastidor", "rotina", "retrato", "ensaio", nome de lugar ou evento | `foto-protagonista` |
 | Tema pessoal que precisa ser desenvolvido em vários slides | `foto-editorial` |
+| "checklist", "o que conferir", "antes de contratar", "salve este post", lista de verificação | `checklist-salvavel` |
+| "antes e depois", "redesign", "como era / como ficou", transformação com duas imagens | `antes-depois` |
+| "qual escolher", "qual é o meu caso", "depende", árvore de decisão | `fluxograma-decisao` |
+| "enquete", "vote", "mito ou verdade", "quiz", pergunta com opções A/B/C | `enquete-votacao` |
+| "ensaio", "opinião", "carta", "o que aprendi", reflexão longa | `revista-editorial` |
+| "manifesto", "provocação", frase curta com impacto em vários slides | `outline-impacto` |
+| foto de clima ou pessoa que não combina com a paleta, data comemorativa | `duotone-foto` |
+| "bastidor", "dica rápida", "olha só", tom leve com foto | `colagem-zine` |
+| "regra de código", "antes e depois no código", Clean Code, IA no fluxo (público dev) | `terminal-neon` |
 | Lista, comparativo, "N razões", "quanto custa", conceito abstrato | `tipografico` |
 
 Se o pedido não der sinal claro, a skill pergunta sem sugerir favorito.

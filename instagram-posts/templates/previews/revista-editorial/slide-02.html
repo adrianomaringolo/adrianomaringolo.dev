@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #f5f7fa; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #f5f7fa; position: relative; overflow: hidden; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 40; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(15,23,42,0.14); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #0891b2, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #64748b; z-index: 40; }
+  .handle em { font-style: normal; color: #0891b2; }
+  .g { background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .paper { position: absolute; inset: 0; background: radial-gradient(circle at 20% 10%, rgba(8,145,178,0.06), transparent 50%), radial-gradient(circle at 90% 95%, rgba(99,102,241,0.07), transparent 45%); }
+  .wrap { position: absolute; inset: 0; padding: 84px 84px 140px; display: flex; flex-direction: column; z-index: 5; }
+  .mast { display: flex; justify-content: space-between; font-size: 19px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #0f172a; padding-bottom: 14px; border-bottom: 1.5px solid #0f172a; position: relative; }
+  .mast::after { content: ''; position: absolute; left: 0; right: 0; bottom: -7px; height: 1.5px; background: #0f172a; }
+  .mast span:last-child { color: #0891b2; }
+  .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .kick { font-family: 'Fraunces', serif; font-style: italic; font-size: 38px; color: #0891b2; margin-bottom: 24px; }
+  .h1 { font-family: 'Fraunces', serif; font-weight: 800; font-size: 138px; line-height: .94; letter-spacing: -0.035em; color: #0f172a; }
+  .h1 i { font-weight: 400; font-style: italic; letter-spacing: -0.02em; }
+  .deck { font-family: 'Fraunces', serif; font-style: italic; font-size: 42px; line-height: 1.35; color: #475569; margin-top: 40px; max-width: 800px; padding-top: 30px; border-top: 1.5px solid #cbd5e1; }
+  .by { display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #64748b; padding-top: 18px; border-top: 1.5px solid #0f172a; }
+  .num { font-family: 'Fraunces', serif; font-weight: 800; font-size: 330px; line-height: .8; letter-spacing: -0.06em; }
+  .sec { font-size: 20px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #0891b2; margin: 10px 0 18px; }
+  .h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 78px; line-height: 1.02; letter-spacing: -0.03em; color: #0f172a; margin-bottom: 34px; }
+  .h2 i { font-weight: 400; }
+  .body { font-family: 'Fraunces', serif; font-size: 34px; line-height: 1.5; color: #334155; }
+  .body::first-letter { float: left; font-weight: 800; font-size: 168px; line-height: .78; padding: 8px 18px 0 0; background: linear-gradient(135deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .pull { margin-top: 38px; padding: 6px 0 6px 34px; border-left: 5px solid; border-image: linear-gradient(180deg, #0891b2, #6366f1) 1; font-family: 'Fraunces', serif; font-style: italic; font-size: 48px; line-height: 1.22; color: #0f172a; }
+  .dark { background: #0f172a; }
+  .q { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; font-size: 104px; line-height: 1.05; letter-spacing: -0.03em; color: #f1f5f9; }
+  .qm { font-family: 'Fraunces', serif; font-weight: 800; font-size: 260px; line-height: 1; height: 150px; margin-bottom: 10px; }
+  .rule { height: 2px; width: 160px; background: linear-gradient(90deg, #06b6d4, #6366f1); margin: 44px 0; }
+  .site { font-family: 'Fraunces', serif; font-style: italic; font-weight: 600; font-size: 74px; letter-spacing: -0.02em; }
+  .lab { font-size: 22px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #94a3b8; margin-bottom: 14px; }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <div class="paper"></div>
+  <div class="wrap">
+    <div class="mast"><span>Ensaio</span><span>Nº 00</span></div>
+    <div class="mid">
+      <div class="num g">02</div>
+      <div class="sec">Seção do ensaio</div>
+      <h2 class="h2">Subtítulo com uma <i>ideia</i> só</h2>
+      <p class="body">Parágrafo de leitura em serifa, com capitular em gradiente na primeira letra. Duas ou três frases curtas explicam a ideia sem jargão, como numa coluna de revista.</p>
+      <div class="pull">Frase de destaque que o leitor guarda.</div>
+    </div>
+  </div>
+  <div class="progress"><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #0a1226; position: relative; overflow: hidden; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 40; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.22); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 40; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  .g { background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .photo { position: absolute; inset: 0; background:
+      radial-gradient(ellipse 150px 190px at 64% 33%, #ffffff 0%, #e6e6e6 60%, transparent 100%),
+      radial-gradient(ellipse 330px 300px at 64% 62%, #f4f4f4 0%, #cfcfcf 55%, transparent 100%),
+      radial-gradient(ellipse 800px 700px at 10% 20%, #9a9a9a 0%, transparent 70%),
+      linear-gradient(180deg, #6a6a6a, #2a2a2a); filter: brightness(1.25) contrast(1.1); }
+  .duo { position: absolute; inset: 0; overflow: hidden; isolation: isolate; opacity: .5; }
+  .duo::before { content: ''; position: absolute; inset: 0; background: #0a1226; mix-blend-mode: lighten; z-index: 2; }
+  .duo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #6366f1 0%, #06b6d4 100%); mix-blend-mode: multiply; z-index: 3; }
+  .halftone { position: absolute; inset: 0; z-index: 4; background-image: radial-gradient(circle, rgba(10,18,38,0.55) 2.4px, transparent 3px); background-size: 14px 14px; mix-blend-mode: multiply; opacity: .55; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 75%); mask-image: linear-gradient(180deg, transparent 0%, #000 75%); }
+  .scrim { position: absolute; inset: 0; z-index: 5; background: linear-gradient(180deg, rgba(10,18,38,0.15) 0%, rgba(10,18,38,0) 35%, rgba(10,18,38,0.92) 100%); }
+  .label { position: absolute; z-index: 6; top: 92px; left: 84px; font-size: 18px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(241,245,249,0.8); border: 1.5px dashed rgba(241,245,249,0.55); border-radius: 100px; padding: 8px 16px; }
+  .badge { position: absolute; z-index: 7; top: 84px; right: 80px; width: 170px; height: 170px; border-radius: 50%; background: #f1f5f9; color: #0a1226; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(10deg); font-family: 'Syne', sans-serif; }
+  .badge b { font-size: 56px; font-weight: 800; line-height: 1; }
+  .badge span { font-size: 14px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .copy { position: absolute; z-index: 8; left: 84px; right: 84px; bottom: 150px; }
+  .eyebrow { font-size: 21px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #67e8f9; margin-bottom: 22px; }
+  .title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 100px; line-height: .98; letter-spacing: -0.03em; color: #f1f5f9; }
+  .title .g { background: linear-gradient(90deg, #67e8f9, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .sub { margin-top: 28px; font-size: 34px; font-weight: 500; color: #e2e8f0; line-height: 1.4; max-width: 800px; }
+  .top { position: absolute; left: 0; right: 0; top: 0; height: 640px; }
+  .card { position: absolute; left: 0; right: 0; top: 560px; bottom: 0; background: #f5f7fa; border-radius: 40px 40px 0 0; padding: 70px 84px 150px; z-index: 9; }
+  .n { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 150px; line-height: .8; color: transparent; -webkit-text-stroke: 3px #0891b2; margin-bottom: 18px; }
+  .t2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 84px; line-height: 1; letter-spacing: -0.03em; color: #0f172a; margin-bottom: 26px; }
+  .t2 .g { background: linear-gradient(90deg, #0891b2, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .p2 { font-size: 36px; font-weight: 500; line-height: 1.5; color: #475569; }
+  .p2 b { color: #0f172a; font-weight: 700; }
+  .cap { position: absolute; z-index: 10; left: 84px; top: 112px; font-size: 18px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(241,245,249,0.85); border: 1.5px dashed rgba(241,245,249,0.5); border-radius: 100px; padding: 8px 16px; }
+  .lab { font-size: 26px; font-weight: 700; color: #cbd5e1; margin: 34px 0 10px; }
+  .site { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 78px; letter-spacing: -0.03em; }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <div class="duo" ><div class="photo"></div><div class="halftone"></div></div><div class="scrim" style="background:linear-gradient(180deg, rgba(10,18,38,.55), rgba(10,18,38,.92))"></div>
+  <div class="copy" style="bottom:auto;top:50%;transform:translateY(-50%)">
+    <div class="eyebrow">Próximo passo</div>
+    <h1 class="title">Chamada final <span class="g">curta</span></h1>
+    <div class="lab">Peça um orçamento:</div>
+    <div class="site g" style="font-size:54px;background:linear-gradient(90deg,#67e8f9,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent">adrianomaringolo.dev</div>
+  </div>
+  <div class="progress"><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

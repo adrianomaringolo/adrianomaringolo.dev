@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0a1226; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #0a1226; position: relative; overflow: hidden; }
+  .accent-left { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, #06b6d4, #6366f1); z-index: 20; }
+  .accent-top  { position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #06b6d4, #6366f1); z-index: 20; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 30; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.18); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 30; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  em.g, .g { font-style: normal; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px); background-size: 54px 54px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%); mask-image: radial-gradient(ellipse 85% 78% at 50% 44%, #000 34%, transparent 82%); }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(248,250,252,0.04) 1.5px, transparent 1.5px); background-size: 40px 40px; }
+  .bg-glow { position: absolute; top: -200px; right: -160px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%); }
+  .bg-glow-low { position: absolute; bottom: -220px; left: -180px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%); }
+  .content { position: absolute; inset: 0; z-index: 10; padding: 92px 84px 150px; display: flex; flex-direction: column; }
+  .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .eyebrow { font-size: 21px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #64748b; margin-bottom: 26px; }
+  .headline { font-size: 88px; font-weight: 900; line-height: 1.03; letter-spacing: -0.035em; color: #f1f5f9; }
+  .tag { font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #06b6d4; background: rgba(6,182,212,0.14); border-radius: 100px; padding: 7px 14px; white-space: nowrap; }
+  .cta-label { font-size: 29px; font-weight: 600; color: #94a3b8; margin-bottom: 14px; }
+  .cta-site { font-size: 66px; font-weight: 900; letter-spacing: -0.03em; background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .cta { position: absolute; bottom: 158px; left: 88px; right: 80px; z-index: 15; }
+
+  .sheet { background: #fff; border-radius: 26px; padding: 12px 36px 6px; box-shadow: 0 34px 80px -26px rgba(0,0,0,0.7); position: relative; overflow: hidden; }
+  .sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 22px 0 18px; border-bottom: 2px solid #e2e8f0; }
+  .sheet-title { font-size: 20px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #64748b; }
+  .save { display: inline-flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: linear-gradient(90deg, #0891b2, #6366f1); border-radius: 100px; padding: 9px 16px; }
+  .row { display: flex; align-items: center; gap: 26px; padding: 26px 0; border-bottom: 1px solid #eef2f6; }
+  .box { width: 54px; height: 54px; border-radius: 14px; border: 3px solid #cbd5e1; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #fff; }
+  .row.done .box { border: none; background: linear-gradient(135deg, #0891b2, #6366f1); }
+  .row-t { font-size: 35px; font-weight: 700; color: #0f172a; line-height: 1.25; }
+  .row.fade { opacity: .38; }
+  .more { padding: 22px 0 24px; font-size: 24px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #94a3b8; }
+  .footnote { margin-top: 34px; font-size: 32px; font-weight: 500; color: #94a3b8; line-height: 1.45; }
+  .footnote b { color: #e2e8f0; font-weight: 700; }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <div class="bg-grid"></div><div class="bg-glow"></div><div class="bg-glow-low"></div>
+  <div class="accent-left"></div><div class="accent-top"></div>
+  <div class="content">
+    <div class="eyebrow">Checklist · salve para consultar</div>
+    <h1 class="headline">Título que promete <span class="g">um checklist útil</span></h1>
+    <div class="mid">
+      <div class="sheet">
+        <div class="sheet-head"><span class="sheet-title">Checklist · 12 itens</span><span class="save"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" /></svg>Salve</span></div>
+        <div class="row done"><div class="box"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg></div><span class="row-t">Primeiro item, curto e verificável</span></div>
+        <div class="row done"><div class="box"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg></div><span class="row-t">Segundo item, uma ação por linha</span></div>
+        <div class="row"><div class="box"></div><span class="row-t">Terceiro item, ainda sem marcar</span></div>
+        <div class="row fade"><div class="box"></div><span class="row-t">Quarto item, esmaecendo</span></div>
+        <div class="more">+ 8 itens nos próximos slides</div>
+      </div>
+      <p class="footnote">Frase de apoio. <b>Deslize e marque o que já tem.</b></p>
+    </div>
+  </div>
+  <div class="progress"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

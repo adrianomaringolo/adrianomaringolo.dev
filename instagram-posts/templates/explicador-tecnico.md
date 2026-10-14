@@ -1,5 +1,7 @@
 # Template `explicador-tecnico`
 
+> **Nível de criatividade:** 1 · Base. Só Manrope, esqueleto previsível, sem efeito de texto ou de imagem. Cabe em qualquer cliente e é a base do feed.
+
 Explica **como uma coisa funciona** por dentro. O recurso visual é um diagrama ou uma
 interface simulada em HTML/CSS — não uma foto, não um ícone solto. Fundo escuro com grid
 e brilhos, estética de "console".
@@ -172,6 +174,7 @@ Nenhuma foto. Diagramas e interfaces são construídos em HTML/CSS/SVG inline.
 - Sem jargão sem tradução: todo termo técnico ganha uma frase em linguagem de negócio.
 - Números em barras/probabilidades são ilustrativos — rotule como exemplo quando não forem
   medidos.
+- **Capa com o painel centralizado na vertical.** O título fica no topo e o painel (com a frase de apoio) é centralizado no espaço livre entre o título e os dots (`.mid { flex: 1; display: flex; flex-direction: column; justify-content: center }`). Nunca deixe o conteúdo colado no topo com um vazio grande embaixo; se sobrar espaço, aumente o painel (mais itens, mais respiro) em vez de deixar o buraco.
 - `background` escuro declarado no `body`.
 - `accent-left` + `accent-top`, progress dots e handle em todos os slides.
 

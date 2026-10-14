@@ -1,5 +1,7 @@
 # Template `case-showcase`
 
+> **Nível de criatividade:** 1 · Base. Só Manrope, esqueleto previsível, sem efeito de texto ou de imagem. Cabe em qualquer cliente e é a base do feed.
+
 Vitrine de projeto entregue. Fundo escuro com grid técnico, screenshot real do projeto
 dentro de um mockup de browser. É o template de **prova de trabalho** (pilar 2).
 

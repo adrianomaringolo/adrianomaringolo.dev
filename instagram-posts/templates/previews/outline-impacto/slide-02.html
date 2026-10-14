@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; overflow: hidden; background: #0f172a; font-family: 'Manrope', sans-serif; }
+  .slide { width: 1080px; height: 1350px; background: #0f172a; position: relative; overflow: hidden; }
+  .progress { position: absolute; bottom: 52px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; z-index: 40; }
+  .dot { width: 28px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.22); }
+  .dot.active { width: 48px; background: linear-gradient(90deg, #06b6d4, #6366f1); }
+  .handle { position: absolute; bottom: 44px; right: 72px; font-size: 25px; font-weight: 700; color: #94a3b8; z-index: 40; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  .g { background: linear-gradient(90deg, #06b6d4, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .glow { position: absolute; top: -220px; right: -180px; width: 800px; height: 800px; background: radial-gradient(circle, rgba(6,182,212,0.2), transparent 70%); }
+  .glow2 { position: absolute; bottom: -260px; left: -200px; width: 800px; height: 800px; background: radial-gradient(circle, rgba(99,102,241,0.2), transparent 70%); }
+  .wrap { position: absolute; inset: 0; padding: 92px 70px 150px; display: flex; flex-direction: column; z-index: 5; }
+  .eyebrow { font-size: 21px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #64748b; padding-left: 14px; }
+  .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .w { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 220px; line-height: .9; letter-spacing: .005em; white-space: nowrap; }
+  .out { color: transparent; -webkit-text-stroke: 3px #06b6d4; }
+  .ech1 { color: transparent; -webkit-text-stroke: 3px rgba(6,182,212,0.38); }
+  .ech2 { color: transparent; -webkit-text-stroke: 3px rgba(6,182,212,0.16); }
+  .solid { color: #f1f5f9; }
+  .sub { font-size: 36px; font-weight: 500; color: #94a3b8; line-height: 1.45; margin: 40px 14px 0; max-width: 820px; }
+  .sub b { color: #f1f5f9; font-weight: 700; }
+  .bignum { position: absolute; right: -40px; top: 110px; font-family: 'Anton', sans-serif; font-size: 760px; line-height: .9; color: transparent; -webkit-text-stroke: 3px rgba(148,163,184,0.25); z-index: 1; }
+  .h2 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 170px; line-height: .92; color: #f1f5f9; }
+  .body { font-size: 36px; font-weight: 500; color: #cbd5e1; line-height: 1.5; max-width: 760px; margin-top: 36px; }
+  .body b { color: #fff; font-weight: 800; }
+  .band { position: absolute; left: -60px; right: -60px; bottom: 190px; transform: rotate(-4deg); background: linear-gradient(90deg, #06b6d4, #6366f1); padding: 14px 0; z-index: 6; white-space: nowrap; overflow: hidden; }
+  .band span { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 58px; color: #0f172a; letter-spacing: .03em; margin-right: 34px; }
+  .lab { font-size: 26px; font-weight: 700; color: #94a3b8; margin: 36px 14px 10px; }
+  .site { font-family: 'Anton', sans-serif; font-size: 96px; letter-spacing: .01em; margin: 0 14px; }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <div class="glow"></div><div class="glow2"></div>
+  <div class="bignum">01</div>
+  <div class="wrap">
+    <div class="eyebrow">Ponto 01 de 03</div>
+    <div class="mid">
+      <div class="h2">Título do<br><span class="g">ponto</span></div>
+      <p class="body">Texto de apoio em até três linhas. <b>Uma ideia por slide</b>, com a palavra-chave em destaque.</p>
+    </div>
+  </div>
+  <div class="band"><span>Palavra-chave</span><span>Palavra-chave</span><span>Palavra-chave</span><span>Palavra-chave</span><span>Palavra-chave</span></div>
+  <div class="progress"><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

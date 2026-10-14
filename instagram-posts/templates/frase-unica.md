@@ -1,5 +1,7 @@
 # Template `frase-unica`
 
+> **Nível de criatividade:** 2 · Expressivo. Mesma fonte da marca, mas a composição foge do padrão (elemento central, foto em destaque, comparação). Efeito leve, sem fonte nova.
+
 Um slide. Uma ideia. É o post mais barato de produzir e o que mais reforça posicionamento —
 o "ritmo" entre carrosséis.
 

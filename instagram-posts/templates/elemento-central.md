@@ -1,5 +1,7 @@
 # Template `elemento-central`
 
+> **Nível de criatividade:** 2 · Expressivo. Mesma fonte da marca, mas a composição foge do padrão (elemento central, foto em destaque, comparação). Efeito leve, sem fonte nova.
+
 Um slide. Um elemento no centro, uma frase curta embaixo. É o post de menos conteúdo do
 feed: a imagem segura o olhar, a frase entrega a ideia em 2 segundos, o resto mora na legenda.
 

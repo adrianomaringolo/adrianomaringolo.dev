@@ -1,5 +1,7 @@
 # Template `dado-visual`
 
+> **Nível de criatividade:** 1 · Base. Só Manrope, esqueleto previsível, sem efeito de texto ou de imagem. Cabe em qualquer cliente e é a base do feed.
+
 Um número é o protagonista. O slide inteiro se organiza em volta de uma estatística, com
 gráfico feito em CSS/SVG e **fonte citada**. Funciona como post único (o mais comum) ou
 como carrossel curto que desdobra o dado.
