@@ -32,15 +32,17 @@ Exemplos:
 
 ## O que este skill faz — modo Reel
 
-1. Determina o próximo ID do reel (`reel-NN`) verificando `instagram-reels/html/`
+1. Determina o próximo ID do reel (`reel-NN`) — ver "Numeração e pautas"
 2. Planeja cenas e calcula duração com base no volume de conteúdo (tabela de timing abaixo)
-3. Cria as cenas HTML em `instagram-reels/html/reel-NN/` (formato 1080×1920) com animações CSS de entrada **e elementos animados contínuos** (ver seção abaixo)
-4. Cria o `meta.json` com título, data, cenas, legenda e hashtags
-5. **Valida** o tempo de leitura antes de exportar: `node instagram-reels/scripts/validate-reel.mjs reel-NN`
-6. Exporta o **vídeo único** MP4 com transição `blocks` entre cenas: `node instagram-reels/scripts/export-reel.mjs reel-NN`
-7. Exporta a **capa PNG** para o grid do Instagram: `node instagram-reels/scripts/export-reel.mjs reel-NN --cover`
-8. Opcionalmente mistura música de fundo com `--music`
-9. Exibe a caption para revisão
+3. Cria as cenas HTML em `instagram-reels/html/reel-NN/` (formato 1080×1920) com animações CSS de entrada **e elementos animados contínuos** (ver seção abaixo), respeitando as **safe zones do Reel**
+4. Cria o `meta.json` com título, data, pauta, criatividade, cenas, legenda e hashtags
+5. **Valida** o tempo de leitura: `node instagram-reels/scripts/validate-reel.mjs reel-NN` (não se aplica a reel narrado)
+6. **Revisão visual**: `node instagram-reels/scripts/snapshot-reel.mjs reel-NN` → olhar o `grid.png` e corrigir antes de exportar
+7. Exporta o **vídeo único** MP4 com transição `blocks` entre cenas: `node instagram-reels/scripts/export-reel.mjs reel-NN`
+8. Exporta a **capa PNG** para o grid do Instagram: `node instagram-reels/scripts/export-reel.mjs reel-NN --cover`
+9. Música de fundo com `--music`: embute a recomendada e gera as alternativas em `opcoes-musica/` (ver "Música de fundo")
+10. Atualiza a pauta no `instagram-posts/PAUTAS.md` (status e coluna Post)
+11. Exibe a caption para revisão
 
 ---
 
@@ -56,6 +58,10 @@ instagram-reels/
       ...
       transition.html            ← animação de blocos entre cenas (--transition blocks)
       cover.html                 ← capa do reel para o grid (opcional — usa scene-01 como fallback)
+    reel-10/                     ← reel narrado
+      roteiro.md                 ← conceito, narração, direção de voz e visual
+      voz/falas.json             ← falas para o ElevenLabs (texto, voz, modelo)
+      voz/cena-01.mp3 ...        ← falas escolhidas (voz/testes/ fica fora do git)
     story-01/                    ← Story (mesmo html/, prefixo story-)
       meta.json                  ← type:"story", frames, objetivo, stickers, CTA
       frame-01.html
@@ -68,6 +74,8 @@ instagram-reels/
       reel-01.mp4                ← reel completo concatenado
       cover.png                  ← capa 1080×1920 para o grid do Instagram
       caption.md                 ← legenda pronta para copiar
+      snapshots/grid.png         ← revisão visual (snapshot-reel.mjs)
+      opcoes-musica/             ← o mesmo reel com cada trilha candidata
     story-01/
       frame-01.png               ← card do story (publicar na ordem)
       frame-01-guides.png        ← só com --guides (revisão de safe zones)
@@ -76,16 +84,27 @@ instagram-reels/
   scripts/
     export-reel.mjs
     validate-reel.mjs
+    snapshot-reel.mjs            ← revisão visual: screenshot de cada cena + grade
     export-story.mjs
+    generate-voice.mjs           ← falas com ElevenLabs (reel narrado)
+    build-reel-NN.mjs            ← gerador de cenas de um reel narrado
+    lib/voice-scenes.mjs         ← helpers de áudio, legenda karaokê e boca sincronizada
+  .env                           ← ELEVENLABS_API_KEY (fora do git)
   package.json
 ```
 
-### Como determinar o próximo ID
+### Numeração e pautas
 
 ```bash
 ls instagram-reels/html/   # ver reel-01... e story-01...
-# usar o próximo número disponível na série (reel-NN ou story-NN)
 ```
+
+- **Próximo ID = maior `reel-NN` existente + 1.** Não preencha buracos: os IDs `reel-02` a `reel-06` estão reservados
+  para a fila técnica do `instagram-posts/content-plan.md`.
+- Se o reel sai de uma pauta (`instagram-posts/PAUTAS.md`), registre `"pauta": "<id>"` no `meta.json` e, na linha
+  da pauta, mude o status para **Em produção** (ou Feita, quando publicado) e preencha a coluna **Post** com `reel-NN`.
+- Ideia nova que surgir na conversa e não for feita agora vira linha nova na pauta (ID `p` + 6 hex aleatórios,
+  status Ideia, tipo Reel, coluna Criatividade preenchida). Edite só entre os marcadores `<!-- pautas -->`.
 
 ---
 
@@ -103,6 +122,44 @@ O validador usa o modelo de **scanning social** (300 WPM para prosa, 0.35s/linha
 - `❌ CURTO` — abaixo do mínimo, aumentar obrigatoriamente
 
 O mínimo por cena = **settle_time** (última animação de entrada terminar) + **tempo de leitura** + **0.4s buffer**.
+
+---
+
+## Revisão visual antes de exportar (obrigatória)
+
+O validador mede tempo, não layout. Todo reel recente teve pelo menos um problema que só apareceu olhando a cena
+(palavra saindo da tela, letra cortada, menu vazando da janela, carimbo cobrindo texto, legenda sumindo antes da hora).
+Exportar leva minutos; revisar leva segundos.
+
+```bash
+node scripts/snapshot-reel.mjs reel-NN                  # cada cena em (duração − 0,6s) + capa → grid.png
+node scripts/snapshot-reel.mjs reel-NN --at 1@2.5,4@6   # instantes específicos (meio de uma frase, depois de um carimbo...)
+node scripts/snapshot-reel.mjs reel-NN --scenes 3,4     # só as cenas que mudaram
+```
+
+Abra `output/reel-NN/snapshots/grid.png` e confira, cena a cena:
+- nada essencial fora das **safe zones do Reel** (abaixo) nem saindo dos 1080px;
+- nenhum elemento cobrindo texto que precisa ser lido;
+- textos grandes com a parte de baixo das letras inteira (g, p, ç);
+- o estado no instante escolhido é o esperado (em reel narrado, tire um screenshot no meio de cada frase).
+
+O screenshot usa o mesmo método do export (Web Animations API), então é exatamente o quadro do vídeo.
+
+---
+
+## Safe zones do Reel
+
+A interface do Reel cobre partes do quadro 1080×1920:
+
+| Região | Reservado | O que o Instagram põe ali |
+|---|---|---|
+| Direita | **~150px** (x > 930) | coluna de curtir, comentar, compartilhar, áudio |
+| Base | **~380px** (y > 1540) | perfil, legenda, botão seguir, nome da música |
+| Topo | **~120px** | "Reels", câmera |
+
+Texto essencial, legendas queimadas e CTA ficam entre **x 70–930** e **y 120–1540**. O handle no rodapé
+(`bottom: 64px`) é marca d'água, não informação — pode ficar na faixa coberta. Na grade do perfil, a capa aparece
+cortada em 3:4 pelo centro: o foco da capa fica entre y ~240 e ~1680.
 
 ---
 
@@ -157,6 +214,8 @@ Requer `ffmpeg` instalado (`which ffmpeg`). O script:
 {
   "title": "Título do reel",
   "date": "YYYY-MM-DD",
+  "pauta": "p0eda5c",
+  "creativity": "Base | Expressivo | Ousado",
   "hook": "Frase de gancho do reel (primeiros 1-2s)",
   "music": "nome-do-arquivo.mp3",
   "scenes": [
@@ -464,9 +523,21 @@ A legenda é o texto publicado no Instagram junto com o reel. Deve:
 
 ---
 
+## Números, dados e fontes
+
+- **Dado de pesquisa** ("73% dos clientes…", "você tem 3 segundos segundo o Google") só com fonte verificável,
+  citada na legenda. Sem fonte, reformule sem número ("se não encontra, volta para o Google").
+- **Números de ficção** dentro de uma narrativa são livres: horários ("21h14"), número de caso, contador de
+  visitantes, "© 2019". O contexto deixa claro que é encenação.
+- **Métrica de projeto real** (Lighthouse, tempo de carregamento) só se foi medida — nunca arredondada para cima.
+
+---
+
 ## Identidade visual obrigatória
 
 Aplica-se a **Reels e Stories** (paleta, tipografia Manrope, acento lateral, handle, ícones SVG, sem emojis nos HTMLs). No Story a marca entra **mais discreta** — ver "Estrutura HTML base — frame de Story".
+
+**Exceção:** reels de criatividade **Ousado** podem sair da identidade no corpo, desde que o CTA final volte para ela — ver "Formatos ousados".
 
 ### Paleta — dark mode (padrão para Reels — mais impacto em tela cheia)
 | Token | Valor |
@@ -626,11 +697,9 @@ Além das animações de **entrada** (fadeUp/fadeIn com `animation-fill-mode: bo
 4. **Nunca bloquear a leitura** — os elementos contínuos ficam atrás do conteúdo (`z-index` menor) ou nas bordas
 5. **Infinitos não interferem no validador** — o script `validate-reel.mjs` ignora animações `infinite` no cálculo de settle_time
 
-### ⚠️ Animação só funciona em elementos reais — nunca em `::before` / `::after`
+### ⚠️ Animação só em elementos reais — nunca em `::before` / `::after`
 
-O `export-reel.mjs` renderiza o vídeo **frame a frame**: pausa todas as animações e faz scrub do `animation-delay` para o instante de cada frame. O seletor usado é `document.querySelectorAll('*')`, que **não alcança pseudo-elementos**.
-
-Consequência: uma animação em `::after` não é pausada nem sincronizada. Ela roda em **tempo de parede** durante a captura — e como cada frame leva ~1s de processamento, uma animação de 1.8s cicla várias vezes entre frames consecutivos. O resultado no vídeo é um **piscar aleatório**, não a pulsação suave que aparece no navegador.
+O `export-reel.mjs` renderiza o vídeo **frame a frame**: pausa todas as animações e posiciona cada uma no instante exato do frame pela Web Animations API (`document.getAnimations()` + `currentTime`). O `validate-reel.mjs`, porém, calcula o settle_time com `document.querySelectorAll('*')`, que **não alcança pseudo-elementos** — uma animação em `::after` fica fora da validação. E versões antigas do export (scrub por `animation-delay`) faziam essas animações piscarem no vídeo.
 
 Isso vale para qualquer animação, contínua ou de entrada. Sempre usar um `<div>` real:
 
@@ -659,9 +728,9 @@ Isso vale para qualquer animação, contínua ou de entrada. Sempre usar um `<di
 }
 ```
 
-Pseudo-elementos **estáticos** (sem `animation`) continuam liberados — só a animação é que quebra.
+Pseudo-elementos **estáticos** (sem `animation`) continuam liberados.
 
-> **Nota sobre o scrub**: mesmo em elementos reais, o scrub tem um pequeno deslocamento, porque as animações já avançaram um pouco entre o load da página e o pause. Na prática a timeline sai comprimida: entradas escalonadas projetadas para ~3s acontecem em ~1,8s de vídeo. Considere isso ao dimensionar a duração da cena — sobra tempo de leitura, não falta.
+> **Timeline exata**: desde out/2026 o export usa `currentTime` (Web Animations API) e o vídeo segue os `animation-delay` à risca. O método anterior deslocava `animation-delay` depois de pausar e somava o tempo de carregamento da página a todos os frames (timeline adiantada). Reels exportados antes disso (até o reel-09) saíram com as entradas um pouco antes do previsto.
 
 ### Exemplo: cursor piscando
 
@@ -701,6 +770,20 @@ Pseudo-elementos **estáticos** (sem `animation`) continuam liberados — só a 
   100%     { opacity: 0; transform: scale(0) rotate(360deg); }
 }
 ```
+
+---
+
+## Armadilhas de CSS que já aconteceram
+
+| Sintoma | Causa | Como evitar |
+|---|---|---|
+| Ícone de fundo forte demais, apesar de `opacity: 0.09` | a entrada `fadeIn` termina em `opacity: 1` e sobrescreve a opacidade base | keyframe de entrada que termina na opacidade final (`fadeInLow { to { opacity: 0.09 } }`) |
+| Parte de baixo de "g", "p", "ç" cortada | texto em gradiente (`background-clip: text`) com `line-height: 1` | `line-height` ≥ 1.15 ou `padding-bottom: 0.08em` |
+| Palavra saindo da tela | 110px+ em Manrope 900 passa fácil dos ~920px úteis | medir no snapshot; reduzir a fonte ou quebrar a linha |
+| Efeito máquina de escrever corta o texto | `width` fixa animada em fonte não monoespaçada | animar `clip-path: inset(0 100% 0 0)` → `inset(0)` com `steps(n)` |
+| Menu/elemento vazando da moldura | posição absoluta abrindo para fora de um container com `overflow: hidden` | abrir para dentro (para baixo/para a esquerda) e conferir no snapshot |
+| Carimbo/selo cobrindo o texto que ele comenta | selo centralizado sobre o card | ancorar no canto (`right`/`bottom` negativos) e deixar padding para ele |
+| Chrome caindo na captura e arquivo enorme (67 MB no reel-11) | granulado com `feTurbulence` em tela cheia, animado | usar com moderação, opacidade baixa, `steps()`; o `snapshot-reel` abre um Chrome por cena |
 
 ---
 
@@ -851,11 +934,21 @@ curl -sL -A "Mozilla/5.0" "https://assets.mixkit.co/music/173/173.mp3" \
 
 #### Como escolher a faixa
 
-1. **Baixar 3–4 candidatas com vibes distintas** e apresentar ao usuário para ele ouvir — nunca escolher sozinho e já mixar, o critério é de gosto
-2. **Recomendar uma**, com justificativa ligada ao conteúdo do reel (a curva emocional do roteiro, não o visual das cenas)
-3. **Casar com o público**, não com a estética: reel de venda para público não-técnico pede faixa otimista/crescente, mesmo que o visual seja dark; techno frio soa distante
-4. **Sem vocais** — competem com o texto na tela
-5. **Duração ≥ a do reel** sempre que possível, para evitar loop audível
+1. **Baixar 3–4 candidatas com vibes distintas.** O critério é de gosto: a escolha final é do usuário
+2. **Recomendar uma**, com justificativa ligada ao conteúdo do reel (a curva emocional do roteiro, não o visual das cenas), e **embuti-la** no `reel-NN.mp4`
+3. **Gerar o reel com cada candidata** para comparação — `--resume` só refaz a mixagem (segundos), sem renderizar cenas:
+   ```bash
+   mkdir -p output/reel-NN/opcoes-musica
+   for n in faixa-a faixa-b faixa-c faixa-d; do
+     node scripts/export-reel.mjs reel-NN --resume --music music/$n.mp3 --volume 0.3
+     cp output/reel-NN/reel-NN.mp4 output/reel-NN/opcoes-musica/reel-NN-$n.mp4
+   done
+   # por último, rode de novo com a recomendada para o reel-NN.mp4 final ficar com ela
+   ```
+   Ouvir o vídeo pronto decide melhor do que ouvir a faixa solta. Não afirme que a faixa "combina" sem ressalva — o agente não ouve o áudio.
+4. **Casar com o público**, não com a estética: reel de venda para público não-técnico pede faixa otimista/crescente, mesmo que o visual seja dark; techno frio soa distante
+5. **Sem vocais** — competem com o texto na tela
+6. **Duração ≥ a do reel** sempre que possível, para evitar loop audível
 
 #### Registrar no meta.json
 
@@ -864,6 +957,48 @@ Anotar a faixa e os parâmetros usados no campo `music`, para reproduzir o expor
 ```json
 "music": "better-times-are-coming.mp3 (Mixkit #173) — --music-start end --volume 0.3"
 ```
+
+---
+
+## Formatos ousados (criatividade: Ousado)
+
+Ao sugerir reels, inclua **ao menos uma opção narrativa ou ousada** além das de template. O `BRAND.md` define o teto
+do cliente (hoje "Ousado") e o mix: registre `creativity` no `meta.json` e **nunca publique dois Ousados seguidos**.
+
+| Formato | Exemplo | Quando usar | O que exige |
+|---|---|---|---|
+| **Objeto que fala** | reel-10 "O site que fala" | humor e identificação; dor do cliente contada pelo próprio problema | personagem com rosto feito de UI (olhos, boca sincronizada), voz expressiva (cansada, irônica), visual "velho de propósito" |
+| **Paródia de gênero** | reel-11 "O caso do cliente que sumiu" (true crime) | tensão e retenção; transformar um dado abstrato em história concreta | narrador grave, códigos visuais do gênero (fichas, carimbos, horários), evidências entrando na fala |
+| **Série com episódios** | "Caso nº 0418…" | quando um formato funciona; cria retorno | numeração visível, mesma abertura, gancho para o próximo no CTA |
+
+Regras comuns:
+- **Sair da marca no corpo, voltar para ela no CTA.** A última cena usa a identidade (fundo `#0f172a`, Manrope,
+  acento cyan → indigo, handle) — é o que liga a peça ao perfil.
+- O **próprio personagem pode pedir a ação** ("manda o meu link pro Adriano") — soa natural e não parece anúncio.
+- **Tudo fictício e genérico**: negócio, endereço e telefone inventados ("Ferreira Elétrica", "(00) 0000-0000",
+  "ferreiraeletrica.com.br"). Nunca marca, pessoa ou site real.
+- Ícones e efeitos podem fugir do catálogo da marca, mas continuam **sem emojis nos HTMLs**.
+
+---
+
+## Reel narrado (voz com IA)
+
+Para reels com narração (ex.: reel-10 "O site que fala", reel-11 "O caso do cliente que sumiu"):
+
+1. **Roteiro** em `html/reel-NN/roteiro.md` e falas em `html/reel-NN/voz/falas.json` (uma fala por cena, `voice_id`, modelo, `voice_settings`). No `eleven_v3`, pausas são reticências e `[pause]`, emoções são tags em inglês (`[tired]`, `[sarcastic]`, `[sighs]`, `[whispers]`); números por extenso.
+2. **Voz**: `node scripts/generate-voice.mjs reel-NN [--takes 2] [--only 1,3] [--voice-id id] [--out dir]`. Chave em `instagram-reels/.env` (`ELEVENLABS_API_KEY`, fora do git). A chave atual só tem permissão de text-to-speech (não lista vozes nem transcreve). Vozes usadas: Bill `pqHfZKP75CvOlQylNhV4` (cansado, personagem) e Brian `nPczCjzI2devNBz1zQrb` (narrador grave). George soa português de Portugal.
+3. **Cenas**: um `scripts/build-reel-NN.mjs` por reel, usando `scripts/lib/voice-scenes.mjs`: duração da cena = atraso + áudio + respiro; frases da legenda casadas com os trechos de fala detectados por silêncio; palavras distribuídas dentro do trecho (karaokê); boca/elementos sincronizados pelo envelope do áudio. Cada cena no `meta.json` ganha `voice` e `voiceDelay`.
+4. **Export**: `node scripts/export-reel.mjs reel-NN --transition cut --music music/faixa.mp3 --volume 0.3` — a fala entra no início de cada cena e a trilha abaixa sozinha sob a voz (sidechain). `--voice-volume`, `--no-voice`.
+5. **Publicar com o selo "Informações de IA"** no Instagram (voz gerada por IA). Não imitar a voz de pessoa real.
+
+O `validate-reel.mjs` não se aplica (mede leitura de texto parado; aqui a voz dita o tempo).
+
+**Duração:** mire em **45–55 s** de reel. O `eleven_v3` fala com muitas pausas e os dois primeiros narrados saíram com
+60–65 s. Ao enxugar, corte primeiro a cena de reforço (a que repete o argumento) e use `[pause]` só onde a pausa é
+dramática; reticências já dão respiro.
+
+**Sincronia:** os elementos de cada cena entram no início da frase que fala deles (o build recebe os instantes de
+cada frase). Revise com `snapshot-reel.mjs --at` no meio de cada frase.
 
 ---
 
@@ -880,12 +1015,18 @@ Anotar a faixa e os parâmetros usados no campo `music`, para reproduzir o expor
 - [ ] Fonte Manrope carregada via Google Fonts
 - [ ] Paleta dark respeitada (fundo `#0f172a`)
 - [ ] `meta.json` com `duration` e `description` por cena, legenda e hashtags
-- [ ] **Validação aprovada**: `node scripts/validate-reel.mjs reel-NN` → todos ✅ OK
+- [ ] **Validação aprovada**: `node scripts/validate-reel.mjs reel-NN` → todos ✅ OK (reel narrado: não se aplica)
+- [ ] **Revisão visual feita**: `node scripts/snapshot-reel.mjs reel-NN` → `grid.png` conferido, nada fora das safe zones, nada cortado ou coberto
+- [ ] Texto essencial e legendas entre x 70–930 e y 120–1540 (safe zones do Reel)
+- [ ] Números de pesquisa com fonte; números de ficção só dentro da narrativa
 - [ ] Export executado: `node scripts/export-reel.mjs reel-NN [--music music/track.mp3 --music-start end]`
-- [ ] Faixa escolhida pelo usuário (3–4 candidatas apresentadas) e registrada no `music` do `meta.json`
+- [ ] Trilha recomendada embutida, alternativas em `output/reel-NN/opcoes-musica/`, faixa registrada no `music` do `meta.json`
 - [ ] **MP4 único final gerado**: `output/reel-NN/reel-NN.mp4`
 - [ ] **Capa exportada**: `node scripts/export-reel.mjs reel-NN --cover` → `output/reel-NN/cover.png`
 - [ ] `caption.md` gerado e exibido para revisão
+- [ ] `pauta` e `creativity` no `meta.json`; linha da pauta atualizada no `PAUTAS.md` (status + coluna Post)
+- [ ] Ousado: CTA volta para a identidade da marca; nada de marca, pessoa ou contato real; não vem logo depois de outro Ousado
+- [ ] Narrado: voz escolhida pelo usuário a partir de amostras; duração 45–55 s; aviso para publicar com o selo "Informações de IA"
 
 ---
 

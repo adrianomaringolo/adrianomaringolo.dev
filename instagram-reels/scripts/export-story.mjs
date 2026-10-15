@@ -124,22 +124,11 @@ console.log(`    ${storyId}  ·  1080×1920  ·  ${toExport.length} frame(s)  ·
 
 // scrub das animações de entrada para o instante `SETTLE`
 async function scrubTo(page, seconds) {
-  const tMs = seconds * 1000;
-  await page.evaluate(() => {
-    document.querySelectorAll('*').forEach(el => {
-      const cs = window.getComputedStyle(el);
-      if (!cs.animationName || cs.animationName === 'none') return;
-      const delays = cs.animationDelay.split(',').map(d => parseFloat(d) * 1000);
-      el.dataset._origDelays = delays.join(',');
-      el.style.animationPlayState = 'paused';
-    });
-  });
+  // Web Animations API: currentTime inclui o animation-delay, então o instante é exato
+  // (deslocar animation-delay depois de pausar somava o tempo de carregamento da página).
   await page.evaluate((tMs) => {
-    document.querySelectorAll('[data-_orig-delays]').forEach(el => {
-      const delays = el.dataset._origDelays.split(',').map(Number);
-      el.style.animationDelay = delays.map(d => `${-(tMs - d)}ms`).join(',');
-    });
-  }, tMs);
+    document.getAnimations().forEach(a => { a.pause(); a.currentTime = tMs; });
+  }, seconds * 1000);
   await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
 }
 
@@ -177,21 +166,10 @@ async function captureVideo(htmlPath, duration, mp4Path, label) {
     await page.setViewport({ width, height, deviceScaleFactor: 1 });
     await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle0', timeout: 30000 });
     await page.waitForFunction(() => document.fonts.ready);
-    await page.evaluate(() => {
-      document.querySelectorAll('*').forEach(el => {
-        const cs = window.getComputedStyle(el);
-        if (!cs.animationName || cs.animationName === 'none') return;
-        el.dataset._origDelays = cs.animationDelay.split(',').map(d => parseFloat(d) * 1000).join(',');
-        el.style.animationPlayState = 'paused';
-      });
-    });
     for (let i = 0; i < totalFrames; i++) {
       const tMs = i * frameMs;
       await page.evaluate((tMs) => {
-        document.querySelectorAll('[data-_orig-delays]').forEach(el => {
-          const delays = el.dataset._origDelays.split(',').map(Number);
-          el.style.animationDelay = delays.map(d => `${-(tMs - d)}ms`).join(',');
-        });
+        document.getAnimations().forEach(a => { a.pause(); a.currentTime = tMs; });
       }, tMs);
       await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
       const png = await page.screenshot({ type: 'png', clip: { x: 0, y: 0, width, height } });

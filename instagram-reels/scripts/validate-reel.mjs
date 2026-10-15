@@ -44,8 +44,21 @@ const CODE_SECS_PER_LINE = 0.35;
 const ABSORB_BUFFER      = 0.4;
 const TIGHT_MARGIN       = 1.0;
 
+const CHROME_CANDIDATES = [
+  process.env.CHROME_PATH,
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/usr/bin/google-chrome',
+  '/usr/bin/chromium',
+  '/usr/bin/chromium-browser',
+].filter(Boolean);
+const chromeExecutable = CHROME_CANDIDATES.find(p => fs.existsSync(p));
+if (!chromeExecutable) {
+  console.error('Chrome/Chromium não encontrado. Defina a variável CHROME_PATH.');
+  process.exit(1);
+}
+
 const browser = await puppeteer.launch({
-  executablePath: '/usr/bin/google-chrome',
+  executablePath: chromeExecutable,
   args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security', '--allow-file-access-from-files'],
 });
 

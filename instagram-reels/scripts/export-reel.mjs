@@ -9,10 +9,16 @@
  *   node scripts/export-reel.mjs reel-01 --music track.mp3 --volume 0.35
  *   node scripts/export-reel.mjs reel-01 --scenes 1,3 --fps 30
  *   node scripts/export-reel.mjs reel-01 --cover               ← screenshot PNG da capa
+ *   node scripts/export-reel.mjs reel-10 --transition cut --music track.mp3   ← com narração (ver abaixo)
  *
  * Transition modes:
  *   blocks            — renders transition.html between scenes (add data-duration to that file)
  *   slideup|fade|...  — ffmpeg xfade filter (any xfade transition name)
+ *   cut               — corte seco, sem transição
+ *
+ * Narração: cenas com "voice" (caminho relativo a html/<reel>/) e "voiceDelay" (s) no meta.json têm a fala
+ * posicionada no início da cena. Com --music, a trilha abaixa sozinha quando a voz entra (sidechain).
+ * --voice-volume ajusta a fala (padrão 1.0); --no-voice ignora as falas.
  *
  * Cover mode (--cover):
  *   Tira screenshot de cover.html (ou scene-01.html como fallback) → output/reel-NN/cover.png
@@ -46,12 +52,14 @@ const TRANSITION_DUR = parseFloat(getArg('--transition-duration', '0.5'));
 const COVER_MODE     = process.argv.includes('--cover');
 const RESUME         = process.argv.includes('--resume');
 const COVER_TIME     = parseFloat(getArg('--cover-time', '1.5'));
+const VOICE_VOLUME   = parseFloat(getArg('--voice-volume', '1.0'));
+const NO_VOICE       = process.argv.includes('--no-voice');
 
 if (!reelId) {
   console.error('Usage: node scripts/export-reel.mjs <reel-id> [options]');
   console.error('  --cover                           exportar capa PNG (cover.html ou scene-01)');
   console.error('  --cover-time 1.5                  momento em segundos para o screenshot da capa');
-  console.error('  --transition blocks|slideup|fade  transition mode (default: blocks)');
+  console.error('  --transition blocks|cut|slideup   transition mode (default: blocks)');
   console.error('  --transition-duration 0.5         xfade duration in seconds');
   console.error('  --scenes 1,3                      export only these scenes');
   console.error('  --resume                          reaproveita cenas .mp4 ja renderizadas');
@@ -59,6 +67,8 @@ if (!reelId) {
   console.error('  --music file.mp3                  background music');
   console.error('  --music-start 12 | end            trecho da faixa: segundos, ou "end" para o final');
   console.error('  --volume 0.35                     music volume 0–1');
+  console.error('  --voice-volume 1.0                volume da narração (cenas com "voice" no meta.json)');
+  console.error('  --no-voice                        ignora a narração');
   process.exit(1);
 }
 
@@ -90,18 +100,39 @@ if (scenesArg) {
 
 const scenesTotalDuration = toExport.reduce((sum, s) => sum + (s.duration ?? 3), 0);
 const USE_BLOCKS = TRANSITION === 'blocks';
+const USE_CUT    = TRANSITION === 'cut';
 
 // For blocks: transition is a separate clip inserted between scenes (+time)
 // For xfade:  transition overlaps adjacent scenes (-time)
 let effectiveDuration;
-if (USE_BLOCKS) {
+let blocksTransDur = 0;
+if (USE_CUT) {
+  effectiveDuration = scenesTotalDuration;
+} else if (USE_BLOCKS) {
   const transHtmlPath = path.join(htmlDir, 'transition.html');
   const transHtml = fs.existsSync(transHtmlPath) ? fs.readFileSync(transHtmlPath, 'utf8') : '';
   const m = transHtml.match(/data-duration="([^"]+)"/);
   const transDur = m ? parseFloat(m[1]) : 0.8;
+  blocksTransDur = transDur;
   effectiveDuration = scenesTotalDuration + transDur * Math.max(0, toExport.length - 1);
 } else {
   effectiveDuration = scenesTotalDuration - TRANSITION_DUR * Math.max(0, toExport.length - 1);
+}
+
+// Narração: início de cada cena na linha do tempo final
+const voiceClips = [];
+if (!NO_VOICE) {
+  let t = 0;
+  toExport.forEach((scene, i) => {
+    if (scene.voice) {
+      const file = path.join(htmlDir, scene.voice);
+      if (!fs.existsSync(file)) { console.error(`voz não encontrada: ${scene.voice}`); process.exit(1); }
+      voiceClips.push({ file, start: t + (scene.voiceDelay ?? 0) });
+    }
+    t += (scene.duration ?? 3);
+    if (USE_BLOCKS) t += blocksTransDur;
+    else if (!USE_CUT && i < toExport.length - 1) t -= TRANSITION_DUR;
+  });
 }
 
 fs.mkdirSync(outputDir, { recursive: true });
@@ -110,7 +141,13 @@ console.log(`\n🎬  "${meta.title}"`);
 console.log(`    ${reelId}  ·  1080x1920  ·  ${FPS}fps  ·  ${effectiveDuration.toFixed(1)}s`);
 console.log(`    transicao: ${TRANSITION}`);
 if (musicPath) console.log(`    musica: ${path.basename(musicPath)}  vol: ${volume}`);
+if (voiceClips.length) console.log(`    narração: ${voiceClips.length} falas  vol: ${VOICE_VOLUME}`);
 console.log();
+
+// Roda no navegador: pausa todas as animações e posiciona no instante tMs da cena.
+function seekAnimations(tMs) {
+  document.getAnimations().forEach(a => { a.pause(); a.currentTime = tMs; });
+}
 
 // ── Helper: capture an HTML file into a MP4 clip ──────────────────────────────
 async function captureHtml(browser, htmlPath, duration, mp4Path, label) {
@@ -124,25 +161,13 @@ async function captureHtml(browser, htmlPath, duration, mp4Path, label) {
   await page.waitForFunction(() => document.fonts.ready);
   await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
 
-  // Pause all CSS animations and store original delays
-  await page.evaluate(() => {
-    document.querySelectorAll('*').forEach(el => {
-      const cs = window.getComputedStyle(el);
-      if (!cs.animationName || cs.animationName === 'none') return;
-      const delays = cs.animationDelay.split(',').map(d => parseFloat(d) * 1000);
-      el.dataset._origDelays = delays.join(',');
-      el.style.animationPlayState = 'paused';
-    });
-  });
-
+  // Posiciona todas as animações CSS no instante exato do frame (Web Animations API).
+  // currentTime inclui o animation-delay, então tMs é o tempo da cena desde o início.
+  // (O método antigo, de deslocar animation-delay depois de pausar, somava o tempo de carregamento
+  // da página a todos os frames e adiantava a timeline.)
   for (let i = 0; i < totalFrames; i++) {
     const tMs = i * frameMs;
-    await page.evaluate((tMs) => {
-      document.querySelectorAll('[data-_orig-delays]').forEach(el => {
-        const delays = el.dataset._origDelays.split(',').map(Number);
-        el.style.animationDelay = delays.map(d => `${-(tMs - d)}ms`).join(',');
-      });
-    }, tMs);
+    await page.evaluate(seekAnimations, tMs);
     await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
     const png = await page.screenshot({ type: 'png', clip: { x: 0, y: 0, width, height } });
     fs.writeFileSync(path.join(tmpDir, `frame-${String(i).padStart(5, '0')}.png`), png);
@@ -198,23 +223,8 @@ if (COVER_MODE) {
   await page.goto(`file://${srcPath}`, { waitUntil: 'networkidle0', timeout: 30000 });
   await page.waitForFunction(() => document.fonts.ready);
 
-  // Avança as animações para o momento desejado via scrubbing
-  const tMs = COVER_TIME * 1000;
-  await page.evaluate(() => {
-    document.querySelectorAll('*').forEach(el => {
-      const cs = window.getComputedStyle(el);
-      if (!cs.animationName || cs.animationName === 'none') return;
-      const delays = cs.animationDelay.split(',').map(d => parseFloat(d) * 1000);
-      el.dataset._origDelays = delays.join(',');
-      el.style.animationPlayState = 'paused';
-    });
-  });
-  await page.evaluate((tMs) => {
-    document.querySelectorAll('[data-_orig-delays]').forEach(el => {
-      const delays = el.dataset._origDelays.split(',').map(Number);
-      el.style.animationDelay = delays.map(d => `${-(tMs - d)}ms`).join(',');
-    });
-  }, tMs);
+  // Avança as animações para o momento desejado
+  await page.evaluate(seekAnimations, COVER_TIME * 1000);
   await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
 
   const png = await page.screenshot({ type: 'png', clip: { x: 0, y: 0, width, height } });
@@ -271,11 +281,20 @@ if (USE_BLOCKS && sceneMp4Paths.length > 1) {
 await browser.close();
 
 // ── Stitch ───────────────────────────────────────────────────────────────────
-const rawMp4 = musicPath
+const hasAudio = Boolean(musicPath) || voiceClips.length > 0;
+const rawMp4 = hasAudio
   ? path.join(outputDir, `${reelId}-raw.mp4`)
   : path.join(outputDir, `${reelId}.mp4`);
 
-if (USE_BLOCKS && sceneMp4Paths.length > 1) {
+if (USE_CUT && sceneMp4Paths.length > 1) {
+  const concatFile = path.join(outputDir, '_concat.txt');
+  fs.writeFileSync(concatFile, sceneMp4Paths.map(p => `file '${p}'`).join('\n'));
+  const concat = spawnSync('ffmpeg', [
+    '-y', '-f', 'concat', '-safe', '0', '-i', concatFile, '-c', 'copy', rawMp4,
+  ], { stdio: ['ignore', 'pipe', 'pipe'] });
+  fs.unlinkSync(concatFile);
+  if (concat.status !== 0) { console.error(`ffmpeg concat error:\n${concat.stderr.toString()}`); process.exit(1); }
+} else if (USE_BLOCKS && sceneMp4Paths.length > 1) {
   // Interleave: scene-01, transition, scene-02, transition, ..., scene-N
   const concatList = [];
   for (let i = 0; i < sceneMp4Paths.length; i++) {
@@ -318,10 +337,15 @@ if (USE_BLOCKS && sceneMp4Paths.length > 1) {
   fs.copyFileSync(sceneMp4Paths[0], rawMp4);
 }
 
-// ── Music mix ─────────────────────────────────────────────────────────────────
+// ── Music / voice mix ─────────────────────────────────────────────────────────
 const finalMp4 = path.join(outputDir, `${reelId}.mp4`);
 
-if (musicPath) {
+if (hasAudio) {
+  const inputs = ['-i', rawMp4];
+  const graph = [];
+  let musicLabel = null;
+
+  if (musicPath) {
   // --music-start: de onde recortar a faixa. "end" alinha o fim da musica com o fim do reel,
   // util quando o climax esta no final do track.
   let musicStart = 0;
@@ -350,17 +374,48 @@ if (musicPath) {
     `afade=t=out:st=${fadeOutStart}:d=1.5`,
   ].join(',');
 
+  inputs.push('-i', musicPath);
+  graph.push(`[1:a]${audioFilter}[mus]`);
+  musicLabel = 'mus';
+  console.log(`\n  🎵  musica  (vol ${volume} · trecho a partir de ${musicStart.toFixed(1)}s · fade in/out)`);
+  }
+
+  let voiceLabel = null;
+  if (voiceClips.length) {
+    const first = inputs.length / 2;
+    voiceClips.forEach((clip, i) => {
+      inputs.push('-i', clip.file);
+      const ms = Math.round(clip.start * 1000);
+      graph.push(`[${first + i}:a]aresample=44100,aformat=channel_layouts=stereo,adelay=${ms}|${ms}[v${i}]`);
+    });
+    const vin = voiceClips.map((_, i) => `[v${i}]`).join('');
+    graph.push(`${vin}amix=inputs=${voiceClips.length}:normalize=0:duration=longest,volume=${VOICE_VOLUME},apad,atrim=duration=${effectiveDuration}[voice]`);
+    voiceLabel = 'voice';
+    console.log(`  🎙️   narração  (${voiceClips.length} falas · vol ${VOICE_VOLUME})`);
+  }
+
+  let outLabel;
+  if (musicLabel && voiceLabel) {
+    // a trilha abaixa quando a voz fala (ducking por sidechain)
+    graph.push(`[voice]asplit=2[vk][vm]`);
+    graph.push(`[mus]aformat=channel_layouts=stereo[mst]`);
+    graph.push(`[mst][vk]sidechaincompress=threshold=0.02:ratio=6:attack=30:release=450[duck]`);
+    graph.push(`[duck][vm]amix=inputs=2:normalize=0:duration=first[aout]`);
+    outLabel = 'aout';
+  } else {
+    outLabel = musicLabel || voiceLabel;
+  }
+
   const mix = spawnSync('ffmpeg', [
-    '-y', '-i', rawMp4, '-i', musicPath,
-    '-filter_complex', `[1:a]${audioFilter}[aout]`,
-    '-map', '0:v:0', '-map', '[aout]',
+    '-y', ...inputs,
+    '-filter_complex', graph.join(';'),
+    '-map', '0:v:0', '-map', `[${outLabel}]`,
     '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest',
     finalMp4,
   ], { stdio: ['ignore', 'pipe', 'pipe'] });
 
-  if (mix.status !== 0) { console.error(`music mix error:\n${mix.stderr.toString()}`); process.exit(1); }
+  if (mix.status !== 0) { console.error(`audio mix error:\n${mix.stderr.toString()}`); process.exit(1); }
   fs.unlinkSync(rawMp4);
-  console.log(`\n  🎵  musica mixada  (vol ${volume} · trecho a partir de ${musicStart.toFixed(1)}s · fade in/out)`);
 }
 
 const finalSize = (fs.statSync(finalMp4).size / 1024).toFixed(0);
