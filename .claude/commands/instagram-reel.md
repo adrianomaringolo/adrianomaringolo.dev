@@ -43,6 +43,9 @@ Exemplos:
 9. Música de fundo com `--music`: embute a recomendada e gera as alternativas em `opcoes-musica/` (ver "Música de fundo")
 10. Atualiza a pauta no `instagram-posts/PAUTAS.md` (status e coluna Post)
 11. Exibe a caption para revisão
+12. **Publica na galeria na nuvem** quando o projeto tem `instagram-posts/galeria.json`: a galeria só mostra o que foi
+    enviado. `node ~/.claude/skills/instagram-post/cloud/bin/galeria-cloud.mjs publicar instagram-posts` (sincroniza
+    antes, envia só o que mudou). Ofereça ao terminar o reel, e rode de novo depois de reexportar um vídeo.
 
 ---
 
@@ -1024,6 +1027,7 @@ cada frase). Revise com `snapshot-reel.mjs --at` no meio de cada frase.
 - [ ] **MP4 único final gerado**: `output/reel-NN/reel-NN.mp4`
 - [ ] **Capa exportada**: `node scripts/export-reel.mjs reel-NN --cover` → `output/reel-NN/cover.png`
 - [ ] `caption.md` gerado e exibido para revisão
+- [ ] Galeria na nuvem: `publicar` oferecido (ou rodado) para o reel aparecer em posts-adrianomaringolo.web.app
 - [ ] `pauta` e `creativity` no `meta.json`; linha da pauta atualizada no `PAUTAS.md` (status + coluna Post)
 - [ ] Ousado: CTA volta para a identidade da marca; nada de marca, pessoa ou contato real; não vem logo depois de outro Ousado
 - [ ] Narrado: voz escolhida pelo usuário a partir de amostras; duração 45–55 s; aviso para publicar com o selo "Informações de IA"
