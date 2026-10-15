@@ -1,0 +1,91 @@
+{
+  "title": "O caso do cliente que sumiu",
+  "date": "2026-10-14",
+  "status": "rascunho",
+  "pauta": "p21af73",
+  "creativity": "Ousado",
+  "objective": "Alcance e salvamento entre donos de pequenos negócios e prestadores de serviço; ação desejada: mandar o link do site no direct.",
+  "hook": "Terça-feira. 21h14. Um cliente desapareceu.",
+  "voice": "ElevenLabs eleven_v3 · Brian (nPczCjzI2devNBz1zQrb) · ver voz/falas.json",
+  "music": "unforgiven.mp3 (Mixkit #890) — --transition cut --music-start 0 --volume 0.35 (ducking automático sob a voz)",
+  "scenes": [
+    {
+      "file": "scene-01.html",
+      "title": "Abertura — Caso nº 0417",
+      "duration": 7.05,
+      "voice": "voz/cena-01.mp3",
+      "voiceDelay": 0.2,
+      "description": "Terça-feira. 21h14. Um cliente desapareceu."
+    },
+    {
+      "file": "scene-02.html",
+      "title": "O perfil — pronto pra contratar",
+      "duration": 6.17,
+      "voice": "voz/cena-02.mp3",
+      "voiceDelay": 0.2,
+      "description": "Ele tinha um problema. Tinha dinheiro... E estava pronto pra contratar."
+    },
+    {
+      "file": "scene-03.html",
+      "title": "21h14 e 3 segundos — entrou no site",
+      "duration": 7.13,
+      "voice": "voz/cena-03.mp3",
+      "voiceDelay": 0.2,
+      "description": "Às 21h14... e 3 segundos... ele entrou no seu site."
+    },
+    {
+      "file": "scene-04.html",
+      "title": "As evidências — não encontrou",
+      "duration": 8.89,
+      "voice": "voz/cena-04.mp3",
+      "voiceDelay": 0.2,
+      "description": "Procurou o que você faz. Onde você atende. Como falar com você. Não encontrou."
+    },
+    {
+      "file": "scene-05.html",
+      "title": "21h14 e 6 segundos — voltou pro Google",
+      "duration": 7.77,
+      "voice": "voz/cena-05.mp3",
+      "voiceDelay": 0.2,
+      "description": "Às 21h14... e 6 segundos... ele voltou pro Google."
+    },
+    {
+      "file": "scene-06.html",
+      "title": "Visto pela última vez — o concorrente",
+      "duration": 8.89,
+      "voice": "voz/cena-06.mp3",
+      "voiceDelay": 0.2,
+      "description": "Foi visto pela última vez no site do seu concorrente. Fechou negócio às 21h31."
+    },
+    {
+      "file": "scene-07.html",
+      "title": "Caso arquivado",
+      "duration": 5.61,
+      "voice": "voz/cena-07.mp3",
+      "voiceDelay": 0.2,
+      "description": "O caso foi arquivado. Ninguém percebeu que ele existiu."
+    },
+    {
+      "file": "scene-08.html",
+      "title": "CTA — eu investigo",
+      "duration": 9.89,
+      "voice": "voz/cena-08.mp3",
+      "voiceDelay": 0.2,
+      "description": "Quantos clientes sumiram assim esta semana? Me manda o link do seu site. Eu investigo."
+    }
+  ],
+  "caption": "🕵️ Caso nº 0417: o cliente que sumiu.\n\nTerça, 21h14. Ele tinha um problema, tinha dinheiro e estava pronto para contratar. Abriu o seu site pelo celular.\n\nProcurou o que você faz. Onde você atende. Como falar com você. Não encontrou.\n\n3 segundos depois, voltou para o Google. Às 21h31, fechou com o seu concorrente. Ninguém percebeu que ele existiu.\n\nEsse caso se repete toda semana, em silêncio. 🔎\n\nQuer saber se o seu site está deixando clientes sumirem? Mande o link no direct que eu investigo. 💬\n\n📌 Salve para revisar o seu site depois.\n\n#siteprofissional #presencadigital #pequenosnegocios #prestadordeservico #empreendedorismo #marketingdigital #negocioproprio #truecrime #criacaodesites #webdesign #devbr",
+  "hashtags": [
+    "siteprofissional",
+    "presencadigital",
+    "pequenosnegocios",
+    "prestadordeservico",
+    "empreendedorismo",
+    "marketingdigital",
+    "negocioproprio",
+    "truecrime",
+    "criacaodesites",
+    "webdesign",
+    "devbr"
+  ]
+}

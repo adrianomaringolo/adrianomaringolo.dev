@@ -1,0 +1,44 @@
+{
+  "model": "eleven_v3",
+  "voice_id": "pqHfZKP75CvOlQylNhV4",
+  "voice_settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.35
+  },
+  "falas": [
+    {
+      "file": "cena-01.mp3",
+      "text": "[tired] Ah... finalmente alguém apareceu. [pause] Eu sou o site da sua empresa. Lembra de mim?"
+    },
+    {
+      "file": "cena-02.mp3",
+      "text": "[sarcastic] Faz seis anos que ninguém mexe em mim... Meu rodapé ainda diz... dois mil e dezenove."
+    },
+    {
+      "file": "cena-03.mp3",
+      "text": "Hoje entrou um cliente. Pelo celular... [sighs] Eu demorei uma eternidade pra abrir."
+    },
+    {
+      "file": "cena-04.mp3",
+      "text": "[sarcastic] Aí ele procurou o seu telefone. Tava escondido numa página chamada... \"Fale Conosco\". Lá embaixo."
+    },
+    {
+      "file": "cena-05.mp3",
+      "text": "E o banner? [pause] Ainda é da promoção de Natal... [deadpan] De dois mil e vinte."
+    },
+    {
+      "file": "cena-06.mp3",
+      "text": "[resigned] Ele foi embora... Foi pro site do seu concorrente. [sighs] Aquele que abre rapidinho."
+    },
+    {
+      "file": "cena-07.mp3",
+      "text": "Eu não tô pedindo muito... Só uma reforma. Um texto que diga o que você faz. Um botão de WhatsApp que apareça."
+    },
+    {
+      "file": "cena-08.mp3",
+      "text": "[hopeful] Faz um favor? Manda o meu link pro Adriano, no direct... [whispers] Ele me conserta."
+    }
+  ],
+  "voice_name": "Bill (ElevenLabs, padrão)"
+}

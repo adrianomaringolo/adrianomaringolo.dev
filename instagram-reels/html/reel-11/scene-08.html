@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Special+Elite&family=Share+Tech+Mono&family=Manrope:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Reel fora da identidade da marca (criatividade: Ousado), estética de documentário policial.
+     Toda animação fica em elemento real (o export faz scrub via querySelectorAll('*')). */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #0a0a0a; }
+  .stage { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+    background: radial-gradient(ellipse at 50% 38%, #1c1c1c 0%, #0a0a0a 65%, #000 100%); }
+  .grain { position: absolute; inset: -60px; z-index: 30; pointer-events: none; opacity: 0.14;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    animation: grain 0.5s steps(4) 0s infinite; }
+  @keyframes grain { 0% { transform: translate(0, 0); } 25% { transform: translate(-30px, 20px); } 50% { transform: translate(20px, -30px); } 75% { transform: translate(-20px, -10px); } 100% { transform: translate(0, 0); } }
+  .vignette { position: absolute; inset: 0; z-index: 29; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,0.75) 100%); }
+  .flicker { position: absolute; inset: 0; z-index: 28; pointer-events: none; background: #fff; animation: flick 3.1s steps(1) 0.6s infinite; opacity: 0; }
+  @keyframes flick { 0%, 100% { opacity: 0; } 47% { opacity: 0.035; } 49% { opacity: 0; } 83% { opacity: 0.025; } 84% { opacity: 0; } }
+  .cutin { position: absolute; inset: 0; z-index: 31; background: #000; animation: cutIn 0.25s ease-out 0s both; }
+  @keyframes cutIn { from { opacity: 1; } to { opacity: 0; } }
+  .hud { position: absolute; left: 70px; right: 70px; top: 110px; display: flex; justify-content: space-between; z-index: 20;
+    font: 34px 'Share Tech Mono', monospace; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slamIn { 0% { opacity: 0; transform: scale(1.6); } 100% { opacity: 1; transform: scale(1); } }
+  @keyframes stamp { 0% { opacity: 0; scale: 2.2; } 70% { opacity: 1; scale: 0.95; } 100% { opacity: 1; scale: 1; } }
+  
+  .cta { position: absolute; inset: 0; background: #0f172a; font-family: 'Manrope', sans-serif; display: flex; flex-direction: column; justify-content: center; padding: 100px 90px 100px 100px; z-index: 2; }
+  .cta-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(248,250,252,0.05) 1.5px, transparent 1.5px); background-size: 48px 48px; }
+  .cta-blob { position: absolute; top: -120px; right: -160px; width: 800px; height: 800px; background: radial-gradient(circle, rgba(6,182,212,0.22) 0%, transparent 62%); animation: breathe 4s ease-in-out 0.9s infinite; }
+  @keyframes breathe { 0%, 100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+  .cta-accent { position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: linear-gradient(180deg, #06b6d4, #6366f1); }
+  .eyebrow { position: relative; align-self: flex-start; font: 34px 'Special Elite', monospace; color: #e01e1e; border: 5px solid #e01e1e; padding: 8px 24px; transform: rotate(-3deg); animation: stamp 0.3s ease 0.20s both; }
+  .cta h2 { position: relative; margin-top: 56px; font-size: 100px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.04; color: #f8fafc; animation: fadeUp 0.5s ease 0.30s both; }
+  .cta h2 em { font-style: normal; background: linear-gradient(90deg, #06b6d4, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .cta p { position: relative; margin-top: 52px; font-size: 56px; font-weight: 600; line-height: 1.36; color: #94a3b8; animation: fadeUp 0.5s ease 4.15s both; }
+  .cta p strong { color: #f8fafc; font-weight: 900; }
+  .inv { position: relative; margin-top: 30px; font-size: 76px; font-weight: 900; color: #f8fafc; letter-spacing: -0.03em; animation: fadeUp 0.45s ease 6.43s both; }
+  .handle { position: relative; margin-top: 80px; font-size: 46px; font-weight: 800; color: #f8fafc; animation: fadeUp 0.5s ease 6.83s both; }
+  .handle i { font-style: normal; color: #06b6d4; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: none; } }
+
+  /* legenda de documentário */
+  .captions { position: absolute; left: 70px; right: 150px; top: 1300px; height: 280px; z-index: 20; }
+  .phrase { position: absolute; inset: 0; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; column-gap: 20px; row-gap: 2px; text-align: center; }
+  .w { display: inline-block; font: 700 84px 'Oswald', sans-serif; line-height: 1.12; text-transform: uppercase; color: #fff;
+    -webkit-text-stroke: 10px #000; paint-order: stroke fill; letter-spacing: 0.01em; }
+
+</style>
+</head>
+<body data-duration="9.89">
+<div class="stage">
+  
+
+  <div class="cta">
+    <div class="cta-dots"></div><div class="cta-blob"></div><div class="cta-accent"></div>
+    <div class="eyebrow">CASO Nº 0418 · ABERTO</div>
+    <h2>Quantos clientes <em>sumiram assim</em> esta semana?</h2>
+    <p><strong>Mande o link do seu site no direct.</strong></p>
+    <div class="inv">Eu investigo.</div>
+    <div class="handle"><i>@</i>adrianomaringolo.dev</div>
+  </div>
+  <div class="captions">
+  </div>
+  <div class="flicker"></div>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+  <div class="cutin"></div>
+</div>
+</body>
+</html>

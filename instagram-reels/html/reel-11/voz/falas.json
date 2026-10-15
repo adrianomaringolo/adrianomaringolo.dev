@@ -1,0 +1,16 @@
+{
+  "model": "eleven_v3",
+  "voice_id": "nPczCjzI2devNBz1zQrb",
+  "voice_name": "Brian (ElevenLabs, padrão) — narrador de documentário",
+  "voice_settings": { "stability": 0.5, "similarity_boost": 0.75, "style": 0.3 },
+  "falas": [
+    { "file": "cena-01.mp3", "text": "[serious] Terça-feira. Vinte e uma horas e catorze minutos... [pause] Um cliente desapareceu." },
+    { "file": "cena-02.mp3", "text": "[serious] Ele tinha um problema. Tinha dinheiro... [pause] E estava pronto pra contratar." },
+    { "file": "cena-03.mp3", "text": "Às vinte e uma e catorze... e três segundos... [pause] ele entrou no seu site." },
+    { "file": "cena-04.mp3", "text": "Procurou o que você faz. [pause] Onde você atende. [pause] Como falar com você. [pause] [dramatic] Não encontrou." },
+    { "file": "cena-05.mp3", "text": "Às vinte e uma e catorze... e seis segundos... [pause] ele voltou pro Google." },
+    { "file": "cena-06.mp3", "text": "Foi visto pela última vez no site do seu concorrente. [pause] Fechou negócio às vinte e uma e trinta e um." },
+    { "file": "cena-07.mp3", "text": "[somber] O caso foi arquivado. [pause] Ninguém percebeu que ele existiu." },
+    { "file": "cena-08.mp3", "text": "[serious] Quantos clientes sumiram assim esta semana? [pause] Me manda o link do seu site. [pause] Eu investigo." }
+  ]
+}

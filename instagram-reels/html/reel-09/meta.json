@@ -1,0 +1,68 @@
+{
+  "title": "O teste dos 3 segundos no celular",
+  "date": "2026-10-14",
+  "status": "aprovado",
+  "pauta": "p0eda5c",
+  "creativity": "Base",
+  "objective": "Alcance e salvamento entre donos de pequenos negócios e prestadores de serviço; ação desejada: fazer o teste no próprio site e mandar o link no direct.",
+  "hook": "Seu site tem 3 segundos para convencer quem abriu pelo celular.",
+  "music": "running-out-of-time.mp3 (Mixkit #77) — --music-start end --volume 0.3",
+  "scenes": [
+    {
+      "file": "scene-01.html",
+      "title": "Hook — Seu site tem 3 segundos",
+      "duration": 6,
+      "description": "Cronômetro circular que esvazia em 3s com a contagem 3, 2, 1 em loop. 'segundos' em gradiente com shimmer. Abre o padrão visual do reel."
+    },
+    {
+      "file": "scene-02.html",
+      "title": "Contexto — O visitante quer 3 respostas",
+      "duration": 7,
+      "description": "Ícone de celular gigante ao fundo, '3 respostas' com glow cyan. Consequência sem número de pesquisa: volta para o Google e clica no próximo."
+    },
+    {
+      "file": "scene-03.html",
+      "title": "Pergunta 1 — O que você faz?",
+      "duration": 8,
+      "description": "Cronômetro linear em 1s. Celular com wireframe de site de eletricista; o título do topo ganha anel pulsante e o resto apaga. 'Bem-vindo ao nosso site' não conta."
+    },
+    {
+      "file": "scene-04.html",
+      "title": "Pergunta 2 — Onde você atende?",
+      "duration": 7,
+      "description": "Cronômetro em 2s. Mesmo celular, destaque na linha de localização com ícone de pin."
+    },
+    {
+      "file": "scene-05.html",
+      "title": "Pergunta 3 — Como falo com você?",
+      "duration": 7,
+      "description": "Cronômetro em 3s (barra completa). Destaque no botão de WhatsApp visível sem rolar."
+    },
+    {
+      "file": "scene-06.html",
+      "title": "Resultado — Respondeu as 3?",
+      "duration": 7.5,
+      "description": "Checklist com as três perguntas e checks verdes entrando com mola e pulsando. Veredito: passou ou o visitante foi embora."
+    },
+    {
+      "file": "scene-07.html",
+      "title": "CTA — Abra o seu site no celular agora",
+      "duration": 8,
+      "description": "Convite para fazer o teste e mandar o link no direct. Card 'Chame no direct' com glow e seta animada, sparkles."
+    }
+  ],
+  "caption": "⏱️ Abra o seu site no celular e conte até 3.\n\nÉ esse o tempo que quem chega tem para decidir se fica ou volta para o Google e clica no próximo.\n\nNesses 3 segundos, o visitante procura 3 respostas:\n\n1️⃣ O que você faz? Uma frase no topo dizendo o seu serviço. “Bem-vindo ao nosso site” não responde nada.\n\n2️⃣ Onde você atende? Cidade, bairro ou “atendo online”, logo no começo.\n\n3️⃣ Como falo com você? Botão de WhatsApp ou telefone à vista, sem precisar rolar a página.\n\nRespondeu as 3? Passou. ✅\nFaltou uma? Esse visitante já foi embora. 👋\n\nFaça o teste agora no seu site. Não passou? Me mande o link no direct que eu faço o teste com você. 💬\n\n📌 Salve para testar depois.\n\n#siteprofissional #presencadigital #pequenosnegocios #prestadordeservico #empreendedorismo #marketingdigital #negocioproprio #sitesresponsivos #criacaodesites #webdesign #devbr",
+  "hashtags": [
+    "siteprofissional",
+    "presencadigital",
+    "pequenosnegocios",
+    "prestadordeservico",
+    "empreendedorismo",
+    "marketingdigital",
+    "negocioproprio",
+    "sitesresponsivos",
+    "criacaodesites",
+    "webdesign",
+    "devbr"
+  ]
+}

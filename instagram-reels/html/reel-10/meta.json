@@ -1,0 +1,91 @@
+{
+  "title": "O site que fala",
+  "date": "2026-10-14",
+  "status": "aprovado",
+  "pauta": "pb08594",
+  "creativity": "Ousado",
+  "objective": "Alcance e compartilhamento entre donos de pequenos negócios com site antigo; ação desejada: mandar o link do site no direct.",
+  "hook": "Ah... finalmente alguém apareceu. Eu sou o site da sua empresa.",
+  "voice": "ElevenLabs eleven_v3 · Bill (pqHfZKP75CvOlQylNhV4) · take 1 de cada cena — ver voz/falas.json",
+  "music": "jazz-2-kitsch-lounge.mp3 (Mixkit #638) — --transition cut --music-start 0 --volume 0.3 (ducking automático sob a voz)",
+  "scenes": [
+    {
+      "file": "scene-01.html",
+      "title": "Gancho — finalmente alguém apareceu",
+      "duration": 7.14,
+      "voice": "voz/cena-01.mp3",
+      "voiceDelay": 0.15,
+      "description": "Ah... finalmente alguém apareceu. Eu sou o site da sua empresa. Lembra de mim?"
+    },
+    {
+      "file": "scene-02.html",
+      "title": "O abandono — rodapé de 2019",
+      "duration": 8.1,
+      "voice": "voz/cena-02.mp3",
+      "voiceDelay": 0.15,
+      "description": "Faz seis anos que ninguém mexe em mim... Meu rodapé ainda diz... 2019."
+    },
+    {
+      "file": "scene-03.html",
+      "title": "O cliente chega — carregando",
+      "duration": 7.3,
+      "voice": "voz/cena-03.mp3",
+      "voiceDelay": 0.15,
+      "description": "Hoje entrou um cliente. Pelo celular... Eu demorei uma eternidade pra abrir."
+    },
+    {
+      "file": "scene-04.html",
+      "title": "O telefone escondido",
+      "duration": 8.02,
+      "voice": "voz/cena-04.mp3",
+      "voiceDelay": 0.15,
+      "description": "Aí ele procurou o seu telefone. Tava escondido numa página chamada... \"Fale Conosco\". Lá embaixo."
+    },
+    {
+      "file": "scene-05.html",
+      "title": "O banner de Natal",
+      "duration": 7.3,
+      "voice": "voz/cena-05.mp3",
+      "voiceDelay": 0.15,
+      "description": "E o banner? Ainda é da promoção de Natal... De 2020."
+    },
+    {
+      "file": "scene-06.html",
+      "title": "Ele foi embora — o concorrente",
+      "duration": 8.02,
+      "voice": "voz/cena-06.mp3",
+      "voiceDelay": 0.15,
+      "description": "Ele foi embora... Foi pro site do seu concorrente. Aquele que abre rapidinho."
+    },
+    {
+      "file": "scene-07.html",
+      "title": "O pedido — só uma reforma",
+      "duration": 8.1,
+      "voice": "voz/cena-07.mp3",
+      "voiceDelay": 0.15,
+      "description": "Eu não tô pedindo muito... Só uma reforma. Um texto que diga o que você faz. Um botão de WhatsApp que apareça."
+    },
+    {
+      "file": "scene-08.html",
+      "title": "CTA — manda o meu link pro Adriano",
+      "duration": 10.28,
+      "voice": "voz/cena-08.mp3",
+      "voiceDelay": 0.15,
+      "description": "Faz um favor? Manda o meu link pro Adriano, no direct... Ele me conserta."
+    }
+  ],
+  "caption": "😮‍💨 Se o seu site falasse, o que ele diria?\n\nO meu palpite: \"faz anos que ninguém mexe em mim\".\n\nRodapé de 2019, banner de promoção vencida, telefone escondido no \"Fale Conosco\"... O cliente não reclama. Ele só vai embora e fecha com quem abre rápido e mostra o que faz.\n\nSe o seu site se reconheceu nesse vídeo, mande o link dele no direct. Eu dou uma olhada. 💬\n\n📌 Marque aquele amigo cujo site está pedindo socorro.\n\n#siteprofissional #presencadigital #pequenosnegocios #humor #empreendedorismo #marketingdigital #negocioproprio #prestadordeservico #criacaodesites #webdesign #devbr",
+  "hashtags": [
+    "siteprofissional",
+    "presencadigital",
+    "pequenosnegocios",
+    "humor",
+    "empreendedorismo",
+    "marketingdigital",
+    "negocioproprio",
+    "prestadordeservico",
+    "criacaodesites",
+    "webdesign",
+    "devbr"
+  ]
+}

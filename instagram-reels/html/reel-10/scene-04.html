@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Reel fora da identidade da marca (criatividade: Ousado). Toda animação fica em elemento real
+     (o export faz scrub via querySelectorAll('*'), que não alcança ::before / ::after). */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #008080; }
+
+  .stage { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+    background: radial-gradient(ellipse at 50% 40%, #0a9a9a 0%, #007070 70%, #005a5a 100%);
+    animation: cutGlitch 0.22s steps(2) 0s both; }
+  @keyframes cutGlitch { 0% { transform: translateX(-14px); filter: hue-rotate(80deg) contrast(1.4); } 50% { transform: translateX(10px); } 100% { transform: none; filter: none; } }
+  .scan { position: absolute; inset: 0; z-index: 30; pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.07) 0 2px, transparent 2px 5px); }
+
+  /* janela estilo Windows 95 */
+  .win { position: absolute; left: 60px; top: 170px; width: 960px; height: 1060px; background: #c0c0c0;
+    border: 4px solid; border-color: #fff #404040 #404040 #fff; box-shadow: 10px 12px 0 rgba(0,0,0,0.35);
+    animation: winBob 5s ease-in-out 1s infinite; }
+  @keyframes winBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  .title { height: 56px; background: linear-gradient(90deg, #000080, #1084d0); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 12px 0 16px; font: bold 26px Tahoma, Arial, sans-serif; }
+  .btns { display: flex; gap: 6px; }
+  .btns b { width: 40px; height: 36px; background: #c0c0c0; border: 3px solid; border-color: #fff #404040 #404040 #fff; color: #000; display: flex; align-items: center; justify-content: center; font: bold 24px Tahoma, sans-serif; }
+  .addr { height: 60px; display: flex; align-items: center; gap: 12px; padding: 0 12px; font: 24px Tahoma, Arial, sans-serif; color: #000; }
+  .addr span { flex: 1; background: #fff; border: 3px inset #c0c0c0; padding: 6px 10px; white-space: nowrap; overflow: hidden; }
+  .page { position: absolute; left: 10px; right: 10px; top: 126px; bottom: 10px; background: #fff; border: 3px inset #c0c0c0; overflow: hidden; padding: 0 30px; }
+  .head { height: 96px; display: flex; align-items: center; justify-content: center; gap: 16px; font: bold 50px 'Comic Sans MS', cursive; color: #003399; border-bottom: 4px double #003399; }
+
+  /* o rosto do site */
+  .face { position: relative; height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; }
+  .eyes { display: flex; gap: 120px; }
+  .eye { position: relative; width: 170px; height: 170px; border-radius: 50%; background: #fff; border: 7px solid #111; overflow: hidden; }
+  .spin { position: absolute; inset: -18px; border-radius: 50%; border: 10px solid transparent; border-top-color: #1084d0; animation: rot 1.6s linear 0.8s infinite; }
+  @keyframes rot { to { transform: rotate(360deg); } }
+  .pupil { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; margin: -30px; border-radius: 50%; background: #111; transform: translate(-26px, 4px); }
+  .shine { position: absolute; left: 12px; top: 10px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+  .lid { position: absolute; left: 0; right: 0; top: 0; height: 40%; background: #b8b8b8; border-bottom: 7px solid #111; animation: blinkLid 4.2s ease-in-out 1.4s infinite; transform-origin: top; }
+  @keyframes blinkLid { 0%, 92%, 100% { transform: scaleY(1); } 96% { transform: scaleY(2.50); } }
+  .mouth { width: 230px; height: 96px; border-radius: 50px; background: #2a0a0a; border: 7px solid #111; overflow: hidden; position: relative; transform: scaleY(0.14); animation: talk 8.02s linear 0s both; }
+  .tongue { position: absolute; left: 50%; bottom: -26px; width: 120px; height: 60px; margin-left: -60px; border-radius: 50%; background: #d94a5a; }
+  @keyframes talk {
+  0% { transform: scaleY(0.14); }
+  1.870% { transform: scaleY(0.141); }
+  2.286% { transform: scaleY(NaN); }
+  2.702% { transform: scaleY(NaN); }
+  3.117% { transform: scaleY(0.445); }
+  3.533% { transform: scaleY(NaN); }
+  3.948% { transform: scaleY(NaN); }
+  4.364% { transform: scaleY(NaN); }
+  4.780% { transform: scaleY(NaN); }
+  5.195% { transform: scaleY(NaN); }
+  5.611% { transform: scaleY(0.464); }
+  6.027% { transform: scaleY(NaN); }
+  6.442% { transform: scaleY(NaN); }
+  6.858% { transform: scaleY(NaN); }
+  7.273% { transform: scaleY(NaN); }
+  7.689% { transform: scaleY(NaN); }
+  8.105% { transform: scaleY(NaN); }
+  8.520% { transform: scaleY(NaN); }
+  8.936% { transform: scaleY(NaN); }
+  9.352% { transform: scaleY(0.430); }
+  9.767% { transform: scaleY(NaN); }
+  10.183% { transform: scaleY(NaN); }
+  10.599% { transform: scaleY(NaN); }
+  11.014% { transform: scaleY(NaN); }
+  11.430% { transform: scaleY(NaN); }
+  11.845% { transform: scaleY(NaN); }
+  12.261% { transform: scaleY(NaN); }
+  12.677% { transform: scaleY(NaN); }
+  13.092% { transform: scaleY(NaN); }
+  13.508% { transform: scaleY(NaN); }
+  13.924% { transform: scaleY(NaN); }
+  14.339% { transform: scaleY(NaN); }
+  14.755% { transform: scaleY(NaN); }
+  15.170% { transform: scaleY(NaN); }
+  15.586% { transform: scaleY(NaN); }
+  16.002% { transform: scaleY(NaN); }
+  16.417% { transform: scaleY(NaN); }
+  16.833% { transform: scaleY(0.173); }
+  17.249% { transform: scaleY(NaN); }
+  17.664% { transform: scaleY(NaN); }
+  18.080% { transform: scaleY(NaN); }
+  18.495% { transform: scaleY(NaN); }
+  18.911% { transform: scaleY(NaN); }
+  19.327% { transform: scaleY(NaN); }
+  19.742% { transform: scaleY(NaN); }
+  20.158% { transform: scaleY(NaN); }
+  20.574% { transform: scaleY(NaN); }
+  20.989% { transform: scaleY(NaN); }
+  21.405% { transform: scaleY(NaN); }
+  21.820% { transform: scaleY(NaN); }
+  22.236% { transform: scaleY(NaN); }
+  22.652% { transform: scaleY(NaN); }
+  23.067% { transform: scaleY(NaN); }
+  23.483% { transform: scaleY(NaN); }
+  23.899% { transform: scaleY(NaN); }
+  24.314% { transform: scaleY(NaN); }
+  24.730% { transform: scaleY(NaN); }
+  25.145% { transform: scaleY(NaN); }
+  25.561% { transform: scaleY(NaN); }
+  25.977% { transform: scaleY(NaN); }
+  26.392% { transform: scaleY(NaN); }
+  26.808% { transform: scaleY(NaN); }
+  27.224% { transform: scaleY(NaN); }
+  27.639% { transform: scaleY(NaN); }
+  28.055% { transform: scaleY(NaN); }
+  28.470% { transform: scaleY(NaN); }
+  28.886% { transform: scaleY(NaN); }
+  29.302% { transform: scaleY(NaN); }
+  29.717% { transform: scaleY(NaN); }
+  30.133% { transform: scaleY(NaN); }
+  30.549% { transform: scaleY(NaN); }
+  30.964% { transform: scaleY(NaN); }
+  31.380% { transform: scaleY(NaN); }
+  31.796% { transform: scaleY(NaN); }
+  32.211% { transform: scaleY(NaN); }
+  32.627% { transform: scaleY(NaN); }
+  33.042% { transform: scaleY(0.365); }
+  33.458% { transform: scaleY(NaN); }
+  33.874% { transform: scaleY(NaN); }
+  34.289% { transform: scaleY(NaN); }
+  34.705% { transform: scaleY(NaN); }
+  35.121% { transform: scaleY(NaN); }
+  35.536% { transform: scaleY(NaN); }
+  35.952% { transform: scaleY(NaN); }
+  36.367% { transform: scaleY(NaN); }
+  36.783% { transform: scaleY(NaN); }
+  37.199% { transform: scaleY(NaN); }
+  37.614% { transform: scaleY(NaN); }
+  38.030% { transform: scaleY(NaN); }
+  38.446% { transform: scaleY(NaN); }
+  38.861% { transform: scaleY(NaN); }
+  39.277% { transform: scaleY(NaN); }
+  39.692% { transform: scaleY(NaN); }
+  40.108% { transform: scaleY(NaN); }
+  40.524% { transform: scaleY(NaN); }
+  40.939% { transform: scaleY(NaN); }
+  41.355% { transform: scaleY(NaN); }
+  41.771% { transform: scaleY(NaN); }
+  42.186% { transform: scaleY(NaN); }
+  42.602% { transform: scaleY(NaN); }
+  43.017% { transform: scaleY(NaN); }
+  43.433% { transform: scaleY(NaN); }
+  43.849% { transform: scaleY(NaN); }
+  44.264% { transform: scaleY(NaN); }
+  44.680% { transform: scaleY(NaN); }
+  45.096% { transform: scaleY(NaN); }
+  45.511% { transform: scaleY(NaN); }
+  45.927% { transform: scaleY(NaN); }
+  46.342% { transform: scaleY(NaN); }
+  46.758% { transform: scaleY(NaN); }
+  47.174% { transform: scaleY(NaN); }
+  47.589% { transform: scaleY(NaN); }
+  48.005% { transform: scaleY(NaN); }
+  48.421% { transform: scaleY(NaN); }
+  48.836% { transform: scaleY(NaN); }
+  49.252% { transform: scaleY(NaN); }
+  49.667% { transform: scaleY(NaN); }
+  50.083% { transform: scaleY(NaN); }
+  50.499% { transform: scaleY(NaN); }
+  50.914% { transform: scaleY(NaN); }
+  51.330% { transform: scaleY(NaN); }
+  51.746% { transform: scaleY(NaN); }
+  52.161% { transform: scaleY(NaN); }
+  52.577% { transform: scaleY(NaN); }
+  52.993% { transform: scaleY(NaN); }
+  53.408% { transform: scaleY(NaN); }
+  53.824% { transform: scaleY(NaN); }
+  54.239% { transform: scaleY(NaN); }
+  54.655% { transform: scaleY(NaN); }
+  55.071% { transform: scaleY(NaN); }
+  55.486% { transform: scaleY(NaN); }
+  55.902% { transform: scaleY(NaN); }
+  56.318% { transform: scaleY(NaN); }
+  56.733% { transform: scaleY(NaN); }
+  57.149% { transform: scaleY(NaN); }
+  57.564% { transform: scaleY(NaN); }
+  57.980% { transform: scaleY(NaN); }
+  58.396% { transform: scaleY(NaN); }
+  58.811% { transform: scaleY(NaN); }
+  59.227% { transform: scaleY(NaN); }
+  59.643% { transform: scaleY(NaN); }
+  60.058% { transform: scaleY(NaN); }
+  60.474% { transform: scaleY(NaN); }
+  60.889% { transform: scaleY(NaN); }
+  61.305% { transform: scaleY(NaN); }
+  61.721% { transform: scaleY(NaN); }
+  62.136% { transform: scaleY(NaN); }
+  62.552% { transform: scaleY(NaN); }
+  62.968% { transform: scaleY(0.142); }
+  63.383% { transform: scaleY(NaN); }
+  63.799% { transform: scaleY(NaN); }
+  64.214% { transform: scaleY(NaN); }
+  64.630% { transform: scaleY(NaN); }
+  65.046% { transform: scaleY(NaN); }
+  65.461% { transform: scaleY(NaN); }
+  65.877% { transform: scaleY(NaN); }
+  66.293% { transform: scaleY(NaN); }
+  66.708% { transform: scaleY(NaN); }
+  67.124% { transform: scaleY(NaN); }
+  67.539% { transform: scaleY(NaN); }
+  67.955% { transform: scaleY(NaN); }
+  68.371% { transform: scaleY(NaN); }
+  68.786% { transform: scaleY(NaN); }
+  69.202% { transform: scaleY(NaN); }
+  69.618% { transform: scaleY(NaN); }
+  70.033% { transform: scaleY(NaN); }
+  70.449% { transform: scaleY(NaN); }
+  70.865% { transform: scaleY(NaN); }
+  71.280% { transform: scaleY(NaN); }
+  71.696% { transform: scaleY(NaN); }
+  72.111% { transform: scaleY(NaN); }
+  72.527% { transform: scaleY(NaN); }
+  72.943% { transform: scaleY(NaN); }
+  73.358% { transform: scaleY(NaN); }
+  73.774% { transform: scaleY(NaN); }
+  74.190% { transform: scaleY(NaN); }
+  74.605% { transform: scaleY(NaN); }
+  75.021% { transform: scaleY(NaN); }
+  75.436% { transform: scaleY(NaN); }
+  75.852% { transform: scaleY(NaN); }
+  76.268% { transform: scaleY(NaN); }
+  76.683% { transform: scaleY(NaN); }
+  77.099% { transform: scaleY(NaN); }
+  77.515% { transform: scaleY(NaN); }
+  77.930% { transform: scaleY(NaN); }
+  78.346% { transform: scaleY(NaN); }
+  78.761% { transform: scaleY(NaN); }
+  79.177% { transform: scaleY(NaN); }
+  79.593% { transform: scaleY(NaN); }
+  80.008% { transform: scaleY(NaN); }
+  80.424% { transform: scaleY(NaN); }
+  80.840% { transform: scaleY(NaN); }
+  81.255% { transform: scaleY(NaN); }
+  81.671% { transform: scaleY(NaN); }
+  82.086% { transform: scaleY(NaN); }
+  82.502% { transform: scaleY(NaN); }
+  82.918% { transform: scaleY(NaN); }
+  83.333% { transform: scaleY(NaN); }
+  83.749% { transform: scaleY(NaN); }
+  84.165% { transform: scaleY(NaN); }
+  84.580% { transform: scaleY(NaN); }
+  84.996% { transform: scaleY(NaN); }
+  85.411% { transform: scaleY(NaN); }
+  85.827% { transform: scaleY(NaN); }
+  86.243% { transform: scaleY(NaN); }
+  86.658% { transform: scaleY(NaN); }
+  87.074% { transform: scaleY(NaN); }
+  87.490% { transform: scaleY(NaN); }
+  87.905% { transform: scaleY(NaN); }
+  88.321% { transform: scaleY(NaN); }
+  88.736% { transform: scaleY(NaN); }
+  89.152% { transform: scaleY(NaN); }
+  89.568% { transform: scaleY(NaN); }
+  89.983% { transform: scaleY(NaN); }
+  90.399% { transform: scaleY(NaN); }
+  90.815% { transform: scaleY(NaN); }
+  91.230% { transform: scaleY(NaN); }
+  91.646% { transform: scaleY(NaN); }
+  92.062% { transform: scaleY(NaN); }
+  92.477% { transform: scaleY(NaN); }
+  92.893% { transform: scaleY(NaN); }
+  93.308% { transform: scaleY(NaN); }
+  93.724% { transform: scaleY(NaN); }
+  94.140% { transform: scaleY(NaN); }
+  94.555% { transform: scaleY(NaN); }
+  94.971% { transform: scaleY(NaN); }
+  95.387% { transform: scaleY(NaN); }
+  96.426%, 100% { transform: scaleY(0.14); }
+}
+
+  .content { position: relative; }
+  
+  .menu { display: flex; gap: 0; font: bold 32px Arial, sans-serif; background: #003399; color: #fff; }
+  .menu span { padding: 14px 20px; border-right: 2px solid #6688cc; }
+  .menu .hot { background: #ff9900; position: relative; }
+  .sub { position: absolute; top: 62px; left: 0; background: #fff; border: 3px outset #c0c0c0; color: #003399; font-weight: normal; white-space: nowrap; z-index: 4; }
+  .sub div { padding: 10px 18px; border-bottom: 1px solid #ccc; }
+  .sub1 { animation: pop 0.25s ease-out 0.6s both; }
+  .sub1 { left: auto; right: 0; }
+  .sub2 { left: auto; right: 60px; top: 100%; animation: pop 0.25s ease-out 1.3s both; }
+  .sub3 { left: auto; right: 60px; top: 100%; animation: pop 0.25s ease-out 2.0s both; }
+  .sub3 div { background: #ffff99; font-weight: bold; }
+  @keyframes pop { from { opacity: 0; transform: scaleY(0); } to { opacity: 1; transform: none; } }
+  .scroll { margin-top: 20px; height: 300px; overflow: hidden; position: relative; }
+  .scroll-in { animation: scrollDown 1.4s linear 2.6s infinite; }
+  @keyframes scrollDown { from { transform: translateY(0); } to { transform: translateY(-300px); } }
+  .scroll-in i { display: block; height: 16px; background: #ddd; margin: 14px 0; }
+  .tel { position: absolute; right: 8px; bottom: 6px; font: 18px Arial, sans-serif; color: #999; }
+
+  /* legenda karaokê */
+  .captions { position: absolute; left: 70px; right: 150px; top: 1290px; height: 300px; z-index: 20; }
+  .phrase { position: absolute; inset: 0; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; column-gap: 22px; row-gap: 4px; text-align: center; }
+  .w { display: inline-block; font: 82px 'Archivo Black', sans-serif; line-height: 1.1; text-transform: uppercase; color: #fff;
+    -webkit-text-stroke: 12px #000; paint-order: stroke fill; text-shadow: 0 8px 0 rgba(0,0,0,0.35); }
+@keyframes ph0 { 0%, 1.234% { opacity: 0; visibility: hidden; } 1.247%, 31.144% { opacity: 1; visibility: visible; } 31.157%, 100% { opacity: 0; visibility: hidden; } }
+@keyframes w0_0 { 0%, 1.858% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 1.870% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 3.367% { transform: scale(1); } 4.264% { color: #ffe14d; } 4.888%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w0_1 { 0%, 4.252% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 4.264% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 5.760% { transform: scale(1); } 7.342% { color: #ffe14d; } 7.965%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w0_2 { 0%, 7.329% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 7.342% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 8.838% { transform: scale(1); } 13.839% { color: #ffe14d; } 14.463%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w0_3 { 0%, 13.827% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 13.839% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 15.336% { transform: scale(1); } 15.549% { color: #ffe14d; } 16.173%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w0_4 { 0%, 15.537% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 15.549% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 17.046% { transform: scale(1); } 18.627% { color: #ffe14d; } 19.250%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w0_5 { 0%, 18.615% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 18.627% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 20.123% { transform: scale(1); } 25.125% { color: #ffe14d; } 25.748%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes ph1 { 0%, 31.144% { opacity: 0; visibility: hidden; } 31.157%, 63.345% { opacity: 1; visibility: visible; } 63.357%, 100% { opacity: 0; visibility: hidden; } }
+@keyframes w1_0 { 0%, 31.767% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 31.780% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 33.276% { transform: scale(1); } 35.554% { color: #ffe14d; } 36.178%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w1_1 { 0%, 35.542% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 35.554% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 37.051% { transform: scale(1); } 42.760% { color: #ffe14d; } 43.383%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w1_2 { 0%, 42.747% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 42.760% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 44.256% { transform: scale(1); } 46.534% { color: #ffe14d; } 47.158%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w1_3 { 0%, 46.522% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 46.534% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 48.030% { transform: scale(1); } 51.681% { color: #ffe14d; } 52.304%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w1_4 { 0%, 51.669% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 51.681% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 53.177% { transform: scale(1); } 57.514% { color: #ffe14d; } 58.138%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes ph2 { 0%, 63.345% { opacity: 0; visibility: hidden; } 63.357%, 85.065% { opacity: 1; visibility: visible; } 85.078%, 100% { opacity: 0; visibility: hidden; } }
+@keyframes w2_0 { 0%, 63.968% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 63.981% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 65.477% { transform: scale(1); } 69.161% { color: #ffe14d; } 69.784%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w2_1 { 0%, 69.148% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 69.161% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 70.657% { transform: scale(1); } 77.167% { color: #ffe14d; } 77.790%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes ph3 { 0%, 85.065% { opacity: 0; visibility: hidden; } 85.078%, 99.988% { opacity: 1; visibility: visible; } 100.000%, 100% { opacity: 0; visibility: hidden; } }
+@keyframes w3_0 { 0%, 85.689% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 85.701% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 87.198% { transform: scale(1); } 88.599% { color: #ffe14d; } 89.222%, 100% { opacity: 1; transform: none; color: #fff; } }
+@keyframes w3_1 { 0%, 88.586% { opacity: 0.0; transform: translateY(14px) scale(0.9); color: #fff; } 88.599% { opacity: 1; transform: translateY(0) scale(1.08); color: #ffe14d; } 90.095% { transform: scale(1); } 95.636% { color: #ffe14d; } 96.259%, 100% { opacity: 1; transform: none; color: #fff; } }
+
+
+</style>
+</head>
+<body data-duration="8.02">
+<div class="stage">
+  
+  <div class="win">
+    
+    <div class="title"><span>Ferreira Elétrica - Página Inicial</span><div class="btns"><b>_</b><b>□</b><b>x</b></div></div>
+    <div class="addr">Endereço <span>http://www.ferreiraeletrica.com.br/index.html</span></div>
+    <div class="page">
+      <div class="head">Ferreira Elétrica</div>
+      <div class="face">
+        <div class="eyes">
+          <div class="eye"><div class="spin"></div><div class="pupil"><div class="shine"></div></div><div class="lid"></div></div>
+          <div class="eye"><div class="spin"></div><div class="pupil"><div class="shine"></div></div><div class="lid"></div></div>
+        </div>
+        <div class="mouth"><div class="tongue"></div></div>
+      </div>
+      <div class="content">
+        <div class="menu"><span>Home</span><span>Empresa</span><span>Serviços</span><span class="hot">Mais ▾
+          <div class="sub sub1"><div>Institucional ▸
+            <div class="sub sub2"><div>Atendimento ▸
+              <div class="sub sub3"><div>Fale Conosco</div></div>
+            </div></div>
+          </div></div>
+        </span></div>
+        <div class="scroll"><div class="scroll-in"><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i></div>
+          <div class="tel">Tel.: (00) 0000-0000</div></div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="captions">
+    <div class="phrase" style="animation: ph0 8.02s linear 0s both"><span class="w" style="animation: w0_0 8.02s linear 0s both">Aí</span> <span class="w" style="animation: w0_1 8.02s linear 0s both">ele</span> <span class="w" style="animation: w0_2 8.02s linear 0s both">procurou</span> <span class="w" style="animation: w0_3 8.02s linear 0s both">o</span> <span class="w" style="animation: w0_4 8.02s linear 0s both">seu</span> <span class="w" style="animation: w0_5 8.02s linear 0s both">telefone.</span></div>
+    <div class="phrase" style="animation: ph1 8.02s linear 0s both"><span class="w" style="animation: w1_0 8.02s linear 0s both">Tava</span> <span class="w" style="animation: w1_1 8.02s linear 0s both">escondido</span> <span class="w" style="animation: w1_2 8.02s linear 0s both">numa</span> <span class="w" style="animation: w1_3 8.02s linear 0s both">página</span> <span class="w" style="animation: w1_4 8.02s linear 0s both">chamada...</span></div>
+    <div class="phrase" style="animation: ph2 8.02s linear 0s both"><span class="w" style="animation: w2_0 8.02s linear 0s both">&quot;Fale</span> <span class="w" style="animation: w2_1 8.02s linear 0s both">Conosco&quot;.</span></div>
+    <div class="phrase" style="animation: ph3 8.02s linear 0s both"><span class="w" style="animation: w3_0 8.02s linear 0s both">Lá</span> <span class="w" style="animation: w3_1 8.02s linear 0s both">embaixo.</span></div>
+  </div>
+
+  <div class="scan"></div>
+</div>
+</body>
+</html>

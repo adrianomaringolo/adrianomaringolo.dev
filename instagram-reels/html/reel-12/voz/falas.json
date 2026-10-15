@@ -1,0 +1,44 @@
+{
+  "model": "eleven_v3",
+  "voice_id": "iP95p4xoKVk53GoZ742B",
+  "voice_settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.3
+  },
+  "falas": [
+    {
+      "file": "cena-01.mp3",
+      "text": "[curious] Eu perguntei para a IA: qual eletricista você recomenda em Campinas?"
+    },
+    {
+      "file": "cena-02.mp3",
+      "text": "Ela respondeu na hora. [pause] Três nomes... e o motivo de cada um estava no próprio site."
+    },
+    {
+      "file": "cena-03.mp3",
+      "text": "Aí eu perguntei por outro. A resposta? [pause] [flatly] \"Não encontrei informações claras.\" [pause] [serious] E se fosse o seu negócio?"
+    },
+    {
+      "file": "cena-04.mp3",
+      "text": "A IA não adivinha. [pause] Ela lê. E só recomenda quem ela consegue entender."
+    },
+    {
+      "file": "cena-05.mp3",
+      "text": "Primeiro, ela precisa encontrar o seu site."
+    },
+    {
+      "file": "cena-06.mp3",
+      "text": "Depois, entender: o que você faz, onde atende e como contratar."
+    },
+    {
+      "file": "cena-07.mp3",
+      "text": "E, pra te citar, ela quer perguntas respondidas e as mesmas informações em todo lugar."
+    },
+    {
+      "file": "cena-08.mp3",
+      "text": "[friendly] Faz o teste agora. Pergunta pra IA sobre o seu serviço, na sua cidade... e me conta nos comentários se você apareceu."
+    }
+  ],
+  "voice_name": "Chris (ElevenLabs, padrão) — casual, conversado"
+}

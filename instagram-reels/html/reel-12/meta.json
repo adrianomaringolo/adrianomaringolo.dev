@@ -1,0 +1,91 @@
+{
+  "title": "O ChatGPT recomenda o seu negócio? Faça o teste",
+  "date": "2026-10-15",
+  "status": "rascunho",
+  "pauta": "p2b09c7",
+  "creativity": "Expressivo",
+  "objective": "Alcance e comentários entre donos de pequenos negócios; ação desejada: fazer o teste com a IA e comentar se apareceu. Complementa o post-71 (26/10).",
+  "hook": "Perguntei para a IA qual eletricista ela recomenda em Campinas.",
+  "voice": "ElevenLabs eleven_v3 · Chris (iP95p4xoKVk53GoZ742B) · ver voz/falas.json",
+  "music": "stylz.mp3 (Mixkit #102) — --transition cut --music-start end --volume 0.3 (ducking automático sob a voz)",
+  "scenes": [
+    {
+      "file": "scene-01.html",
+      "title": "Gancho — Perguntei para a IA",
+      "duration": 4.44,
+      "description": "Chat de assistente de IA genérico (sem marca). A pergunta aparece palavra por palavra, cursor piscando.",
+      "voice": "voz/cena-01.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-02.html",
+      "title": "A resposta — 3 negócios recomendados",
+      "duration": 8.68,
+      "description": "Indicador de digitação e resposta com 3 negócios fictícios, cada um com o motivo tirado do site.",
+      "voice": "voz/cena-02.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-03.html",
+      "title": "E o seu? — não encontrado",
+      "duration": 8.52,
+      "description": "Pergunta pela Ferreira Elétrica (o site do reel-10): 'não encontrei informações claras', nome riscado com X pulsante. 'E se fosse o seu negócio?'",
+      "voice": "voz/cena-03.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-04.html",
+      "title": "A virada — a IA não adivinha, ela lê",
+      "duration": 7.24,
+      "description": "Olho gigante ao fundo em opacidade baixa; 'Ela lê.' em gradiente com shimmer.",
+      "voice": "voz/cena-04.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-05.html",
+      "title": "Etapa 1 — Encontrar",
+      "duration": 2.68,
+      "description": "Barra de etapas 1/3, ícone de lupa flutuando. Aparecer no buscador e não bloquear robôs.",
+      "voice": "voz/cena-05.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-06.html",
+      "title": "Etapa 2 — Entender",
+      "duration": 4.76,
+      "description": "Etapa 2/3, ícone de livro. Texto claro: o que faz, onde atende, como contratar.",
+      "voice": "voz/cena-06.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-07.html",
+      "title": "Etapa 3 — Citar",
+      "duration": 6.52,
+      "description": "Etapa 3/3, ícone de balão. Perguntas frequentes e informações iguais em todo lugar.",
+      "voice": "voz/cena-07.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-08.html",
+      "title": "CTA — Faça o teste agora",
+      "duration": 8.12,
+      "description": "Campo de chat com o modelo da pergunta para o próprio negócio; pedido de comentário.",
+      "voice": "voz/cena-08.mp3",
+      "voiceDelay": 0.15
+    }
+  ],
+  "caption": "🤖 Perguntei para a IA qual eletricista ela recomendava em Campinas.\n\nEla respondeu com 3 nomes, e o motivo de cada um estava no próprio site: onde atende, como chamar no WhatsApp, as dúvidas respondidas.\n\nO site que não dizia nada com clareza? Nem foi citado.\n\nA IA não adivinha. Ela lê. E só recomenda quem consegue entender:\n\n🔍 Encontrar: seu site aparece no buscador e não bloqueia os robôs\n📖 Entender: texto claro sobre o que você faz, onde atende e como contratar\n💬 Citar: perguntas frequentes respondidas e as mesmas informações em todo lugar\n\nFaça o teste agora: pergunte para a IA quem ela recomenda para o seu serviço na sua cidade.\n\nApareceu na resposta? Me conte nos comentários. 👇\n\n(Os negócios do vídeo são fictícios.)\n\n#inteligenciaartificial #chatgpt #siteprofissional #presencadigital #pequenosnegocios #marketingdigital #seo #empreendedorismo #prestadordeservico #negocioproprio #devbr",
+  "hashtags": [
+    "inteligenciaartificial",
+    "chatgpt",
+    "siteprofissional",
+    "presencadigital",
+    "pequenosnegocios",
+    "marketingdigital",
+    "seo",
+    "empreendedorismo",
+    "prestadordeservico",
+    "negocioproprio",
+    "devbr"
+  ]
+}
