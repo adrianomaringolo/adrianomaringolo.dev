@@ -57,12 +57,12 @@ registrado também no `meta.json` do post.
 | post-42 | Landing page ou site institucional? | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🟡 | Landing page × site institucional (pilar 1): wireframes na capa, fluxos e tabela |
 | post-43 | Quanto tempo leva para construir um site? | 2026-10-03 | Carrossel | `tipografico` | 7 | 🔵 | Cronograma real de um site institucional, semana a semana (pilar 1/3) |
 | post-44 | Enquete: seu negócio tem site hoje? | 2026-10-03 | Único | `elemento-central` | 1 | 🟡 | Enquete (engajamento): seu negócio tem site? Resposta A–D nos comentários |
-| post-45 | Mito ou verdade: 3 frases sobre sites | 2026-10-03 | Carrossel | `tipografico` | 6 | 🔵 | Mito ou verdade (engajamento): site bonito converte · site lento perde cliente · SEO é coisa de agência |
+| post-45 | Mito ou verdade: 3 frases sobre sites | 2026-10-03 | Carrossel | `tipografico` | 6 | 🟡 | Mito ou verdade (engajamento): site bonito converte · site lento perde cliente · SEO é coisa de agência |
 | post-46 | Sob medida não é luxo | 2026-10-03 | Único | `frase-unica` | 1 | 🟡 | Frase (pilar 5): sob medida não é luxo, é não pagar por outro site daqui a um ano |
 | post-47 | Clean Code: 5 regras que eu aplico todo dia | 2026-10-03 | Carrossel | `explicador-tecnico` | 7 | 🔵 | Clean Code (pilar 4, persona C): 5 regras com antes/depois em código |
 | post-48 | O que é desenvolvimento de software? | 2026-10-04 | Carrossel | `tipografico` | 7 | 🟢 | Série "Software para quem não é dev" 1/3 (pilar 1): desenvolvimento de software comparado a uma obra |
 | post-49 | Como a gente cria software, por dentro | 2026-10-04 | Carrossel | `explicador-tecnico` | 7 | 🟢 | Série "Software para quem não é dev" 2/3 (pilar 2/4): o ciclo de criação de software, com exemplo de agenda de clínica |
-| post-50 | O que é código? | 2026-10-04 | Único | `explicador-tecnico` | 1 | 🟡 | Série "Software para quem não é dev" 3/3 (pilar 1/4): a mesma regra de frete em português e em código |
+| post-50 | O que é código? | 2026-10-04 | Único | `explicador-tecnico` | 1 | 🟢 | Série "Software para quem não é dev" 3/3 (pilar 1/4): a mesma regra de frete em português e em código |
 | post-51 | A IA já está no seu dia | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🔵 | IA no dia a dia (pilar 1/5): um momento do dia por slide; fecho liga ao GEO (post-37) |
 | post-52 | Ainda vale estudar programação na era da IA? | 2026-10-04 | Carrossel | `foto-editorial` | 7 | 🟡 | Ainda vale estudar programação na era da IA? (pilar 4/5, persona C): opinião em 1ª pessoa |
 | post-53 | Posso perder um cliente por não ter um site? | 2026-10-07 | Carrossel | `tipografico` | 7 | 🟡 | Jornada do cliente perdido (pilar 1): indicação → pesquisa → dúvida → decisão. Trio "perder cliente sem site", 1 de 3 |
@@ -88,8 +88,8 @@ registrado também no `meta.json` do post.
 | post-73 | Se a vida tivesse uma barra de busca | 2026-10-14 | Único | importado | 1 | 🟡 | Humano (pilar 5): as buscas que a gente faria na vida. Série tech humor 2, arte pronta importada (sem HTML) |
 | post-74 | Coisas digitais que nos controlam | 2026-10-14 | Único | importado | 1 | 🟡 | Humano (pilar 5): os apps que puxam as cordinhas da rotina. Série tech humor 3, arte pronta importada (sem HTML) |
 | post-75 | Quando o cliente pede algo simples | 2026-10-14 | Único | importado | 1 | 🟡 | Humano/dev (pilar 5/4): o "só um formulário" e tudo o que mora atrás dele. Série tech humor 4, arte pronta importada (sem HTML) |
-| post-76 | ASM Marketing Digital: autoridade que vira conversa | 2026-10-14 | Carrossel | `case-showcase` | 7 | 🔵 | Case de projeto (pilar 2): apresentação do site, desktop, mobile, diagnóstico gratuito, funcionalidades + Lighthouse, depoimento da Anelita. Pauta p805a94 |
-| post-77 | ASM Marketing Digital: antes e depois do redesign | 2026-10-14 | Carrossel | `antes-depois` | 5 | 🔵 | Prova (pilar 2): site de lançamento (2025) × site atual em 3 mudanças (primeira tela, serviços, quem sou eu). 1º post no antes-depois |
+| post-76 | ASM Marketing Digital: autoridade que vira conversa | 2026-10-14 | Carrossel | `case-showcase` | 7 | 🟡 | Case de projeto (pilar 2): apresentação do site, desktop, mobile, diagnóstico gratuito, funcionalidades + Lighthouse, depoimento da Anelita. Pauta p805a94 |
+| post-77 | ASM Marketing Digital: antes e depois do redesign | 2026-10-14 | Carrossel | `antes-depois` | 5 | 🟡 | Prova (pilar 2): site de lançamento (2025) × site atual em 3 mudanças (primeira tela, serviços, quem sou eu). 1º post no antes-depois |
 
 > post-01 a post-05 e post-08: publicados. post-06, post-07, post-09, post-10, post-11 e post-12: prontos, aguardando publicação. post-13 a post-36: em revisão.
 
