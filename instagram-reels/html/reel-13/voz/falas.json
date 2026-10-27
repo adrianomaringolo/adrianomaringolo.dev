@@ -1,0 +1,112 @@
+{
+  "model": "eleven_v3",
+  "voices": {
+    "corretor": "SOYHLrjzK2X1ezoPC6cr",
+    "narrador": "nPczCjzI2devNBz1zQrb"
+  },
+  "voice_settings": {
+    "stability": 0.4,
+    "similarity_boost": 0.75,
+    "style": 0.45
+  },
+  "falas": [
+    {
+      "file": "c-01.mp3",
+      "role": "corretor",
+      "text": "[excited] [fast] Oportunidade ÚNICA! Casa à venda... [laughs] quer dizer... SITE à venda!"
+    },
+    {
+      "file": "c-02.mp3",
+      "role": "corretor",
+      "text": "[cheerfully] Endereço faaácil de lembrar!"
+    },
+    {
+      "file": "n-02.mp3",
+      "role": "narrador",
+      "text": "[flatly] Ninguém decora esse endereço."
+    },
+    {
+      "file": "c-03.mp3",
+      "role": "corretor",
+      "text": "[playfully] A porta? Fica ali atrás... é só procurar! [laughs]"
+    },
+    {
+      "file": "n-03.mp3",
+      "role": "narrador",
+      "text": "[flatly] O botão do WhatsApp, escondido."
+    },
+    {
+      "file": "c-04.mp3",
+      "role": "corretor",
+      "text": "[scoffs] Fechadura? [laughs] Quem precisa?"
+    },
+    {
+      "file": "n-04.mp3",
+      "role": "narrador",
+      "text": "Sem cadeado, o navegador avisa: não seguro."
+    },
+    {
+      "file": "c-05.mp3",
+      "role": "corretor",
+      "text": "[nervous laugh] Ela abre... [pause] uma hora... ela abre."
+    },
+    {
+      "file": "n-05.mp3",
+      "role": "narrador",
+      "text": "Site lento. E o cliente não espera."
+    },
+    {
+      "file": "c-06.mp3",
+      "role": "corretor",
+      "text": "[proudly] Decoração CLÁSSICA!"
+    },
+    {
+      "file": "n-06.mp3",
+      "role": "narrador",
+      "text": "Promoção de Natal... [pause] de dois mil e dezenove."
+    },
+    {
+      "file": "c-07.mp3",
+      "role": "corretor",
+      "text": "[whispers] E é bem discreta... nem o Google acha."
+    },
+    {
+      "file": "n-07.mp3",
+      "role": "narrador",
+      "text": "Se ninguém te encontra, ninguém te contrata."
+    },
+    {
+      "file": "c-08.mp3",
+      "role": "corretor",
+      "text": "[confused] Ué... [pause] cadê o cliente?"
+    },
+    {
+      "file": "n-08.mp3",
+      "role": "narrador",
+      "text": "Foi pro vizinho."
+    },
+    {
+      "file": "n-09.mp3",
+      "role": "narrador",
+      "text": "Agora... a casa que eu construo."
+    },
+    {
+      "file": "n-10.mp3",
+      "role": "narrador",
+      "text": "Endereço claro. Porta na frente. Cadeado. Abre na hora. Aparece no mapa. E funciona no celular."
+    },
+    {
+      "file": "n-11.mp3",
+      "role": "narrador",
+      "text": "[warmly] E a chave fica no seu nome. Seu site, sua casa. Bora construir? Me chama no direct."
+    }
+  ],
+  "role_settings": {
+    "corretor": {
+      "stability": 0.0,
+      "similarity_boost": 0.75,
+      "style": 0.8
+    }
+  },
+  "voice_names": "corretor: Harry (ansioso, acelerado) · narrador: Brian (grave)"
+}

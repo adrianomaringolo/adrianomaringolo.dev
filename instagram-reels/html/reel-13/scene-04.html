@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; font-family: 'Manrope', sans-serif; }
+  .scene { width: 1080px; height: 1920px; position: relative; overflow: hidden; }
+  .handle { position: absolute; bottom: 64px; right: 64px; font-size: 34px; font-weight: 700; color: #94a3b8; animation: fadeIn 0.4s ease 0.6s both; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  svg { display: block; overflow: visible; }
+  .anim { transform-box: fill-box; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-28px); } to { opacity: 1; transform: none; } }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0.4) rotate(-10deg); }
+    70%  { opacity: 1; transform: scale(1.08) rotate(0deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+  @keyframes stampIn {
+    0%   { opacity: 0; transform: scale(1.9); }
+    60%  { opacity: 1; transform: scale(0.94); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes bobX { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+  @keyframes sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+  @keyframes driftA { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30px, 24px) scale(1.06); } }
+  @keyframes driftB { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(28px, -22px) scale(1.05); } }
+
+  body { background: #1c1512; }
+  .scene { background: radial-gradient(ellipse at 50% 30%, #2b1f18 0%, #1c1512 70%); }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(254,243,199,0.05) 1.5px, transparent 1.5px); background-size: 48px 48px; }
+  .glow-amber { position: absolute; top: 520px; left: 50%; width: 1000px; height: 900px; margin-left: -500px;
+    background: radial-gradient(circle, rgba(245,158,11,0.13) 0%, transparent 62%); animation: driftA 9s ease-in-out 0.9s infinite; }
+
+  .topbar { position: absolute; top: 230px; left: 88px; right: 150px; display: flex; align-items: center; justify-content: space-between; animation: dropIn 0.45s ease 0s both; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 14px; background: #f59e0b; color: #1c1512; border-radius: 12px; padding: 12px 26px;
+    font-size: 30px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; }
+  .eyebrow svg { width: 34px; height: 34px; }
+  .counter { font-size: 32px; font-weight: 800; color: #fcd34d; letter-spacing: 0.06em; }
+
+  .agent { position: absolute; top: 340px; left: 88px; width: 842px; display: flex; align-items: center; gap: 30px; }
+  .avatar { flex: 0 0 180px; width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 6px solid #f59e0b;
+    box-shadow: 0 0 0 8px rgba(245,158,11,0.18); animation: popIn 0.4s cubic-bezier(.2,.8,.3,1) 0.05s both; }
+  .avatar { background: #fcd34d; }
+  .tooth-spark { animation: toothSpark 1.6s ease-in-out 1s infinite; }
+  @keyframes toothSpark { 0%, 100% { opacity: 0; transform: scale(0.2); } 50% { opacity: 1; transform: scale(1.1); } }
+  .bubble { position: relative; flex: 1; background: #fef3c7; color: #1c1512; border-radius: 34px; padding: 30px 38px;
+    font-size: 50px; font-weight: 800; line-height: 1.18; letter-spacing: -0.02em; animation: popIn 0.4s cubic-bezier(.2,.8,.3,1) 0.2s both; transform-origin: left center; }
+  .bubble-tail { position: absolute; left: -18px; top: 50%; width: 40px; height: 40px; margin-top: -20px; background: #fef3c7; transform: rotate(45deg); border-radius: 6px; }
+  .bubble span { position: relative; }
+
+  .art { position: absolute; top: 650px; left: 90px; width: 840px; height: 680px; animation: fadeUp 0.5s ease 0.45s both; }
+  .panel { position: absolute; inset: 0; border-radius: 36px; overflow: hidden; border: 5px solid rgba(254,243,199,0.18); }
+
+  .stamp-wrap { position: absolute; top: 1380px; left: 88px; width: 842px; display: flex; justify-content: center; transform: rotate(-3deg); }
+  .stamp { border: 7px solid #ef4444; border-radius: 22px; padding: 18px 40px 22px; text-align: center; color: #f87171; background: rgba(239,68,68,0.10);
+    animation: stampIn 0.38s cubic-bezier(.2,.8,.3,1) 1.4s both; }
+  .stamp small { display: block; font-size: 26px; font-weight: 900; letter-spacing: 0.18em; color: #fca5a5; text-transform: uppercase; margin-bottom: 6px; }
+  .stamp b { display: block; font-size: 64px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; color: #fef2f2; }
+
+  .siren { animation: blink 0.7s steps(1) 0.9s infinite; }
+  .warn { animation: fadeUp 0.35s ease 0.8s both; }
+  .lock { transform-origin: 50% 0; animation: lockSwing 1.6s ease-in-out 1s infinite; }
+  @keyframes lockSwing { 0%, 100% { transform: rotate(14deg); } 50% { transform: rotate(4deg); } }
+
+  /* sincronia com a fala */
+  .stamp { animation-delay: 3.62s; }
+</style>
+</head>
+<body data-duration="7.96">
+<div class="scene">
+  <div class="bg-dots"></div>
+  <div class="glow-amber"></div>
+  <div class="topbar"><div class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Tour pelo imóvel</div><div class="counter">3/6</div></div>
+  <div class="agent">
+    <div class="avatar"><svg viewBox="92 78 216 216" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+    <path d="M30 480 C30 365 105 318 200 318 C295 318 370 365 370 480 Z" fill="#1e3a5f"/>
+    <polygon points="160,320 200,425 240,320" fill="#f8fafc"/>
+    <polygon points="188,336 212,336 219,356 208,428 200,438 192,428 181,356" fill="#dc2626"/>
+    <rect x="186" y="324" width="28" height="18" rx="5" fill="#b91c1c"/>
+    <polygon points="150,322 200,440 168,480 110,345" fill="#172a45"/>
+    <polygon points="250,322 200,440 232,480 290,345" fill="#172a45"/>
+    <rect x="248" y="392" width="56" height="10" rx="3" fill="#f8fafc"/>
+    <rect x="174" y="272" width="52" height="56" fill="#e0a96d"/>
+    <circle cx="106" cy="212" r="21" fill="#e9b47c"/><circle cx="294" cy="212" r="21" fill="#e9b47c"/>
+    <ellipse cx="200" cy="205" rx="94" ry="104" fill="#f1c27d"/>
+    <path d="M104 196 C96 112 150 82 206 84 C268 86 306 120 297 196 C288 150 256 126 202 128 C156 130 126 150 104 196 Z" fill="#1f2937"/>
+    <path d="M150 104 C185 92 235 94 262 112" stroke="#6b7280" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M140 172 Q160 156 182 168" stroke="#1f2937" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M218 164 Q242 150 264 166" stroke="#1f2937" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <ellipse cx="162" cy="198" rx="17" ry="20" fill="#fff"/><circle cx="166" cy="201" r="10" fill="#1f2937"/><circle cx="170" cy="196" r="3.5" fill="#fff"/>
+    <path d="M222 202 Q242 186 262 202" stroke="#1f2937" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M200 205 Q192 228 204 234" stroke="#c98a4b" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <circle cx="136" cy="238" r="15" fill="#f87171" opacity="0.35"/><circle cx="266" cy="238" r="15" fill="#f87171" opacity="0.35"/>
+    <path d="M168 248 Q184 238 200 246 Q216 238 232 248 Q218 252 200 250 Q182 252 168 248 Z" fill="#1f2937"/>
+    <path d="M150 260 Q200 312 252 260 Q200 276 150 260 Z" fill="#fff" stroke="#7c2d12" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="212" y="266" width="13" height="14" rx="2" fill="#fbbf24"/>
+    <g class="tooth-spark" style="transform-origin:236px 262px"><path d="M236 248 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z" fill="#fff"/></g>
+    
+  </svg></div>
+    <div class="bubble"><div class="bubble-tail"></div><span>Fechadura? Quem precisa?</span></div>
+  </div>
+  <div class="art"><div class="panel"><svg width="840" height="680" viewBox="0 0 840 680"><rect width="840" height="680" fill="#78716c"/>
+      <rect x="0" y="0" width="840" height="680" fill="url(#bricks)"/>
+      <defs><pattern id="bricks" width="120" height="60" patternUnits="userSpaceOnUse"><rect width="120" height="60" fill="#8a5a44"/><path d="M0 0H120M0 30H120M60 0V30M0 30V60M120 30V60" stroke="#5b3a2e" stroke-width="4"/></pattern></defs>
+      <rect x="250" y="120" width="340" height="560" fill="#57341f" stroke="#2b1f18" stroke-width="10"/>
+      <rect x="290" y="170" width="260" height="190" fill="none" stroke="#3f2414" stroke-width="8"/>
+      <rect x="290" y="400" width="260" height="230" fill="none" stroke="#3f2414" stroke-width="8"/>
+      <rect x="520" y="380" width="60" height="26" rx="4" fill="#a8a29e"/>
+      <g class="lock anim">
+        <path d="M535 395 v-40 a30 30 0 0 1 60 0 v12" stroke="#d6d3d1" stroke-width="12" fill="none"/>
+        <rect x="515" y="420" width="90" height="80" rx="12" fill="#a16207"/>
+        <path d="M540 445 l40 30 M580 445 l-40 30" stroke="#451a03" stroke-width="7"/>
+      </g>
+      <g class="siren"><circle cx="150" cy="130" r="56" fill="#ef4444"/><circle cx="150" cy="130" r="100" fill="#ef4444" opacity="0.25"/></g>
+      <rect x="120" y="180" width="60" height="30" rx="6" fill="#44403c"/>
+      <g class="warn">
+        <rect x="200" y="40" width="440" height="80" rx="40" fill="#dc2626"/>
+        <path d="M248 98 L268 62 L288 98 Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+        <text x="300" y="94" font-family="Manrope" font-weight="900" font-size="40" fill="#fff">Não seguro</text>
+      </g>
+    </svg></div></div>
+  <div class="stamp-wrap"><div class="stamp"><small>Na vida real</small><b>Site sem cadeado</b></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

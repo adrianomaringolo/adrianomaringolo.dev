@@ -1,0 +1,115 @@
+{
+  "title": "Tour pelo imóvel: você compraria esta casa?",
+  "date": "2026-10-24",
+  "status": "revisar",
+  "pauta": "pf323fa",
+  "creativity": "Ousado",
+  "objective": "Alcance e comentários entre donos de pequenos negócios; ação desejada: comentar qual problema a própria 'casa' tem e chamar no direct. Resume em um reel os temas de domínio, WhatsApp, HTTPS, velocidade, manutenção, SEO e celular.",
+  "hook": "Oportunidade única! VENDE-SE: casa… quer dizer, site.",
+  "voice": "ElevenLabs eleven_v3 · corretor: Harry (SOYHLrjzK2X1ezoPC6cr, stability 0, 12% mais rápido) · narrador: Brian (nPczCjzI2devNBz1zQrb, 5% mais rápido) · ver voz/falas.json",
+  "music": "jazz-2-kitsch-lounge.mp3 — --transition cut --music-start end --volume 0.3 (ducking automático sob a voz; alternativas em output/reel-13/opcoes-musica/)",
+  "scenes": [
+    {
+      "file": "scene-01.html",
+      "title": "Gancho — Oportunidade única",
+      "duration": 6.17,
+      "description": "Corretor fictício em SVG (terno, gravata vermelha, piscadinha, dente de ouro, joinha) em moldura âmbar, balão \"Oportunidade única!\", placa VENDE-SE onde CASA é riscado e SITE entra carimbado.",
+      "voice": "voz/cena-01.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-02.html",
+      "title": "Endereço confuso → domínio",
+      "duration": 4.91,
+      "description": "Placa com endereço comprido de site grátis (fictício) solta um prego e fica pendurada balançando. Carimbo: domínio confuso.",
+      "voice": "voz/cena-02.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-03.html",
+      "title": "Porta escondida → WhatsApp",
+      "duration": 7.48,
+      "description": "Fachada sem porta; a porta fica na lateral, atrás do mato, com seta balançando. Carimbo: WhatsApp escondido.",
+      "voice": "voz/cena-03.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-04.html",
+      "title": "Fechadura quebrada → sem HTTPS",
+      "duration": 7.96,
+      "description": "Porta de perto com cadeado aberto pendurado; sirene e aviso \"Não seguro\" piscando em vermelho. Carimbo: sem cadeado (HTTPS).",
+      "voice": "voz/cena-04.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-05.html",
+      "title": "Porta que demora → site lento",
+      "duration": 7.89,
+      "description": "Porta abrindo devagar, barra \"Carregando\" empacada e teia de aranha crescendo no canto. Carimbo: site lento.",
+      "voice": "voz/cena-05.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-06.html",
+      "title": "Decoração de 2019 → desatualizado",
+      "duration": 5.98,
+      "description": "Sala com calendário \"Promoção de Natal 2019\" balançando, TV de tubo com chiado. Carimbo: site desatualizado.",
+      "voice": "voz/cena-06.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-07.html",
+      "title": "Ninguém acha → sem SEO",
+      "duration": 6.25,
+      "description": "Celular com mapa, pino com interrogação pulando e aviso \"Destino não encontrado\". Carimbo: o Google não encontra.",
+      "voice": "voz/cena-07.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-08.html",
+      "title": "O cliente foi pro vizinho",
+      "duration": 3.63,
+      "description": "Rua com a casa torta apagada e a do vizinho iluminada; o cliente atravessa e entra no vizinho. \"Seu cliente foi pro vizinho.\"",
+      "voice": "voz/cena-08.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-09.html",
+      "title": "Virada — a casa que eu construo",
+      "duration": 3.04,
+      "description": "Corte para a identidade da marca: \"Agora, a casa que eu construo:\" com ícone de casa gigante ao fundo.",
+      "voice": "voz/cena-09.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-10.html",
+      "title": "Tour certo — 6 checks",
+      "duration": 8.69,
+      "description": "Seis itens entram em sequência com check cyan: a parte da casa em branco e a tradução para o site em cyan.",
+      "voice": "voz/cena-10.mp3",
+      "voiceDelay": 0.15
+    },
+    {
+      "file": "scene-11.html",
+      "title": "CTA — a chave fica no seu nome",
+      "duration": 7.46,
+      "description": "Casa bem construída (cadeado, porta em destaque, seunegocio.com.br) com a chave \"SEU NOME\" balançando. \"E a chave fica no seu nome.\" + \"Seu site, sua casa. Bora construir?\" e handle.",
+      "voice": "voz/cena-11.mp3",
+      "voiceDelay": 0.15
+    }
+  ],
+  "caption": "Você compraria uma casa sem porta na frente? 🏚️\n\nMuita gente tem um site assim e nem sabe.\n\n🪧 Endereço confuso\n🚪 Porta escondida\n🔓 Fechadura quebrada\n🐢 Porta que demora a abrir\n📅 Decoração de 2019\n🗺️ Nem o GPS encontra\n\n…e o cliente vai pro vizinho.\n\nSite bom é como casa bem construída: fácil de achar, fácil de entrar e com a chave no SEU nome. 🔑\n\nQual desses problemas a sua \"casa\" tem? Conte aqui 👇",
+  "hashtags": [
+    "sitesprofissionais",
+    "presencadigital",
+    "pequenosnegocios",
+    "marketingdigital",
+    "empreendedorismo",
+    "criacaodesites",
+    "sitesobmedida",
+    "seo",
+    "dominio",
+    "negociolocal",
+    "webdesign"
+  ]
+}

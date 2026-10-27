@@ -11,6 +11,7 @@
  *
  * A chave vem de ELEVENLABS_API_KEY (ambiente ou instagram-reels/.env, fora do git).
  * Precisa só da permissão text_to_speech.
+ * Mais de uma voz: "voices": { "papel": "voice_id" } no falas.json e "role" em cada fala.
  */
 
 import fs from 'fs';
@@ -39,7 +40,10 @@ const opt = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] 
 
 const vozDir = path.join(ROOT, 'html', reelId, 'voz');
 const cfg = JSON.parse(fs.readFileSync(path.join(vozDir, 'falas.json'), 'utf8'));
-const voiceId = opt('--voice-id') || cfg.voice_id;
+const voiceOverride = opt('--voice-id');
+// Reel com mais de uma voz: "voices": { "papel": "id" } e "role" em cada fala.
+const voiceFor = fala => voiceOverride || cfg.voices?.[fala.role] || cfg.voice_id;
+const voiceId = voiceOverride || cfg.voice_id || Object.values(cfg.voices || {})[0];
 if (!voiceId) { console.error('Defina voice_id no falas.json ou passe --voice-id.'); process.exit(1); }
 const takes = parseInt(opt('--takes') || '1', 10);
 const only = opt('--only')?.split(',').map(n => parseInt(n, 10));
@@ -47,24 +51,24 @@ const outDir = opt('--out') ? path.resolve(opt('--out')) : vozDir;
 fs.mkdirSync(outDir, { recursive: true });
 
 // ── Geração ──────────────────────────────────────────────────────────────────
-async function tts(text) {
-  const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`;
+async function tts(text, vid, settings = cfg.voice_settings) {
+  const url = `https://api.elevenlabs.io/v1/text-to-speech/${vid}?output_format=mp3_44100_128`;
   const res = await fetch(url, {
     method: 'POST',
     headers: { 'xi-api-key': API_KEY, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text, model_id: cfg.model, language_code: 'pt', voice_settings: cfg.voice_settings }),
+    body: JSON.stringify({ text, model_id: cfg.model, language_code: 'pt', voice_settings: settings }),
   });
   if (!res.ok) throw new Error(`${res.status} ${await res.text()}`);
   return Buffer.from(await res.arrayBuffer());
 }
 
-console.log(`\n🎙️  ${reelId} — voz ${voiceId} · ${cfg.model}\n`);
+console.log(`\n🎙️  ${reelId} — voz ${voiceOverride || (cfg.voices ? Object.entries(cfg.voices).map(([r, v]) => `${r}=${v}`).join(', ') : voiceId)} · ${cfg.model}\n`);
 for (const [i, fala] of cfg.falas.entries()) {
   if (only && !only.includes(i + 1)) continue;
   for (let t = 1; t <= takes; t++) {
     const name = takes > 1 ? fala.file.replace(/\.mp3$/, `-take${t}.mp3`) : fala.file;
     try {
-      fs.writeFileSync(path.join(outDir, name), await tts(fala.text));
+      fs.writeFileSync(path.join(outDir, name), await tts(fala.text, voiceFor(fala), cfg.role_settings?.[fala.role] || cfg.voice_settings));
       console.log(`  ✅  ${name}`);
     } catch (e) {
       console.error(`  ❌  ${name}: ${e.message}`);

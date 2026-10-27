@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; font-family: 'Manrope', sans-serif; }
+  .scene { width: 1080px; height: 1920px; position: relative; overflow: hidden; }
+  .handle { position: absolute; bottom: 64px; right: 64px; font-size: 34px; font-weight: 700; color: #94a3b8; animation: fadeIn 0.4s ease 0.6s both; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  svg { display: block; overflow: visible; }
+  .anim { transform-box: fill-box; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-28px); } to { opacity: 1; transform: none; } }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0.4) rotate(-10deg); }
+    70%  { opacity: 1; transform: scale(1.08) rotate(0deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+  @keyframes stampIn {
+    0%   { opacity: 0; transform: scale(1.9); }
+    60%  { opacity: 1; transform: scale(0.94); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes bobX { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+  @keyframes sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+  @keyframes driftA { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30px, 24px) scale(1.06); } }
+  @keyframes driftB { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(28px, -22px) scale(1.05); } }
+
+  body { background: #1c1512; }
+  .scene { background: radial-gradient(ellipse at 50% 30%, #2b1f18 0%, #1c1512 70%); }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(254,243,199,0.05) 1.5px, transparent 1.5px); background-size: 48px 48px; }
+  .glow-amber { position: absolute; top: 520px; left: 50%; width: 1000px; height: 900px; margin-left: -500px;
+    background: radial-gradient(circle, rgba(245,158,11,0.13) 0%, transparent 62%); animation: driftA 9s ease-in-out 0.9s infinite; }
+
+  .topbar { position: absolute; top: 230px; left: 88px; right: 150px; display: flex; align-items: center; justify-content: space-between; animation: dropIn 0.45s ease 0s both; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 14px; background: #f59e0b; color: #1c1512; border-radius: 12px; padding: 12px 26px;
+    font-size: 30px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; }
+  .eyebrow svg { width: 34px; height: 34px; }
+  .counter { font-size: 32px; font-weight: 800; color: #fcd34d; letter-spacing: 0.06em; }
+
+  .agent { position: absolute; top: 340px; left: 88px; width: 842px; display: flex; align-items: center; gap: 30px; }
+  .avatar { flex: 0 0 180px; width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 6px solid #f59e0b;
+    box-shadow: 0 0 0 8px rgba(245,158,11,0.18); animation: popIn 0.4s cubic-bezier(.2,.8,.3,1) 0.05s both; }
+  .avatar { background: #fcd34d; }
+  .tooth-spark { animation: toothSpark 1.6s ease-in-out 1s infinite; }
+  @keyframes toothSpark { 0%, 100% { opacity: 0; transform: scale(0.2); } 50% { opacity: 1; transform: scale(1.1); } }
+  .bubble { position: relative; flex: 1; background: #fef3c7; color: #1c1512; border-radius: 34px; padding: 30px 38px;
+    font-size: 50px; font-weight: 800; line-height: 1.18; letter-spacing: -0.02em; animation: popIn 0.4s cubic-bezier(.2,.8,.3,1) 0.2s both; transform-origin: left center; }
+  .bubble-tail { position: absolute; left: -18px; top: 50%; width: 40px; height: 40px; margin-top: -20px; background: #fef3c7; transform: rotate(45deg); border-radius: 6px; }
+  .bubble span { position: relative; }
+
+  .art { position: absolute; top: 650px; left: 90px; width: 840px; height: 680px; animation: fadeUp 0.5s ease 0.45s both; }
+  .panel { position: absolute; inset: 0; border-radius: 36px; overflow: hidden; border: 5px solid rgba(254,243,199,0.18); }
+
+  .stamp-wrap { position: absolute; top: 1380px; left: 88px; width: 842px; display: flex; justify-content: center; transform: rotate(-3deg); }
+  .stamp { border: 7px solid #ef4444; border-radius: 22px; padding: 18px 40px 22px; text-align: center; color: #f87171; background: rgba(239,68,68,0.10);
+    animation: stampIn 0.38s cubic-bezier(.2,.8,.3,1) 1.4s both; }
+  .stamp small { display: block; font-size: 26px; font-weight: 900; letter-spacing: 0.18em; color: #fca5a5; text-transform: uppercase; margin-bottom: 6px; }
+  .stamp b { display: block; font-size: 64px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; color: #fef2f2; }
+
+  .arrow { animation: fadeIn 0.3s ease 0.9s both, bobArrow 1.2s ease-in-out 1.2s infinite; }
+  @keyframes bobArrow { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(12px, 10px); } }
+
+  /* sincronia com a fala */
+  .stamp { animation-delay: 4.97s; }
+</style>
+</head>
+<body data-duration="7.48">
+<div class="scene">
+  <div class="bg-dots"></div>
+  <div class="glow-amber"></div>
+  <div class="topbar"><div class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Tour pelo imóvel</div><div class="counter">2/6</div></div>
+  <div class="agent">
+    <div class="avatar"><svg viewBox="92 78 216 216" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+    <path d="M30 480 C30 365 105 318 200 318 C295 318 370 365 370 480 Z" fill="#1e3a5f"/>
+    <polygon points="160,320 200,425 240,320" fill="#f8fafc"/>
+    <polygon points="188,336 212,336 219,356 208,428 200,438 192,428 181,356" fill="#dc2626"/>
+    <rect x="186" y="324" width="28" height="18" rx="5" fill="#b91c1c"/>
+    <polygon points="150,322 200,440 168,480 110,345" fill="#172a45"/>
+    <polygon points="250,322 200,440 232,480 290,345" fill="#172a45"/>
+    <rect x="248" y="392" width="56" height="10" rx="3" fill="#f8fafc"/>
+    <rect x="174" y="272" width="52" height="56" fill="#e0a96d"/>
+    <circle cx="106" cy="212" r="21" fill="#e9b47c"/><circle cx="294" cy="212" r="21" fill="#e9b47c"/>
+    <ellipse cx="200" cy="205" rx="94" ry="104" fill="#f1c27d"/>
+    <path d="M104 196 C96 112 150 82 206 84 C268 86 306 120 297 196 C288 150 256 126 202 128 C156 130 126 150 104 196 Z" fill="#1f2937"/>
+    <path d="M150 104 C185 92 235 94 262 112" stroke="#6b7280" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M140 172 Q160 156 182 168" stroke="#1f2937" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M218 164 Q242 150 264 166" stroke="#1f2937" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <ellipse cx="162" cy="198" rx="17" ry="20" fill="#fff"/><circle cx="166" cy="201" r="10" fill="#1f2937"/><circle cx="170" cy="196" r="3.5" fill="#fff"/>
+    <path d="M222 202 Q242 186 262 202" stroke="#1f2937" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M200 205 Q192 228 204 234" stroke="#c98a4b" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <circle cx="136" cy="238" r="15" fill="#f87171" opacity="0.35"/><circle cx="266" cy="238" r="15" fill="#f87171" opacity="0.35"/>
+    <path d="M168 248 Q184 238 200 246 Q216 238 232 248 Q218 252 200 250 Q182 252 168 248 Z" fill="#1f2937"/>
+    <path d="M150 260 Q200 312 252 260 Q200 276 150 260 Z" fill="#fff" stroke="#7c2d12" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="212" y="266" width="13" height="14" rx="2" fill="#fbbf24"/>
+    <g class="tooth-spark" style="transform-origin:236px 262px"><path d="M236 248 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z" fill="#fff"/></g>
+    
+  </svg></div>
+    <div class="bubble"><div class="bubble-tail"></div><span>A porta? Fica ali atrás, é só procurar.</span></div>
+  </div>
+  <div class="art"><div class="panel"><svg width="840" height="680" viewBox="0 0 840 680"><defs><linearGradient id="sk3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a4a"/><stop offset="1" stop-color="#5b3a2e"/></linearGradient></defs>
+<rect width="840" height="680" fill="url(#sk3)"/><rect x="0" y="560" width="840" height="120" fill="#3f2d1d"/><rect x="0" y="560" width="840" height="10" fill="#57412b"/>
+      <g transform="translate(120,110) scale(1) rotate(-2 210 300)">
+    <polygon points="-30,175 210,20 450,175" fill="#7c2d12"/>
+    <path d="M60 120 L60 60 L100 60 L100 95" fill="#7c2d12" stroke="#2b1f18" stroke-width="4"/>
+    <rect x="0" y="165" width="420" height="300" fill="#a8a29e"/>
+    <path d="M40 200 L70 250 L55 300 M330 380 L360 420 L350 465" stroke="#57534e" stroke-width="5" fill="none"/>
+    <rect x="40" y="225" width="110" height="100" fill="#292524" stroke="#78716c" stroke-width="8"/>
+    <path d="M30 245 L160 300 M30 300 L160 255" stroke="#a16207" stroke-width="14"/>
+    <rect x="280" y="225" width="110" height="100" fill="#292524" stroke="#78716c" stroke-width="8"/>
+    <path d="M280 228 L390 322" stroke="#78716c" stroke-width="6"/>
+    
+  </g>
+      <rect x="560" y="420" width="60" height="140" fill="#57341f" stroke="#2b1f18" stroke-width="5"/>
+      <circle cx="600" cy="540" r="70" fill="#365314"/><circle cx="660" cy="520" r="80" fill="#3f6212"/><circle cx="560" cy="545" r="55" fill="#4d7c0f"/>
+      <circle cx="720" cy="548" r="50" fill="#365314"/>
+      <g class="arrow anim">
+        <path d="M640 180 C 760 200, 790 300, 700 400" stroke="#f59e0b" stroke-width="16" fill="none" stroke-linecap="round"/>
+        <path d="M670 370 L700 410 L735 375" stroke="#f59e0b" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="520" y="160" font-family="Manrope" font-weight="900" font-size="38" fill="#fcd34d">entrada</text>
+    </svg></div></div>
+  <div class="stamp-wrap"><div class="stamp"><small>Na vida real</small><b>WhatsApp escondido</b></div></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>

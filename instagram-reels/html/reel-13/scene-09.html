@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; font-family: 'Manrope', sans-serif; }
+  .scene { width: 1080px; height: 1920px; position: relative; overflow: hidden; }
+  .handle { position: absolute; bottom: 64px; right: 64px; font-size: 34px; font-weight: 700; color: #94a3b8; animation: fadeIn 0.4s ease 0.6s both; }
+  .handle em { font-style: normal; color: #06b6d4; }
+  svg { display: block; overflow: visible; }
+  .anim { transform-box: fill-box; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-28px); } to { opacity: 1; transform: none; } }
+  @keyframes popIn {
+    0%   { opacity: 0; transform: scale(0.4) rotate(-10deg); }
+    70%  { opacity: 1; transform: scale(1.08) rotate(0deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+  @keyframes stampIn {
+    0%   { opacity: 0; transform: scale(1.9); }
+    60%  { opacity: 1; transform: scale(0.94); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes bobX { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+  @keyframes sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+  @keyframes driftA { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30px, 24px) scale(1.06); } }
+  @keyframes driftB { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(28px, -22px) scale(1.05); } }
+
+  body { background: #0f172a; }
+  .scene { background: #0f172a; }
+  .bg-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(248,250,252,0.05) 1.5px, transparent 1.5px); background-size: 48px 48px; }
+  .blob-1 { position: absolute; top: -120px; right: -160px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 62%); animation: driftA 9s ease-in-out 0.9s infinite; }
+  .blob-2 { position: absolute; bottom: -160px; left: -180px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 62%); animation: driftB 11s ease-in-out 0.9s infinite; }
+  .accent-left { position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: linear-gradient(180deg, #06b6d4 0%, #6366f1 100%); }
+  .grad { background: linear-gradient(90deg, #22d3ee, #818cf8); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: 0.08em; }
+
+  .bg-icon { position: absolute; right: -170px; top: 520px; width: 820px; height: 820px; color: #06b6d4; opacity: 0.09;
+    animation: fadeInLow 0.6s ease both, tilt 10s ease-in-out 1s infinite; }
+  @keyframes fadeInLow { from { opacity: 0; } to { opacity: 0.09; } }
+  @keyframes tilt { 0%, 100% { transform: rotate(-3deg) scale(1); } 50% { transform: rotate(3deg) scale(1.04); } }
+  .content { position: absolute; top: 0; bottom: 0; left: 88px; width: 842px; display: flex; flex-direction: column; justify-content: center; }
+  .pre { font-size: 64px; font-weight: 700; color: #94a3b8; animation: fadeUp 0.45s ease 0.1s both; }
+  h1 { margin-top: 18px; font-size: 128px; font-weight: 900; line-height: 1.04; letter-spacing: -0.045em; color: #f8fafc; animation: fadeUp 0.5s ease 0.35s both; }
+
+  /* sincronia com a fala */
+  h1 { animation-delay: 1.23s; }
+</style>
+</head>
+<body data-duration="3.04">
+<div class="scene">
+  <div class="blob-1"></div><div class="blob-2"></div><div class="bg-dots"></div><div class="accent-left"></div>
+  <div class="bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+  <div class="content"><div class="pre">Agora,</div><h1>a casa que<br><span class="grad">eu construo:</span></h1></div>
+  <div class="handle"><em>@</em>adrianomaringolo.dev</div>
+</div>
+</body>
+</html>
