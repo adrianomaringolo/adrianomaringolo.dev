@@ -140,7 +140,7 @@ export const symproLanding: Project = {
   liveUrl: 'https://sympro.com.br',
   status: 'in-progress',
   myRole: 'founder',
-  featured: true,
+  featured: false,
   startDate: '2025-03-01',
   challenges: [
     {

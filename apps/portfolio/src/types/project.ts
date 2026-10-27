@@ -68,7 +68,7 @@ export interface Project {
     'pt-BR': string
     'en-US': string
   }
-  category: 'web' | 'webapp' | 'library'
+  category: 'web' | 'webapp' | 'library' | 'games'
   tags: {
     'pt-BR': string[]
     'en-US': string[]

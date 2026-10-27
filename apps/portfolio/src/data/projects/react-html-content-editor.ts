@@ -131,7 +131,7 @@ export const reactHtmlContentEditor: Project = {
   ],
   status: 'continous-improvement',
   myRole: 'founder',
-  featured: true,
+  featured: false,
   startDate: '2026-02-01',
   client: {
     name: { 'pt-BR': 'Projeto Open Source', 'en-US': 'Open Source Project' },

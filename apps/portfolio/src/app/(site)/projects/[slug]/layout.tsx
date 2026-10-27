@@ -78,7 +78,12 @@ export default async function ProjectDetailLayout({
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': project.category === 'library' ? 'SoftwareSourceCode' : 'CreativeWork',
+    '@type':
+      project.category === 'library'
+        ? 'SoftwareSourceCode'
+        : project.category === 'games'
+          ? 'VideoGame'
+          : 'CreativeWork',
     name: project.title['pt-BR'],
     headline: title,
     description,

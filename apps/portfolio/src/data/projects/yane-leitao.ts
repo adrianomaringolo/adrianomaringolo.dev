@@ -165,7 +165,7 @@ export const yaneLeitao: Project = {
   liveUrl: 'https://yaneleitao.com.br',
   status: 'completed',
   myRole: 'freelancer',
-  featured: true,
+  featured: false,
   startDate: '2025-12-01',
   endDate: '2026-05-31',
   client: {
