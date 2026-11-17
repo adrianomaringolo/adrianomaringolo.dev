@@ -4,6 +4,7 @@ import { asmMarketingDigital } from './asm-marketing-digital'
 import { buildgridUI } from './buildgrid-ui'
 import { golaserBaraoGeraldo } from './golaser-barao-geraldo'
 import { gotaDeCura } from './gota-de-cura'
+import { lojaDaMorada } from './loja-da-morada'
 import { portalDaMorada } from './portal-da-morada'
 import { reactHtmlContentEditor } from './react-html-content-editor'
 import { symproLanding } from './sympro-landing'
@@ -17,6 +18,7 @@ const allProjects: Project[] = [
   asmMarketingDigital,
   buildgridUI,
   gotaDeCura,
+  lojaDaMorada,
   portalDaMorada,
   symproLanding,
   yaneLeitao,
@@ -49,6 +51,7 @@ export {
   buildgridUI,
   golaserBaraoGeraldo,
   gotaDeCura,
+  lojaDaMorada,
   portalDaMorada,
   reactHtmlContentEditor,
   symproLanding,
